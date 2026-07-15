@@ -5,6 +5,8 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CursorGlow from "@/components/CursorGlow";
 import LeadPopup from "@/components/LeadPopup";
+import Analytics from "@/components/Analytics";
+import Chatbot from "@/components/Chatbot";
 
 const spaceGrotesk = Space_Grotesk({ variable: "--font-space-grotesk", subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], weight: ["400", "500", "600", "700"] });
@@ -46,6 +48,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <CursorGlow />
         <LeadPopup />
+        <Analytics />
+        <Chatbot />
         <Nav />
         {children}
         <Footer />

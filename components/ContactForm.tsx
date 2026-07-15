@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState } from "react";
 import Magnetic from "./Magnetic";
+import { trackEvent } from "@/lib/gtag";
 
 const schema = z.object({
   name: z.string().min(1, "Please enter your name."),
@@ -12,6 +13,7 @@ const schema = z.object({
   company: z.string().optional(),
   service: z.string().optional(),
   message: z.string().min(1, "Tell us a little about the project."),
+  website: z.string().optional(), // honeypot — must stay empty
 });
 
 type FormData = z.infer<typeof schema>;
@@ -43,6 +45,7 @@ export default function ContactForm() {
       });
       if (!res.ok) throw new Error("Submission failed");
       if (typeof window !== "undefined") window.localStorage.setItem("nexora_lead_captured", "1");
+      trackEvent({ action: "lead_captured", category: "lead_gen", label: "contact_form" });
       setSubmitted(true);
     } catch {
       setServerError("Something went wrong sending your message. Please try again, or email us directly.");
@@ -68,6 +71,15 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate>
+      {/* honeypot — hidden from real users, bots that auto-fill every field will trip it */}
+      <input
+        {...register("website")}
+        type="text"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+      />
       <Field label="Full name" error={errors.name?.message}>
         <input {...register("name")} style={inputStyle} placeholder="Vikas Tiwari" />
       </Field>

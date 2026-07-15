@@ -16,6 +16,7 @@ export type PostMeta = {
   author: string;
   tags: string[];
   readingTime: string;
+  charts?: string;
 };
 
 export type Post = PostMeta & { contentHtml: string };
@@ -41,6 +42,7 @@ export function getAllPostsMeta(): PostMeta[] {
       author: data.author ?? "Nexora Systems",
       tags: data.tags ?? [],
       readingTime: readingTime(content).text,
+      charts: data.charts,
     };
   });
   return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -63,6 +65,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     author: data.author ?? "Nexora Systems",
     tags: data.tags ?? [],
     readingTime: readingTime(content).text,
+    charts: data.charts,
     contentHtml,
   };
 }

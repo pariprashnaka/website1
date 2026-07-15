@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { X } from "lucide-react";
+import { trackEvent } from "@/lib/gtag";
 
 const schema = z.object({
   email: z.string().email("Enter a valid email."),
@@ -39,7 +40,10 @@ export default function LeadPopup() {
     if (window.localStorage.getItem(CAPTURED_KEY)) return;
     if (window.sessionStorage.getItem(SESSION_KEY)) return;
 
-    const timer = setTimeout(() => setOpen(true), SHOW_DELAY_MS);
+    const timer = setTimeout(() => {
+      setOpen(true);
+      trackEvent({ action: "popup_shown", category: "lead_gen", label: "timed_popup_15s" });
+    }, SHOW_DELAY_MS);
     return () => clearTimeout(timer);
   }, [pathname]);
 
@@ -63,6 +67,7 @@ export default function LeadPopup() {
       if (!res.ok) throw new Error("failed");
       window.localStorage.setItem(CAPTURED_KEY, "1");
       window.sessionStorage.setItem(SESSION_KEY, "1");
+      trackEvent({ action: "lead_captured", category: "lead_gen", label: "timed_popup" });
       setSubmitted(true);
       setTimeout(() => setOpen(false), 2200);
     } catch {
