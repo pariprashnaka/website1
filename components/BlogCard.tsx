@@ -14,7 +14,7 @@ export default function BlogCard({ post }: { post: PostMeta }) {
       className="panel p-7 block transition-all hover:-translate-y-1 cursor-pointer"
     >
       <div className="flex items-center gap-3 mono text-[11px] mb-4" style={{ color: "var(--color-text-muted)" }}>
-        <span>{date}</span>
+        <span>Updated {date}</span>
         <span>·</span>
         <span>{post.readingTime}</span>
       </div>

@@ -181,7 +181,7 @@ function BlogListRow({
         </p>
 
         <div className="flex items-center gap-3 mt-3 flex-wrap">
-          <span className="mono text-[11px]" style={{ color: "var(--color-text-muted)" }}>{date}</span>
+          <span className="mono text-[11px]" style={{ color: "var(--color-text-muted)" }}>Updated {date}</span>
           {post.tags.map((t) => (
             <Link
               key={t}
