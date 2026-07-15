@@ -29,7 +29,8 @@ function scoreMatch(query: string, row: Row): number {
   keywords.forEach((k) => {
     if (k && q.includes(k)) score += 2;
   });
-  const questionWords = row.Question.toLowerCase().split(/\s+/);
+  // Strip punctuation before comparing — "systems?" must match "systems" in a query
+  const questionWords = row.Question.toLowerCase().match(/[a-z0-9']+/g) ?? [];
   questionWords.forEach((w) => {
     if (w.length > 3 && q.includes(w)) score += 1;
   });
@@ -55,6 +56,33 @@ function getContactCtas(): Cta[] {
   }
   ctas.push({ label: "Email us", href: "mailto:hello@nexorasystems.com" });
   return ctas;
+}
+
+const LINK_PATTERN = /\[([^\]]+)\]\((\/[^\)]+)\)/g;
+
+function renderMessageText(text: string) {
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  let key = 0;
+
+  LINK_PATTERN.lastIndex = 0;
+  while ((match = LINK_PATTERN.exec(text)) !== null) {
+    if (match.index > lastIndex) parts.push(text.slice(lastIndex, match.index));
+    parts.push(
+      <Link
+        key={key++}
+        href={match[2]}
+        className="underline underline-offset-2 font-medium"
+        style={{ color: "var(--color-accent-cyan)" }}
+      >
+        {match[1]}
+      </Link>
+    );
+    lastIndex = match.index + match[0].length;
+  }
+  if (lastIndex < text.length) parts.push(text.slice(lastIndex));
+  return parts;
 }
 
 export default function Chatbot() {
@@ -170,7 +198,7 @@ export default function Chatbot() {
                     color: m.role === "user" ? "white" : "var(--color-text-soft)",
                   }}
                 >
-                  {m.text}
+                  {renderMessageText(m.text)}
                 </div>
                 {m.ctas && m.ctas.length > 0 && (
                   <div className="flex flex-col gap-1.5 w-full">

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
-import BlogCard from "@/components/BlogCard";
+import BlogList from "@/components/BlogList";
 import { getAllPostsMeta, getAllTags } from "@/lib/blog";
 
 export const metadata: Metadata = {
@@ -17,7 +17,6 @@ export default async function BlogIndexPage({
   const { tag } = await searchParams;
   const allPosts = getAllPostsMeta();
   const tags = getAllTags();
-  const posts = tag ? allPosts.filter((p) => p.tags.includes(tag)) : allPosts;
 
   return (
     <>
@@ -35,36 +34,10 @@ export default async function BlogIndexPage({
       </section>
 
       <section className="px-8 py-[100px]">
-        <div className="max-w-[1240px] mx-auto">
-          {tags.length > 0 && (
-            <Reveal className="mb-10 flex gap-2 flex-wrap">
-              <Link href="/blog" className="chip" style={!tag ? { borderColor: "var(--color-accent-cyan)", color: "var(--color-text-white)" } : undefined}>
-                All
-              </Link>
-              {tags.map((t) => (
-                <Link
-                  key={t}
-                  href={`/blog?tag=${encodeURIComponent(t)}`}
-                  className="chip"
-                  style={tag === t ? { borderColor: "var(--color-accent-cyan)", color: "var(--color-text-white)" } : undefined}
-                >
-                  {t}
-                </Link>
-              ))}
-            </Reveal>
-          )}
-
-          {posts.length === 0 ? (
-            <Reveal>
-              <p style={{ color: "var(--color-text-muted)" }}>No posts yet{tag ? ` tagged "${tag}"` : ""}. Check back soon.</p>
-            </Reveal>
-          ) : (
-            <Reveal>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                {posts.map((p) => <BlogCard key={p.slug} post={p} />)}
-              </div>
-            </Reveal>
-          )}
+        <div className="max-w-[900px] mx-auto">
+          <Reveal>
+            <BlogList posts={allPosts} tags={tags} initialTag={tag} />
+          </Reveal>
         </div>
       </section>
     </>
