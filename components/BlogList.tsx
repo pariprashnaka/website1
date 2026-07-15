@@ -3,8 +3,10 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Search, X } from "lucide-react";
+import { Search, X, ChevronLeft, ChevronRight } from "lucide-react";
 import type { PostMeta } from "@/lib/blog";
+
+const PAGE_SIZE = 12;
 
 export default function BlogList({
   posts,
@@ -18,6 +20,7 @@ export default function BlogList({
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [activeTag, setActiveTag] = useState(initialTag ?? "");
+  const [page, setPage] = useState(1);
 
   const filtered = useMemo(() => {
     let result = posts;
@@ -34,9 +37,18 @@ export default function BlogList({
     return result;
   }, [posts, activeTag, query]);
 
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+
   function setTag(t: string) {
     setActiveTag(t);
+    setPage(1);
     router.replace(t ? `/blog?tag=${encodeURIComponent(t)}` : "/blog", { scroll: false });
+  }
+
+  function handleQueryChange(value: string) {
+    setQuery(value);
+    setPage(1);
   }
 
   function clearAll() {
@@ -44,11 +56,15 @@ export default function BlogList({
     setTag("");
   }
 
+  function goToPage(p: number) {
+    setPage(p);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   const hasFilter = query.trim() || activeTag;
 
   return (
     <>
-      {/* Search + filter bar */}
       <div className="flex flex-col md:flex-row gap-4 mb-8">
         <div
           className="flex items-center gap-3 flex-1 px-4 py-3 rounded-xl border"
@@ -58,13 +74,13 @@ export default function BlogList({
           <input
             type="text"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => handleQueryChange(e.target.value)}
             placeholder="Search articles…"
             className="flex-1 bg-transparent outline-none text-[14px]"
             style={{ color: "var(--color-text-white)" }}
           />
           {query && (
-            <button onClick={() => setQuery("")} aria-label="Clear search">
+            <button onClick={() => handleQueryChange("")} aria-label="Clear search">
               <X size={14} color="var(--color-text-muted)" />
             </button>
           )}
@@ -84,7 +100,6 @@ export default function BlogList({
         </div>
       </div>
 
-      {/* Tag filter pills */}
       {tags.length > 0 && (
         <div className="flex gap-2 flex-wrap mb-8">
           <button
@@ -107,7 +122,6 @@ export default function BlogList({
         </div>
       )}
 
-      {/* Results */}
       {filtered.length === 0 ? (
         <div className="py-16 text-center" style={{ color: "var(--color-text-muted)" }}>
           <p className="text-[15px] mb-2">No articles match your search.</p>
@@ -116,11 +130,63 @@ export default function BlogList({
           </button>
         </div>
       ) : (
-        <div className="flex flex-col gap-0 border rounded-xl overflow-hidden" style={{ borderColor: "var(--color-border)" }}>
-          {filtered.map((post, i) => (
-            <BlogListRow key={post.slug} post={post} index={i} total={filtered.length} onTagClick={setTag} />
-          ))}
-        </div>
+        <>
+          <div className="flex flex-col gap-0 border rounded-xl overflow-hidden" style={{ borderColor: "var(--color-border)" }}>
+            {paginated.map((post, i) => (
+              <BlogListRow key={post.slug} post={post} index={(page - 1) * PAGE_SIZE + i} total={paginated.length} onTagClick={setTag} />
+            ))}
+          </div>
+
+          {totalPages > 1 && (
+            <div className="flex items-center justify-center gap-2 mt-8">
+              <button
+                onClick={() => goToPage(page - 1)}
+                disabled={page === 1}
+                aria-label="Previous page"
+                className="w-[36px] h-[36px] rounded-lg flex items-center justify-center border transition-colors disabled:opacity-30 disabled:cursor-not-allowed hover:border-cyan-400"
+                style={{ borderColor: "var(--color-border)" }}
+              >
+                <ChevronLeft size={16} color="var(--color-text-soft)" />
+              </button>
+
+              {Array.from({ length: totalPages }, (_, i) => i + 1)
+                .filter((p) => p === 1 || p === totalPages || Math.abs(p - page) <= 1)
+                .reduce<(number | "ellipsis")[]>((acc, p, i, arr) => {
+                  if (i > 0 && p - (arr[i - 1] as number) > 1) acc.push("ellipsis");
+                  acc.push(p);
+                  return acc;
+                }, [])
+                .map((p, i) =>
+                  p === "ellipsis" ? (
+                    <span key={`e-${i}`} className="mono text-[12px] px-1" style={{ color: "var(--color-text-muted)" }}>…</span>
+                  ) : (
+                    <button
+                      key={p}
+                      onClick={() => goToPage(p)}
+                      className="w-[36px] h-[36px] rounded-lg flex items-center justify-center mono text-[12.5px] border transition-colors"
+                      style={
+                        p === page
+                          ? { borderColor: "var(--color-accent-cyan)", color: "var(--color-text-white)", background: "rgba(0,212,255,0.08)" }
+                          : { borderColor: "var(--color-border)", color: "var(--color-text-muted)" }
+                      }
+                    >
+                      {p}
+                    </button>
+                  )
+                )}
+
+              <button
+                onClick={() => goToPage(page + 1)}
+                disabled={page === totalPages}
+                aria-label="Next page"
+                className="w-[36px] h-[36px] rounded-lg flex items-center justify-center border transition-colors disabled:opacity-30 disabled:cursor-not-allowed hover:border-cyan-400"
+                style={{ borderColor: "var(--color-border)" }}
+              >
+                <ChevronRight size={16} color="var(--color-text-soft)" />
+              </button>
+            </div>
+          )}
+        </>
       )}
     </>
   );
@@ -151,7 +217,6 @@ function BlogListRow({
       onMouseEnter={(e) => (e.currentTarget.style.background = "var(--color-card)")}
       onMouseLeave={(e) => (e.currentTarget.style.background = "var(--color-bg-primary)")}
     >
-      {/* Row number */}
       <div
         className="mono text-[11px] pt-1 flex-shrink-0 w-[28px] text-right hidden md:block"
         style={{ color: "var(--color-text-muted)" }}
@@ -159,7 +224,6 @@ function BlogListRow({
         {String(index + 1).padStart(2, "0")}
       </div>
 
-      {/* Main content */}
       <div className="flex-1 min-w-0">
         <div className="flex items-start justify-between gap-4">
           <h3
@@ -196,7 +260,6 @@ function BlogListRow({
         </div>
       </div>
 
-      {/* Arrow */}
       <div
         className="flex-shrink-0 pt-1 transition-transform group-hover:translate-x-1 hidden md:block"
         style={{ color: "var(--color-text-muted)" }}

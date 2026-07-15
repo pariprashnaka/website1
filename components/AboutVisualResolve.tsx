@@ -1,4 +1,4 @@
-import { FileSpreadsheet, MessageCircle, AlertTriangle, ArrowRight, LayoutGrid } from "lucide-react";
+import { Workflow, MessageCircle, AlertTriangle, ArrowRight, LayoutGrid } from "lucide-react";
 
 export default function AboutVisualResolve() {
   return (
@@ -10,8 +10,8 @@ export default function AboutVisualResolve() {
       <div className="flex flex-col md:flex-row items-center gap-4">
         <div className="flex flex-col gap-2.5 flex-1 w-full">
           <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-lg" style={{ background: "var(--color-bg-secondary)" }}>
-            <FileSpreadsheet size={14} color="var(--color-accent-purple)" />
-            <span className="text-[12px]" style={{ color: "var(--color-text-muted)" }}>Disconnected spreadsheets</span>
+            <Workflow size={14} color="var(--color-accent-purple)" />
+            <span className="text-[12px]" style={{ color: "var(--color-text-muted)" }}>Three systems that don&apos;t talk to each other</span>
           </div>
           <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-lg" style={{ background: "var(--color-bg-secondary)" }}>
             <MessageCircle size={14} color="var(--color-accent-purple)" />

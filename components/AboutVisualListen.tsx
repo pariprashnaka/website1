@@ -1,7 +1,7 @@
-import { FileSpreadsheet, MessageCircle, StickyNote, Lightbulb, Check } from "lucide-react";
+import { Brain, MessageCircle, StickyNote, Lightbulb, Check } from "lucide-react";
 
 const notes = [
-  { icon: FileSpreadsheet, label: "Four spreadsheets that don't talk to each other", color: "var(--color-accent-blue)" },
+  { icon: Brain, label: "A process that only works because one person remembers every exception", color: "var(--color-accent-blue)" },
   { icon: MessageCircle, label: "A WhatsApp group holding half the process together", color: "#25D366" },
   { icon: StickyNote, label: "The workaround nobody ever wrote down", color: "var(--color-accent-purple)" },
   { icon: Lightbulb, label: "That idea you've been sitting on for a year", color: "#F59E0B" },

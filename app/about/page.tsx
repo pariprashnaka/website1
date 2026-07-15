@@ -44,7 +44,7 @@ export default function AboutPage() {
             <p className="mono text-[12px] mb-8" style={{ color: "var(--color-accent-cyan)" }}>{"// WHAT THIS ACTUALLY IS"}</p>
           </Reveal>
           <h2 style={{ fontSize: "clamp(28px, 4.4vw, 52px)", lineHeight: 1.2, color: "var(--color-text-white)" }}>
-            <RevealText text="We're not chasing deals. We're chasing problems worth solving properly — and we'd rather turn one down than build it half right." onMount />
+            <RevealText text="We'd rather turn down a project than build it half right. That's genuinely how we decide what to take on, not just something we say." onMount />
           </h2>
         </div>
       </section>
@@ -61,7 +61,7 @@ export default function AboutPage() {
               <div className="bento-card h-full rounded-xl border p-7 flex flex-col" style={{ borderColor: "var(--color-border)", background: "var(--color-card)" }}>
                 <h3 className="text-[20px] mb-3 leading-[1.3]">We show up as your team, not a vendor you&apos;re managing.</h3>
                 <p className="text-[14px] leading-[1.65] mb-6" style={{ color: "var(--color-text-muted)" }}>
-                  Most businesses that come to us aren&apos;t looking for a vendor. They&apos;re looking for someone who&apos;ll actually sit with the mess — the process held together by spreadsheets and good intentions, the idea that&apos;s been sitting in someone&apos;s head for a year because nobody could tell them if it was worth building.
+                  Most businesses that come to us aren&apos;t looking for a vendor. They&apos;re looking for someone who&apos;ll actually sit with the mess — the process that only works because one person remembers every exception, the system that used to fit and quietly stopped, the idea that&apos;s been sitting in someone&apos;s head for a year because nobody could tell them if it was worth building.
                 </p>
                 <div className="mt-auto"><AboutVisualListen /></div>
               </div>
@@ -80,7 +80,7 @@ export default function AboutPage() {
               <div className="bento-card h-full rounded-xl border p-7" style={{ borderColor: "var(--color-border)", background: "var(--color-card)" }}>
                 <h3 className="text-[18px] mb-3 leading-[1.3]">Give us the complicated problem. That&apos;s the fun part.</h3>
                 <p className="text-[13.5px] leading-[1.6] mb-6" style={{ color: "var(--color-text-muted)" }}>
-                  We&apos;re tech people, genuinely — the kind who like the moment a system&apos;s real shape finally becomes clear. A well-understood problem is more satisfying to solve than a big invoice ever is.
+                  We&apos;re tech people, genuinely — the kind who like the moment a system&apos;s real shape finally becomes clear. A well-understood problem is more satisfying to solve than almost anything else in this line of work.
                 </p>
                 <AboutVisualResolve />
               </div>
@@ -90,7 +90,7 @@ export default function AboutPage() {
               <div className="bento-card h-full rounded-xl border p-7 flex flex-col justify-center" style={{ borderColor: "rgba(0,212,255,0.25)", background: "linear-gradient(135deg, rgba(0,212,255,0.06), var(--color-bg-secondary))" }}>
                 <span className="mono text-[24px] leading-none mb-3" style={{ color: "var(--color-accent-cyan)" }}>&ldquo;</span>
                 <p className="text-[16px] leading-[1.6] mb-4" style={{ color: "var(--color-text-white)" }}>
-                  If what you actually need is simpler than a custom build, we&apos;ll tell you that too. We&apos;re still here next time you need us — that matters more to us than closing this one.
+                  If what you actually need is simpler than a custom build, we&apos;ll tell you that too. We&apos;re still here next time you need us — that&apos;s the part that actually matters to us.
                 </p>
                 <span className="mono text-[11px]" style={{ color: "var(--color-text-muted)" }}>— how we actually approach every first conversation</span>
               </div>

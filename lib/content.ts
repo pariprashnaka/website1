@@ -229,7 +229,7 @@ export const values = [
   { title: "We actually listen first", desc: "Before we talk about what we can build, we want to understand what's actually broken. Most of our best work starts with a conversation, not a pitch." },
   { title: "We say what we mean", desc: "If something won't work, we'll tell you before you spend a rupee on it. If a timeline is unrealistic, we'll say so upfront, not three weeks in." },
   { title: "We show up when we say we will", desc: "A deadline we agreed to is a promise, not a target. If we're going to be late, you'll hear it from us early — not find out on the day." },
-  { title: "We care more about the problem than the invoice", desc: "The projects we remember years later are the hard ones — the ones that made us think. That's what actually keeps us doing this." },
+  { title: "The problem is what keeps us interested", desc: "The projects we remember years later are the hard ones — the ones that made us think. That's what actually keeps us doing this." },
 ];
 
 export const trustedLogos = ["Veridian Health", "Northgate Capital", "OrbitFreight", "Hallmark Retail Group", "CivicLine", "Ferrotech Industries"];
