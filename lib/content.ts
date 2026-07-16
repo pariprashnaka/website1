@@ -103,20 +103,49 @@ export const industries = [
 export type CaseStudy = {
   slug: string;
   industry: string;
-  name: string;
-  problem: string;
+  scale: string;
+  title: string;
+  summary: string;
+  situation: string;
+  problems: { title: string; description: string; icon: string }[];
   solution: string;
-  stack: string;
-  impact: string;
+  results: { title: string; description: string; icon: string }[];
+  industryContext: { label: string; value: number; unit: string }[];
+  industryContextNote: string;
+  diagram?: string;
 };
 
 export const caseStudies: CaseStudy[] = [
-  { slug: "meridian", industry: "Fintech", name: "Project Meridian", problem: "Manual reconciliation across three separate ledgers", solution: "Unified ledger engine with automated matching", stack: "TypeScript, Postgres, AWS Lambda", impact: "Reconciliation time cut from days to hours" },
-  { slug: "orbitfreight", industry: "Logistics", name: "OrbitFreight OS", problem: "No real-time visibility into fleet and load status", solution: "Live dispatch and tracking platform", stack: "Next.js, Go, PostGIS", impact: "Dispatch response time down significantly" },
-  { slug: "hallmark", industry: "Retail / ERP", name: "Hallmark Inventory Core", problem: "Disconnected stock data across store locations", solution: "Multi-location inventory and POS sync engine", stack: "React, Node.js, Postgres", impact: "Stockout incidents reduced across all locations" },
-  { slug: "veridian", industry: "Healthcare", name: "Veridian Intake Platform", problem: "Paper-based patient intake causing front-desk bottlenecks", solution: "Digital intake and scheduling system with records integration", stack: "Next.js, Postgres, AWS", impact: "Average check-in time reduced substantially" },
-  { slug: "civicline", industry: "Government", name: "CivicLine Case Management", problem: "Constituent requests tracked across disconnected spreadsheets", solution: "Centralized case management with full audit trail", stack: "TypeScript, Postgres, AWS GovCloud-ready infra", impact: "Full audit compliance achieved at launch" },
-  { slug: "ferrotech", industry: "Manufacturing", name: "Ferrotech Shop-Floor Sync", problem: "Shop-floor production data invisible to the ERP system", solution: "Middleware layer syncing floor sensors with ERP records", stack: "Python, Postgres, MQTT", impact: "Production reporting moved from daily to real-time" },
+  {
+    slug: "seven-cafe-chain",
+    industry: "Food & Beverage",
+    scale: "7 outlets across multiple states, 10+ staff per location",
+    title: "A Seven-Café Chain Running Blind",
+    summary: "Seven cafés, no visibility, undetected theft — replaced with one connected system covering ordering, inventory, and staff attendance.",
+    situation: "The client came to us running seven cafés spread across different states, each staffed by more than ten people. Every location ran on paper menu cards, manual attendance registers, and no digital record connecting orders, payments, or stock movement. Seven cafés, seven separate paper trails, and one owner who could not be in more than one place at a time.",
+    problems: [
+      { title: "No visibility without asking", description: "The only way to know how a café was performing — sales, stock levels, day-to-day activity — was to personally call or visit and ask staff directly, across seven separate locations.", icon: "EyeOff" },
+      { title: "Inventory decisions made blind", description: "Without real usage data, popular items ran out mid-service while slower-moving stock sat unsold, with no cross-location comparison to catch either pattern early.", icon: "Package" },
+      { title: "Theft with no audit trail", description: "Cash-heavy, paper-based transactions left no digital record connecting what was ordered to what was paid to what stock left the shelf — underreporting and shrinkage were structurally invisible.", icon: "ShieldAlert" },
+      { title: "Attendance that meant nothing", description: "A signature on a paper register proved someone had a pen, not that they worked the hours claimed, across more than ten staff per location.", icon: "Clock" },
+      { title: "Slow, error-prone ordering", description: "Paper tickets depended on handwriting and verbal relay between counter and kitchen, slowing service with no structured way to test menu changes.", icon: "FileText" },
+    ],
+    solution: "We treated this as two connected problems, because that's what it actually was — a customer-facing problem and a café-operations problem, both needing to talk to each other. On the customer side, we built an ordering app where customers browse the menu, place their order, and pay directly, creating a digital record of every transaction the moment it happens. On the café side, we built an admin dashboard giving real-time visibility into every location from one screen — inventory, attendance, and daily activity — alongside a sales dashboard showing exactly what's selling, broken down by café.",
+    results: [
+      { title: "Shorter customer wait times", description: "Direct in-app ordering replaced counter queues, cutting the time customers spend waiting in line.", icon: "Clock" },
+      { title: "Better inventory management", description: "Real-time stock visibility across all seven locations replaced end-of-day guesswork.", icon: "Package" },
+      { title: "Faster complaint resolution", description: "A full digital order history means staff can resolve customer issues on the spot instead of investigating after the fact.", icon: "MessageCircle" },
+      { title: "Faster checkouts", description: "Direct in-app payment replaced manual cash handling at the counter.", icon: "Zap" },
+      { title: "No more financial discrepancies", description: "Every transaction is now a digital record connecting the order, the payment, and the stock movement behind it.", icon: "IndianRupee" },
+      { title: "Data-driven menu decisions", description: "Sales analytics now show exactly what to keep stocking and what to drop, replacing guesswork with real numbers.", icon: "BarChart3" },
+    ],
+    industryContext: [
+      { label: "Average wait time (before)", value: 15, unit: "min" },
+      { label: "Average wait time (after digital ordering)", value: 12, unit: "min" },
+    ],
+    industryContextNote: "This is industry research on digital ordering systems generally — a 2024 study of 200 mid-sized restaurants over 12 months, analysed via SPSS — not a measurement of this specific café chain's own performance. Order accuracy improved 30% and revenue per customer rose 20% in the same study. Source: Alexandria POS Software, published industry research.",
+    diagram: "CafeCaseStudyBeforeAfter",
+  },
 ];
 
 export type Product = {

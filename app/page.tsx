@@ -141,27 +141,31 @@ export default function Home() {
       {/* CASE STUDIES */}
       <section className="px-8 py-[100px]">
         <div className="max-w-[1240px] mx-auto">
-          <SectionHead num="// 05 — CASE STUDIES" title="A sample of what we've shipped." desc="Every engagement below is a real, completed build. Full public write-ups are in progress." />
+          <SectionHead num="// 05 — CASE STUDIES" title="A real engagement, start to finish." desc="We're a young company — this is a genuine completed build, not an illustrative scenario. More will be added as they complete." />
           <Reveal>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {caseStudies.slice(0, 3).map((c) => (
-                <Link href={`/case-studies#${c.slug}`} key={c.slug} className="case-card border rounded-2xl overflow-hidden flex flex-col transition-all hover:-translate-y-1" style={{ borderColor: "var(--color-border)", background: "var(--color-card)" }}>
-                  <div className="case-image aspect-[16/10] border-b flex items-center justify-center mono text-[11px] tracking-[.05em]" style={{ borderColor: "var(--color-border)", color: "var(--color-text-muted)" }}>
-                    IMAGE PLACEHOLDER
-                  </div>
-                  <div className="p-6 flex-1 flex flex-col">
-                    <span className="mono text-[11px] uppercase tracking-[.06em] mb-2.5" style={{ color: "var(--color-accent-purple)" }}>{c.industry}</span>
-                    <h3 className="text-[17px] mb-3">{c.name}</h3>
-                    <div className="text-[13px] mb-1.5 leading-[1.55]" style={{ color: "var(--color-text-muted)" }}><b style={{ color: "var(--color-text-soft)", fontWeight: 500 }}>Problem:</b> {c.problem}</div>
-                    <div className="text-[13px] mb-1.5 leading-[1.55]" style={{ color: "var(--color-text-muted)" }}><b style={{ color: "var(--color-text-soft)", fontWeight: 500 }}>Solution:</b> {c.solution}</div>
-                    <div className="mt-auto pt-4 border-t mono text-[13px]" style={{ borderColor: "var(--color-border)", color: "var(--color-success)" }}>Impact: {c.impact}</div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-            <div className="text-center mt-10">
-              <Magnetic><Link href="/case-studies" className="btn btn-ghost">View all case studies</Link></Magnetic>
-            </div>
+            {caseStudies.slice(0, 1).map((c) => (
+              <Link
+                href={`/case-studies/${c.slug}`}
+                key={c.slug}
+                className="block rounded-2xl border p-8 md:p-10 transition-all hover:-translate-y-1"
+                style={{ borderColor: "var(--color-border)", background: "var(--color-card)" }}
+              >
+                <div className="flex items-center gap-3 mb-4 flex-wrap">
+                  <span className="mono text-[11px] uppercase tracking-[.06em] px-2.5 py-1 rounded-md" style={{ background: "rgba(124,58,237,0.1)", color: "var(--color-accent-purple)" }}>{c.industry}</span>
+                  <span className="mono text-[11px]" style={{ color: "var(--color-text-muted)" }}>{c.scale}</span>
+                </div>
+                <h3 className="text-[22px] md:text-[26px] mb-4 leading-[1.25]">{c.title}</h3>
+                <p className="text-[14.5px] leading-[1.7] mb-6 max-w-[720px]" style={{ color: "var(--color-text-muted)" }}>{c.summary}</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+                  {c.results.slice(0, 3).map((r) => (
+                    <div key={r.title} className="rounded-lg px-4 py-3" style={{ background: "rgba(0,212,255,0.05)", border: "1px solid rgba(0,212,255,0.2)" }}>
+                      <div className="text-[13px] font-medium" style={{ color: "var(--color-text-white)" }}>{r.title}</div>
+                    </div>
+                  ))}
+                </div>
+                <span className="mono text-[13px] font-medium" style={{ color: "var(--color-accent-cyan)" }}>Read the full case study →</span>
+              </Link>
+            ))}
           </Reveal>
         </div>
       </section>

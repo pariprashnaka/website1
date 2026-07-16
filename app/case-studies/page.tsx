@@ -6,7 +6,7 @@ import { caseStudies } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Case Studies",
-  description: "Six production systems across fintech, logistics, retail, healthcare, government, and manufacturing — real problems, real builds.",
+  description: "Real engagements, real problems solved — starting with a seven-café chain that went from running blind to fully data-driven.",
 };
 
 export default function CaseStudiesPage() {
@@ -18,9 +18,9 @@ export default function CaseStudiesPage() {
             <Link href="/" style={{ color: "var(--color-text-muted)" }}>Home</Link> / Case Studies
           </div>
           <span className="eyebrow load-in">Case Studies</span>
-          <h1 className="text-[clamp(32px,4.6vw,52px)] leading-[1.1] max-w-[720px] mt-4 load-in">Six systems. Six real problems solved.</h1>
-          <p className="text-[16px] max-w-[560px] mt-4.5 leading-[1.6] load-in" style={{ color: "var(--color-text-muted)" }}>
-            This is the complete list of engagements we&apos;ve shipped to date. Full public write-ups with metrics are being finalized with each client.
+          <h1 className="text-[clamp(32px,4.6vw,52px)] leading-[1.1] max-w-[760px] mt-4 load-in">Real engagements. Real problems solved.</h1>
+          <p className="text-[16px] max-w-[600px] mt-4.5 leading-[1.6] load-in" style={{ color: "var(--color-text-muted)" }}>
+            We&apos;re a young company, so this list is short by design — every case study here is a genuine engagement, not an illustrative scenario. More will be added as they complete.
           </p>
         </div>
       </section>
@@ -30,19 +30,19 @@ export default function CaseStudiesPage() {
           <Reveal>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {caseStudies.map((c) => (
-                <div id={c.slug} key={c.slug} className="case-card scroll-mt-24 border rounded-2xl overflow-hidden flex flex-col transition-all hover:-translate-y-1" style={{ borderColor: "var(--color-border)", background: "var(--color-card)" }}>
-                  <div className="case-image aspect-[16/10] border-b flex items-center justify-center mono text-[11px] tracking-[.05em]" style={{ borderColor: "var(--color-border)", color: "var(--color-text-muted)" }}>
-                    IMAGE PLACEHOLDER
+                <Link
+                  href={`/case-studies/${c.slug}`}
+                  key={c.slug}
+                  className="border rounded-2xl p-6 flex flex-col transition-all hover:-translate-y-1"
+                  style={{ borderColor: "var(--color-border)", background: "var(--color-card)" }}
+                >
+                  <div className="flex items-center gap-2.5 mb-4 flex-wrap">
+                    <span className="mono text-[11px] uppercase tracking-[.06em] px-2.5 py-1 rounded-md" style={{ background: "rgba(124,58,237,0.1)", color: "var(--color-accent-purple)" }}>{c.industry}</span>
                   </div>
-                  <div className="p-6 flex-1 flex flex-col">
-                    <span className="mono text-[11px] uppercase tracking-[.06em] mb-2.5" style={{ color: "var(--color-accent-purple)" }}>{c.industry}</span>
-                    <h3 className="text-[17px] mb-3">{c.name}</h3>
-                    <div className="text-[13px] mb-1.5 leading-[1.55]" style={{ color: "var(--color-text-muted)" }}><b style={{ color: "var(--color-text-soft)", fontWeight: 500 }}>Problem:</b> {c.problem}</div>
-                    <div className="text-[13px] mb-1.5 leading-[1.55]" style={{ color: "var(--color-text-muted)" }}><b style={{ color: "var(--color-text-soft)", fontWeight: 500 }}>Solution:</b> {c.solution}</div>
-                    <div className="text-[13px] mb-1.5 leading-[1.55]" style={{ color: "var(--color-text-muted)" }}><b style={{ color: "var(--color-text-soft)", fontWeight: 500 }}>Stack:</b> {c.stack}</div>
-                    <div className="mt-auto pt-4 border-t mono text-[13px]" style={{ borderColor: "var(--color-border)", color: "var(--color-success)" }}>Impact: {c.impact}</div>
-                  </div>
-                </div>
+                  <h3 className="text-[18px] mb-3 leading-[1.3]">{c.title}</h3>
+                  <p className="text-[13.5px] leading-[1.6] mb-5 flex-1" style={{ color: "var(--color-text-muted)" }}>{c.summary}</p>
+                  <span className="mono text-[13px] font-medium" style={{ color: "var(--color-accent-cyan)" }}>Read the full case study →</span>
+                </Link>
               ))}
             </div>
           </Reveal>

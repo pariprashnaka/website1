@@ -136,8 +136,9 @@ export default function Chatbot() {
 
     setTimeout(() => {
       const scored = rows.map((r) => ({ row: r, score: scoreMatch(query, r) })).sort((a, b) => b.score - a.score);
+      const MIN_CONFIDENT_SCORE = 4;
       const best = scored[0];
-      const matched = best && best.score > 0 ? best.row : null;
+      const matched = best && best.score >= MIN_CONFIDENT_SCORE ? best.row : null;
       const answer = matched ? matched.Answer : FALLBACK;
 
       let ctas: Cta[] | undefined;
