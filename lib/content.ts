@@ -131,6 +131,8 @@ export type Product = {
   technology: string;
   results: string;
   features: string[];
+  diagram?: string;
+  screens?: string[];
 };
 
 export const products: Product[] = [
@@ -142,8 +144,6 @@ export const products: Product[] = [
     overview: "Nexora Ledger ingests transactions from multiple sources and automatically matches them against your internal records, flagging only the exceptions that actually need a human.",
     problem: "Finance teams spend days each month manually cross-checking ledgers across bank accounts, processors, and internal systems that don't talk to each other.",
     solution: "A rules-based matching engine with configurable tolerance thresholds, an audit trail on every match, and a review queue for exceptions only.",
-    architecture: "Event-driven ingestion pipeline, Postgres ledger store, deterministic matching engine with a human-review layer on top.",
-    technology: "TypeScript, Node.js, Postgres, AWS Lambda, deployed on AWS with Terraform-managed infrastructure.",
     results: "In production use, reconciliation work that took days now typically resolves within a single afternoon.",
     features: ["Auto-matching", "Exception queue", "Audit trail", "Multi-currency", "API access"],
   },
@@ -155,8 +155,6 @@ export const products: Product[] = [
     overview: "A live map of your fleet, load assignments, and driver status, with dispatch actions that update in real time across every connected device.",
     problem: "Dispatchers were making assignment calls based on phone updates and outdated spreadsheets, with no live view of actual vehicle position.",
     solution: "GPS-linked fleet tracking with automated load-to-vehicle matching suggestions and a dispatcher console built for fast decisions.",
-    architecture: "Real-time location ingestion over WebSockets, PostGIS for spatial queries, a Go-based dispatch service for low-latency updates.",
-    technology: "Next.js, Go, PostGIS, WebSockets, deployed on AWS.",
     results: "Operators using the platform report materially faster dispatch decisions and fewer misassigned loads.",
     features: ["Live tracking", "Auto-dispatch", "Route history", "Driver app"],
   },
@@ -168,10 +166,21 @@ export const products: Product[] = [
     overview: "A branded portal giving your team live visibility into project milestones, documentation, and support tickets for whatever system we've built you.",
     problem: "Clients had no single place to check project status, find documentation, or raise a support request without emailing their point of contact.",
     solution: "A lightweight portal with authentication, a milestone tracker, a documentation library, and a ticketing view.",
-    architecture: "Next.js frontend, Supabase auth and storage, ticketing synced with our internal support tooling.",
-    technology: "Next.js, Supabase, Vercel.",
     results: "Standard on every engagement above a defined scope threshold; client-reported communication friction drops noticeably once it's live.",
     features: ["Milestone tracker", "Docs library", "Support tickets", "SSO-ready"],
+  },
+  {
+    slug: "drone-tea-estate",
+    tag: "AgriTech",
+    name: "Drone-as-a-Service for Tea Estates",
+    pitch: "Precision agriculture for tea estates, delivered as a managed service — aerial crop monitoring and precision spraying without buying drone hardware or building an in-house team.",
+    overview: "A complete precision agriculture service purpose-built for tea estates, combining drone surveying, AI-powered crop analytics, and precision spraying into one subscription. A trained field team handles every stage, from aerial mapping to spray execution to digital reporting.",
+    problem: "Manual spraying across large, often difficult tea estate terrain is slow, inconsistent, and applies chemicals uniformly rather than where the crop actually needs them — while investing in drone hardware, pilot training, and analytics software independently is a significant capital and expertise barrier for most estates.",
+    solution: "Estates subscribe to the service rather than buying equipment. Multispectral drones survey the plantation and generate vegetation health maps identifying stressed zones before symptoms are visible. Spray missions are planned around actual crop condition rather than blanket application, and GPS-guided drones then execute precision spraying, with every mission logged on a digital dashboard covering coverage, chemical usage, and cost.",
+    results: "Estates report spraying up to 30 times faster than manual operations, with a potential 20 to 30 percent reduction in chemical usage through targeted rather than blanket application, and no direct worker exposure to pesticides during spraying.",
+    features: ["Aerial crop health mapping", "AI-assisted spray planning", "GPS-guided precision spraying", "Digital mission & compliance logs", "Estate analytics dashboard"],
+    diagram: "DroneServiceDiagram",
+    screens: ["PlantationHealthMap", "SprayCoverageCard", "ChemicalUsageCard"],
   },
 ];
 

@@ -1,8 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import Reveal from "@/components/Reveal";
 import Magnetic from "@/components/Magnetic";
 import { products } from "@/lib/content";
+
+const diagramComponents: Record<string, ReturnType<typeof dynamic>> = {
+  DroneServiceDiagram: dynamic(() => import("@/components/DroneServiceDiagram")),
+};
+
+const screenComponents: Record<string, ReturnType<typeof dynamic>> = {
+  PlantationHealthMap: dynamic(() => import("@/components/drone-screens/PlantationHealthMap")),
+  SprayCoverageCard: dynamic(() => import("@/components/drone-screens/SprayCoverageCard")),
+  ChemicalUsageCard: dynamic(() => import("@/components/drone-screens/ChemicalUsageCard")),
+};
 
 export const metadata: Metadata = {
   title: "Products",
@@ -38,7 +49,14 @@ export default function ProductsPage() {
                     <Magnetic><Link href="/contact" className="btn btn-primary">Request a demo</Link></Magnetic>
                   </div>
                   <div className="product-visual aspect-[4/3] rounded-2xl border flex items-center justify-center mono text-[12px]" style={{ borderColor: "var(--color-border)", color: "var(--color-text-muted)" }}>
-                    PRODUCT SCREENSHOT PLACEHOLDER
+                    {p.diagram && diagramComponents[p.diagram] ? (
+                      (() => {
+                        const DiagramComponent = diagramComponents[p.diagram];
+                        return <DiagramComponent />;
+                      })()
+                    ) : (
+                      "PRODUCT SCREENSHOT PLACEHOLDER"
+                    )}
                   </div>
                 </div>
 
@@ -46,19 +64,21 @@ export default function ProductsPage() {
                   <Detail title="Overview" text={p.overview} />
                   <Detail title="Problem" text={p.problem} />
                   <Detail title="Solution" text={p.solution} />
-                  <Detail title="Architecture" text={p.architecture} />
-                  <Detail title="Technology" text={p.technology} />
                   <Detail title="Results" text={p.results} />
                 </div>
 
                 <div className="mt-4.5">{p.features.map((f) => <span key={f} className="chip">{f}</span>)}</div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                  {[1, 2, 3].map((n) => (
-                    <div key={n} className="aspect-[16/10] rounded-lg border flex items-center justify-center mono text-[10px]" style={{ borderColor: "var(--color-border)", background: "var(--color-card)", color: "var(--color-text-muted)" }}>
-                      SCREEN 0{n}
-                    </div>
-                  ))}
+                  {[1, 2, 3].map((n) => {
+                    const screenName = p.screens?.[n - 1];
+                    const ScreenComponent = screenName ? screenComponents[screenName] : undefined;
+                    return (
+                      <div key={n} className="aspect-[16/10] rounded-lg border flex items-center justify-center mono text-[10px] overflow-hidden" style={{ borderColor: "var(--color-border)", background: "var(--color-card)", color: "var(--color-text-muted)" }}>
+                        {ScreenComponent ? <ScreenComponent /> : `SCREEN 0${n}`}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </Reveal>
