@@ -160,6 +160,19 @@ export const products: Product[] = [
     diagram: "SmartAgriculturePlatformDiagram",
     screens: ["DataSourcesStatusCard", "SoilHealthAlertCard", "ScaleStatCard"],
   },
+  {
+    slug: "smart-hrms-platform",
+    tag: "HR Tech",
+    name: "Smart HRMS Platform",
+    pitch: "A complete HR management system covering the full employee lifecycle — recruitment, attendance, payroll, compliance, and performance — in one integrated platform.",
+    overview: "A unified HR platform that digitises and automates recruitment, onboarding, attendance, leave, payroll, performance management, and statutory compliance, giving HR teams centralised visibility and employees self-service access, all from one system.",
+    problem: "HR functions are often spread across disconnected tools and manual processes — attendance tracked separately from payroll, leave approvals handled over email, compliance filings prepared by hand — creating administrative overhead, delays, and real compliance risk as a business grows.",
+    solution: "The platform integrates with biometric devices, RFID, and access control systems so attendance, leave, and payroll stay synchronised automatically. An intelligent payroll engine handles complex salary structures, statutory deductions (PF, ESI, PT, TDS), and generates salary slips and statutory returns with minimal manual effort. Recruitment, onboarding, and performance management run through the same system, with a self-service portal giving employees direct access to salary slips, leave balances, and records without needing to go through HR for every request.",
+    results: "Built on a scalable, multi-tenant architecture supporting multiple companies, branches, and legal entities from a single deployment, with role-based access control and a complete audit trail across all HR transactions.",
+    features: ["Automated payroll & statutory compliance", "Biometric attendance & leave management", "Recruitment & onboarding workflow", "Performance management (KRAs, KPIs, OKRs)", "Employee self-service portal", "Real-time workforce analytics"],
+    diagram: "SmartHrmsDiagram",
+    screens: ["PayrollBreakdownCard", "AttendanceTodayCard", "WorkforceAnalyticsCard"],
+  },
 ];
 
 export const testimonials = [

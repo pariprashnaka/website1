@@ -8,6 +8,7 @@ import { products } from "@/lib/content";
 const diagramComponents: Record<string, ReturnType<typeof dynamic>> = {
   DroneServiceDiagram: dynamic(() => import("@/components/DroneServiceDiagram")),
   SmartAgriculturePlatformDiagram: dynamic(() => import("@/components/SmartAgriculturePlatformDiagram")),
+  SmartHrmsDiagram: dynamic(() => import("@/components/SmartHrmsDiagram")),
 };
 
 const screenComponents: Record<string, ReturnType<typeof dynamic>> = {
@@ -17,6 +18,9 @@ const screenComponents: Record<string, ReturnType<typeof dynamic>> = {
   DataSourcesStatusCard: dynamic(() => import("@/components/agri-platform-screens/DataSourcesStatusCard")),
   SoilHealthAlertCard: dynamic(() => import("@/components/agri-platform-screens/SoilHealthAlertCard")),
   ScaleStatCard: dynamic(() => import("@/components/agri-platform-screens/ScaleStatCard")),
+  PayrollBreakdownCard: dynamic(() => import("@/components/hrms-screens/PayrollBreakdownCard")),
+  AttendanceTodayCard: dynamic(() => import("@/components/hrms-screens/AttendanceTodayCard")),
+  WorkforceAnalyticsCard: dynamic(() => import("@/components/hrms-screens/WorkforceAnalyticsCard")),
 };
 
 export const metadata: Metadata = {
