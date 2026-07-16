@@ -1,47 +1,33 @@
 export default function SmartAgriculturePlatformDiagram() {
-  const inputs = ["IoT Soil Sensors", "Satellite Imagery", "Weather Stations", "Field Observations"];
-  const outputs = ["Dashboards & Alerts", "AI Recommendations", "Reports by Region"];
+  const steps = [
+    { label: "Data Collection", sub: "IoT sensors, satellite, weather" },
+    { label: "Automated Validation", sub: "Reliable, cleaned field data" },
+    { label: "AI Analysis", sub: "Machine learning models" },
+    { label: "Recommendations & Alerts", sub: "Irrigation, pest risk, planning" },
+    { label: "Reporting Dashboard", sub: "By farm, district, or programme" },
+  ];
 
   return (
-    <div className="w-full h-full flex flex-col justify-center gap-2.5 p-4 md:p-6">
-      <div className="mono text-[9.5px] uppercase tracking-[.06em] text-center mb-1" style={{ color: "var(--color-text-muted)" }}>
-        Data In
+    <div className="w-full h-full flex flex-col justify-center p-4 md:p-8">
+      <div className="mono text-[10px] uppercase tracking-[.08em] mb-3 md:mb-6" style={{ color: "var(--color-text-muted)" }}>
+        How the platform runs, end to end
       </div>
-      <div className="grid grid-cols-2 gap-1.5">
-        {inputs.map((label) => (
-          <div
-            key={label}
-            className="text-[10px] md:text-[11px] px-2 py-1.5 rounded-md text-center truncate"
-            style={{ background: "var(--color-bg-secondary)", border: "1px solid var(--color-accent-blue)", color: "var(--color-text-white)" }}
-          >
-            {label}
-          </div>
-        ))}
-      </div>
-
-      <div className="mono text-[12px] text-center" style={{ color: "var(--color-border-strong)" }}>↓</div>
-
-      <div
-        className="rounded-lg py-2.5 px-3 text-center"
-        style={{ background: "rgba(0,212,255,0.08)", border: "1.5px solid var(--color-accent-cyan)" }}
-      >
-        <div className="text-[12px] md:text-[13px] font-semibold" style={{ color: "var(--color-text-white)" }}>Analytics Engine</div>
-        <div className="text-[9px] md:text-[10px]" style={{ color: "var(--color-text-muted)" }}>AI + ML models</div>
-      </div>
-
-      <div className="mono text-[12px] text-center" style={{ color: "var(--color-border-strong)" }}>↓</div>
-
-      <div className="mono text-[9.5px] uppercase tracking-[.06em] text-center mb-1" style={{ color: "var(--color-text-muted)" }}>
-        Outputs
-      </div>
-      <div className="grid grid-cols-3 gap-1.5">
-        {outputs.map((label) => (
-          <div
-            key={label}
-            className="text-[9px] md:text-[10px] px-1.5 py-1.5 rounded-md text-center leading-tight"
-            style={{ background: "var(--color-bg-secondary)", border: "1px solid var(--color-accent-purple)", color: "var(--color-text-white)" }}
-          >
-            {label}
+      <div className="flex flex-col gap-1.5 md:gap-2.5 w-full">
+        {steps.map((s, i) => (
+          <div key={s.label} className="flex items-center gap-2.5 md:gap-3">
+            <div
+              className="w-[22px] h-[22px] md:w-[26px] md:h-[26px] rounded-md flex items-center justify-center flex-shrink-0 mono text-[10px] md:text-[11px] font-semibold"
+              style={{ background: "rgba(0,212,255,0.12)", color: "var(--color-accent-cyan)", border: "1px solid rgba(0,212,255,0.3)" }}
+            >
+              {i + 1}
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="text-[12px] md:text-[13px] font-medium truncate" style={{ color: "var(--color-text-white)" }}>{s.label}</div>
+              <div className="text-[10px] md:text-[11px] truncate" style={{ color: "var(--color-text-muted)" }}>{s.sub}</div>
+            </div>
+            {i < steps.length - 1 && (
+              <div className="mono text-[9px] md:text-[10px] hidden sm:block" style={{ color: "var(--color-border-strong)" }}>↓</div>
+            )}
           </div>
         ))}
       </div>

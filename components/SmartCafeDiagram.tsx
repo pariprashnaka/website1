@@ -1,23 +1,23 @@
-export default function SmartHrmsDiagram() {
+export default function SmartCafeDiagram() {
   const steps = [
-    { label: "Recruitment & Onboarding", sub: "Job postings to induction" },
-    { label: "Attendance & Leave", sub: "Biometric-linked tracking" },
-    { label: "Payroll & Compliance", sub: "PF, ESI, PT, TDS automated" },
-    { label: "Performance Management", sub: "KRAs, KPIs, appraisals" },
-    { label: "Employee Self-Service", sub: "Slips, records, requests" },
+    { label: "Discover Nearby Cafés", sub: "Location-based search" },
+    { label: "Browse & Order", sub: "Dine-in, takeaway, delivery" },
+    { label: "Secure Checkout", sub: "OTP-based, no passwords" },
+    { label: "Live Order Tracking", sub: "Confirmed to delivered" },
+    { label: "Owner Dashboard", sub: "Menu, pricing, analytics" },
   ];
 
   return (
     <div className="w-full h-full flex flex-col justify-center p-4 md:p-8">
       <div className="mono text-[10px] uppercase tracking-[.08em] mb-3 md:mb-6" style={{ color: "var(--color-text-muted)" }}>
-        One system, every HR function
+        From discovery to delivery
       </div>
       <div className="flex flex-col gap-1.5 md:gap-2.5 w-full">
         {steps.map((s, i) => (
           <div key={s.label} className="flex items-center gap-2.5 md:gap-3">
             <div
               className="w-[22px] h-[22px] md:w-[26px] md:h-[26px] rounded-md flex items-center justify-center flex-shrink-0 mono text-[10px] md:text-[11px] font-semibold"
-              style={{ background: "rgba(59,130,246,0.12)", color: "var(--color-accent-blue)", border: "1px solid rgba(59,130,246,0.3)" }}
+              style={{ background: "rgba(34,197,94,0.12)", color: "#22C55E", border: "1px solid rgba(34,197,94,0.3)" }}
             >
               {i + 1}
             </div>

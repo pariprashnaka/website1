@@ -9,6 +9,7 @@ const diagramComponents: Record<string, ReturnType<typeof dynamic>> = {
   DroneServiceDiagram: dynamic(() => import("@/components/DroneServiceDiagram")),
   SmartAgriculturePlatformDiagram: dynamic(() => import("@/components/SmartAgriculturePlatformDiagram")),
   SmartHrmsDiagram: dynamic(() => import("@/components/SmartHrmsDiagram")),
+  SmartCafeDiagram: dynamic(() => import("@/components/SmartCafeDiagram")),
 };
 
 const screenComponents: Record<string, ReturnType<typeof dynamic>> = {
@@ -21,6 +22,9 @@ const screenComponents: Record<string, ReturnType<typeof dynamic>> = {
   PayrollBreakdownCard: dynamic(() => import("@/components/hrms-screens/PayrollBreakdownCard")),
   AttendanceTodayCard: dynamic(() => import("@/components/hrms-screens/AttendanceTodayCard")),
   WorkforceAnalyticsCard: dynamic(() => import("@/components/hrms-screens/WorkforceAnalyticsCard")),
+  OrderTrackingCard: dynamic(() => import("@/components/cafe-screens/OrderTrackingCard")),
+  CafeDiscoveryCard: dynamic(() => import("@/components/cafe-screens/CafeDiscoveryCard")),
+  SalesSnapshotCard: dynamic(() => import("@/components/cafe-screens/SalesSnapshotCard")),
 };
 
 export const metadata: Metadata = {
