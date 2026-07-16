@@ -1,7 +1,7 @@
 export default function SprayCoverageCard() {
   return (
     <div className="w-full h-full flex flex-col justify-center p-5">
-      <div className="mono text-[9.5px] uppercase tracking-[.06em] mb-4" style={{ color: "var(--color-text-muted)" }}>
+      <div className="mono text-[10.5px] uppercase tracking-[.06em] mb-4" style={{ color: "var(--color-text-muted)" }}>
         Spray Mission — Planned vs Actual
       </div>
       <div className="flex flex-col gap-3">
@@ -22,7 +22,7 @@ export default function SprayCoverageCard() {
           </div>
         </div>
       </div>
-      <div className="mono text-[9px] mt-4" style={{ color: "var(--color-text-muted)" }}>
+      <div className="mono text-[10.5px] mt-4" style={{ color: "var(--color-text-muted)" }}>
         Illustrative — actual figures vary by estate and mission
       </div>
     </div>

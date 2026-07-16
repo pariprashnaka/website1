@@ -9,7 +9,7 @@ export default function PlantationHealthMap() {
 
   return (
     <div className="w-full h-full flex flex-col p-4">
-      <div className="mono text-[9.5px] uppercase tracking-[.06em] mb-3" style={{ color: "var(--color-text-muted)" }}>
+      <div className="mono text-[10.5px] uppercase tracking-[.06em] mb-3" style={{ color: "var(--color-text-muted)" }}>
         Plantation Health Map
       </div>
       <div className="grid grid-cols-8 gap-[3px] flex-1">
@@ -21,7 +21,7 @@ export default function PlantationHealthMap() {
         {["Healthy", "Moderate stress", "High stress"].map((label, i) => (
           <div key={label} className="flex items-center gap-1.5">
             <div className="w-2 h-2 rounded-sm" style={{ background: colors[i] }} />
-            <span className="text-[9px]" style={{ color: "var(--color-text-muted)" }}>{label}</span>
+            <span className="text-[10.5px]" style={{ color: "var(--color-text-muted)" }}>{label}</span>
           </div>
         ))}
       </div>

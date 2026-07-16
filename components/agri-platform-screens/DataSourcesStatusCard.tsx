@@ -8,7 +8,7 @@ export default function DataSourcesStatusCard() {
 
   return (
     <div className="w-full h-full flex flex-col justify-center p-4">
-      <div className="mono text-[9.5px] uppercase tracking-[.06em] mb-3" style={{ color: "var(--color-text-muted)" }}>
+      <div className="mono text-[10.5px] uppercase tracking-[.06em] mb-3" style={{ color: "var(--color-text-muted)" }}>
         Connected Data Sources
       </div>
       <div className="flex flex-col gap-2">
@@ -18,11 +18,11 @@ export default function DataSourcesStatusCard() {
               <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#22C55E" }} />
               <span className="text-[10px]" style={{ color: "var(--color-text-white)" }}>{s.label}</span>
             </div>
-            <span className="text-[9px]" style={{ color: "var(--color-text-muted)" }}>{s.count}</span>
+            <span className="text-[10.5px]" style={{ color: "var(--color-text-muted)" }}>{s.count}</span>
           </div>
         ))}
       </div>
-      <div className="mono text-[8.5px] mt-2.5" style={{ color: "var(--color-text-muted)" }}>Illustrative example view</div>
+      <div className="mono text-[10px] mt-2.5" style={{ color: "var(--color-text-muted)" }}>Illustrative example view</div>
     </div>
   );
 }

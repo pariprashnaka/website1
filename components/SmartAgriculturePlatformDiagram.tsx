@@ -3,35 +3,48 @@ export default function SmartAgriculturePlatformDiagram() {
   const outputs = ["Dashboards & Alerts", "AI Recommendations", "Reports by Region"];
 
   return (
-    <div className="w-full h-full flex items-center justify-center p-5 md:p-6">
-      <svg viewBox="0 0 720 260" className="w-full h-auto" role="img" aria-label="Diagram showing multiple data sources feeding into a central analytics engine, producing dashboards, recommendations, and reports">
-        {inputs.map((label, i) => {
-          const y = 30 + i * 62;
-          return (
-            <g key={label}>
-              <rect x="10" y={y} width="180" height="42" rx="8" fill="var(--color-bg-secondary)" stroke="var(--color-accent-blue)" strokeWidth="1.2" />
-              <text x="100" y={y + 26} textAnchor="middle" fontSize="11.5" fill="var(--color-text-white)">{label}</text>
-              <line x1="190" y1={y + 21} x2="280" y2="130" stroke="var(--color-accent-blue)" strokeWidth="1" opacity="0.5" />
-            </g>
-          );
-        })}
+    <div className="w-full h-full flex flex-col justify-center gap-2.5 p-4 md:p-6">
+      <div className="mono text-[9.5px] uppercase tracking-[.06em] text-center mb-1" style={{ color: "var(--color-text-muted)" }}>
+        Data In
+      </div>
+      <div className="grid grid-cols-2 gap-1.5">
+        {inputs.map((label) => (
+          <div
+            key={label}
+            className="text-[10px] md:text-[11px] px-2 py-1.5 rounded-md text-center truncate"
+            style={{ background: "var(--color-bg-secondary)", border: "1px solid var(--color-accent-blue)", color: "var(--color-text-white)" }}
+          >
+            {label}
+          </div>
+        ))}
+      </div>
 
-        <rect x="280" y="90" width="160" height="80" rx="10" fill="rgba(0,212,255,0.08)" stroke="var(--color-accent-cyan)" strokeWidth="1.5" />
-        <text x="360" y="122" textAnchor="middle" fontSize="12.5" fontWeight="600" fill="var(--color-text-white)">Analytics</text>
-        <text x="360" y="140" textAnchor="middle" fontSize="12.5" fontWeight="600" fill="var(--color-text-white)">Engine</text>
-        <text x="360" y="158" textAnchor="middle" fontSize="9.5" fill="var(--color-text-muted)">AI + ML models</text>
+      <div className="mono text-[12px] text-center" style={{ color: "var(--color-border-strong)" }}>↓</div>
 
-        {outputs.map((label, i) => {
-          const y = 40 + i * 70;
-          return (
-            <g key={label}>
-              <line x1="440" y1="130" x2="530" y2={y + 21} stroke="var(--color-accent-purple)" strokeWidth="1" opacity="0.5" />
-              <rect x="530" y={y} width="180" height="42" rx="8" fill="var(--color-bg-secondary)" stroke="var(--color-accent-purple)" strokeWidth="1.2" />
-              <text x="620" y={y + 26} textAnchor="middle" fontSize="11.5" fill="var(--color-text-white)">{label}</text>
-            </g>
-          );
-        })}
-      </svg>
+      <div
+        className="rounded-lg py-2.5 px-3 text-center"
+        style={{ background: "rgba(0,212,255,0.08)", border: "1.5px solid var(--color-accent-cyan)" }}
+      >
+        <div className="text-[12px] md:text-[13px] font-semibold" style={{ color: "var(--color-text-white)" }}>Analytics Engine</div>
+        <div className="text-[9px] md:text-[10px]" style={{ color: "var(--color-text-muted)" }}>AI + ML models</div>
+      </div>
+
+      <div className="mono text-[12px] text-center" style={{ color: "var(--color-border-strong)" }}>↓</div>
+
+      <div className="mono text-[9.5px] uppercase tracking-[.06em] text-center mb-1" style={{ color: "var(--color-text-muted)" }}>
+        Outputs
+      </div>
+      <div className="grid grid-cols-3 gap-1.5">
+        {outputs.map((label) => (
+          <div
+            key={label}
+            className="text-[9px] md:text-[10px] px-1.5 py-1.5 rounded-md text-center leading-tight"
+            style={{ background: "var(--color-bg-secondary)", border: "1px solid var(--color-accent-purple)", color: "var(--color-text-white)" }}
+          >
+            {label}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

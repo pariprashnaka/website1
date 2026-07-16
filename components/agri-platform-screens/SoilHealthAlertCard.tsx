@@ -7,7 +7,7 @@ export default function SoilHealthAlertCard() {
 
   return (
     <div className="w-full h-full flex flex-col justify-center p-4">
-      <div className="mono text-[9.5px] uppercase tracking-[.06em] mb-3" style={{ color: "var(--color-text-muted)" }}>
+      <div className="mono text-[10.5px] uppercase tracking-[.06em] mb-3" style={{ color: "var(--color-text-muted)" }}>
         Soil Health — Field 14B
       </div>
       <div className="flex flex-col gap-2">
@@ -26,7 +26,7 @@ export default function SoilHealthAlertCard() {
           </div>
         ))}
       </div>
-      <div className="mt-3 px-2.5 py-2 rounded-md text-[9px]" style={{ background: "rgba(245,158,11,0.08)", color: "#F59E0B" }}>
+      <div className="mt-3 px-2.5 py-2 rounded-md text-[10.5px]" style={{ background: "rgba(245,158,11,0.08)", color: "#F59E0B" }}>
         ⚠ Alert: soil temperature above optimal range
       </div>
     </div>

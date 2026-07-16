@@ -7,7 +7,8 @@ function ApiFlowDiagram() {
       <div className="mono text-[10.5px] uppercase tracking-[.08em] mb-6" style={{ color: "var(--color-text-muted)" }}>
         How an API request actually flows
       </div>
-      <svg viewBox="0 0 720 220" className="w-full h-auto" role="img" aria-label="Diagram showing an app sending a request through an API to a service, and the response returning the same way">
+      <div className="overflow-x-auto">
+      <svg viewBox="0 0 720 220" className="h-auto flex-shrink-0" style={{ width: 640, minWidth: 640 }} role="img" aria-label="Diagram showing an app sending a request through an API to a service, and the response returning the same way">
         <rect x="10" y="70" width="140" height="80" rx="10" fill="var(--color-bg-secondary)" stroke="var(--color-accent-blue)" strokeWidth="1.5" />
         <text x="80" y="105" textAnchor="middle" fontSize="13" fontWeight="600" fill="var(--color-text-white)">Your App</text>
         <text x="80" y="123" textAnchor="middle" fontSize="10.5" fill="var(--color-text-muted)">(the customer)</text>
@@ -43,6 +44,7 @@ function ApiFlowDiagram() {
 
         <text x="360" y="195" textAnchor="middle" fontSize="11" fill="var(--color-text-muted)">Your app never sees inside the kitchen — it only ever talks to the waiter.</text>
       </svg>
+      </div>
     </div>
   );
 }
