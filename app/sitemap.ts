@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
 import { getAllPostsMeta } from "@/lib/blog";
+import { caseStudies } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://nexorasystems.com";
-  const routes = ["", "/services", "/products", "/case-studies", "/blog", "/about", "/contact"];
+  const routes = ["", "/services", "/products", "/case-studies", "/blog", "/about", "/contact", "/privacy", "/terms"];
   const staticEntries = routes.map((route) => ({
     url: `${base}${route}`,
     lastModified: new Date(),
@@ -12,5 +13,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${base}/blog/${p.slug}`,
     lastModified: new Date(p.date),
   }));
-  return [...staticEntries, ...blogEntries];
+  const caseStudyEntries = caseStudies.map((c) => ({
+    url: `${base}/case-studies/${c.slug}`,
+    lastModified: new Date(),
+  }));
+  return [...staticEntries, ...blogEntries, ...caseStudyEntries];
 }

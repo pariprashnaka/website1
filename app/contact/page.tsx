@@ -10,6 +10,7 @@ import { contactFaqs } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Contact",
   description: "Start a project with Nexora Systems. Send a brief and get real next steps within two business days.",
+  alternates: { canonical: "/contact" },
 };
 
 const responseSteps = [

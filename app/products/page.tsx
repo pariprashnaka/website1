@@ -29,7 +29,8 @@ const screenComponents: Record<string, ReturnType<typeof dynamic>> = {
 
 export const metadata: Metadata = {
   title: "Products",
-  description: "Drone-as-a-Service for Tea Estates and the Smart Agriculture Platform — production precision agriculture systems.",
+  description: "Smart Café Platform and Smart HRMS — deployed, in-production systems — plus the Smart Agriculture Platform and Drone-as-a-Service for Tea Estates.",
+  alternates: { canonical: "/products" },
 };
 
 export default function ProductsPage() {
@@ -58,7 +59,14 @@ export default function ProductsPage() {
                     <div className="mono text-[11px] uppercase tracking-[.06em] mb-3.5" style={{ color: "var(--color-accent-purple)" }}>{p.tag}</div>
                     <h2 className="text-[clamp(24px,3vw,32px)] mb-4">{p.name}</h2>
                     <p className="text-[15px] leading-[1.65] mb-6" style={{ color: "var(--color-text-muted)" }}>{p.pitch}</p>
-                    <Magnetic><Link href="/contact" className="btn btn-primary">Request a demo</Link></Magnetic>
+                    <div className="flex items-center gap-4 flex-wrap">
+                      <Magnetic><Link href="/contact" className="btn btn-primary">Request a demo</Link></Magnetic>
+                      {p.caseStudySlug && (
+                        <Link href={`/case-studies/${p.caseStudySlug}`} className="mono text-[13px] font-medium" style={{ color: "var(--color-accent-cyan)" }}>
+                          See the real case study →
+                        </Link>
+                      )}
+                    </div>
                   </div>
                   <div className="product-visual aspect-[4/3] rounded-2xl border flex items-center justify-center mono text-[12px]" style={{ borderColor: "var(--color-border)", color: "var(--color-text-muted)" }}>
                     {p.diagram && diagramComponents[p.diagram] ? (

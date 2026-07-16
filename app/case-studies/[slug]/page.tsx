@@ -8,7 +8,7 @@ import Reveal from "@/components/Reveal";
 import Magnetic from "@/components/Magnetic";
 import CafeCaseStudyBeforeAfter from "@/components/CafeCaseStudyBeforeAfter";
 import BlogBarChart from "@/components/blog/BlogBarChart";
-import { caseStudies } from "@/lib/content";
+import { caseStudies, products } from "@/lib/content";
 
 const icons: Record<string, typeof EyeOff> = {
   EyeOff, Package, ShieldAlert, Clock, FileText, Zap, IndianRupee, BarChart3, MessageCircle,
@@ -22,13 +22,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const c = caseStudies.find((cs) => cs.slug === slug);
   if (!c) return {};
-  return { title: c.title, description: c.summary };
+  return { title: c.title, description: c.summary, alternates: { canonical: `/case-studies/${c.slug}` } };
 }
 
 export default async function CaseStudyDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const c = caseStudies.find((cs) => cs.slug === slug);
   if (!c) notFound();
+  const linkedProduct = products.find((p) => p.caseStudySlug === c.slug);
 
   return (
     <>
@@ -42,6 +43,11 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
             <span className="mono text-[11px]" style={{ color: "var(--color-text-muted)" }}>{c.scale}</span>
           </div>
           <h1 className="text-[clamp(28px,4vw,42px)] leading-[1.2]">{c.title}</h1>
+          {linkedProduct && (
+            <Link href={`/products#${linkedProduct.slug}`} className="mono text-[13px] font-medium inline-block mt-4" style={{ color: "var(--color-accent-cyan)" }}>
+              See the {linkedProduct.name} product page →
+            </Link>
+          )}
         </div>
       </section>
 

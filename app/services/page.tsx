@@ -10,6 +10,7 @@ import { services } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Services",
   description: "SaaS development, ERP, AI, mobile, web, CRM, automation, cloud, and data engineering — nine disciplines delivered by one senior team.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {

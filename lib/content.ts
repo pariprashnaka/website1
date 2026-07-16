@@ -160,6 +160,7 @@ export type Product = {
   features: string[];
   diagram?: string;
   screens?: string[];
+  caseStudySlug?: string;
 };
 
 export const products: Product[] = [
@@ -175,6 +176,7 @@ export const products: Product[] = [
     features: ["Direct online ordering (dine-in, takeaway, delivery)", "Location-based café discovery", "Menu & dynamic pricing management", "Real-time order tracking dashboard", "OTP-based secure login", "Sales & customer analytics"],
     diagram: "SmartCafeDiagram",
     screens: ["OrderTrackingCard", "CafeDiscoveryCard", "SalesSnapshotCard"],
+    caseStudySlug: "seven-cafe-chain",
   },
   {
     slug: "smart-hrms-platform",

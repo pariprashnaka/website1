@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     description: "Nexora Systems engineers SaaS, ERP, and AI platforms for startups, enterprises, and government teams.",
   },
   robots: { index: true, follow: true },
+  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

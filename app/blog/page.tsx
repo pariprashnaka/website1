@@ -7,6 +7,7 @@ import { getAllPostsMeta, getAllTags } from "@/lib/blog";
 export const metadata: Metadata = {
   title: "Blog",
   description: "Real experience from building SaaS, ERP, and AI systems, plus complex topics explained simply — written so a student and a CEO can both actually understand it.",
+  alternates: { canonical: "/blog" },
 };
 
 export default async function BlogIndexPage({
