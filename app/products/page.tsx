@@ -7,17 +7,21 @@ import { products } from "@/lib/content";
 
 const diagramComponents: Record<string, ReturnType<typeof dynamic>> = {
   DroneServiceDiagram: dynamic(() => import("@/components/DroneServiceDiagram")),
+  SmartAgriculturePlatformDiagram: dynamic(() => import("@/components/SmartAgriculturePlatformDiagram")),
 };
 
 const screenComponents: Record<string, ReturnType<typeof dynamic>> = {
   PlantationHealthMap: dynamic(() => import("@/components/drone-screens/PlantationHealthMap")),
   SprayCoverageCard: dynamic(() => import("@/components/drone-screens/SprayCoverageCard")),
   ChemicalUsageCard: dynamic(() => import("@/components/drone-screens/ChemicalUsageCard")),
+  DataSourcesStatusCard: dynamic(() => import("@/components/agri-platform-screens/DataSourcesStatusCard")),
+  SoilHealthAlertCard: dynamic(() => import("@/components/agri-platform-screens/SoilHealthAlertCard")),
+  ScaleStatCard: dynamic(() => import("@/components/agri-platform-screens/ScaleStatCard")),
 };
 
 export const metadata: Metadata = {
   title: "Products",
-  description: "Nexora Ledger, Nexora Fleet, and Nexora Portal — production platforms for reconciliation, logistics dispatch, and client operations.",
+  description: "Drone-as-a-Service for Tea Estates and the Smart Agriculture Platform — production precision agriculture systems.",
 };
 
 export default function ProductsPage() {
