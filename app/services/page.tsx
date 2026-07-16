@@ -1,11 +1,24 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
 import ServiceIcon from "@/components/ServiceIcon";
 import Magnetic from "@/components/Magnetic";
 import { services } from "@/lib/content";
+
+const serviceVisuals: Record<string, ReturnType<typeof dynamic>> = {
+  saas: dynamic(() => import("@/components/service-visuals/SaasVisual")),
+  erp: dynamic(() => import("@/components/service-visuals/ErpVisual")),
+  ai: dynamic(() => import("@/components/service-visuals/AiVisual")),
+  mobile: dynamic(() => import("@/components/service-visuals/MobileVisual")),
+  web: dynamic(() => import("@/components/service-visuals/WebVisual")),
+  crm: dynamic(() => import("@/components/service-visuals/CrmVisual")),
+  automation: dynamic(() => import("@/components/service-visuals/AutomationVisual")),
+  cloud: dynamic(() => import("@/components/service-visuals/CloudVisual")),
+  data: dynamic(() => import("@/components/service-visuals/DataVisual")),
+};
 
 export const metadata: Metadata = {
   title: "Services",
@@ -50,18 +63,30 @@ export default function ServicesPage() {
 
       <section className="px-8 pb-[80px]">
         <div className="max-w-[1240px] mx-auto">
-          {services.map((s, i) => (
-            <Reveal key={s.slug} className={`py-14 ${i < services.length - 1 ? "border-b" : ""}`} >
-              <div id={s.slug} className="scroll-mt-24">
-                <div className="flex items-baseline gap-4.5 mb-4.5 flex-wrap">
-                  <ServiceIcon icon={s.icon} />
-                  <h2><RevealText text={s.title} /></h2>
+          {services.map((s, i) => {
+            const VisualComponent = serviceVisuals[s.slug];
+            const isFlipped = i % 2 === 1;
+            return (
+              <Reveal key={s.slug} className={`py-14 ${i < services.length - 1 ? "border-b" : ""}`}>
+                <div id={s.slug} className="scroll-mt-24 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
+                  <div className={isFlipped ? "md:order-2" : ""}>
+                    <div className="mono text-[11px] mb-3" style={{ color: "var(--color-accent-cyan)" }}>
+                      {`// ${String(i + 1).padStart(2, "0")}`}
+                    </div>
+                    <div className="flex items-baseline gap-4.5 mb-4.5 flex-wrap">
+                      <ServiceIcon icon={s.icon} />
+                      <h2><RevealText text={s.title} /></h2>
+                    </div>
+                    <p className="text-[15px] leading-[1.65] max-w-[480px] mb-5" style={{ color: "var(--color-text-muted)" }}>{s.detail}</p>
+                    <div>{s.tags.map((t) => <span key={t} className="chip">{t}</span>)}</div>
+                  </div>
+                  <div className={`aspect-[4/3] rounded-2xl border overflow-hidden ${isFlipped ? "md:order-1" : ""}`} style={{ borderColor: "var(--color-border)", background: "var(--color-card)" }}>
+                    {VisualComponent && <VisualComponent />}
+                  </div>
                 </div>
-                <p className="text-[15px] leading-[1.65] max-w-[680px] mb-5" style={{ color: "var(--color-text-muted)" }}>{s.detail}</p>
-                <div>{s.tags.map((t) => <span key={t} className="chip">{t}</span>)}</div>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 
