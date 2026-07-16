@@ -127,8 +127,6 @@ export type Product = {
   overview: string;
   problem: string;
   solution: string;
-  architecture: string;
-  technology: string;
   results: string;
   features: string[];
   diagram?: string;
