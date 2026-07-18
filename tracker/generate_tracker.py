@@ -138,7 +138,9 @@ SEO_TASKS = [
     ("IndiaMART listing", "Off-Page SEO", "Directories", "P2", "Low", "Not Started", "Owner", "", "Low", ""),
     ("Justdial listing", "Off-Page SEO", "Directories", "P2", "Low", "Not Started", "Owner", "", "Low", ""),
     ("Crunchbase / Tracxn listing", "Off-Page SEO", "Directories", "P2", "Low", "Not Started", "Owner", "", "Low", ""),
-    ("LinkedIn Company Page", "Off-Page SEO", "Social Presence", "P1", "Low", "Not Started", "Owner", "", "Medium", ""),
+    ("LinkedIn Company Page", "Off-Page SEO", "Social Presence", "P1", "Low", "Not Started", "Owner", "", "Medium", "Use admin@systemfriendly.com. Account creation requires human verification — Claude can help with naming, bio copy, and content, not account setup itself."),
+    ("Twitter / X Company Account", "Off-Page SEO", "Social Presence", "P2", "Low", "Not Started", "Owner", "", "Low", "Use admin@systemfriendly.com. Same limitation as above."),
+    ("Instagram Company Account", "Off-Page SEO", "Social Presence", "P2", "Low", "Not Started", "Owner", "", "Low", "Use admin@systemfriendly.com. Same limitation as above."),
     ("Backlink outreach — guest posts", "Off-Page SEO", "Backlinks", "P2", "High", "Not Started", "Marketing", "", "High", "Single biggest ranking factor after content quality"),
     ("Backlink tracking log", "Off-Page SEO", "Backlinks", "P3", "Low", "Not Started", "Marketing", "", "Low", ""),
     ("Press / PR outreach", "Off-Page SEO", "PR", "P3", "High", "Not Started", "Owner", "", "Medium", ""),
@@ -155,7 +157,7 @@ SEO_TASKS = [
     ("Monthly full SEO audit", "Monitoring", "Ongoing", "P3", "Medium", "Not Started", "Marketing", "", "Medium", "Use this tracker as the audit template"),
     ("Rank tracking — priority keywords", "Monitoring", "Ongoing", "P2", "Medium", "Not Started", "Marketing", "", "Medium", "See Performance Log tab"),
     ("GA4 activation", "Monitoring", "Analytics", "P0", "Low", "Not Started", "Owner", "", "High", "Blocked on real GA4 property ID"),
-    ("Domain + company name finalized", "Monitoring", "Foundation", "P0", "Low", "Not Started", "Owner", "", "High", "Blocks GSC, sitemap base URL, canonical accuracy"),
+    ("Domain + company name finalized", "Monitoring", "Foundation", "P0", "Low", "Done", "Owner", "", "High", "systemfriendly.com confirmed live as Production domain on Vercel"),
     ("Uptime monitoring", "Monitoring", "Site Health", "P2", "Low", "Not Started", "Dev", "", "Medium", ""),
     ("Server response time monitoring", "Monitoring", "Site Health", "P3", "Low", "Not Started", "Dev", "", "Low", ""),
 ]
@@ -406,13 +408,13 @@ def render_performance():
 # =========================================================================
 DAILY_TARGETS = [
     {
-        "date": "2026-07-20 (Tomorrow)",
+        "date": "2026-07-20",
         "tasks": [
-            ("Check the chatbot and refine its responses", "Not Started", ""),
-            ("Get the website live on systemfriendly.com", "Not Started", "Real domain now confirmed"),
-            ("Research and change the site theme — currently too dark", "Not Started", "Research and choose the best design direction"),
-            ("Finalise Phase 1 website content", "Not Started", "At minimum, make sense to a first-time visitor"),
-            ("Plan the logo", "Not Started", "Initial thinking, not final design"),
+            ("Check the chatbot and refine its responses", "Done", "Renamed to Sutra Bot, fixed the real query-normalization bug, lowered confidence threshold, added blog-linking Q&A entries"),
+            ("Get the website live on systemfriendly.com", "Done", "Confirmed live — www.systemfriendly.com is the active Production domain on Vercel"),
+            ("Research and change the site theme — currently too dark", "Not Started", "Not touched this session"),
+            ("Finalise Phase 1 website content", "In Progress", "Major honesty fixes done (fake banner, fake timeline, fake client logos removed; careers tone softened) but not a deliberate full content pass yet"),
+            ("Plan the logo", "Not Started", "Not touched this session"),
         ],
     },
 ]
@@ -433,6 +435,18 @@ def render_changelog():
     return items
 
 CHANGELOG = [
+    ("2026-07-19", "Real domain confirmed live — www.systemfriendly.com is the active Production domain on Vercel."),
+    ("2026-07-19", "EmailJS wired up for contact form + lead popup, routing real submissions to info@systemfriendly.com. Required a private-key auth fix after an initial 403 non-browser-access block."),
+    ("2026-07-19", "Removed fictional 'Built for teams at' banner and 6 fake client logos (Marquee component + trustedLogos data deleted entirely, not just hidden)."),
+    ("2026-07-19", "Removed default Vercel/Next.js favicon, replaced with a real one using the actual brand hexagon mark."),
+    ("2026-07-19", "Removed placeholder phone number from footer; fixed a separate bug where the footer's 'WhatsApp' link actually pointed to /contact instead of WhatsApp."),
+    ("2026-07-19", "Fixed nav logo wrapping/collision bug at tablet widths — longer 'SystemFriendly Labs' name needed whitespace-nowrap + a higher responsive breakpoint than 'Nexora Systems' did."),
+    ("2026-07-19", "Replaced fabricated 'AI-native inventory engine' announcement banner with an honest one linking to the real seven-cafe-chain case study."),
+    ("2026-07-19", "Removed fake multi-year 'Year 1/2/3' About page timeline (including two references to since-deleted fictional products), replaced with one honest founding note."),
+    ("2026-07-19", "Softened careers card tone — 'we stay deliberately small on purpose' read as overconfident for a pre-launch company; rewritten to be honest about just starting out."),
+    ("2026-07-19", "Updated contact email from hello@ to info@systemfriendly.com across all pages, forms, and legal documents."),
+    ("2026-07-19", "Renamed chatbot to Sutra Bot with a real avatar badge; fixed a real matching bug (user's query wasn't normalized the same way dataset questions were, so stray punctuation broke matching); lowered confidence threshold; added Q&A entries linking directly to relevant blog posts."),
+    ("2026-07-19", "Completed full sitewide rebrand to SystemFriendly Labs across 40+ files after multiple rounds of case-sensitivity and file-sync issues — resolved via case-insensitive comprehensive search."),
     ("2026-07-19", "Published 3 security blog articles: Cybersecurity Basics, What Is Phishing, Ransomware Explained (real AIIMS Delhi case). 28 total published, 22 planned."),
     ("2026-07-19", "Rebuilt tracker as full 9-tab HTML with complete parity to the Excel workbook — all real data, all columns."),
     ("2026-07-19", "Rebuilt Services page — alternating rows with 9 custom visuals, replacing the flat repeated block."),

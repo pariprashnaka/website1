@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import NetworkCanvas from "@/components/NetworkCanvas";
-import Marquee from "@/components/Marquee";
 import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
 import Counter from "@/components/Counter";
@@ -49,7 +48,6 @@ export default function Home() {
         </div>
       </section>
 
-      <Marquee />
 
       {/* STATS */}
       <section className="section-pad px-8 py-[100px]">

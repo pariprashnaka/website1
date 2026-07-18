@@ -37,8 +37,7 @@ export default function Footer() {
           ]} />
           <FooterCol title="Contact" links={[
             { href: "mailto:info@systemfriendly.com", label: "info@systemfriendly.com" },
-            { href: "tel:+10000000000", label: "+1 (000) 000-0000" },
-            { href: "/contact", label: "WhatsApp" },
+            { href: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ? `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}` : "/contact", label: "WhatsApp" },
           ]} />
         </div>
 

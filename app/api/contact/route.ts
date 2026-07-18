@@ -36,8 +36,36 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true });
   }
 
-  // TODO: wire this up to a real email/CRM service (e.g. Resend, SendGrid, or a webhook into your CRM).
-  console.log("New contact submission:", parsed.data);
+  // Send the real email via EmailJS's REST API. This works from a server route since it's
+  // a plain HTTP call — no browser-only SDK needed here.
+  try {
+    const emailRes = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        service_id: process.env.EMAILJS_SERVICE_ID,
+        template_id: process.env.EMAILJS_TEMPLATE_ID,
+        user_id: process.env.EMAILJS_PUBLIC_KEY,
+        accessToken: process.env.EMAILJS_PRIVATE_KEY,
+        template_params: {
+          name: parsed.data.name || "Not provided",
+          email: parsed.data.email,
+          company: parsed.data.company || "Not provided",
+          service: parsed.data.service || "Not specified",
+          message: parsed.data.message,
+        },
+      }),
+    });
+
+    if (!emailRes.ok) {
+      const errText = await emailRes.text();
+      console.error("EmailJS send failed:", emailRes.status, errText);
+      console.log("New contact submission (email send failed, logging as fallback):", parsed.data);
+    }
+  } catch (err) {
+    console.error("EmailJS request error:", err);
+    console.log("New contact submission (email send errored, logging as fallback):", parsed.data);
+  }
 
   return NextResponse.json({ ok: true });
 }

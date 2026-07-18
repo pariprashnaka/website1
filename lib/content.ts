@@ -271,4 +271,3 @@ export const values = [
   { title: "The problem is what keeps us interested", desc: "The projects we remember years later are the hard ones — the ones that made us think. That's what actually keeps us doing this." },
 ];
 
-export const trustedLogos = ["Veridian Health", "Northgate Capital", "OrbitFreight", "Hallmark Retail Group", "CivicLine", "Ferrotech Industries"];
