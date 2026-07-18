@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import NetworkCanvas from "@/components/NetworkCanvas";
+import NetworkDiagram from "@/components/NetworkDiagram";
 import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
 import Counter from "@/components/Counter";
@@ -17,13 +17,12 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden px-8 pt-[120px] pb-[100px]">
-        <NetworkCanvas />
         <div
           className="absolute pointer-events-none z-0"
           style={{ top: -220, left: -180, width: 640, height: 640, background: "radial-gradient(circle, rgba(124,58,237,0.09), transparent 65%)" }}
         />
-        <div className="max-w-[1240px] mx-auto relative">
-          <div className="relative z-[2] max-w-[680px]">
+        <div className="max-w-[1240px] mx-auto relative grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="relative z-[2]">
             <span className="eyebrow load-in">Enterprise Software Engineering</span>
             <h1 className="text-[clamp(38px,5.4vw,64px)] leading-[1.06] my-5">
               We build the software your{" "}
@@ -44,6 +43,9 @@ export default function Home() {
               <span>Systems in production: <b style={{ color: "var(--color-text-white)", fontWeight: 500 }}>6</b></span>
               <span>Avg. engagement: <b style={{ color: "var(--color-text-white)", fontWeight: 500 }}>4–9 months</b></span>
             </div>
+          </div>
+          <div className="relative z-[2] hidden lg:block">
+            <NetworkDiagram />
           </div>
         </div>
       </section>

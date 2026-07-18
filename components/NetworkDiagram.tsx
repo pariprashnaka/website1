@@ -1,0 +1,168 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
+type NodeDef = { key: string; x: number; y: number; w: number; h: number; title: string; subtitle: string; color: string };
+
+const NODES: NodeDef[] = [
+  { key: "browser", x: 20, y: 60, w: 150, h: 80, title: "Browser", subtitle: "Client", color: "var(--color-accent-blue)" },
+  { key: "gateway", x: 235, y: 30, w: 160, h: 80, title: "Gateway", subtitle: "Routing", color: "var(--color-accent-blue)" },
+  { key: "auth", x: 450, y: 60, w: 150, h: 80, title: "Auth", subtitle: "OAuth", color: "var(--color-success)" },
+  { key: "erp", x: 20, y: 240, w: 150, h: 80, title: "ERP", subtitle: "Business", color: "var(--color-warning)" },
+  { key: "ai", x: 240, y: 215, w: 150, h: 80, title: "AI Engine", subtitle: "Inference", color: "var(--color-accent-purple)" },
+  { key: "crm", x: 450, y: 240, w: 150, h: 80, title: "CRM", subtitle: "Customers", color: "var(--color-danger)" },
+  { key: "db", x: 110, y: 460, w: 170, h: 90, title: "Database", subtitle: "PostgreSQL", color: "var(--color-accent-blue)" },
+  { key: "queue", x: 350, y: 460, w: 170, h: 90, title: "Queue", subtitle: "Events", color: "var(--color-success)" },
+];
+
+const EDGES: [string, string][] = [
+  ["browser", "gateway"], ["gateway", "auth"], ["gateway", "erp"], ["gateway", "ai"], ["gateway", "crm"],
+  ["erp", "db"], ["ai", "db"], ["ai", "queue"], ["crm", "queue"], ["db", "queue"],
+];
+
+const LABELS = ["GET", "POST", "AI", "SQL", "SYNC", "AUTH"];
+
+export default function NetworkDiagram() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const NS = "http://www.w3.org/2000/svg";
+    const W = 640, H = 640;
+
+    function E(name: string, attrs: Record<string, string | number> = {}) {
+      const el = document.createElementNS(NS, name);
+      for (const k in attrs) el.setAttribute(k, String(attrs[k]));
+      return el;
+    }
+
+    const svg = E("svg", { viewBox: `0 0 ${W} ${H}`, width: "100%", height: "100%" });
+    container.innerHTML = "";
+    container.appendChild(svg);
+
+    const grid = E("g");
+    for (let x = 0; x <= W; x += 20) {
+      const line = E("line", { x1: x, y1: 0, x2: x, y2: H, "stroke-width": 0.6 });
+      line.setAttribute("stroke", "var(--color-border)");
+      grid.appendChild(line);
+    }
+    for (let y = 0; y <= H; y += 20) {
+      const line = E("line", { x1: 0, y1: y, x2: W, y2: y, "stroke-width": 0.6 });
+      line.setAttribute("stroke", "var(--color-border)");
+      grid.appendChild(line);
+    }
+    svg.appendChild(grid);
+
+    const linksLayer = E("g");
+    const glowLayer = E("g");
+    const packetsLayer = E("g");
+    const cardsLayer = E("g");
+    const labelsLayer = E("g");
+    svg.appendChild(linksLayer);
+    svg.appendChild(glowLayer);
+    svg.appendChild(packetsLayer);
+    svg.appendChild(labelsLayer);
+    svg.appendChild(cardsLayer);
+
+    const nodeCenters: Record<string, { x: number; y: number }> = {};
+
+    NODES.forEach((n) => {
+      const g = E("g");
+      const shadow = E("rect", { x: n.x + 4, y: n.y + 6, width: n.w, height: n.h, rx: 16 });
+      shadow.setAttribute("fill", "var(--color-accent-blue)");
+      shadow.setAttribute("opacity", "0.08");
+      g.appendChild(shadow);
+
+      const card = E("rect", { x: n.x, y: n.y, width: n.w, height: n.h, rx: 16 });
+      card.setAttribute("fill", "var(--color-card)");
+      card.setAttribute("stroke", "var(--color-border)");
+      g.appendChild(card);
+
+      const stripe = E("rect", { x: n.x, y: n.y, width: 6, height: n.h, rx: 6 });
+      stripe.setAttribute("fill", n.color);
+      g.appendChild(stripe);
+
+      const title = E("text", { x: n.x + 18, y: n.y + 30, "font-size": 17, "font-family": "Inter", "font-weight": 700 });
+      title.setAttribute("fill", "var(--color-text-white)");
+      title.textContent = n.title;
+      g.appendChild(title);
+
+      const subtitle = E("text", { x: n.x + 18, y: n.y + 52, "font-size": 12, "font-family": "Inter" });
+      subtitle.setAttribute("fill", "var(--color-text-muted)");
+      subtitle.textContent = n.subtitle;
+      g.appendChild(subtitle);
+
+      cardsLayer.appendChild(g);
+      nodeCenters[n.key] = { x: n.x + n.w / 2, y: n.y + n.h / 2 };
+    });
+
+    EDGES.forEach(([a, b]) => {
+      const line = E("line", { x1: nodeCenters[a].x, y1: nodeCenters[a].y, x2: nodeCenters[b].x, y2: nodeCenters[b].y, "stroke-width": 3 });
+      line.setAttribute("stroke", "var(--color-accent-blue)");
+      line.setAttribute("opacity", "0.2");
+      linksLayer.appendChild(line);
+    });
+
+    const packets = EDGES.map(([a, b], i) => {
+      const dot = E("circle", { r: 4 });
+      dot.setAttribute("fill", "var(--color-accent-blue)");
+      packetsLayer.appendChild(dot);
+
+      const label = E("text", { "font-size": 10, "font-family": "Inter", "font-weight": 700 });
+      label.setAttribute("fill", "var(--color-accent-blue)");
+      label.textContent = LABELS[i % LABELS.length];
+      labelsLayer.appendChild(label);
+
+      const glow = E("circle", { r: 8 });
+      glow.setAttribute("fill", "var(--color-accent-cyan)");
+      glow.setAttribute("opacity", "0.15");
+      glowLayer.appendChild(glow);
+
+      return { A: nodeCenters[a], B: nodeCenters[b], dot, label, glow, t: Math.random(), speed: 0.0012 + Math.random() * 0.0015 };
+    });
+
+    let mouseX = 0, mouseY = 0;
+    function onMouseMove(e: MouseEvent) {
+      mouseX = (e.clientX / window.innerWidth - 0.5) * 10;
+      mouseY = (e.clientY / window.innerHeight - 0.5) * 8;
+    }
+    window.addEventListener("mousemove", onMouseMove);
+
+    let raf: number;
+    function frame() {
+      packets.forEach((p) => {
+        p.t += p.speed;
+        if (p.t > 1) p.t = 0;
+        const x = p.A.x + (p.B.x - p.A.x) * p.t;
+        const y = p.A.y + (p.B.y - p.A.y) * p.t;
+        p.dot.setAttribute("cx", String(x));
+        p.dot.setAttribute("cy", String(y));
+        p.glow.setAttribute("cx", String(x));
+        p.glow.setAttribute("cy", String(y));
+        p.glow.setAttribute("opacity", String(0.08 + 0.12 * Math.sin(p.t * Math.PI)));
+        const angle = (Math.atan2(p.B.y - p.A.y, p.B.x - p.A.x) * 180) / Math.PI;
+        p.label.setAttribute("transform", `translate(${x + 8},${y - 8}) rotate(${angle})`);
+      });
+      if (container) {
+        container.style.transform = `perspective(1400px) rotateX(${-mouseY}deg) rotateY(${mouseX}deg)`;
+      }
+      raf = requestAnimationFrame(frame);
+    }
+    frame();
+
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="w-full aspect-square rounded-[32px] overflow-hidden"
+      style={{ background: "var(--color-card)", boxShadow: "0 30px 70px rgba(15,23,42,0.14)" }}
+    />
+  );
+}

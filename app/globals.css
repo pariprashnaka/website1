@@ -1,24 +1,60 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg-primary: #05070A;
-  --color-bg-secondary: #0B1120;
-  --color-card: #111827;
-  --color-accent-blue: #3B82F6;
-  --color-accent-cyan: #00D4FF;
-  --color-accent-purple: #7C3AED;
-  --color-success: #22C55E;
-  --color-warning: #F59E0B;
-  --color-danger: #EF4444;
-  --color-text-white: #F8FAFC;
-  --color-text-soft: #CBD5E1;
-  --color-text-muted: #64748B;
-  --color-border: rgba(255,255,255,0.08);
-  --color-border-strong: rgba(255,255,255,0.14);
+  --color-bg-primary: var(--theme-bg-primary);
+  --color-bg-secondary: var(--theme-bg-secondary);
+  --color-card: var(--theme-card);
+  --color-accent-blue: var(--theme-accent-blue);
+  --color-accent-cyan: var(--theme-accent-cyan);
+  --color-accent-purple: var(--theme-accent-purple);
+  --color-success: var(--theme-success);
+  --color-warning: var(--theme-warning);
+  --color-danger: var(--theme-danger);
+  --color-text-white: var(--theme-text-primary);
+  --color-text-soft: var(--theme-text-soft);
+  --color-text-muted: var(--theme-text-muted);
+  --color-border: var(--theme-border);
+  --color-border-strong: var(--theme-border-strong);
 
   --font-display: var(--font-space-grotesk);
   --font-body: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
+}
+
+/* Light theme — the default. Applies unless [data-theme="dark"] is set on <html>. */
+:root {
+  --theme-bg-primary: #FFFFFF;
+  --theme-bg-secondary: #F7F8FA;
+  --theme-card: #FFFFFF;
+  --theme-accent-blue: #2563EB;
+  --theme-accent-cyan: #2563EB;
+  --theme-accent-purple: #7C3AED;
+  --theme-success: #10B981;
+  --theme-warning: #F59E0B;
+  --theme-danger: #EF4444;
+  --theme-text-primary: #111827;
+  --theme-text-soft: #374151;
+  --theme-text-muted: #6B7280;
+  --theme-border: rgba(15,23,42,0.08);
+  --theme-border-strong: rgba(15,23,42,0.14);
+}
+
+/* Dark / "night reading" mode — opt-in only, toggled via ThemeToggle, persisted in localStorage. */
+[data-theme="dark"] {
+  --theme-bg-primary: #05070A;
+  --theme-bg-secondary: #0B1120;
+  --theme-card: #111827;
+  --theme-accent-blue: #3B82F6;
+  --theme-accent-cyan: #00D4FF;
+  --theme-accent-purple: #7C3AED;
+  --theme-success: #22C55E;
+  --theme-warning: #F59E0B;
+  --theme-danger: #EF4444;
+  --theme-text-primary: #F8FAFC;
+  --theme-text-soft: #CBD5E1;
+  --theme-text-muted: #64748B;
+  --theme-border: rgba(255,255,255,0.08);
+  --theme-border-strong: rgba(255,255,255,0.14);
 }
 
 :root { --glass: rgba(255,255,255,0.05); }
@@ -63,8 +99,8 @@ body::before {
   transition: transform .35s cubic-bezier(.2,.8,.2,1), background .25s, border-color .25s, box-shadow .3s;
   white-space: nowrap;
 }
-.btn-primary { background: var(--color-text-white); color: var(--color-bg-primary); position: relative; overflow: hidden; }
-.btn-primary:hover { background: var(--color-accent-cyan); box-shadow: 0 0 0 6px rgba(0,212,255,0.08); }
+.btn-primary { background: var(--color-accent-blue); color: white; position: relative; overflow: hidden; }
+.btn-primary:hover { background: var(--color-accent-cyan); box-shadow: 0 8px 24px rgba(37,99,235,0.3); transform: translateY(-2px); }
 .btn-primary::after {
   content: ''; position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
   background: linear-gradient(120deg, transparent, rgba(0,0,0,0.10), transparent);
