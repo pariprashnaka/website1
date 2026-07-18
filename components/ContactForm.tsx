@@ -81,7 +81,7 @@ export default function ContactForm() {
         style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
       />
       <Field label="Full name" error={errors.name?.message}>
-        <input {...register("name")} style={inputStyle} placeholder="Vikas Tiwari" />
+        <input {...register("name")} style={inputStyle} placeholder="Jane Doe" />
       </Field>
       <Field label="Work email" error={errors.email?.message}>
         <input {...register("email")} style={inputStyle} placeholder="you@company.com" />
