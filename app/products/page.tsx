@@ -44,7 +44,7 @@ export default function ProductsPage() {
           <span className="eyebrow load-in">Products</span>
           <h1 className="text-[clamp(32px,4.6vw,52px)] leading-[1.1] max-w-[720px] mt-4 load-in">Platforms we&apos;ve built and keep building on.</h1>
           <p className="text-[16px] max-w-[560px] mt-4.5 leading-[1.6] load-in" style={{ color: "var(--color-text-muted)" }}>
-            Alongside client engagements, Nexora maintains a small set of our own products — built to solve problems we kept seeing across industries.
+            Alongside client engagements, SystemFriendly Labs maintains a small set of our own products — built to solve problems we kept seeing across industries.
           </p>
         </div>
       </section>

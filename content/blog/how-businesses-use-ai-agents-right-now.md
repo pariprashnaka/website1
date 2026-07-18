@@ -2,7 +2,7 @@
 title: "How Businesses Are Actually Using AI Agents Right Now"
 description: "Klarna's agent does the work of 853 people. JPMorgan runs 450+ agents daily. But MIT found 95% of AI pilots deliver no measurable financial result. Here's the real picture, not the highlight reel."
 date: "2026-07-17"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["AI Solutions"]
 charts: "AiAgentsRealUseCharts"
 ---

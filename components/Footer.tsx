@@ -15,7 +15,7 @@ export default function Footer() {
               NEXORA SYSTEMS
             </Link>
             <p className="text-[13.5px] mt-3.5 leading-[1.6] max-w-[260px]" style={{ color: "var(--color-text-muted)" }}>
-              Engineering software that accelerates business growth. Placeholder domain — nexorasystems.com.
+              Engineering software that accelerates business growth. Placeholder domain — systemfriendly.com.
             </p>
           </div>
 
@@ -36,20 +36,24 @@ export default function Footer() {
             { href: "/products", label: "Products" },
           ]} />
           <FooterCol title="Contact" links={[
-            { href: "mailto:hello@nexorasystems.com", label: "hello@nexorasystems.com" },
+            { href: "mailto:info@systemfriendly.com", label: "info@systemfriendly.com" },
             { href: "tel:+10000000000", label: "+1 (000) 000-0000" },
             { href: "/contact", label: "WhatsApp" },
           ]} />
         </div>
 
         <div className="flex justify-between items-center pt-7 border-t text-[12.5px] flex-wrap gap-3" style={{ borderColor: "var(--color-border)", color: "var(--color-text-muted)" }}>
-          <span>© 2026 Nexora Systems. All rights reserved.</span>
+          <span>© 2026 SystemFriendly Labs. All rights reserved.</span>
           <div className="flex gap-4">
             <a href="#" className="hover:text-cyan-300">LinkedIn</a>
             <a href="#" className="hover:text-cyan-300">GitHub</a>
             <a href="#" className="hover:text-cyan-300">X</a>
           </div>
-          <span>Privacy · Terms · Cookies</span>
+          <div className="flex gap-4">
+            <Link href="/privacy" className="hover:text-cyan-300">Privacy</Link>
+            <Link href="/terms" className="hover:text-cyan-300">Terms</Link>
+            <Link href="/privacy#cookies" className="hover:text-cyan-300">Cookies</Link>
+          </div>
         </div>
       </div>
     </footer>

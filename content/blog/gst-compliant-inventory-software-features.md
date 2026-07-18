@@ -2,7 +2,7 @@
 title: "GST-Compliant Inventory Software: What Features Actually Matter"
 description: "Not every feature marketed as GST-compliant actually solves a real filing problem. Here's what genuinely matters when evaluating inventory software against your GST obligations."
 date: "2026-07-16"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["ERP Solutions", "Business Automation"]
 charts: "GstInventoryCharts"
 ---

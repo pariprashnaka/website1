@@ -2,7 +2,7 @@
 title: "SaaS vs Custom Software: The Real Decision Framework"
 description: "SaaS and custom software are not competitors — they solve different problems at different stages of a business. Here is a practical framework for deciding which one your situation actually calls for."
 date: "2026-07-14"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["SaaS Development", "Web Development", "Business Automation"]
 charts: "SaasVsCustomCharts"
 ---
@@ -11,7 +11,7 @@ Every business eventually reaches a decision point where someone asks whether th
 
 SaaS products and custom software are not competing choices on a quality spectrum. They are different tools designed for different situations. The question is not which one is better — it is which one fits your specific situation right now.
 
-We build both at Nexora. We have built SaaS products designed to serve hundreds of customers on a shared platform, and we have built custom software designed for one business's specific workflows. We do not have a preference — we have an interest in helping businesses choose the right one, because a business that chooses the wrong one and then has to redo the decision is not a good outcome for anyone.
+We build both at SystemFriendly Labs. We have built SaaS products designed to serve hundreds of customers on a shared platform, and we have built custom software designed for one business's specific workflows. We do not have a preference — we have an interest in helping businesses choose the right one, because a business that chooses the wrong one and then has to redo the decision is not a good outcome for anyone.
 
 This article gives you a framework for making that decision clearly.
 

@@ -2,7 +2,7 @@
 title: "AI Chatbots vs Human Support: Where Each Actually Wins"
 description: "Human agents score 4.5/5 on customer satisfaction versus 3.9/5 for AI chatbots — but 82% of customers still pick an instant chatbot reply over waiting for a human. Both facts are real. Here's what that actually means."
 date: "2026-07-18"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["AI Solutions", "CRM Solutions"]
 charts: "ChatbotsVsHumanCharts"
 ---

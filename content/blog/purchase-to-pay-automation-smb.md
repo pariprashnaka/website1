@@ -2,7 +2,7 @@
 title: "Purchase-to-Pay Automation: Where Most Indian SMBs Actually Start"
 description: "Purchase-to-pay automation sounds like an enterprise concept, but the starting point for most Indian SMBs is smaller and more specific than the term suggests. Here's what to actually automate first."
 date: "2026-07-16"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["Business Automation", "ERP Solutions"]
 charts: "PurchaseToPayCharts"
 ---

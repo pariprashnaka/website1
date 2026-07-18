@@ -2,7 +2,7 @@
 title: "Ransomware Explained: What Small Businesses Need to Know"
 description: "In November 2022, ransomware took down AIIMS Delhi — India's premier hospital — for over two weeks, and even encrypted its backup server. Here's what actually happened, and the specific lesson every business should take from it."
 date: "2026-07-19"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["Security"]
 charts: "RansomwareExplainedCharts"
 ---

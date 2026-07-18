@@ -2,7 +2,7 @@
 title: "Cloud vs On-Premise Software: What Makes Sense for Indian Businesses"
 description: "The cloud-first advice you hear everywhere does not fit every Indian business. Here is an honest look at when on-premise still makes sense, when cloud genuinely wins, and how to decide for your specific situation."
 date: "2026-07-15"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["Cloud Engineering", "ERP Solutions", "Business Automation"]
 charts: "CloudVsOnPremiseCharts"
 ---

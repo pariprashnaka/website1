@@ -2,7 +2,7 @@
 title: "AI Solutions for Small and Medium Businesses: What's Actually Useful Right Now"
 description: "Beyond the hype: a practical, honest look at which AI applications genuinely help Indian SMBs today, which ones are not worth the investment yet, and how to evaluate what your business actually needs."
 date: "2026-07-14"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["AI Solutions", "Business Automation", "SaaS Development"]
 charts: "AiSmbCharts"
 ---

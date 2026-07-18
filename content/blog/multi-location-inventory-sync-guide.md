@@ -2,7 +2,7 @@
 title: "Multi-Location Inventory Sync: A Practical Guide for Indian Distributors"
 description: "Keeping stock numbers accurate across multiple locations is where most inventory systems actually break down. Here's what real-time sync requires and how to get there without a full rebuild."
 date: "2026-07-16"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["ERP Solutions", "Business Automation"]
 charts: "MultiLocationSyncCharts"
 ---

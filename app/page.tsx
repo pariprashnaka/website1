@@ -34,7 +34,7 @@ export default function Home() {
               depends on.
             </h1>
             <p className="text-[17px] leading-[1.65] max-w-[520px] mb-9" style={{ color: "var(--color-text-muted)" }}>
-              Nexora Systems designs and ships production-grade SaaS, ERP, and AI platforms for teams who can&apos;t afford to get their infrastructure wrong — from first architecture doc to the system running at scale.
+              SystemFriendly Labs designs and ships production-grade SaaS, ERP, and AI platforms for teams who can&apos;t afford to get their infrastructure wrong — from first architecture doc to the system running at scale.
             </p>
             <div className="flex gap-3.5 flex-wrap mb-14">
               <Magnetic><Link href="/contact" className="btn btn-primary">Start a project</Link></Magnetic>

@@ -2,7 +2,7 @@
 title: "How Much Does Custom Software Development Cost in India?"
 description: "No invented numbers. A honest breakdown of what actually drives custom software cost in India, what publicly available data shows, and how to evaluate a quote before you sign anything."
 date: "2026-07-14"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["SaaS Development", "Web Development", "Business Automation"]
 charts: "SoftwareCostCharts"
 ---

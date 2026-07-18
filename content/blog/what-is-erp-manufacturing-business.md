@@ -2,7 +2,7 @@
 title: "What Is an ERP System and Does Your Manufacturing Business Need One?"
 description: "ERP gets recommended to almost every growing manufacturer, but not every manufacturing business is ready for one, or needs the full weight of it. Here is a practical, honest look at what ERP actually does and when it fits."
 date: "2026-07-15"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["ERP Solutions", "Business Automation", "SaaS Development"]
 charts: "ErpManufacturingCharts"
 ---

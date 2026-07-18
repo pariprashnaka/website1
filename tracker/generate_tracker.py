@@ -59,12 +59,12 @@ BLOGS_PUBLISHED = [
     ("Understanding AI Data Privacy: What Happens to Your Data When You Use AI Tools", "Security", "AI data privacy explained", "ai-data-privacy-explained"),
     ("AI Agents vs Automation: What's the Actual Difference?", "Business Automation", "AI agents vs automation", "ai-agents-vs-automation-explained"),
     ("AI Chatbots vs Human Support: Where Each Actually Wins", "CRM Solutions", "AI chatbots vs human support", "ai-chatbots-vs-human-support"),
+    ("Cybersecurity Basics Every Small Business Owner Should Know", "Security", "cybersecurity basics for small business", "cybersecurity-basics-small-business"),
+    ("What Is Phishing, and How Can Your Business Avoid It?", "Security", "what is phishing business", "what-is-phishing-explained"),
+    ("Ransomware Explained: What Small Businesses Need to Know", "Security", "ransomware small business", "ransomware-explained-small-business"),
 ]
 
 BLOGS_PLANNED = [
-    ("Cybersecurity Basics Every Small Business Owner Should Know", "Security", "cybersecurity basics for small business", "High"),
-    ("What Is Phishing, and How Can Your Business Avoid It?", "Security", "what is phishing business", "High"),
-    ("Ransomware Explained: What Small Businesses Need to Know", "Security", "ransomware small business", "High"),
     ("Understanding Data Backups: What Every Business Owner Should Know", "Security", "data backup guide business", "Medium-High"),
     ("India's DPDP Act: What It Actually Means for Your Business Software", "Security", "DPDP Act India business software", "High"),
     ("Lead Management Software: What Actually Prevents Leads From Falling Through", "CRM Solutions", "lead management software India", "High"),
@@ -219,14 +219,14 @@ WEEKLY_TASKS = [
     (1, "Technical SEO", "Set up Google Search Console once domain is live", "30 min", "Not Started", False, "High", ""),
     (1, "Technical SEO", "Submit sitemap.xml to Search Console", "15 min", "Not Started", False, "High", ""),
     (1, "Technical SEO", "Activate GA4 with real property ID", "30 min", "Not Started", False, "High", ""),
-    (1, "Blog SEO", "Publish Week 1 planned article — Cybersecurity Basics", "3 hrs", "Not Started", False, "High", ""),
+    (1, "Blog SEO", "Publish Week 1 planned article — Cybersecurity Basics", "3 hrs", "Done", True, "High", ""),
     (1, "Off-Page SEO", "Set up Google Business Profile", "30 min", "Not Started", False, "Medium", ""),
-    (2, "Blog SEO", "Publish Week 2 planned article — What Is Phishing", "3 hrs", "Not Started", False, "High", ""),
+    (2, "Blog SEO", "Publish Week 2 planned article — What Is Phishing", "3 hrs", "Done", True, "High", ""),
     (2, "Schema Markup", "Add FAQ schema to 5 highest-traffic-potential posts", "2 hrs", "Not Started", False, "High", ""),
     (2, "On-Page SEO", "Audit internal linking across all 25 live posts", "2 hrs", "Not Started", False, "High", ""),
     (2, "Off-Page SEO", "Set up LinkedIn Company Page", "1 hr", "Not Started", False, "Medium", ""),
     (2, "Keyword Research", "Run top 10 priority keywords through a real keyword tool", "1 hr", "Not Started", False, "High", ""),
-    (3, "Blog SEO", "Publish Week 3 planned article — Ransomware Explained", "3 hrs", "Not Started", False, "High", ""),
+    (3, "Blog SEO", "Publish Week 3 planned article — Ransomware Explained", "3 hrs", "Done", True, "High", ""),
     (3, "Schema Markup", "Add Product schema to /products page", "1.5 hrs", "Not Started", False, "Medium", ""),
     (3, "Off-Page SEO", "Submit to IndiaMART directory", "30 min", "Not Started", False, "Low", ""),
     (3, "Monitoring", "First weekly Search Console check", "30 min", "Not Started", False, "Medium", ""),
@@ -399,6 +399,33 @@ def render_performance():
     <h3 style="margin-top:32px">Keyword Rank Tracker</h3>
     <table><tr><th>Keyword</th><th>M1</th><th>M2</th><th>M3</th><th>M4</th><th>M5</th><th>M6</th></tr>{rank_rows}</table>"""
 
+
+# =========================================================================
+# DAILY / SESSION TARGETS — a running list of near-term goals, newest session first
+# (Session Date, Task, Status, Notes)
+# =========================================================================
+DAILY_TARGETS = [
+    {
+        "date": "2026-07-20 (Tomorrow)",
+        "tasks": [
+            ("Check the chatbot and refine its responses", "Not Started", ""),
+            ("Get the website live on systemfriendly.com", "Not Started", "Real domain now confirmed"),
+            ("Research and change the site theme — currently too dark", "Not Started", "Research and choose the best design direction"),
+            ("Finalise Phase 1 website content", "Not Started", "At minimum, make sense to a first-time visitor"),
+            ("Plan the logo", "Not Started", "Initial thinking, not final design"),
+        ],
+    },
+]
+
+def render_daily_targets():
+    sections = ""
+    for session in DAILY_TARGETS:
+        rows = ""
+        for task, status, notes in session["tasks"]:
+            rows += f"<tr><td>{esc(task)}</td><td>{badge(status)}</td><td class='muted small'>{esc(notes)}</td></tr>"
+        sections += f"<h3>{esc(session['date'])}</h3><table><tr><th>Task</th><th>Status</th><th>Notes</th></tr>{rows}</table>"
+    return sections
+
 def render_changelog():
     items = ""
     for date, entry in CHANGELOG:
@@ -406,6 +433,7 @@ def render_changelog():
     return items
 
 CHANGELOG = [
+    ("2026-07-19", "Published 3 security blog articles: Cybersecurity Basics, What Is Phishing, Ransomware Explained (real AIIMS Delhi case). 28 total published, 22 planned."),
     ("2026-07-19", "Rebuilt tracker as full 9-tab HTML with complete parity to the Excel workbook — all real data, all columns."),
     ("2026-07-19", "Rebuilt Services page — alternating rows with 9 custom visuals, replacing the flat repeated block."),
     ("2026-07-19", "Fixed Weekly Action Plan checkbox column — now real interactive checkboxes with localStorage persistence."),
@@ -453,6 +481,7 @@ def render_compliance():
 def build():
     tabs = [
         ("dashboard", "Dashboard", render_dashboard()),
+        ("targets", "Next Session", render_daily_targets()),
         ("company", "Company Formation", render_company()),
         ("compliance", "Compliance", render_compliance()),
         ("pages", "Website Pages", render_pages()),

@@ -2,7 +2,7 @@
 title: "What Is Business Process Automation and Where Should You Start?"
 description: "A plain-language guide to business process automation for Indian SMBs — what it actually means, which processes are worth automating first, and how to avoid the most common mistakes."
 date: "2026-07-14"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["Business Automation", "ERP Solutions", "SaaS Development"]
 charts: "BusinessAutomationCharts"
 ---

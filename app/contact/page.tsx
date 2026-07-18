@@ -9,7 +9,7 @@ import { contactFaqs } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Start a project with Nexora Systems. Send a brief and get real next steps within two business days.",
+  description: "Start a project with SystemFriendly Labs. Send a brief and get real next steps within two business days.",
   alternates: { canonical: "/contact" },
 };
 
@@ -78,7 +78,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <div className="mono text-[11px] uppercase tracking-[.06em] mb-1" style={{ color: "var(--color-text-muted)" }}>Email</div>
-                <a href="mailto:hello@nexorasystems.com" className="text-[14.5px]" style={{ color: "var(--color-text-white)" }}>hello@nexorasystems.com</a>
+                <a href="mailto:info@systemfriendly.com" className="text-[14.5px]" style={{ color: "var(--color-text-white)" }}>info@systemfriendly.com</a>
               </div>
             </Reveal>
 

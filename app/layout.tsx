@@ -13,19 +13,19 @@ const inter = Inter({ variable: "--font-inter", subsets: ["latin"], weight: ["40
 const jetbrainsMono = JetBrains_Mono({ variable: "--font-jetbrains-mono", subsets: ["latin"], weight: ["400", "500"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nexorasystems.com"),
-  title: { default: "Nexora Systems — Enterprise Software Engineering", template: "%s — Nexora Systems" },
-  description: "Nexora Systems engineers SaaS, ERP, and AI platforms for startups, enterprises, and government teams. Six production systems shipped.",
+  metadataBase: new URL("https://systemfriendly.com"),
+  title: { default: "SystemFriendly Labs — Enterprise Software Engineering", template: "%s — SystemFriendly Labs" },
+  description: "SystemFriendly Labs engineers SaaS, ERP, and AI platforms for startups, enterprises, and government teams. Six production systems shipped.",
   openGraph: {
     type: "website",
-    siteName: "Nexora Systems",
-    title: "Nexora Systems — Enterprise Software Engineering",
-    description: "Nexora Systems engineers SaaS, ERP, and AI platforms for startups, enterprises, and government teams.",
+    siteName: "SystemFriendly Labs",
+    title: "SystemFriendly Labs — Enterprise Software Engineering",
+    description: "SystemFriendly Labs engineers SaaS, ERP, and AI platforms for startups, enterprises, and government teams.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nexora Systems — Enterprise Software Engineering",
-    description: "Nexora Systems engineers SaaS, ERP, and AI platforms for startups, enterprises, and government teams.",
+    title: "SystemFriendly Labs — Enterprise Software Engineering",
+    description: "SystemFriendly Labs engineers SaaS, ERP, and AI platforms for startups, enterprises, and government teams.",
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "/" },
@@ -41,8 +41,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "Nexora Systems",
-              url: "https://nexorasystems.com",
+              name: "SystemFriendly Labs",
+              url: "https://systemfriendly.com",
               description: "Enterprise software engineering: SaaS, ERP, AI, and cloud platforms for startups, enterprises, and government.",
             }),
           }}

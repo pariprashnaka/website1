@@ -2,7 +2,7 @@
 title: "Prompt Engineering Basics: How to Get Better Results From AI Tools"
 description: "Most prompt engineering advice online is outdated for the models available today. Here's what research actually shows still works, backed by real studies, not folk wisdom."
 date: "2026-07-16"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["AI Solutions"]
 charts: "PromptEngineeringCharts"
 ---

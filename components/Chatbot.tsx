@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { MessageCircle, X, Send } from "lucide-react";
+import { Bot, X, Send } from "lucide-react";
 import { trackEvent } from "@/lib/gtag";
 
 type Row = {
@@ -16,20 +16,22 @@ type Row = {
 type Cta = { label: string; href: string };
 type Message = { role: "bot" | "user"; text: string; ctas?: Cta[] };
 
-const WELCOME = "Hi! I'm the Nexora assistant. Ask me anything, or tap a question below.";
+const WELCOME = "Hi! I'm Sutra Bot, SystemFriendly Labs' assistant. Ask me anything, or tap a question below.";
 const FALLBACK =
   "I don't have a solid answer for that one — but I can put you in touch directly, no need to keep guessing.";
 const TYPING_DELAY_MS = 750;
 const SESSION_KEY = "nexora_chat_session_id";
 
 function scoreMatch(query: string, row: Row): number {
-  const q = query.toLowerCase();
+  const rawQ = query.toLowerCase();
+  // Normalize the query the same way we already normalize dataset questions below —
+  // otherwise a stray character (e.g. "what can. you do") silently breaks substring matching.
+  const q = (rawQ.match(/[a-z0-9']+/g) ?? []).join(" ");
   const keywords = row.Keywords.toLowerCase().split(",").map((k) => k.trim());
   let score = 0;
   keywords.forEach((k) => {
     if (k && q.includes(k)) score += 2;
   });
-  // Strip punctuation before comparing — "systems?" must match "systems" in a query
   const questionWords = row.Question.toLowerCase().match(/[a-z0-9']+/g) ?? [];
   questionWords.forEach((w) => {
     if (w.length > 3 && q.includes(w)) score += 1;
@@ -54,7 +56,7 @@ function getContactCtas(): Cta[] {
     const message = encodeURIComponent("Hi, I chatted with your website assistant and want to talk to someone directly.");
     ctas.push({ label: "Message us on WhatsApp", href: `https://wa.me/${number}?text=${message}` });
   }
-  ctas.push({ label: "Email us", href: "mailto:hello@nexorasystems.com" });
+  ctas.push({ label: "Email us", href: "mailto:info@systemfriendly.com" });
   return ctas;
 }
 
@@ -128,15 +130,28 @@ export default function Chatbot() {
     }
   }
 
+  const GREETINGS = ["hi", "hii", "hiii", "hello", "hey", "yo", "good morning", "good afternoon", "good evening", "namaste"];
+  const GREETING_REPLY = "Hey there! What can I help you with — feel free to ask about our services, products, pricing, or tap a question below.";
+
   function respond(query: string) {
     setMessages((m) => [...m, { role: "user", text: query }]);
     logMessage("user", query);
     setTyping(true);
     trackEvent({ action: "chatbot_question", category: "lead_gen", label: query.slice(0, 60) });
 
+    const normalizedQuery = query.trim().toLowerCase().replace(/[!.?]/g, "");
+    if (GREETINGS.includes(normalizedQuery)) {
+      setTimeout(() => {
+        setMessages((m) => [...m, { role: "bot", text: GREETING_REPLY }]);
+        logMessage("bot", GREETING_REPLY);
+        setTyping(false);
+      }, 500);
+      return;
+    }
+
     setTimeout(() => {
       const scored = rows.map((r) => ({ row: r, score: scoreMatch(query, r) })).sort((a, b) => b.score - a.score);
-      const MIN_CONFIDENT_SCORE = 4;
+      const MIN_CONFIDENT_SCORE = 2;
       const best = scored[0];
       const matched = best && best.score >= MIN_CONFIDENT_SCORE ? best.row : null;
       const answer = matched ? matched.Answer : FALLBACK;
@@ -172,7 +187,7 @@ export default function Chatbot() {
         className="fixed bottom-6 right-6 z-[150] flex items-center justify-center w-[54px] h-[54px] rounded-full shadow-lg transition-transform hover:scale-105"
         style={{ background: "var(--color-text-white)", boxShadow: "0 8px 24px -6px rgba(0,212,255,0.35)" }}
       >
-        {open ? <X size={22} color="var(--color-bg-primary)" /> : <MessageCircle size={22} color="var(--color-bg-primary)" />}
+        {open ? <X size={22} color="var(--color-bg-primary)" /> : <Bot size={22} color="var(--color-bg-primary)" />}
       </button>
 
       {open && (
@@ -180,9 +195,15 @@ export default function Chatbot() {
           className="fixed bottom-24 right-6 z-[150] w-[360px] max-w-[90vw] rounded-2xl border flex flex-col overflow-hidden"
           style={{ background: "var(--color-card)", borderColor: "var(--color-border-strong)", height: 480, maxHeight: "70vh" }}
         >
-          <div className="px-5 py-4 border-b flex items-center justify-between" style={{ borderColor: "var(--color-border)" }}>
+          <div className="px-5 py-4 border-b flex items-center gap-3" style={{ borderColor: "var(--color-border)" }}>
+            <div
+              className="w-[34px] h-[34px] rounded-full flex items-center justify-center flex-shrink-0"
+              style={{ background: "rgba(0,212,255,0.12)", border: "1px solid rgba(0,212,255,0.3)" }}
+            >
+              <Bot size={17} color="var(--color-accent-cyan)" />
+            </div>
             <div>
-              <div className="text-[14px] font-medium" style={{ color: "var(--color-text-white)" }}>Nexora Assistant</div>
+              <div className="text-[14px] font-medium" style={{ color: "var(--color-text-white)" }}>Sutra Bot</div>
               <div className="mono text-[11px]" style={{ color: "var(--color-text-muted)" }}>
                 <span className="status-dot" style={{ marginRight: 6 }} />Usually replies instantly
               </div>

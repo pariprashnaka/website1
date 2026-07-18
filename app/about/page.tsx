@@ -6,7 +6,7 @@ import Magnetic from "@/components/Magnetic";
 import NetworkCanvas from "@/components/NetworkCanvas";
 import AboutVisualListen from "@/components/AboutVisualListen";
 import AboutVisualResolve from "@/components/AboutVisualResolve";
-import { values, timeline, products } from "@/lib/content";
+import { values, foundingNote, products } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Company",
@@ -123,31 +123,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── JOURNEY — horizontal scroll strip ── */}
-      <section className="py-[110px]">
+      {/* ── FOUNDING NOTE — honest, no fabricated history ── */}
+      <section className="py-[90px]">
         <div className="max-w-[1240px] mx-auto px-8">
-          <Reveal className="max-w-[640px] mb-12">
-            <span className="section-num mono">{"// JOURNEY"}</span>
-            <h2 className="text-[clamp(28px,3.4vw,40px)] mt-4 leading-[1.15]"><RevealText text="Where we've been." /></h2>
+          <Reveal>
+            <div className="rounded-[20px] border p-10 md:p-14 max-w-[780px]" style={{ borderColor: "var(--color-border)", background: "var(--color-bg-secondary)" }}>
+              <span className="section-num mono">{"// WHY WE STARTED"}</span>
+              <p className="text-[16px] md:text-[17px] leading-[1.7] mt-5" style={{ color: "var(--color-text-soft)" }}>{foundingNote}</p>
+            </div>
           </Reveal>
         </div>
-        <Reveal>
-          <div className="scroll-strip flex gap-5 overflow-x-auto px-8 pb-4" style={{ scrollSnapType: "x mandatory" }}>
-            <div className="flex-shrink-0 w-[24px] md:w-[calc((100vw-1240px)/2)]" />
-            {timeline.map((t) => (
-              <div
-                key={t.date}
-                className="flex-shrink-0 w-[300px] rounded-xl border p-7"
-                style={{ borderColor: "var(--color-border)", background: "var(--color-card)", scrollSnapAlign: "start" }}
-              >
-                <span className="mono text-[12px] mb-4 block" style={{ color: "var(--color-accent-cyan)" }}>{t.date}</span>
-                <h4 className="text-[17px] mb-2.5 leading-[1.3]">{t.title}</h4>
-                <p className="text-[13.5px] leading-[1.6]" style={{ color: "var(--color-text-muted)" }}>{t.desc}</p>
-              </div>
-            ))}
-            <div className="flex-shrink-0 w-[24px] md:w-[calc((100vw-1240px)/2)]" />
-          </div>
-        </Reveal>
       </section>
 
       {/* ── CLOSING: careers + CTA split panel ── */}
@@ -158,9 +143,9 @@ export default function AboutPage() {
               <div id="careers" className="scroll-mt-24 h-full rounded-[20px] border p-10 flex flex-col justify-between" style={{ borderColor: "var(--color-border)", background: "var(--color-bg-secondary)" }}>
                 <div>
                   <span className="section-num mono">{"// CAREERS"}</span>
-                  <h3 className="text-[22px] mt-4 mb-3 leading-[1.25]">Not hiring at scale — but if this sounds like you, say hello.</h3>
+                  <h3 className="text-[22px] mt-4 mb-3 leading-[1.25]">Not hiring at scale yet — but if this sounds like you, say hello.</h3>
                   <p className="text-[14px] leading-[1.6] mb-8" style={{ color: "var(--color-text-muted)" }}>
-                    We stay deliberately small on purpose. If you&apos;d rather own a system end to end than pick tickets off a sprint board, send us a note.
+                    We&apos;re genuinely just getting started, which means whoever joins early helps shape how we actually work, not just execute an existing playbook. If that sounds more interesting than joining something already fully formed, send us a note.
                   </p>
                 </div>
                 <Magnetic><Link href="/contact" className="btn btn-ghost">Get in touch</Link></Magnetic>

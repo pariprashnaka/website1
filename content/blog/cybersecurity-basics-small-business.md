@@ -2,7 +2,7 @@
 title: "Cybersecurity Basics Every Small Business Owner Should Know"
 description: "The most famous statistic in small business cybersecurity — that 60% of attacked businesses close within six months — was officially debunked in 2022. Here's what's actually real, and what genuinely protects you."
 date: "2026-07-19"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["Security"]
 charts: "CybersecurityBasicsCharts"
 ---

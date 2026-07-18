@@ -2,7 +2,7 @@
 title: "AI Hallucinations Explained: Why AI Tools Sometimes Get Things Wrong"
 description: "A real court case, a $5,000 fine, and six lawyers' careers on the line — grounded in an actual documented incident, here's why AI tools confidently make things up, and how to protect yourself from it."
 date: "2026-07-17"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["AI Solutions"]
 charts: "HallucinationsCharts"
 ---

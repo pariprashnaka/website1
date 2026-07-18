@@ -2,7 +2,7 @@
 title: "AI Agents vs Automation: What's the Actual Difference?"
 description: "You already have automation — rules, scripts, workflows. So what does an AI agent actually add? A grounded explanation of the real distinction, not a marketing rebrand of the same thing."
 date: "2026-07-18"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["AI Solutions", "Business Automation"]
 charts: "AiAgentsVsAutomationCharts"
 ---

@@ -2,7 +2,7 @@
 title: "LLMs Explained: What a Large Language Model Actually Is"
 description: "No hand-waving, no hype. A grounded explanation of how large language models actually work, where the technology came from, and what that means for how you should think about them."
 date: "2026-07-16"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["AI Solutions"]
 charts: "LlmExplainedCharts"
 ---

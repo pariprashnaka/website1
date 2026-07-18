@@ -2,7 +2,7 @@
 title: "ERP vs CRM vs Custom Software: Which Does Your Business Actually Need?"
 description: "ERP, CRM, and custom software solve different problems. Here is a plain-language breakdown of what each one does, where each one fits, and how to decide without wasting money on the wrong system."
 date: "2026-07-14"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["ERP Solutions", "SaaS Development", "Business Automation"]
 charts: "ErpVsCrmCharts"
 ---

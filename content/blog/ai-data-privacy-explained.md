@@ -2,7 +2,7 @@
 title: "Understanding AI Data Privacy: What Happens to Your Data When You Use AI Tools"
 description: "In April 2023, Samsung employees leaked confidential source code to ChatGPT three times in twenty days. Here's what actually happens to your data when you use an AI tool, grounded in that real incident."
 date: "2026-07-18"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["AI Solutions", "Security"]
 charts: "AiDataPrivacyCharts"
 ---

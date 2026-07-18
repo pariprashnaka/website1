@@ -2,7 +2,7 @@
 title: "Machine Learning vs Deep Learning vs AI: Untangling the Terms"
 description: "These three terms get used interchangeably in almost every conversation about technology, and that's genuinely confusing because they don't mean the same thing. Here's the actual relationship between them, with a simple diagram."
 date: "2026-07-17"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["AI Solutions"]
 charts: "MlVsDeepLearningCharts"
 ---

@@ -2,7 +2,7 @@
 title: "What Is an AI Agent, and How Is It Different From a Chatbot?"
 description: "Most products marketed as AI agents in 2026 aren't. Here's the actual distinction, backed by real research, and how to tell which one you're being sold."
 date: "2026-07-16"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["AI Solutions"]
 charts: "AiAgentVsChatbotCharts"
 ---

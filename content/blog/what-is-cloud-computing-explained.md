@@ -2,7 +2,7 @@
 title: "What Is Cloud Computing? A Simple Explanation for Non-Technical Readers"
 description: "Cloud computing gets talked about constantly, and the word 'cloud' itself is part of why it's confusing. A plain-language explanation using an electricity grid analogy, real examples, and no jargon."
 date: "2026-07-17"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["Cloud Engineering"]
 charts: "CloudComputingCharts"
 ---

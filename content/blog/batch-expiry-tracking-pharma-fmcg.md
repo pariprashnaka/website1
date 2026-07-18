@@ -2,7 +2,7 @@
 title: "Batch and Expiry Tracking Software for Pharma and FMCG Distributors"
 description: "Batch and expiry tracking is a compliance requirement, not a nice-to-have, for pharmaceutical and FMCG distributors. Here's what genuine tracking software needs to do and where manual systems fail."
 date: "2026-07-16"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["ERP Solutions", "Business Automation"]
 charts: "BatchExpiryCharts"
 ---

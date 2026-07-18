@@ -220,7 +220,7 @@ export const products: Product[] = [
 ];
 
 export const testimonials = [
-  { quote: "Nexora rebuilt our reconciliation process end to end. What used to take our finance team three days now takes an afternoon.", name: "Placeholder Name", role: "CFO, Placeholder Company" },
+  { quote: "SystemFriendly Labs rebuilt our reconciliation process end to end. What used to take our finance team three days now takes an afternoon.", name: "Placeholder Name", role: "CFO, Placeholder Company" },
   { quote: "They wrote the architecture document before touching a keyboard. That discipline is rare, and it showed in how few surprises we had.", name: "Placeholder Name", role: "VP Engineering, Placeholder Co." },
   { quote: "Our dispatch team went from guessing to knowing. The platform they built is the backbone of our operations now.", name: "Placeholder Name", role: "COO, Placeholder Logistics" },
 ];
@@ -262,12 +262,7 @@ export const whyUs = [
   { num: "04", title: "We stay after launch", desc: "Post-launch support built into every engagement, not sold separately." },
 ];
 
-export const timeline = [
-  { date: "YEAR 1", title: "Founded on one principle", desc: "Started as a two-person team taking on fintech reconciliation work — the origin of Nexora Ledger." },
-  { date: "YEAR 2", title: "First enterprise engagement", desc: "Delivered our first government case-management platform, establishing our compliance-first delivery process." },
-  { date: "YEAR 3", title: "Expanded into logistics and healthcare", desc: "Shipped OrbitFreight OS and the Veridian intake platform, proving the same core team could work across industries." },
-  { date: "TODAY", title: "Six systems in production", desc: "Still a senior-only team, still writing the architecture doc before the first line of code." },
-];
+export const foundingNote = "We're a brand new company. There's no multi-year history to show yet — what we can tell you is why we started: we kept seeing businesses stuck with software that didn't actually fit them, and decided the honest answer was to build things properly instead of promising more than we could deliver. Everything else, we're building now, with the people who choose to work with us early.";
 
 export const values = [
   { title: "We actually listen first", desc: "Before we talk about what we can build, we want to understand what's actually broken. Most of our best work starts with a conversation, not a pitch." },

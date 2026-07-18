@@ -2,7 +2,7 @@
 title: "What Is an API? A Plain-English Explanation for Business Owners"
 description: "APIs get mentioned in almost every software conversation, but rarely explained simply. Here's what an API actually is, using a restaurant analogy, real examples, and a simple diagram."
 date: "2026-07-17"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["Web Development", "SaaS Development"]
 charts: "ApiExplainedCharts"
 ---

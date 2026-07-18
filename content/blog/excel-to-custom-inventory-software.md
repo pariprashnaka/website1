@@ -2,7 +2,7 @@
 title: "Why Indian SMBs Are Switching From Excel to Custom Inventory Software"
 description: "Excel works until it doesn't. Here's why growing businesses across India are replacing spreadsheets with custom inventory systems — and what the switch actually involves."
 date: "2026-07-14"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["ERP Solutions", "Business Automation", "SaaS Development"]
 charts: "ExcelVsCustomInventoryCharts"
 ---

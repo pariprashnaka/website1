@@ -2,7 +2,7 @@
 title: "Signs Your Business Has Outgrown Its Current Software"
 description: "Software that worked well two years ago can quietly become the thing holding a growing business back. Here are the concrete signs worth paying attention to, and how to tell a growing pain from a genuine outgrowing problem."
 date: "2026-07-14"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["Business Automation", "ERP Solutions", "SaaS Development"]
 charts: "OutgrownSoftwareCharts"
 ---

@@ -71,7 +71,7 @@ export default function LeadPopup() {
       setSubmitted(true);
       setTimeout(() => setOpen(false), 2200);
     } catch {
-      setServerError("Couldn't send that — try again, or reach us at hello@nexorasystems.com.");
+      setServerError("Couldn't send that — try again, or reach us at hello@systemfriendly.com.");
     }
   }
 

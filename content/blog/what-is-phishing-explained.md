@@ -2,7 +2,7 @@
 title: "What Is Phishing, and How Can Your Business Avoid It?"
 description: "Phishing is the leading cause of small business data breaches — accounting for a third of all incidents, according to breach data. Here's exactly how it works, and the specific patterns that give it away."
 date: "2026-07-19"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["Security"]
 charts: "PhishingExplainedCharts"
 ---

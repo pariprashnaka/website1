@@ -2,7 +2,7 @@
 title: "What Is SaaS? A Complete Beginner's Guide"
 description: "SaaS is one of the most-used terms in modern software, and one of the least explained. A plain-language guide using a Netflix analogy, real examples, and a simple comparison to how software used to work."
 date: "2026-07-17"
-author: "Nexora Systems"
+author: "SystemFriendly Labs"
 tags: ["SaaS Development"]
 charts: "SaasBeginnerCharts"
 ---
