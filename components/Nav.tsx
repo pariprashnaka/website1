@@ -18,13 +18,13 @@ const links = [
 
 function Logo() {
   return (
-    <Link href="/" className="flex items-center gap-2.5 font-display font-bold text-[17px] tracking-tight" style={{ color: "var(--color-text-white)" }}>
+    <Link href="/" className="flex items-center gap-2.5 font-display font-bold text-[17px] tracking-tight flex-shrink-0 whitespace-nowrap" style={{ color: "var(--color-text-white)" }}>
       <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
         <path d="M13 2L23 8V18L13 24L3 18V8L13 2Z" stroke="#3B82F6" strokeWidth="1.4" />
         <path d="M13 2V13M13 13L23 8M13 13L3 8M13 13V24" stroke="#00D4FF" strokeWidth="1" opacity="0.6" />
         <circle cx="13" cy="13" r="2.4" fill="#00D4FF" />
       </svg>
-      NEXORA SYSTEMS
+      SystemFriendly Labs
     </Link>
   );
 }
@@ -36,16 +36,16 @@ export default function Nav() {
   return (
     <>
       <div className="text-center text-[13px] py-[9px] px-4 border-b" style={{ background: "var(--color-bg-secondary)", borderColor: "var(--color-border)", color: "var(--color-text-soft)" }}>
-        Now shipping: an AI-native inventory engine for multi-vertical retail —{" "}
-        <Link href="/case-studies" style={{ color: "var(--color-accent-cyan)" }} className="font-medium">
-          see how it&apos;s built →
+        How we helped a 7-café chain go from running blind to fully data-driven —{" "}
+        <Link href="/case-studies/seven-cafe-chain" style={{ color: "var(--color-accent-cyan)" }} className="font-medium">
+          read the real case study →
         </Link>
       </div>
 
       <nav className="sticky top-0 z-[200] backdrop-blur-2xl border-b" style={{ background: "rgba(5,7,10,0.7)", borderColor: "var(--color-border)" }}>
         <div className="max-w-[1240px] mx-auto flex items-center justify-between px-8 py-4">
           <Logo />
-          <div className="hidden md:flex gap-8 text-[14px]" style={{ color: "var(--color-text-soft)" }}>
+          <div className="hidden lg:flex gap-7 text-[14px]" style={{ color: "var(--color-text-soft)" }}>
             {links.map((l) => {
               const basePath = l.href.split("#")[0] || "/";
               const active = basePath !== "/" && (pathname === basePath || pathname.startsWith(`${basePath}/`));
@@ -70,10 +70,10 @@ export default function Nav() {
             })}
           </div>
           <div className="flex items-center gap-4">
-            <Magnetic className="hidden md:inline-block">
+            <Magnetic className="hidden lg:inline-block">
               <Link href="/contact" className="btn btn-ghost text-[13px] py-2.5 px-5">Talk to us</Link>
             </Magnetic>
-            <button className="md:hidden p-1.5" aria-label="Open menu" onClick={() => setMobileOpen(true)}>
+            <button className="lg:hidden p-1.5" aria-label="Open menu" onClick={() => setMobileOpen(true)}>
               <Menu size={22} color="var(--color-text-white)" />
             </button>
           </div>

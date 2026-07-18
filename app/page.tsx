@@ -173,7 +173,7 @@ export default function Home() {
       {/* WHY US */}
       <section className="px-8 py-[100px] border-t border-b" style={{ background: "var(--color-bg-secondary)", borderColor: "var(--color-border)" }}>
         <div className="max-w-[1240px] mx-auto">
-          <SectionHead num="// 06 — WHY NEXORA" title="What you're actually paying for." />
+          <SectionHead num="// 06 — WHY US" title="What you're actually paying for." />
           <Reveal>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
               {whyUs.map((w) => (

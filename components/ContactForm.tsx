@@ -44,7 +44,7 @@ export default function ContactForm() {
         body: JSON.stringify(data),
       });
       if (!res.ok) throw new Error("Submission failed");
-      if (typeof window !== "undefined") window.localStorage.setItem("nexora_lead_captured", "1");
+      if (typeof window !== "undefined") window.localStorage.setItem("sfl_lead_captured", "1");
       trackEvent({ action: "lead_captured", category: "lead_gen", label: "contact_form" });
       setSubmitted(true);
     } catch {

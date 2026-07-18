@@ -16,8 +16,8 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const SHOW_DELAY_MS = 15000;
-const SESSION_KEY = "nexora_popup_shown";
-const CAPTURED_KEY = "nexora_lead_captured";
+const SESSION_KEY = "sfl_popup_shown";
+const CAPTURED_KEY = "sfl_lead_captured";
 
 export default function LeadPopup() {
   const pathname = usePathname();

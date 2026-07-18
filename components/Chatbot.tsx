@@ -20,7 +20,7 @@ const WELCOME = "Hi! I'm Sutra Bot, SystemFriendly Labs' assistant. Ask me anyth
 const FALLBACK =
   "I don't have a solid answer for that one — but I can put you in touch directly, no need to keep guessing.";
 const TYPING_DELAY_MS = 750;
-const SESSION_KEY = "nexora_chat_session_id";
+const SESSION_KEY = "sfl_chat_session_id";
 
 function scoreMatch(query: string, row: Row): number {
   const rawQ = query.toLowerCase();

@@ -12,10 +12,10 @@ export default function Footer() {
                 <path d="M13 2V13M13 13L23 8M13 13L3 8M13 13V24" stroke="#00D4FF" strokeWidth="1" opacity="0.6" />
                 <circle cx="13" cy="13" r="2.4" fill="#00D4FF" />
               </svg>
-              NEXORA SYSTEMS
+              SystemFriendly Labs
             </Link>
             <p className="text-[13.5px] mt-3.5 leading-[1.6] max-w-[260px]" style={{ color: "var(--color-text-muted)" }}>
-              Engineering software that accelerates business growth. Placeholder domain — systemfriendly.com.
+              Engineering software that accelerates business growth. systemfriendly.com.
             </p>
           </div>
 
