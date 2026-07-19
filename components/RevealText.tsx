@@ -21,8 +21,8 @@ export default function RevealText({
             initial={{ y: "110%", opacity: 0 }}
             {...(onMount
               ? { animate: { y: 0, opacity: 1 } }
-              : { whileInView: { y: 0, opacity: 1 }, viewport: { once: true, amount: 0.12 } })}
-            transition={{ duration: 0.7, delay: i * 0.04, ease: [0.2, 0.7, 0.2, 1] }}
+              : { whileInView: { y: 0, opacity: 1 }, viewport: { once: true, amount: 0.01, margin: "0px 0px -10% 0px" } })}
+            transition={{ duration: 0.5, delay: i * 0.025, ease: [0.2, 0.7, 0.2, 1] }}
           >
             {word}&nbsp;
           </motion.span>

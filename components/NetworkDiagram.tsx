@@ -5,14 +5,14 @@ import { useEffect, useRef } from "react";
 type NodeDef = { key: string; x: number; y: number; w: number; h: number; title: string; subtitle: string; color: string };
 
 const NODES: NodeDef[] = [
-  { key: "browser", x: 20, y: 60, w: 150, h: 80, title: "Browser", subtitle: "Client", color: "var(--color-accent-blue)" },
-  { key: "gateway", x: 235, y: 30, w: 160, h: 80, title: "Gateway", subtitle: "Routing", color: "var(--color-accent-blue)" },
-  { key: "auth", x: 450, y: 60, w: 150, h: 80, title: "Auth", subtitle: "OAuth", color: "var(--color-success)" },
-  { key: "erp", x: 20, y: 240, w: 150, h: 80, title: "ERP", subtitle: "Business", color: "var(--color-warning)" },
-  { key: "ai", x: 240, y: 215, w: 150, h: 80, title: "AI Engine", subtitle: "Inference", color: "var(--color-accent-purple)" },
-  { key: "crm", x: 450, y: 240, w: 150, h: 80, title: "CRM", subtitle: "Customers", color: "var(--color-danger)" },
-  { key: "db", x: 110, y: 460, w: 170, h: 90, title: "Database", subtitle: "PostgreSQL", color: "var(--color-accent-blue)" },
-  { key: "queue", x: 350, y: 460, w: 170, h: 90, title: "Queue", subtitle: "Events", color: "var(--color-success)" },
+  { key: "browser", x: 20, y: 60, w: 150, h: 80, title: "Browser", subtitle: "Client", color: "#3B82F6" },
+  { key: "gateway", x: 235, y: 30, w: 160, h: 80, title: "Gateway", subtitle: "Routing", color: "#3B82F6" },
+  { key: "auth", x: 450, y: 60, w: 150, h: 80, title: "Auth", subtitle: "OAuth", color: "#22C55E" },
+  { key: "erp", x: 20, y: 240, w: 150, h: 80, title: "ERP", subtitle: "Business", color: "#F59E0B" },
+  { key: "ai", x: 240, y: 215, w: 150, h: 80, title: "AI Engine", subtitle: "Inference", color: "#7C3AED" },
+  { key: "crm", x: 450, y: 240, w: 150, h: 80, title: "CRM", subtitle: "Customers", color: "#EF4444" },
+  { key: "db", x: 110, y: 460, w: 170, h: 90, title: "Database", subtitle: "PostgreSQL", color: "#3B82F6" },
+  { key: "queue", x: 350, y: 460, w: 170, h: 90, title: "Queue", subtitle: "Events", color: "#22C55E" },
 ];
 
 const EDGES: [string, string][] = [
@@ -45,12 +45,12 @@ export default function NetworkDiagram() {
     const grid = E("g");
     for (let x = 0; x <= W; x += 20) {
       const line = E("line", { x1: x, y1: 0, x2: x, y2: H, "stroke-width": 0.6 });
-      line.setAttribute("stroke", "var(--color-border)");
+      line.setAttribute("stroke", "rgba(255,255,255,0.08)");
       grid.appendChild(line);
     }
     for (let y = 0; y <= H; y += 20) {
       const line = E("line", { x1: 0, y1: y, x2: W, y2: y, "stroke-width": 0.6 });
-      line.setAttribute("stroke", "var(--color-border)");
+      line.setAttribute("stroke", "rgba(255,255,255,0.08)");
       grid.appendChild(line);
     }
     svg.appendChild(grid);
@@ -71,13 +71,13 @@ export default function NetworkDiagram() {
     NODES.forEach((n) => {
       const g = E("g");
       const shadow = E("rect", { x: n.x + 4, y: n.y + 6, width: n.w, height: n.h, rx: 16 });
-      shadow.setAttribute("fill", "var(--color-accent-blue)");
+      shadow.setAttribute("fill", "#3B82F6");
       shadow.setAttribute("opacity", "0.08");
       g.appendChild(shadow);
 
       const card = E("rect", { x: n.x, y: n.y, width: n.w, height: n.h, rx: 16 });
-      card.setAttribute("fill", "var(--color-card)");
-      card.setAttribute("stroke", "var(--color-border)");
+      card.setAttribute("fill", "#111827");
+      card.setAttribute("stroke", "rgba(255,255,255,0.08)");
       g.appendChild(card);
 
       const stripe = E("rect", { x: n.x, y: n.y, width: 6, height: n.h, rx: 6 });
@@ -85,12 +85,12 @@ export default function NetworkDiagram() {
       g.appendChild(stripe);
 
       const title = E("text", { x: n.x + 18, y: n.y + 30, "font-size": 17, "font-family": "Inter", "font-weight": 700 });
-      title.setAttribute("fill", "var(--color-text-white)");
+      title.setAttribute("fill", "#F8FAFC");
       title.textContent = n.title;
       g.appendChild(title);
 
       const subtitle = E("text", { x: n.x + 18, y: n.y + 52, "font-size": 12, "font-family": "Inter" });
-      subtitle.setAttribute("fill", "var(--color-text-muted)");
+      subtitle.setAttribute("fill", "#64748B");
       subtitle.textContent = n.subtitle;
       g.appendChild(subtitle);
 
@@ -100,23 +100,23 @@ export default function NetworkDiagram() {
 
     EDGES.forEach(([a, b]) => {
       const line = E("line", { x1: nodeCenters[a].x, y1: nodeCenters[a].y, x2: nodeCenters[b].x, y2: nodeCenters[b].y, "stroke-width": 3 });
-      line.setAttribute("stroke", "var(--color-accent-blue)");
+      line.setAttribute("stroke", "#3B82F6");
       line.setAttribute("opacity", "0.2");
       linksLayer.appendChild(line);
     });
 
     const packets = EDGES.map(([a, b], i) => {
       const dot = E("circle", { r: 4 });
-      dot.setAttribute("fill", "var(--color-accent-blue)");
+      dot.setAttribute("fill", "#3B82F6");
       packetsLayer.appendChild(dot);
 
       const label = E("text", { "font-size": 10, "font-family": "Inter", "font-weight": 700 });
-      label.setAttribute("fill", "var(--color-accent-blue)");
+      label.setAttribute("fill", "#3B82F6");
       label.textContent = LABELS[i % LABELS.length];
       labelsLayer.appendChild(label);
 
       const glow = E("circle", { r: 8 });
-      glow.setAttribute("fill", "var(--color-accent-cyan)");
+      glow.setAttribute("fill", "#00D4FF");
       glow.setAttribute("opacity", "0.15");
       glowLayer.appendChild(glow);
 
@@ -162,7 +162,7 @@ export default function NetworkDiagram() {
     <div
       ref={containerRef}
       className="w-full aspect-square rounded-[32px] overflow-hidden"
-      style={{ background: "var(--color-card)", boxShadow: "0 30px 70px rgba(15,23,42,0.14)" }}
+      style={{ background: "#111827", boxShadow: "0 30px 70px rgba(15,23,42,0.14)" }}
     />
   );
 }

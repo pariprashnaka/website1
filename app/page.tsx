@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import NetworkDiagram from "@/components/NetworkDiagram";
+import Hero3DScene from "@/components/Hero3DScene";
 import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
 import Counter from "@/components/Counter";
@@ -16,35 +17,38 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden px-8 pt-[120px] pb-[100px]">
+      <section className="relative overflow-hidden px-8" style={{ paddingTop: "clamp(80px, 11vw, 130px)", paddingBottom: "clamp(64px, 9vw, 110px)" }}>
+        <div className="absolute inset-0 z-0">
+          <Hero3DScene />
+        </div>
         <div
           className="absolute pointer-events-none z-0"
           style={{ top: -220, left: -180, width: 640, height: 640, background: "radial-gradient(circle, rgba(124,58,237,0.09), transparent 65%)" }}
         />
         <div className="max-w-[1240px] mx-auto relative grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative z-[2]">
-            <span className="eyebrow load-in">Enterprise Software Engineering</span>
-            <h1 className="text-[clamp(38px,5.4vw,64px)] leading-[1.06] my-5">
+            <span className="eyebrow load-in" style={{ color: "#00D4FF" }}>Enterprise Software Engineering</span>
+            <h1 className="text-[clamp(38px,5.4vw,64px)] leading-[1.06] my-5" style={{ color: "#F8FAFC" }}>
               We build the software your{" "}
-              <span style={{ background: "linear-gradient(100deg,var(--color-accent-blue),var(--color-accent-cyan))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+              <span style={{ background: "linear-gradient(100deg,#3B82F6,#00D4FF)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
                 growth
               </span>{" "}
               depends on.
             </h1>
-            <p className="text-[17px] leading-[1.65] max-w-[520px] mb-9" style={{ color: "var(--color-text-muted)" }}>
+            <p className="text-[17px] leading-[1.65] max-w-[520px] mb-9" style={{ color: "#CBD5E1" }}>
               SystemFriendly Labs designs and ships production-grade SaaS, ERP, and AI platforms for teams who can&apos;t afford to get their infrastructure wrong — from first architecture doc to the system running at scale.
             </p>
             <div className="flex gap-3.5 flex-wrap mb-14">
               <Magnetic><Link href="/contact" className="btn btn-primary">Start a project</Link></Magnetic>
-              <Magnetic><Link href="/case-studies" className="btn btn-ghost">View our work</Link></Magnetic>
+              <Magnetic><Link href="/case-studies" className="btn btn-ghost" style={{ borderColor: "rgba(255,255,255,0.25)", color: "#F8FAFC" }}>View our work</Link></Magnetic>
             </div>
-            <div className="flex gap-8 flex-wrap mono text-[12px]" style={{ color: "var(--color-text-muted)" }}>
-              <span><span className="status-dot" />Currently accepting <b style={{ color: "var(--color-text-white)", fontWeight: 500 }}>Q4 2026</b> engagements</span>
-              <span>Systems in production: <b style={{ color: "var(--color-text-white)", fontWeight: 500 }}>6</b></span>
-              <span>Avg. engagement: <b style={{ color: "var(--color-text-white)", fontWeight: 500 }}>4–9 months</b></span>
+            <div className="flex gap-8 flex-wrap mono text-[12px]" style={{ color: "#94A3B8" }}>
+              <span><span className="status-dot" />Currently accepting <b style={{ color: "#F8FAFC", fontWeight: 500 }}>Q4 2026</b> engagements</span>
+              <span>Systems in production: <b style={{ color: "#F8FAFC", fontWeight: 500 }}>6</b></span>
+              <span>Avg. engagement: <b style={{ color: "#F8FAFC", fontWeight: 500 }}>4–9 months</b></span>
             </div>
           </div>
-          <div className="relative z-[2] hidden lg:block">
+          <div className="relative z-[2]">
             <NetworkDiagram />
           </div>
         </div>
@@ -52,7 +56,7 @@ export default function Home() {
 
 
       {/* STATS */}
-      <section className="section-pad px-8 py-[100px]">
+      <section className="section-pad px-8" style={{ paddingTop: "clamp(40px, 5vw, 64px)", paddingBottom: "clamp(40px, 5vw, 64px)" }}>
         <div className="max-w-[1240px] mx-auto">
           <Reveal>
             <div className="grid grid-cols-2 md:grid-cols-[1.3fr_1fr_1fr_1fr] gap-px rounded-xl overflow-hidden border" style={{ background: "var(--color-border)", borderColor: "var(--color-border)" }}>
@@ -65,10 +69,85 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CODE SHOWCASE */}
+      <section className="px-8 relative overflow-hidden" style={{ paddingTop: "clamp(56px, 7vw, 88px)", paddingBottom: "clamp(56px, 7vw, 88px)" }}>
+        <div className="absolute pointer-events-none" style={{ top: -160, left: -140, width: 480, height: 480, background: "radial-gradient(circle, rgba(124,58,237,0.06), transparent 65%)" }} />
+        <div className="max-w-[1240px] mx-auto relative grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+          <Reveal>
+            <div className="mono text-[11px] mb-3" style={{ color: "var(--color-accent-purple)" }}>{"// CODE QUALITY"}</div>
+            <h2 className="text-[clamp(26px,3vw,36px)] mb-4 leading-[1.2]">Code we&apos;d put our name on.</h2>
+            <p className="text-[15.5px] leading-[1.7] max-w-[480px]" style={{ color: "var(--color-text-muted)" }}>
+              No magic numbers, no silent failures. Every retry, timeout, and edge case is deliberate — because the code we ship today is the code we&apos;re still maintaining two years from now.
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="rounded-2xl overflow-hidden" style={{ background: "var(--color-card)", border: "1px solid var(--color-border)", boxShadow: "0 20px 50px -20px rgba(15,23,42,0.25)" }}>
+              <div className="flex items-center gap-2 px-4 py-3" style={{ borderBottom: "1px solid var(--color-border)" }}>
+                <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#EF4444" }} />
+                <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#F59E0B" }} />
+                <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#22C55E" }} />
+                <span className="mono text-[12px] ml-2" style={{ color: "var(--color-text-muted)" }}>withRetry.ts</span>
+              </div>
+              <pre className="mono text-[13px] leading-[1.8] p-6 overflow-x-auto" style={{ margin: 0 }}>
+                <code>
+                  <span style={{ color: "var(--color-text-muted)" }}>{"// Retries a request with exponential backoff\n"}</span>
+                  <span style={{ color: "var(--color-accent-purple)" }}>async function</span>
+                  <span style={{ color: "var(--color-text-white)" }}> withRetry</span>
+                  <span style={{ color: "var(--color-text-soft)" }}>{"<T>(\n  "}</span>
+                  <span style={{ color: "var(--color-text-soft)" }}>fn: </span>
+                  <span style={{ color: "var(--color-accent-blue)" }}>{"() => Promise<T>"}</span>
+                  <span style={{ color: "var(--color-text-soft)" }}>{",\n  { "}</span>
+                  <span style={{ color: "var(--color-text-soft)" }}>retries = </span>
+                  <span style={{ color: "var(--color-warning)" }}>3</span>
+                  <span style={{ color: "var(--color-text-soft)" }}>{", baseDelayMs = "}</span>
+                  <span style={{ color: "var(--color-warning)" }}>300</span>
+                  <span style={{ color: "var(--color-text-soft)" }}>{" }: RetryOptions = {}\n): "}</span>
+                  <span style={{ color: "var(--color-accent-blue)" }}>{"Promise<T>"}</span>
+                  <span style={{ color: "var(--color-text-soft)" }}>{" {\n  "}</span>
+                  <span style={{ color: "var(--color-accent-purple)" }}>let</span>
+                  <span style={{ color: "var(--color-text-soft)" }}> lastError: </span>
+                  <span style={{ color: "var(--color-accent-blue)" }}>unknown</span>
+                  <span style={{ color: "var(--color-text-soft)" }}>{";\n\n  "}</span>
+                  <span style={{ color: "var(--color-accent-purple)" }}>for</span>
+                  <span style={{ color: "var(--color-text-soft)" }}> (</span>
+                  <span style={{ color: "var(--color-accent-purple)" }}>let</span>
+                  <span style={{ color: "var(--color-text-soft)" }}> attempt = </span>
+                  <span style={{ color: "var(--color-warning)" }}>0</span>
+                  <span style={{ color: "var(--color-text-soft)" }}>{"; attempt <= retries; attempt++) {\n    "}</span>
+                  <span style={{ color: "var(--color-accent-purple)" }}>try</span>
+                  <span style={{ color: "var(--color-text-soft)" }}>{" {\n      "}</span>
+                  <span style={{ color: "var(--color-accent-purple)" }}>return</span>
+                  <span style={{ color: "var(--color-text-soft)" }}> </span>
+                  <span style={{ color: "var(--color-accent-purple)" }}>await</span>
+                  <span style={{ color: "var(--color-text-soft)" }}>{" fn();\n    } "}</span>
+                  <span style={{ color: "var(--color-accent-purple)" }}>catch</span>
+                  <span style={{ color: "var(--color-text-soft)" }}>{" (err) {\n      lastError = err;\n      "}</span>
+                  <span style={{ color: "var(--color-accent-purple)" }}>if</span>
+                  <span style={{ color: "var(--color-text-soft)" }}>{" (attempt === retries) "}</span>
+                  <span style={{ color: "var(--color-accent-purple)" }}>break</span>
+                  <span style={{ color: "var(--color-text-soft)" }}>{";\n\n      "}</span>
+                  <span style={{ color: "var(--color-accent-purple)" }}>const</span>
+                  <span style={{ color: "var(--color-text-soft)" }}> delay = baseDelayMs * </span>
+                  <span style={{ color: "var(--color-warning)" }}>2</span>
+                  <span style={{ color: "var(--color-text-soft)" }}> ** attempt;{"\n      "}</span>
+                  <span style={{ color: "var(--color-accent-purple)" }}>await</span>
+                  <span style={{ color: "var(--color-text-soft)" }}>{" new "}</span>
+                  <span style={{ color: "var(--color-text-white)" }}>Promise</span>
+                  <span style={{ color: "var(--color-text-soft)" }}>{"((r) => setTimeout(r, delay));\n    }\n  }\n\n  "}</span>
+                  <span style={{ color: "var(--color-accent-purple)" }}>throw</span>
+                  <span style={{ color: "var(--color-text-soft)" }}>{" lastError;\n}"}</span>
+                </code>
+              </pre>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* SERVICES */}
-      <section id="services" className="px-8 py-[100px]">
+      <section id="services" className="px-8 relative overflow-hidden" style={{ paddingTop: "clamp(56px, 7vw, 88px)", paddingBottom: "clamp(56px, 7vw, 88px)" }}>
+        <div className="absolute pointer-events-none" style={{ top: -100, right: -150, width: 500, height: 500, background: "radial-gradient(circle, rgba(37,99,235,0.07), transparent 65%)" }} />
         <div className="max-w-[1240px] mx-auto">
-          <SectionHead num="// 01 — SERVICES" title="Nine disciplines. One accountable team." desc="We don't hand your project between departments. The same senior engineers who scope the architecture are the ones who ship and maintain it." />
+          <SectionHead num="01 — SERVICES" title="Nine disciplines. One accountable team." desc="We don't hand your project between departments. The same senior engineers who scope the architecture are the ones who ship and maintain it." />
           <Reveal>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {services.map((s, i) => {
@@ -97,9 +176,9 @@ export default function Home() {
       </section>
 
       {/* PROCESS */}
-      <section className="px-8 py-[100px] border-t border-b" style={{ background: "var(--color-bg-secondary)", borderColor: "var(--color-border)" }}>
+      <section className="px-8 border-t border-b" style={{ background: "var(--color-bg-secondary)", borderColor: "var(--color-border)", paddingTop: "clamp(56px, 7vw, 88px)", paddingBottom: "clamp(56px, 7vw, 88px)" }}>
         <div className="max-w-[1240px] mx-auto">
-          <SectionHead num="// 02 — PROCESS" title="How an engagement actually runs." />
+          <SectionHead num="02 — PROCESS" title="How an engagement actually runs." />
           <Reveal>
             <div className="grid grid-cols-1 md:grid-cols-5 rounded-2xl overflow-hidden" style={{ boxShadow: "0 16px 40px -20px rgba(15,23,42,0.2)", border: "1px solid var(--color-border)" }}>
               {process.map((p, i) => {
@@ -124,26 +203,38 @@ export default function Home() {
       </section>
 
       {/* TECH STACK */}
-      <section className="px-8 py-[100px]">
+      <section className="px-8 relative overflow-hidden" style={{ paddingTop: "clamp(40px, 5vw, 64px)", paddingBottom: "clamp(40px, 5vw, 64px)" }}>
+        <div className="absolute pointer-events-none" style={{ bottom: -150, left: -120, width: 450, height: 450, background: "radial-gradient(circle, rgba(245,158,11,0.06), transparent 65%)" }} />
         <div className="max-w-[1240px] mx-auto">
-          <SectionHead num="// 03 — TECHNOLOGY" title="Stack decisions we're willing to defend." desc="We choose technology for maintainability under your future team, not novelty on our resume." />
+          <SectionHead num="03 — TECHNOLOGY" title="Stack decisions we're willing to defend." desc="We choose technology for maintainability under your future team, not novelty on our resume." />
           <Reveal>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-5">
-              {stack.map((g) => (
-                <div key={g.group}>
-                  <h5 className="mono text-[11px] uppercase tracking-[.06em] mb-3.5" style={{ color: "var(--color-text-muted)" }}>{g.group}</h5>
-                  {g.items.map((i) => <span key={i} className="chip">{i}</span>)}
-                </div>
-              ))}
+              {stack.map((g, i) => {
+                const accent = ["var(--color-accent-blue)", "var(--color-accent-purple)", "var(--color-warning)"][i % 3];
+                return (
+                  <div key={g.group}>
+                    <h5 className="mono text-[11px] uppercase tracking-[.06em] mb-3.5 font-semibold" style={{ color: accent }}>{g.group}</h5>
+                    {g.items.map((it) => (
+                      <span
+                        key={it}
+                        className="chip"
+                        style={{ borderColor: `color-mix(in srgb, ${accent} 35%, var(--color-border))` }}
+                      >
+                        {it}
+                      </span>
+                    ))}
+                  </div>
+                );
+              })}
             </div>
           </Reveal>
         </div>
       </section>
 
       {/* INDUSTRIES */}
-      <section id="industries" className="px-8 py-[100px] border-t border-b" style={{ background: "var(--color-bg-secondary)", borderColor: "var(--color-border)" }}>
+      <section id="industries" className="px-8 border-t border-b" style={{ background: "var(--color-bg-secondary)", borderColor: "var(--color-border)", paddingTop: "clamp(56px, 7vw, 88px)", paddingBottom: "clamp(56px, 7vw, 88px)" }}>
         <div className="max-w-[1240px] mx-auto">
-          <SectionHead num="// 04 — INDUSTRIES" title="Domain context, not generic delivery." />
+          <SectionHead num="04 — INDUSTRIES" title="Domain context, not generic delivery." />
           <Reveal>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {industries.map((ind, i) => {
@@ -166,9 +257,10 @@ export default function Home() {
       </section>
 
       {/* CASE STUDIES */}
-      <section className="px-8 py-[100px]">
+      <section className="px-8 relative overflow-hidden" style={{ paddingTop: "clamp(64px, 9vw, 110px)", paddingBottom: "clamp(64px, 9vw, 110px)" }}>
+        <div className="absolute pointer-events-none" style={{ top: -180, right: -140, width: 550, height: 550, background: "radial-gradient(circle, rgba(124,58,237,0.08), transparent 65%)" }} />
         <div className="max-w-[1240px] mx-auto">
-          <SectionHead num="// 05 — CASE STUDIES" title="A real engagement, start to finish." desc="We're a young company — this is a genuine completed build, not an illustrative scenario. More will be added as they complete." />
+          <SectionHead num="05 — CASE STUDIES" title="A real engagement, start to finish." desc="We're a young company — this is a genuine completed build, not an illustrative scenario. More will be added as they complete." />
           <Reveal>
             {caseStudies.slice(0, 1).map((c) => (
               <Link
@@ -198,9 +290,9 @@ export default function Home() {
       </section>
 
       {/* WHY US */}
-      <section className="px-8 py-[100px] border-t border-b" style={{ background: "var(--color-bg-secondary)", borderColor: "var(--color-border)" }}>
+      <section className="px-8 border-t border-b" style={{ background: "var(--color-bg-secondary)", borderColor: "var(--color-border)", paddingTop: "clamp(56px, 7vw, 88px)", paddingBottom: "clamp(56px, 7vw, 88px)" }}>
         <div className="max-w-[1240px] mx-auto">
-          <SectionHead num="// 06 — WHY US" title="What you're actually paying for." />
+          <SectionHead num="06 — WHY US" title="What you're actually paying for." />
           <Reveal>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
               {whyUs.map((w) => (
@@ -216,13 +308,14 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="px-8 py-[100px] max-w-[840px] mx-auto">
-        <SectionHead num="// 07 — FAQ" title="Common questions." />
+      <section className="px-8 max-w-[840px] mx-auto relative overflow-hidden" style={{ paddingTop: "clamp(56px, 7vw, 88px)", paddingBottom: "clamp(56px, 7vw, 88px)" }}>
+        <div className="absolute pointer-events-none" style={{ top: -120, left: "50%", transform: "translateX(-50%)", width: 500, height: 400, background: "radial-gradient(circle, rgba(37,99,235,0.06), transparent 65%)" }} />
+        <SectionHead num="07 — FAQ" title="Common questions." />
         <Reveal><Faq items={homeFaqs.map((f) => ({ q: f.q, a: f.a }))} /></Reveal>
       </section>
 
       {/* CTA */}
-      <section className="px-8 py-[100px]">
+      <section className="px-8" style={{ paddingTop: "clamp(64px, 9vw, 110px)", paddingBottom: "clamp(64px, 9vw, 110px)" }}>
         <div className="max-w-[1240px] mx-auto">
           <Reveal>
             <div className="rounded-[20px] py-16 px-14 text-center border" style={{ background: "radial-gradient(ellipse at top, rgba(59,130,246,0.10), transparent 60%), var(--color-bg-secondary)", borderColor: "var(--color-border)" }}>
@@ -245,7 +338,7 @@ export default function Home() {
 
 function SectionHead({ num, title, desc }: { num: string; title: string; desc?: string }) {
   return (
-    <Reveal className="max-w-[640px] mb-14">
+    <Reveal className="max-w-[640px] mb-[clamp(32px,5vw,56px)]">
       <span className="section-num mono">{num}</span>
       <h2 className="text-[clamp(28px,3.4vw,40px)] mt-4 leading-[1.15]"><RevealText text={title} /></h2>
       {desc && <p className="mt-3.5 text-[15.5px] leading-[1.6]" style={{ color: "var(--color-text-muted)" }}>{desc}</p>}
