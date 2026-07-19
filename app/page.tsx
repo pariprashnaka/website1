@@ -9,7 +9,7 @@ import Faq from "@/components/Faq";
 import Magnetic from "@/components/Magnetic";
 import BookCallButton from "@/components/BookCallButton";
 import {
-  services, industries, caseStudies, testimonials, homeFaqs, process, stack, whyUs,
+  services, industries, caseStudies, homeFaqs, process, stack, whyUs,
 } from "@/lib/content";
 
 export default function Home() {
@@ -186,33 +186,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="px-8 py-[100px]">
-        <div className="max-w-[1240px] mx-auto">
-          <SectionHead num="// 07 — CLIENTS" title="In their words." />
-          <Reveal>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {testimonials.map((t) => (
-                <div key={t.name + t.role} className="panel p-7">
-                  <p className="text-[14.5px] leading-[1.65] mb-6" style={{ color: "var(--color-text-soft)" }}>&ldquo;{t.quote}&rdquo;</p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-[38px] h-[38px] rounded-full border" style={{ background: "var(--color-bg-secondary)", borderColor: "var(--color-border)" }} />
-                    <div>
-                      <div className="text-[13.5px] font-medium" style={{ color: "var(--color-text-white)" }}>{t.name}</div>
-                      <div className="text-[12px]" style={{ color: "var(--color-text-muted)" }}>{t.role}</div>
-                    </div>
-                  </div>
-                  <div className="mono text-[10px] mt-4 opacity-60" style={{ color: "var(--color-text-muted)" }}>PENDING CLIENT APPROVAL</div>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       {/* FAQ */}
       <section className="px-8 py-[100px] max-w-[840px] mx-auto">
-        <SectionHead num="// 08 — FAQ" title="Common questions." />
+        <SectionHead num="// 07 — FAQ" title="Common questions." />
         <Reveal><Faq items={homeFaqs.map((f) => ({ q: f.q, a: f.a }))} /></Reveal>
       </section>
 
