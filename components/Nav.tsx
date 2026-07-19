@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Magnetic from "./Magnetic";
 import ThemeToggle from "./ThemeToggle";
+import LanguageToggle from "./LanguageToggle";
 
 function Logo() {
   return (
@@ -72,6 +73,7 @@ export default function Nav() {
             })}
           </div>
           <div className="flex items-center gap-4">
+            <LanguageToggle />
             <ThemeToggle />
             <Magnetic className="hidden lg:inline-block">
               <Link href="/contact" className="btn btn-ghost text-[13px] py-2.5 px-5">{t("talkToUs")}</Link>
