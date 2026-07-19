@@ -1,21 +1,12 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Magnetic from "./Magnetic";
 import ThemeToggle from "./ThemeToggle";
-
-const links = [
-  { href: "/services", label: "Services" },
-  { href: "/products", label: "Products" },
-  { href: "/case-studies", label: "Case Studies" },
-  { href: "/blog", label: "Blog" },
-  { href: "/about", label: "Company" },
-  { href: "/contact", label: "Contact" },
-];
 
 function Logo() {
   return (
@@ -31,8 +22,18 @@ function Logo() {
 }
 
 export default function Nav() {
+  const t = useTranslations("nav");
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const links = [
+    { href: "/services", label: t("services") },
+    { href: "/products", label: t("products") },
+    { href: "/case-studies", label: t("caseStudies") },
+    { href: "/blog", label: t("blog") },
+    { href: "/about", label: t("company") },
+    { href: "/contact", label: t("contact") },
+  ];
 
   return (
     <>
@@ -73,7 +74,7 @@ export default function Nav() {
           <div className="flex items-center gap-4">
             <ThemeToggle />
             <Magnetic className="hidden lg:inline-block">
-              <Link href="/contact" className="btn btn-ghost text-[13px] py-2.5 px-5">Talk to us</Link>
+              <Link href="/contact" className="btn btn-ghost text-[13px] py-2.5 px-5">{t("talkToUs")}</Link>
             </Magnetic>
             <button className="lg:hidden p-1.5" aria-label="Open menu" onClick={() => setMobileOpen(true)}>
               <Menu size={22} color="var(--color-text-white)" />

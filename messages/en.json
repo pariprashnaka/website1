@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "services": "Services",
+    "products": "Products",
+    "caseStudies": "Case Studies",
+    "blog": "Blog",
+    "company": "Company",
+    "contact": "Contact",
+    "talkToUs": "Talk to us"
+  }
+}

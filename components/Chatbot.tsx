@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Bot, X, Send } from "lucide-react";
+import { Bot, Send } from "lucide-react";
+import RobotLauncher from "./RobotLauncher";
 import { trackEvent } from "@/lib/gtag";
 
 type Row = {
@@ -187,7 +188,7 @@ export default function Chatbot() {
         className="fixed bottom-6 right-6 z-[150] flex items-center justify-center w-[54px] h-[54px] rounded-full shadow-lg transition-transform hover:scale-105"
         style={{ background: "var(--color-text-white)", boxShadow: "0 8px 24px -6px rgba(0,212,255,0.35)" }}
       >
-        {open ? <X size={22} color="var(--color-bg-primary)" /> : <Bot size={22} color="var(--color-bg-primary)" />}
+        <RobotLauncher isOpen={open} />
       </button>
 
       {open && (
