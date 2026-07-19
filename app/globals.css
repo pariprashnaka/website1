@@ -15,6 +15,7 @@
   --color-text-muted: var(--theme-text-muted);
   --color-border: var(--theme-border);
   --color-border-strong: var(--theme-border-strong);
+  --color-nav-glass: var(--theme-nav-glass);
 
   --font-display: var(--font-space-grotesk);
   --font-body: var(--font-inter);
@@ -24,7 +25,8 @@
 /* Light theme — the default. Applies unless [data-theme="dark"] is set on <html>. */
 :root {
   --theme-bg-primary: #FFFFFF;
-  --theme-bg-secondary: #F7F8FA;
+  --theme-nav-glass: rgba(255,255,255,0.72);
+  --theme-bg-secondary: #F1F4F9;
   --theme-card: #FFFFFF;
   --theme-accent-blue: #2563EB;
   --theme-accent-cyan: #2563EB;
@@ -42,6 +44,7 @@
 /* Dark / "night reading" mode — opt-in only, toggled via ThemeToggle, persisted in localStorage. */
 [data-theme="dark"] {
   --theme-bg-primary: #05070A;
+  --theme-nav-glass: rgba(5,7,10,0.7);
   --theme-bg-secondary: #0B1120;
   --theme-card: #111827;
   --theme-accent-blue: #3B82F6;

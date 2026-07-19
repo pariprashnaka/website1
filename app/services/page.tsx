@@ -45,17 +45,27 @@ export default function ServicesPage() {
       <section className="px-8 py-[100px]">
         <div className="max-w-[1240px] mx-auto">
           <Reveal>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-px rounded-2xl overflow-hidden border" style={{ background: "var(--color-border)", borderColor: "var(--color-border)" }}>
-              {services.map((s) => (
-                <a href={`#${s.slug}`} key={s.slug} className="group p-8 block" style={{ background: "var(--color-bg-primary)" }}>
-                  <ServiceIcon icon={s.icon} />
-                  <h3 className="text-[17px] mb-2.5">{s.title}</h3>
-                  <p className="text-[14px] leading-[1.6] mb-4.5" style={{ color: "var(--color-text-muted)" }}>{s.short}</p>
-                  <span className="text-[13px] font-medium inline-flex items-center gap-1.5" style={{ color: "var(--color-accent-cyan)" }}>
-                    Jump to <ArrowRight size={14} />
-                  </span>
-                </a>
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {services.map((s, i) => {
+                const accent = ["var(--color-accent-blue)", "var(--color-accent-purple)", "var(--color-warning)"][i % 3];
+                const iconHex = ["#2563EB", "#7C3AED", "#F59E0B"][i % 3];
+                return (
+                  <a
+                    href={`#${s.slug}`}
+                    key={s.slug}
+                    className="group p-8 block rounded-2xl relative overflow-hidden transition-all hover:-translate-y-1.5"
+                    style={{ background: "var(--color-card)", border: "1px solid var(--color-border)", boxShadow: "0 12px 32px -18px rgba(15,23,42,0.18)" }}
+                  >
+                    <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: accent }} />
+                    <ServiceIcon icon={s.icon} accent={iconHex} />
+                    <h3 className="text-[17px] mb-2.5">{s.title}</h3>
+                    <p className="text-[14px] leading-[1.6] mb-4.5" style={{ color: "var(--color-text-muted)" }}>{s.short}</p>
+                    <span className="text-[13px] font-medium inline-flex items-center gap-1.5" style={{ color: accent }}>
+                      Jump to <ArrowRight size={14} />
+                    </span>
+                  </a>
+                );
+              })}
             </div>
           </Reveal>
         </div>
@@ -66,21 +76,27 @@ export default function ServicesPage() {
           {services.map((s, i) => {
             const VisualComponent = serviceVisuals[s.slug];
             const isFlipped = i % 2 === 1;
+            const accent = ["var(--color-accent-blue)", "var(--color-accent-purple)", "var(--color-warning)"][i % 3];
+            const iconHex = ["#2563EB", "#7C3AED", "#F59E0B"][i % 3];
             return (
               <Reveal key={s.slug} className={`py-14 ${i < services.length - 1 ? "border-b" : ""}`}>
                 <div id={s.slug} className="scroll-mt-24 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
                   <div className={isFlipped ? "md:order-2" : ""}>
-                    <div className="mono text-[11px] mb-3" style={{ color: "var(--color-accent-cyan)" }}>
+                    <div className="mono text-[11px] mb-3" style={{ color: accent }}>
                       {`// ${String(i + 1).padStart(2, "0")}`}
                     </div>
                     <div className="flex items-baseline gap-4.5 mb-4.5 flex-wrap">
-                      <ServiceIcon icon={s.icon} />
+                      <ServiceIcon icon={s.icon} accent={iconHex} />
                       <h2><RevealText text={s.title} /></h2>
                     </div>
                     <p className="text-[15px] leading-[1.65] max-w-[480px] mb-5" style={{ color: "var(--color-text-muted)" }}>{s.detail}</p>
                     <div>{s.tags.map((t) => <span key={t} className="chip">{t}</span>)}</div>
                   </div>
-                  <div className={`aspect-[4/3] rounded-2xl border overflow-hidden ${isFlipped ? "md:order-1" : ""}`} style={{ borderColor: "var(--color-border)", background: "var(--color-card)" }}>
+                  <div
+                    className={`aspect-[4/3] rounded-2xl overflow-hidden relative ${isFlipped ? "md:order-1" : ""}`}
+                    style={{ border: "1px solid var(--color-border)", background: "var(--color-card)", boxShadow: "0 16px 40px -20px rgba(15,23,42,0.16)" }}
+                  >
+                    <div className="absolute top-0 left-0 right-0 h-[3px] z-10" style={{ background: accent }} />
                     {VisualComponent && <VisualComponent />}
                   </div>
                 </div>

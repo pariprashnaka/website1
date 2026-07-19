@@ -43,7 +43,7 @@ export default function Nav() {
         </Link>
       </div>
 
-      <nav className="sticky top-0 z-[200] backdrop-blur-2xl border-b" style={{ background: "rgba(5,7,10,0.7)", borderColor: "var(--color-border)" }}>
+      <nav className="sticky top-0 z-[200] backdrop-blur-2xl border-b" style={{ background: "var(--color-nav-glass)", borderColor: "var(--color-border)" }}>
         <div className="max-w-[1240px] mx-auto flex items-center justify-between px-8 py-4">
           <Logo />
           <div className="hidden lg:flex gap-7 text-[14px]" style={{ color: "var(--color-text-soft)" }}>
@@ -54,7 +54,7 @@ export default function Nav() {
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="relative py-1 transition-colors hover:text-white"
+                  className="relative py-1 transition-colors hover:text-[var(--color-text-white)]"
                   style={{ color: active ? "var(--color-text-white)" : undefined, fontWeight: active ? 500 : 400 }}
                 >
                   {l.label}

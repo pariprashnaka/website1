@@ -41,7 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               (function() {
                 try {
                   var saved = localStorage.getItem('sfl-theme');
-                  var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                  var theme = saved || 'light';
                   if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
                 } catch (e) {}
               })();

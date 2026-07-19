@@ -9,7 +9,7 @@ import Faq from "@/components/Faq";
 import Magnetic from "@/components/Magnetic";
 import BookCallButton from "@/components/BookCallButton";
 import {
-  services, industries, caseStudies, testimonials, homeFaqs, process, stack, whyUs,
+  services, industries, caseStudies, homeFaqs, process, stack, whyUs,
 } from "@/lib/content";
 
 export default function Home() {
@@ -70,17 +70,27 @@ export default function Home() {
         <div className="max-w-[1240px] mx-auto">
           <SectionHead num="// 01 — SERVICES" title="Nine disciplines. One accountable team." desc="We don't hand your project between departments. The same senior engineers who scope the architecture are the ones who ship and maintain it." />
           <Reveal>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-px rounded-2xl overflow-hidden border" style={{ background: "var(--color-border)", borderColor: "var(--color-border)" }}>
-              {services.map((s) => (
-                <Link href={`/services#${s.slug}`} key={s.slug} className="group p-8 block transition-colors" style={{ background: "var(--color-bg-primary)" }}>
-                  <ServiceIcon icon={s.icon} />
-                  <h3 className="text-[17px] mb-2.5">{s.title}</h3>
-                  <p className="text-[14px] leading-[1.6] mb-4.5" style={{ color: "var(--color-text-muted)" }}>{s.short}</p>
-                  <span className="text-[13px] font-medium inline-flex items-center gap-1.5" style={{ color: "var(--color-accent-cyan)" }}>
-                    Explore <ArrowRight size={14} />
-                  </span>
-                </Link>
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {services.map((s, i) => {
+                const accent = ["var(--color-accent-blue)", "var(--color-accent-purple)", "var(--color-warning)"][i % 3];
+                const iconHex = ["#2563EB", "#7C3AED", "#F59E0B"][i % 3];
+                return (
+                  <Link
+                    href={`/services#${s.slug}`}
+                    key={s.slug}
+                    className="group p-8 block rounded-2xl relative overflow-hidden transition-all hover:-translate-y-1.5"
+                    style={{ background: "var(--color-card)", border: "1px solid var(--color-border)", boxShadow: "0 12px 32px -18px rgba(15,23,42,0.18)" }}
+                  >
+                    <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: accent }} />
+                    <ServiceIcon icon={s.icon} accent={iconHex} />
+                    <h3 className="text-[17px] mb-2.5">{s.title}</h3>
+                    <p className="text-[14px] leading-[1.6] mb-4.5" style={{ color: "var(--color-text-muted)" }}>{s.short}</p>
+                    <span className="text-[13px] font-medium inline-flex items-center gap-1.5" style={{ color: accent }}>
+                      Explore <ArrowRight size={14} />
+                    </span>
+                  </Link>
+                );
+              })}
             </div>
           </Reveal>
         </div>
@@ -91,14 +101,23 @@ export default function Home() {
         <div className="max-w-[1240px] mx-auto">
           <SectionHead num="// 02 — PROCESS" title="How an engagement actually runs." />
           <Reveal>
-            <div className="flex flex-col md:flex-row border rounded-2xl overflow-hidden" style={{ borderColor: "var(--color-border)" }}>
-              {process.map((p, i) => (
-                <div key={p.idx} className={`flex-1 p-7 ${i < process.length - 1 ? "md:border-r border-b md:border-b-0" : ""}`} style={{ borderColor: "var(--color-border)", background: "var(--color-bg-primary)" }}>
-                  <span className="mono text-[12px] block mb-4" style={{ color: "var(--color-accent-blue)" }}>{p.idx}</span>
-                  <h4 className="text-[15px] mb-2">{p.title}</h4>
-                  <p className="text-[13px] leading-[1.55]" style={{ color: "var(--color-text-muted)" }}>{p.desc}</p>
-                </div>
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-5 rounded-2xl overflow-hidden" style={{ boxShadow: "0 16px 40px -20px rgba(15,23,42,0.2)", border: "1px solid var(--color-border)" }}>
+              {process.map((p, i) => {
+                const accent = ["var(--color-accent-blue)", "var(--color-accent-purple)", "var(--color-warning)"][i % 3];
+                return (
+                  <div key={p.idx} className="relative p-7" style={{ background: "var(--color-card)", borderRight: i < process.length - 1 ? "1px solid var(--color-border)" : "none" }}>
+                    <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: accent }} />
+                    <div
+                      className="w-[30px] h-[30px] rounded-lg flex items-center justify-center mono text-[12px] font-bold mb-4"
+                      style={{ background: accent, color: "white" }}
+                    >
+                      {p.idx}
+                    </div>
+                    <h4 className="text-[15px] mb-2">{p.title}</h4>
+                    <p className="text-[13px] leading-[1.55]" style={{ color: "var(--color-text-muted)" }}>{p.desc}</p>
+                  </div>
+                );
+              })}
             </div>
           </Reveal>
         </div>
@@ -127,12 +146,20 @@ export default function Home() {
           <SectionHead num="// 04 — INDUSTRIES" title="Domain context, not generic delivery." />
           <Reveal>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {industries.map((ind) => (
-                <div key={ind.title} className="p-6.5 border rounded-xl transition-all hover:-translate-y-1" style={{ borderColor: "var(--color-border)", background: "var(--color-card)" }}>
-                  <h4 className="text-[15.5px] mb-1.5">{ind.title}</h4>
-                  <p className="text-[13px]" style={{ color: "var(--color-text-muted)" }}>{ind.desc}</p>
-                </div>
-              ))}
+              {industries.map((ind, i) => {
+                const accent = ["var(--color-accent-blue)", "var(--color-accent-purple)", "var(--color-warning)"][i % 3];
+                return (
+                  <div
+                    key={ind.title}
+                    className="relative overflow-hidden p-6.5 rounded-xl transition-all hover:-translate-y-1.5"
+                    style={{ background: "var(--color-card)", border: "1px solid var(--color-border)", boxShadow: "0 10px 28px -16px rgba(15,23,42,0.16)" }}
+                  >
+                    <div className="absolute top-0 left-0 w-[3px] h-full" style={{ background: accent }} />
+                    <h4 className="text-[15.5px] mb-1.5">{ind.title}</h4>
+                    <p className="text-[13px]" style={{ color: "var(--color-text-muted)" }}>{ind.desc}</p>
+                  </div>
+                );
+              })}
             </div>
           </Reveal>
         </div>
@@ -188,33 +215,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="px-8 py-[100px]">
-        <div className="max-w-[1240px] mx-auto">
-          <SectionHead num="// 07 — CLIENTS" title="In their words." />
-          <Reveal>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {testimonials.map((t) => (
-                <div key={t.name + t.role} className="panel p-7">
-                  <p className="text-[14.5px] leading-[1.65] mb-6" style={{ color: "var(--color-text-soft)" }}>&ldquo;{t.quote}&rdquo;</p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-[38px] h-[38px] rounded-full border" style={{ background: "var(--color-bg-secondary)", borderColor: "var(--color-border)" }} />
-                    <div>
-                      <div className="text-[13.5px] font-medium" style={{ color: "var(--color-text-white)" }}>{t.name}</div>
-                      <div className="text-[12px]" style={{ color: "var(--color-text-muted)" }}>{t.role}</div>
-                    </div>
-                  </div>
-                  <div className="mono text-[10px] mt-4 opacity-60" style={{ color: "var(--color-text-muted)" }}>PENDING CLIENT APPROVAL</div>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       {/* FAQ */}
       <section className="px-8 py-[100px] max-w-[840px] mx-auto">
-        <SectionHead num="// 08 — FAQ" title="Common questions." />
+        <SectionHead num="// 07 — FAQ" title="Common questions." />
         <Reveal><Faq items={homeFaqs.map((f) => ({ q: f.q, a: f.a }))} /></Reveal>
       </section>
 

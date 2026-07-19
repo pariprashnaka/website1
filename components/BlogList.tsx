@@ -91,7 +91,7 @@ export default function BlogList({
           {hasFilter && (
             <button
               onClick={clearAll}
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-md transition-colors hover:text-white"
+              className="flex items-center gap-1.5 px-2.5 py-1 rounded-md transition-colors hover:text-[var(--color-text-white)]"
               style={{ borderColor: "var(--color-border)", border: "1px solid" }}
             >
               <X size={11} /> Clear
@@ -227,7 +227,7 @@ function BlogListRow({
       <div className="flex-1 min-w-0">
         <div className="flex items-start justify-between gap-4">
           <h3
-            className="text-[15.5px] font-medium leading-[1.35] group-hover:text-white transition-colors"
+            className="text-[15.5px] font-medium leading-[1.35] group-hover:text-[var(--color-text-white)] transition-colors"
             style={{ color: "var(--color-text-soft)" }}
           >
             {post.title}
