@@ -46,6 +46,10 @@ export default function Hero3DScene() {
     renderer.setClearColor(0x05070a, 1);
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    while (container.firstChild) {
+      container.removeChild(container.firstChild);
+    }
+
     container.appendChild(renderer.domElement);
 
     scene.add(new THREE.AmbientLight(0x1a1f2e, 1.4));
@@ -170,6 +174,16 @@ export default function Hero3DScene() {
       scene.add(ring);
       ripples.push({ mesh: ring, age: 0 });
 
+      const MAX_RIPPLES = 5;
+      while (ripples.length > MAX_RIPPLES) {
+        const oldest = ripples.shift();
+        if (oldest) {
+          scene.remove(oldest.mesh);
+          oldest.mesh.geometry.dispose();
+          (oldest.mesh.material as THREE.Material).dispose();
+        }
+      }
+
       nodes.forEach((n) => {
         const nodePos = new THREE.Vector3(n.base.x, n.base.y, n.base.z);
         const dist = nodePos.distanceTo(clickPoint);
@@ -183,12 +197,16 @@ export default function Hero3DScene() {
     container.addEventListener("click", onClick);
 
     const clock = new THREE.Clock();
+    let elapsedTime = 0;
     let rafId: number;
+    let isActive = true;
 
     function animate() {
+      if (!isActive) return;
       rafId = requestAnimationFrame(animate);
-      const t = clock.getElapsedTime();
       const dt = Math.min(clock.getDelta(), 0.05);
+      elapsedTime += dt;
+      const t = elapsedTime;
 
       nodes.forEach((n) => {
         n.rippleVelocity.multiplyScalar(0.92);
@@ -254,6 +272,7 @@ export default function Hero3DScene() {
     window.addEventListener("resize", onResize);
 
     return () => {
+      isActive = false;
       cancelAnimationFrame(rafId);
       window.removeEventListener("resize", onResize);
       container.removeEventListener("mousemove", onMouseMove);

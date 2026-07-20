@@ -131,7 +131,7 @@ export default function BlogList({
         </div>
       ) : (
         <>
-          <div className="flex flex-col gap-0 border rounded-xl overflow-hidden" style={{ borderColor: "var(--color-border)" }}>
+          <div className="flex flex-col gap-0 border rounded-xl overflow-hidden" style={{ borderColor: "var(--color-border)", boxShadow: "0 16px 38px -20px rgba(15,23,42,0.18)" }}>
             {paginated.map((post, i) => (
               <BlogListRow key={post.slug} post={post} index={(page - 1) * PAGE_SIZE + i} total={paginated.length} onTagClick={setTag} />
             ))}

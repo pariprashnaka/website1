@@ -33,9 +33,10 @@ export default function CaseStudiesPage() {
                 <Link
                   href={`/case-studies/${c.slug}`}
                   key={c.slug}
-                  className="border rounded-2xl p-6 flex flex-col transition-all hover:-translate-y-1"
-                  style={{ borderColor: "var(--color-border)", background: "var(--color-card)" }}
+                  className="border rounded-2xl p-6 flex flex-col relative overflow-hidden transition-all hover:-translate-y-1.5"
+                  style={{ borderColor: "var(--color-border)", background: "var(--color-card)", boxShadow: "0 14px 34px -18px rgba(15,23,42,0.18)" }}
                 >
+                  <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: "var(--color-accent-purple)" }} />
                   <div className="flex items-center gap-2.5 mb-4 flex-wrap">
                     <span className="mono text-[11px] uppercase tracking-[.06em] px-2.5 py-1 rounded-md" style={{ background: "rgba(124,58,237,0.1)", color: "var(--color-accent-purple)" }}>{c.industry}</span>
                   </div>

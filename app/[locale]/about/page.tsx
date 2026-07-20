@@ -67,14 +67,18 @@ export default function AboutPage() {
               </div>
             </Reveal>
 
-            {values.map((v) => (
-              <Reveal key={v.title}>
-                <div className="bento-card h-full rounded-xl border p-6" style={{ borderColor: "var(--color-border)", background: "var(--color-bg-secondary)" }}>
-                  <h4 className="text-[14.5px] mb-2 leading-[1.35]">{v.title}</h4>
-                  <p className="text-[12.5px] leading-[1.6]" style={{ color: "var(--color-text-muted)" }}>{v.desc}</p>
-                </div>
-              </Reveal>
-            ))}
+            {values.map((v, i) => {
+              const accent = ["var(--color-accent-blue)", "var(--color-accent-purple)", "var(--color-warning)", "var(--color-accent-blue)"][i % 4];
+              return (
+                <Reveal key={v.title}>
+                  <div className="bento-card h-full rounded-xl border p-6 relative overflow-hidden" style={{ borderColor: "var(--color-border)", background: "var(--color-bg-secondary)" }}>
+                    <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: accent }} />
+                    <h4 className="text-[14.5px] mb-2 leading-[1.35]">{v.title}</h4>
+                    <p className="text-[12.5px] leading-[1.6]" style={{ color: "var(--color-text-muted)" }}>{v.desc}</p>
+                  </div>
+                </Reveal>
+              );
+            })}
 
             <Reveal className="md:col-span-2">
               <div className="bento-card h-full rounded-xl border p-7" style={{ borderColor: "var(--color-border)", background: "var(--color-card)" }}>
@@ -111,13 +115,17 @@ export default function AboutPage() {
           </Reveal>
           <Reveal>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {products.map((p) => (
-                <Link key={p.slug} href={`/products#${p.slug}`} className="bento-card rounded-xl border p-6 block" style={{ borderColor: "var(--color-border)", background: "var(--color-bg-primary)" }}>
-                  <span className="mono text-[11px]" style={{ color: "var(--color-accent-cyan)" }}>{p.tag}</span>
-                  <h4 className="text-[16px] mt-2.5 mb-2">{p.name}</h4>
-                  <p className="text-[13.5px] leading-[1.6]" style={{ color: "var(--color-text-muted)" }}>{p.pitch}</p>
-                </Link>
-              ))}
+              {products.map((p, i) => {
+                const accent = ["var(--color-accent-blue)", "var(--color-accent-purple)", "var(--color-warning)", "var(--color-accent-blue)"][i % 4];
+                return (
+                  <Link key={p.slug} href={`/products#${p.slug}`} className="bento-card rounded-xl border p-6 block relative overflow-hidden" style={{ borderColor: "var(--color-border)", background: "var(--color-bg-primary)" }}>
+                    <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: accent }} />
+                    <span className="mono text-[11px]" style={{ color: accent }}>{p.tag}</span>
+                    <h4 className="text-[16px] mt-2.5 mb-2">{p.name}</h4>
+                    <p className="text-[13.5px] leading-[1.6]" style={{ color: "var(--color-text-muted)" }}>{p.pitch}</p>
+                  </Link>
+                );
+              })}
             </div>
           </Reveal>
         </div>

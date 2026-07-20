@@ -11,7 +11,6 @@ const schema = z.object({
   name: z.string().min(1, "Please enter your name."),
   email: z.string().email("Please enter a valid email address."),
   company: z.string().optional(),
-  service: z.string().optional(),
   message: z.string().min(1, "Tell us a little about the project."),
   website: z.string().optional(), // honeypot — must stay empty
 });
@@ -31,9 +30,14 @@ const inputStyle = {
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const {
     register, handleSubmit, formState: { errors, isSubmitting },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
+
+  function toggleService(s: string) {
+    setSelectedServices((prev) => (prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]));
+  }
 
   async function onSubmit(data: FormData) {
     setServerError(null);
@@ -41,7 +45,7 @@ export default function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, service: selectedServices.join(", ") || "Not specified" }),
       });
       if (!res.ok) throw new Error("Submission failed");
       if (typeof window !== "undefined") window.localStorage.setItem("sfl_lead_captured", "1");
@@ -89,10 +93,27 @@ export default function ContactForm() {
       <Field label="Company">
         <input {...register("company")} style={inputStyle} placeholder="Company name (optional)" />
       </Field>
-      <Field label="What do you need?">
-        <select {...register("service")} style={inputStyle}>
-          {services.map((s) => <option key={s}>{s}</option>)}
-        </select>
+      <Field label="What do you need? (select all that apply)">
+        <div className="flex flex-wrap gap-2">
+          {services.map((s) => {
+            const isSelected = selectedServices.includes(s);
+            return (
+              <button
+                key={s}
+                type="button"
+                onClick={() => toggleService(s)}
+                className="px-3.5 py-2 rounded-full text-[13px] font-medium transition-all border"
+                style={{
+                  background: isSelected ? "var(--color-accent-blue)" : "var(--color-card)",
+                  borderColor: isSelected ? "var(--color-accent-blue)" : "var(--color-border)",
+                  color: isSelected ? "white" : "var(--color-text-soft)",
+                }}
+              >
+                {s}
+              </button>
+            );
+          })}
+        </div>
       </Field>
       <Field label="Project brief" error={errors.message?.message}>
         <textarea {...register("message")} style={{ ...inputStyle, minHeight: 120, resize: "vertical" }} placeholder="What problem are you trying to solve?" />

@@ -63,7 +63,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
               {c.problems.map((p) => {
                 const Icon = icons[p.icon];
                 return (
-                  <div key={p.title} className="rounded-xl border p-5" style={{ borderColor: "var(--color-border)", background: "var(--color-card)" }}>
+                  <div key={p.title} className="rounded-xl border p-5" style={{ borderColor: "var(--color-border)", background: "var(--color-card)", boxShadow: "0 10px 26px -16px rgba(15,23,42,0.16)" }}>
                     <div className="w-[34px] h-[34px] rounded-lg flex items-center justify-center mb-3" style={{ background: "rgba(239,68,68,0.1)" }}>
                       {Icon && <Icon size={16} color="#EF4444" />}
                     </div>
@@ -92,7 +92,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
               {c.results.map((r) => {
                 const Icon = icons[r.icon];
                 return (
-                  <div key={r.title} className="rounded-xl border p-5" style={{ borderColor: "rgba(0,212,255,0.25)", background: "rgba(0,212,255,0.04)" }}>
+                  <div key={r.title} className="rounded-xl border p-5" style={{ borderColor: "rgba(0,212,255,0.25)", background: "rgba(0,212,255,0.04)", boxShadow: "0 10px 26px -16px rgba(15,23,42,0.16)" }}>
                     <div className="w-[34px] h-[34px] rounded-lg flex items-center justify-center mb-3" style={{ background: "rgba(0,212,255,0.1)" }}>
                       {Icon && <Icon size={16} color="var(--color-accent-cyan)" />}
                     </div>

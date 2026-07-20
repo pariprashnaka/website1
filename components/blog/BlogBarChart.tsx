@@ -21,7 +21,7 @@ export default function BlogBarChart({
           const pct = Math.min(100, (bar.value / max) * 100);
           return (
             <div key={bar.label} className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-3">
-              <div className="text-[12px] sm:text-right sm:w-[38%] sm:flex-shrink-0 leading-tight" style={{ color: "#94a3b8" }}>
+              <div className="text-[12px] sm:text-right sm:w-[38%] sm:flex-shrink-0 leading-tight" style={{ color: "var(--color-text-muted)" }}>
                 {bar.label}
               </div>
               <div className="flex items-center gap-2.5 flex-1 min-w-0">
@@ -31,7 +31,7 @@ export default function BlogBarChart({
                     style={{ width: `${pct}%`, background: color, opacity: 0.85, minWidth: pct > 0 ? "8px" : "0" }}
                   />
                 </div>
-                <div className="text-[12px] font-semibold flex-shrink-0" style={{ color: "#f8fafc" }}>
+                <div className="text-[12px] font-semibold flex-shrink-0" style={{ color: "var(--color-text-white)" }}>
                   {bar.value}{bar.unit ?? ""}
                 </div>
               </div>

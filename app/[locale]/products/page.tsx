@@ -10,6 +10,7 @@ const diagramComponents: Record<string, ReturnType<typeof dynamic>> = {
   SmartAgriculturePlatformDiagram: dynamic(() => import("@/components/SmartAgriculturePlatformDiagram")),
   SmartHrmsDiagram: dynamic(() => import("@/components/SmartHrmsDiagram")),
   SmartCafeDiagram: dynamic(() => import("@/components/SmartCafeDiagram")),
+  CafeOwnerVisibilityScene: dynamic(() => import("@/components/CafeOwnerVisibilityScene")),
 };
 
 const screenComponents: Record<string, ReturnType<typeof dynamic>> = {

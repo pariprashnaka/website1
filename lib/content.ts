@@ -174,7 +174,7 @@ export const products: Product[] = [
     solution: "Customers discover nearby cafés through location-based search, browse digital menus, and order for dine-in, takeaway, curbside, or delivery — directly with the business, not through a third-party marketplace. Café owners manage menus, pricing, and promotions from one dashboard, with bulk menu import, dynamic pricing such as happy hours and combo deals, and a real-time order tracking view from confirmation through to completion. OTP-based login keeps things simple for customers and secure for staff.",
     results: "Built to scale from a single café to a multi-location chain, giving businesses an independent digital presence and direct customer relationships without ongoing marketplace commissions.",
     features: ["Direct online ordering (dine-in, takeaway, delivery)", "Location-based café discovery", "Menu & dynamic pricing management", "Real-time order tracking dashboard", "OTP-based secure login", "Sales & customer analytics"],
-    diagram: "SmartCafeDiagram",
+    diagram: "CafeOwnerVisibilityScene",
     screens: ["OrderTrackingCard", "CafeDiscoveryCard", "SalesSnapshotCard"],
     caseStudySlug: "seven-cafe-chain",
   },
