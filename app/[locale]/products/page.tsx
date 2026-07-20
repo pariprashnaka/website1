@@ -3,15 +3,8 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import Reveal from "@/components/Reveal";
 import Magnetic from "@/components/Magnetic";
+import ProductDiagramRenderer from "@/components/ProductDiagramRenderer";
 import { products } from "@/lib/content";
-
-const diagramComponents: Record<string, ReturnType<typeof dynamic>> = {
-  DroneServiceDiagram: dynamic(() => import("@/components/DroneServiceDiagram")),
-  SmartAgriculturePlatformDiagram: dynamic(() => import("@/components/SmartAgriculturePlatformDiagram")),
-  SmartHrmsDiagram: dynamic(() => import("@/components/SmartHrmsDiagram")),
-  SmartCafeDiagram: dynamic(() => import("@/components/SmartCafeDiagram")),
-  CafeOwnerVisibilityScene: dynamic(() => import("@/components/CafeOwnerVisibilityScene")),
-};
 
 const screenComponents: Record<string, ReturnType<typeof dynamic>> = {
   PlantationHealthMap: dynamic(() => import("@/components/drone-screens/PlantationHealthMap")),
@@ -76,14 +69,7 @@ export default function ProductsPage() {
                       style={{ border: "1px solid var(--color-border)", color: "var(--color-text-muted)", boxShadow: "0 16px 40px -20px rgba(15,23,42,0.18)" }}
                     >
                       <div className="absolute top-0 left-0 right-0 h-[3px] z-10" style={{ background: accent }} />
-                      {p.diagram && diagramComponents[p.diagram] ? (
-                        (() => {
-                          const DiagramComponent = diagramComponents[p.diagram];
-                          return <DiagramComponent />;
-                        })()
-                      ) : (
-                        "PRODUCT SCREENSHOT PLACEHOLDER"
-                      )}
+                      <ProductDiagramRenderer diagram={p.diagram} />
                     </div>
                   </div>
 

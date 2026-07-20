@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
-import Script from "next/script";
 import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
+import InsertedHeadScripts from "@/components/InsertedHeadScripts";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CursorGlow from "@/components/CursorGlow";
@@ -58,35 +58,9 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        <Script
-          id="theme-init"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var saved = localStorage.getItem('sfl-theme');
-                  var theme = saved || 'light';
-                  if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
+        <InsertedHeadScripts />
       </head>
       <body className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "SystemFriendly Labs",
-              url: "https://systemfriendly.com",
-              description: "Custom software engineering across nine disciplines — SaaS, ERP, AI, mobile, web, CRM, automation, cloud, and data — built around how each business actually works.",
-            }),
-          }}
-        />
         <NextIntlClientProvider>
           <CursorGlow />
           <LeadPopup />
