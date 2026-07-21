@@ -23,7 +23,7 @@ export default function Magnetic({ children, className }: { children: ReactNode;
       ref={ref}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
-      className={`inline-block ${className ?? ""}`}
+      className={`${className?.includes("hidden") ? "" : "inline-block"} ${className ?? ""}`}
       style={{ willChange: "transform", transition: "transform .35s cubic-bezier(.2,.8,.2,1)" }}
     >
       {children}

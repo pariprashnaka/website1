@@ -43,7 +43,7 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      <section className="px-8 py-[100px]">
+      <section className="px-8" style={{ paddingTop: "clamp(64px, 9vw, 110px)", paddingBottom: "clamp(64px, 9vw, 110px)" }}>
         <div className="max-w-[1240px] mx-auto">
           {products.map((p, i) => {
             const accent = ["var(--color-accent-blue)", "var(--color-accent-purple)", "var(--color-warning)"][i % 3];
@@ -65,7 +65,7 @@ export default function ProductsPage() {
                       </div>
                     </div>
                     <div
-                      className="product-visual aspect-[4/3] rounded-2xl overflow-hidden relative flex items-center justify-center mono text-[12px]"
+                      className={`product-visual ${p.diagram === "CafeOwnerVisibilityScene" ? "aspect-auto sm:aspect-[4/3]" : "aspect-[4/3]"} rounded-2xl overflow-hidden relative flex items-center justify-center mono text-[12px]`}
                       style={{ border: "1px solid var(--color-border)", color: "var(--color-text-muted)", boxShadow: "0 16px 40px -20px rgba(15,23,42,0.18)" }}
                     >
                       <div className="absolute top-0 left-0 right-0 h-[3px] z-10" style={{ background: accent }} />
@@ -104,10 +104,10 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      <section className="px-8 py-[100px]">
+      <section className="px-8" style={{ paddingTop: "clamp(64px, 9vw, 110px)", paddingBottom: "clamp(64px, 9vw, 110px)" }}>
         <div className="max-w-[1240px] mx-auto">
           <Reveal>
-            <div className="rounded-[20px] py-16 px-14 text-center border" style={{ background: "radial-gradient(ellipse at top, rgba(59,130,246,0.10), transparent 60%), var(--color-bg-secondary)", borderColor: "var(--color-border)" }}>
+            <div className="rounded-[20px] py-10 px-6 sm:py-16 sm:px-14 text-center border" style={{ background: "radial-gradient(ellipse at top, rgba(59,130,246,0.10), transparent 60%), var(--color-bg-secondary)", borderColor: "var(--color-border)" }}>
               <span className="eyebrow">Interested in one of these?</span>
               <h2 className="text-[clamp(26px,3.6vw,38px)] mt-4 mb-4">Let&apos;s see if it fits your operation.</h2>
               <p className="max-w-[480px] mx-auto mb-8 text-[15px]" style={{ color: "var(--color-text-muted)" }}>

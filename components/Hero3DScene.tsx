@@ -301,7 +301,7 @@ export default function Hero3DScene() {
         className="w-full h-full"
         style={{
           background:
-            "radial-gradient(circle at 30% 30%, rgba(59,130,246,0.18), transparent 55%), radial-gradient(circle at 75% 70%, rgba(124,58,237,0.14), transparent 55%)",
+            "radial-gradient(circle at 30% 30%, rgba(59,130,246,0.18), transparent 55%), radial-gradient(circle at 75% 70%, rgba(124,58,237,0.14), transparent 55%), #05070A",
         }}
       />
     );

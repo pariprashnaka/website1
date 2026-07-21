@@ -1,24 +1,36 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useLocale } from "next-intl";
 import { Moon, Sun } from "lucide-react";
 
 export default function ThemeToggle() {
+  const locale = useLocale();
+  const hasMountedBefore = useRef(false);
   const [state, setState] = useState({ mounted: false, isDark: false, showHint: false });
 
   useEffect(() => {
-    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
-    const hasSeenHint = localStorage.getItem("sfl-theme-hint-seen");
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- reading browser-only APIs (localStorage, DOM attribute) for hydration-safe initial state; unavoidable here since these aren't available during SSR
-    setState({ mounted: true, isDark, showHint: false });
+    const saved = localStorage.getItem("sfl-theme");
+    const isDark = saved === "dark";
+    if (isDark) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
 
-    if (!hasSeenHint) {
+    const hasSeenHint = localStorage.getItem("sfl-theme-hint-seen");
+    const isFirstMount = !hasMountedBefore.current;
+    hasMountedBefore.current = true;
+
+    setState((s) => ({ mounted: true, isDark, showHint: isFirstMount ? s.showHint : false }));
+
+    if (!hasSeenHint && isFirstMount) {
       const timer = setTimeout(() => {
         setState((s) => ({ ...s, showHint: true }));
       }, 1500);
       return () => clearTimeout(timer);
     }
-  }, []);
+  }, [locale]);
 
   function dismissHint() {
     setState((s) => ({ ...s, showHint: false }));

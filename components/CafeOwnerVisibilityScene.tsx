@@ -52,8 +52,8 @@ export default function CafeOwnerVisibilityScene() {
   return (
     <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
       <div className="rounded-xl border p-5" style={{ borderColor: "var(--color-border)", background: "var(--color-bg-secondary)" }}>
-        <div className="mono text-[10px] uppercase tracking-[.08em] mb-3" style={{ color: "var(--color-text-muted)" }}>Before — 4 of 7 outlets reporting, and broken</div>
-        <svg viewBox="0 0 300 300" className="w-full" style={{ maxHeight: 260 }}>
+        <div className="mono text-[10px] uppercase tracking-[.08em] mb-3" style={{ color: "#EF4444" }}>Before — 4 of 7 outlets reporting, and broken</div>
+        <svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid meet" className="w-full aspect-square">
           <defs>
             <style>{beforeKeyframes}</style>
           </defs>
@@ -102,7 +102,7 @@ export default function CafeOwnerVisibilityScene() {
 
       <div className="rounded-xl border p-5" style={{ borderColor: "rgba(0,212,255,0.3)", background: "rgba(0,212,255,0.05)" }}>
         <div className="mono text-[10px] uppercase tracking-[.08em] mb-3" style={{ color: "var(--color-accent-cyan)" }}>After — all 7 outlets reporting, complete</div>
-        <svg viewBox="0 0 300 300" className="w-full" style={{ maxHeight: 260 }}>
+        <svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid meet" className="w-full aspect-square">
           <defs>
             <style>{afterKeyframes}</style>
           </defs>

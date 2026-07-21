@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 
 const diagramComponents: Record<string, ReturnType<typeof dynamic>> = {
-  DroneServiceDiagram: dynamic(() => import("@/components/DroneServiceDiagram")),
+  DroneServiceDiagram: dynamic(() => import("@/components/DroneServiceDiagram"), { ssr: false }),
   SmartAgriculturePlatformDiagram: dynamic(() => import("@/components/SmartAgriculturePlatformDiagram"), { ssr: false }),
   SmartHrmsDiagram: dynamic(() => import("@/components/SmartHrmsDiagram"), { ssr: false }),
   SmartCafeDiagram: dynamic(() => import("@/components/SmartCafeDiagram")),

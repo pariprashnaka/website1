@@ -73,7 +73,9 @@ export default function Nav() {
             })}
           </div>
           <div className="flex items-center gap-4">
-            <LanguageToggle />
+            <div className="hidden md:block">
+              <LanguageToggle />
+            </div>
             <ThemeToggle />
             <Magnetic className="hidden lg:inline-block">
               <Link href="/contact" className="btn btn-ghost text-[13px] py-2.5 px-5">{t("talkToUs")}</Link>
@@ -90,6 +92,9 @@ export default function Nav() {
           <button className="self-end p-1.5" aria-label="Close menu" onClick={() => setMobileOpen(false)}>
             <X size={24} color="var(--color-text-white)" />
           </button>
+          <div className="md:hidden">
+            <LanguageToggle />
+          </div>
           {links.map((l) => {
             const basePath = l.href.split("#")[0] || "/";
             const active = basePath !== "/" && (pathname === basePath || pathname.startsWith(`${basePath}/`));
