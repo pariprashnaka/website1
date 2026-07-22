@@ -249,7 +249,7 @@ export const process = [
 
 export const stack = [
   { group: "Frontend", items: ["TypeScript", "Next.js", "React Native"] },
-  { group: "Backend", items: ["Node.js", "Postgres", "Go"] },
+  { group: "Backend", items: ["Node.js", "Postgres", "Go", "Java"] },
   { group: "Cloud", items: ["AWS", "Vercel", "Cloudflare"] },
   { group: "Data / AI", items: ["Python", "dbt", "Claude API"] },
   { group: "Ops", items: ["Terraform", "Datadog", "GitHub Actions"] },

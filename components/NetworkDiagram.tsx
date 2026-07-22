@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type NodeDef = { key: string; x: number; y: number; w: number; h: number; title: string; subtitle: string; color: string };
 
@@ -24,10 +24,26 @@ const LABELS = ["GET", "POST", "AI", "SQL", "SYNC", "AUTH"];
 
 export default function NetworkDiagram() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isDarkTheme, setIsDarkTheme] = useState(true);
+
+  useEffect(() => {
+    const update = () => setIsDarkTheme(document.documentElement.getAttribute("data-theme") === "dark");
+    update();
+    const observer = new MutationObserver(update);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
+
+    const isDark = isDarkTheme;
+    const cardBg = isDark ? "#111827" : "#FFFFFF";
+    const cardStroke = isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)";
+    const gridStroke = isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)";
+    const titleColor = isDark ? "#F8FAFC" : "#111827";
+    const subtitleColor = isDark ? "#64748B" : "#6B7280";
 
     const NS = "http://www.w3.org/2000/svg";
     const W = 640, H = 640;
@@ -45,12 +61,12 @@ export default function NetworkDiagram() {
     const grid = E("g");
     for (let x = 0; x <= W; x += 20) {
       const line = E("line", { x1: x, y1: 0, x2: x, y2: H, "stroke-width": 0.6 });
-      line.setAttribute("stroke", "rgba(255,255,255,0.08)");
+      line.setAttribute("stroke", gridStroke);
       grid.appendChild(line);
     }
     for (let y = 0; y <= H; y += 20) {
       const line = E("line", { x1: 0, y1: y, x2: W, y2: y, "stroke-width": 0.6 });
-      line.setAttribute("stroke", "rgba(255,255,255,0.08)");
+      line.setAttribute("stroke", gridStroke);
       grid.appendChild(line);
     }
     svg.appendChild(grid);
@@ -76,8 +92,8 @@ export default function NetworkDiagram() {
       g.appendChild(shadow);
 
       const card = E("rect", { x: n.x, y: n.y, width: n.w, height: n.h, rx: 16 });
-      card.setAttribute("fill", "#111827");
-      card.setAttribute("stroke", "rgba(255,255,255,0.08)");
+      card.setAttribute("fill", cardBg);
+      card.setAttribute("stroke", cardStroke);
       g.appendChild(card);
 
       const stripe = E("rect", { x: n.x, y: n.y, width: 6, height: n.h, rx: 6 });
@@ -85,12 +101,12 @@ export default function NetworkDiagram() {
       g.appendChild(stripe);
 
       const title = E("text", { x: n.x + 18, y: n.y + 30, "font-size": 17, "font-family": "Inter", "font-weight": 700 });
-      title.setAttribute("fill", "#F8FAFC");
+      title.setAttribute("fill", titleColor);
       title.textContent = n.title;
       g.appendChild(title);
 
       const subtitle = E("text", { x: n.x + 18, y: n.y + 52, "font-size": 12, "font-family": "Inter" });
-      subtitle.setAttribute("fill", "#64748B");
+      subtitle.setAttribute("fill", subtitleColor);
       subtitle.textContent = n.subtitle;
       g.appendChild(subtitle);
 
@@ -156,13 +172,16 @@ export default function NetworkDiagram() {
       window.removeEventListener("mousemove", onMouseMove);
       cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [isDarkTheme]);
 
   return (
     <div
       ref={containerRef}
       className="w-full aspect-square rounded-[32px] overflow-hidden"
-      style={{ background: "#111827", boxShadow: "0 30px 70px rgba(15,23,42,0.14)" }}
+      style={{
+        background: isDarkTheme ? "#111827" : "#F8FAFC",
+        boxShadow: isDarkTheme ? "0 30px 70px rgba(15,23,42,0.14)" : "0 30px 70px rgba(15,23,42,0.08)"
+      }}
     />
   );
 }

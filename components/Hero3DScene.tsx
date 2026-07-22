@@ -81,30 +81,12 @@ export default function Hero3DScene() {
       rippleVelocity: THREE.Vector3;
     }[] = [];
     const nodeGroup = new THREE.Group();
-
+    // Card boxes removed — only position data kept so particles travel correctly
     NODE_DATA.forEach((n) => {
-      const geo = new THREE.BoxGeometry(1, 0.58, 0.1);
-      const mat = new THREE.MeshStandardMaterial({
-        color: 0x111827,
-        emissive: n.color,
-        emissiveIntensity: 0.22,
-        metalness: 0.6,
-        roughness: 0.35,
-        transparent: true,
-        opacity: 0.85,
-        depthWrite: true,
-      });
-      const mesh = new THREE.Mesh(geo, mat);
-      mesh.position.set(n.x, n.y, n.z);
-      mesh.renderOrder = 2;
-      nodeGroup.add(mesh);
-
-      const edges = new THREE.EdgesGeometry(geo);
-      const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: n.color, transparent: true, opacity: 0.55 }));
-      mesh.add(line);
-
+      const placeholder = new THREE.Object3D();
+      placeholder.position.set(n.x, n.y, n.z);
       nodes.push({
-        mesh,
+        mesh: new THREE.Mesh(new THREE.BufferGeometry()),
         base: { x: n.x, y: n.y, z: n.z },
         speed: 0.25 + Math.random() * 0.3,
         offset: Math.random() * Math.PI * 2,
@@ -112,7 +94,7 @@ export default function Hero3DScene() {
         rippleVelocity: new THREE.Vector3(0, 0, 0),
       });
     });
-    scene.add(nodeGroup);
+    // nodeGroup not added to scene — boxes invisible
 
     const particles: {
       mesh: THREE.Mesh;
