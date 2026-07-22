@@ -389,3 +389,11 @@ body::before {
 /* ── About page: bento card glow border on hover ── */
 .bento-card { position: relative; transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s, box-shadow .35s; box-shadow: 0 12px 32px -18px rgba(15,23,42,0.16); }
 .bento-card:hover { transform: translateY(-4px); border-color: rgba(0,212,255,0.3); box-shadow: 0 20px 44px -18px rgba(15,23,42,0.22); }
+
+/* Hero light-mode: force dark, readable text */
+:root:not([data-theme="dark"]) .hero-text-col h1 { color: #111827 !important; }
+:root:not([data-theme="dark"]) .hero-text-col p { color: #374151 !important; }
+:root:not([data-theme="dark"]) .hero-text-col .mono { color: #374151 !important; }
+:root:not([data-theme="dark"]) .hero-text-col b { color: #111827 !important; }
+:root:not([data-theme="dark"]) .hero-text-col .btn-ghost { border-color: #374151 !important; color: #111827 !important; }
+:root:not([data-theme="dark"]) .hero-canvas-wrap { left: 50% !important; }

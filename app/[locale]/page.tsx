@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden px-8" style={{ paddingTop: "clamp(80px, 11vw, 130px)", paddingBottom: "clamp(64px, 9vw, 110px)" }}>
+      <section className="relative overflow-hidden px-8" style={{ paddingTop: "clamp(80px, 11vw, 130px)", paddingBottom: "clamp(64px, 9vw, 110px)", background: "var(--color-bg-secondary)" }}>
         <div className="absolute inset-0 z-0">
           <Hero3DScene />
         </div>
@@ -26,7 +26,7 @@ export default function Home() {
           style={{ top: -220, left: -180, width: 640, height: 640, background: "radial-gradient(circle, rgba(124,58,237,0.09), transparent 65%)" }}
         />
         <div className="max-w-[1240px] mx-auto relative grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="relative z-[2]">
+          <div className="relative z-[2] hero-text-col">
             <span className="eyebrow load-in" style={{ color: "#00D4FF" }}>Enterprise Software Engineering</span>
             <h1 className="text-[clamp(38px,5.4vw,64px)] leading-[1.06] my-5" style={{ color: "#F8FAFC" }}>
               We build the software your{" "}

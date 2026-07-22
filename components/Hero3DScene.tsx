@@ -22,6 +22,16 @@ export default function Hero3DScene() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [shouldRender3D, setShouldRender3D] = useState(false);
   const [checked, setChecked] = useState(false);
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    const update = () => setIsDark(document.documentElement.getAttribute("data-theme") === "dark");
+    update();
+    const observer = new MutationObserver(update);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    return () => observer.disconnect();
+  }, []);
+
 
   useEffect(() => {
     const isWideEnough = window.innerWidth >= 1024;
@@ -37,13 +47,15 @@ export default function Hero3DScene() {
     if (!container) return;
 
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x05070a, 0.065);
+    const bgColor = document.documentElement.getAttribute("data-theme") === "dark" ? 0x05070a : 0xF1F4F9;
+    scene.fog = new THREE.FogExp2(bgColor, 0.065);
 
     const camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 100);
     camera.position.set(0, 0, 15);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
-    renderer.setClearColor(0x05070a, 1);
+    const useDarkBg = document.documentElement.getAttribute("data-theme") === "dark";
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: !useDarkBg });
+    renderer.setClearColor(0x05070a, useDarkBg ? 1 : 0);
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     while (container.firstChild) {
@@ -291,7 +303,7 @@ export default function Hero3DScene() {
         container.removeChild(renderer.domElement);
       }
     };
-  }, [shouldRender3D]);
+  }, [shouldRender3D, isDark]);
 
   if (!checked) return <div className="w-full h-full" />;
 
@@ -301,7 +313,7 @@ export default function Hero3DScene() {
         className="w-full h-full"
         style={{
           background:
-            "radial-gradient(circle at 30% 30%, rgba(59,130,246,0.18), transparent 55%), radial-gradient(circle at 75% 70%, rgba(124,58,237,0.14), transparent 55%), #05070A",
+            `radial-gradient(circle at 30% 30%, rgba(59,130,246,0.18), transparent 55%), radial-gradient(circle at 75% 70%, rgba(124,58,237,0.14), transparent 55%), ${isDark ? "#05070A" : "#F1F4F9"}`,
         }}
       />
     );
