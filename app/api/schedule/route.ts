@@ -21,7 +21,7 @@ export async function POST(req: Request) {
 
   const { name, email, date, time, timezone, query } = parsed.data;
 
-  await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+  try { await fetch("https://api.emailjs.com/api/v1.0/email/send", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -37,7 +37,7 @@ export async function POST(req: Request) {
         message: query,
       },
     }),
-  });
+  }); } catch(err) { console.error("EmailJS error:", err); }
 
   return NextResponse.json({ ok: true });
 }

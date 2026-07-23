@@ -130,6 +130,7 @@ export default function ScheduleMeeting() {
           <button
             onClick={handleSubmit}
             disabled={status === "loading" || !date || !time || !query || !email || !name}
+            type="button"
             className="btn btn-primary w-full justify-center flex items-center gap-2"
             style={{ opacity: (!date || !time || !query || !email || !name) ? 0.5 : 1 }}
           >
