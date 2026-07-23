@@ -8,6 +8,7 @@ const schema = z.object({
   date: z.string().min(1),
   time: z.string().min(1),
   query: z.string().min(1),
+  timezone: z.string().optional(),
 });
 
 export async function POST(req: Request) {
@@ -18,7 +19,7 @@ export async function POST(req: Request) {
   const parsed = schema.safeParse(await req.json());
   if (!parsed.success) return NextResponse.json({ ok: false }, { status: 400 });
 
-  const { name, email, date, time, query } = parsed.data;
+  const { name, email, date, time, timezone, query } = parsed.data;
 
   await fetch("https://api.emailjs.com/api/v1.0/email/send", {
     method: "POST",
@@ -32,7 +33,7 @@ export async function POST(req: Request) {
         name,
         email,
         company: "—",
-        service: `Meeting Request — ${date} at ${time}`,
+        service: `Meeting Request — ${date} at ${time} (${timezone || "TZ not specified"})`,
         message: query,
       },
     }),
