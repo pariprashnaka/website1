@@ -44,9 +44,9 @@ export default function Footer() {
         <div className="flex justify-between items-center pt-7 border-t text-[12.5px] flex-wrap gap-3" style={{ borderColor: "var(--color-border)", color: "var(--color-text-muted)" }}>
           <span>© 2026 SystemFriendly Labs. All rights reserved.</span>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-cyan-300">LinkedIn</a>
-            <a href="#" className="hover:text-cyan-300">GitHub</a>
-            <a href="#" className="hover:text-cyan-300">X</a>
+            <a href="https://linkedin.com/in/systemfriendly-labs-1199a9423" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300">LinkedIn</a>
+            <a href="https://twitter.com/SystemFriendly" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300">X</a>
+            <a href="https://instagram.com/systemfriendlylabs" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300">Instagram</a>
           </div>
           <div className="flex gap-4">
             <Link href="/privacy" className="hover:text-cyan-300">Privacy</Link>

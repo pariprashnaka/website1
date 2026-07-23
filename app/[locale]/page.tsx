@@ -43,9 +43,8 @@ export default function Home() {
               <Magnetic><Link href="/case-studies" className="btn btn-ghost" style={{ borderColor: "rgba(255,255,255,0.25)", color: "#F8FAFC" }}>View our work</Link></Magnetic>
             </div>
             <div className="flex gap-8 flex-wrap mono text-[12px]" style={{ color: "#94A3B8" }}>
-              <span><span className="status-dot" />Currently accepting <b style={{ color: "#F8FAFC", fontWeight: 500 }}>Q4 2026</b> engagements</span>
               <span>Systems in production: <b style={{ color: "#F8FAFC", fontWeight: 500 }}>6</b></span>
-              <span>Avg. engagement: <b style={{ color: "#F8FAFC", fontWeight: 500 }}>4–9 months</b></span>
+              <span>Avg. engagement: <b style={{ color: "#F8FAFC", fontWeight: 500 }}>4–9 months</b> (scope-dependent)</span>
             </div>
           </div>
           <div className="relative z-[2]">
