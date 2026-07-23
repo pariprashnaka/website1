@@ -14,6 +14,8 @@ const contactSchema = z.object({
   // on purpose — we want this to pass normal validation and get caught by
   // our own check below, not surface an error that teaches bots to avoid it.
   website: z.string().optional(),
+  countryCode: z.string().optional(),
+  phone: z.string().optional(),
 });
 
 export async function POST(req: Request) {
@@ -53,6 +55,7 @@ export async function POST(req: Request) {
           company: parsed.data.company || "Not provided",
           service: parsed.data.service || "Not specified",
           message: parsed.data.message,
+          phone: parsed.data.phone ? `${parsed.data.countryCode || ""} ${parsed.data.phone}` : "Not provided",
         },
       }),
     });

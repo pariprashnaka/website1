@@ -13,6 +13,8 @@ const schema = z.object({
   company: z.string().optional(),
   message: z.string().min(1, "Tell us a little about the project."),
   website: z.string().optional(), // honeypot — must stay empty
+  countryCode: z.string().optional(),
+  phone: z.string().optional(),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -20,6 +22,29 @@ type FormData = z.infer<typeof schema>;
 const services = [
   "SaaS Development", "ERP Solutions", "AI Solutions", "Mobile Application", "Web Application",
   "CRM System", "Business Automation", "Cloud Engineering", "Data Engineering", "Not sure yet",
+];
+
+const COUNTRY_CODES = [
+  { code: "+91", label: "🇮🇳 +91" },
+  { code: "+1", label: "🇺🇸 +1" },
+  { code: "+44", label: "🇬🇧 +44" },
+  { code: "+61", label: "🇦🇺 +61" },
+  { code: "+971", label: "🇦🇪 +971" },
+  { code: "+65", label: "🇸🇬 +65" },
+  { code: "+49", label: "🇩🇪 +49" },
+  { code: "+33", label: "🇫🇷 +33" },
+  { code: "+81", label: "🇯🇵 +81" },
+  { code: "+86", label: "🇨🇳 +86" },
+  { code: "+7", label: "🇷🇺 +7" },
+  { code: "+55", label: "🇧🇷 +55" },
+  { code: "+27", label: "🇿🇦 +27" },
+  { code: "+234", label: "🇳🇬 +234" },
+  { code: "+92", label: "🇵🇰 +92" },
+  { code: "+880", label: "🇧🇩 +880" },
+  { code: "+94", label: "🇱🇰 +94" },
+  { code: "+60", label: "🇲🇾 +60" },
+  { code: "+966", label: "🇸🇦 +966" },
+  { code: "+20", label: "🇪🇬 +20" },
 ];
 
 const inputStyle = {
@@ -31,6 +56,7 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const [countryCode, setCountryCode] = useState("+91");
   const {
     register, handleSubmit, formState: { errors, isSubmitting },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
@@ -45,7 +71,7 @@ export default function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, service: selectedServices.join(", ") || "Not specified" }),
+        body: JSON.stringify({ ...data, service: selectedServices.join(", ") || "Not specified", countryCode, phone: data.phone || "" }),
       });
       if (!res.ok) throw new Error("Submission failed");
       if (typeof window !== "undefined") window.localStorage.setItem("sfl_lead_captured", "1");
@@ -92,6 +118,25 @@ export default function ContactForm() {
       </Field>
       <Field label="Company">
         <input {...register("company")} style={inputStyle} placeholder="Company name (optional)" />
+      </Field>
+      <Field label="Phone number (optional)">
+        <div className="flex gap-2">
+          <select
+            value={countryCode}
+            onChange={e => setCountryCode(e.target.value)}
+            style={{ ...inputStyle, width: "auto", minWidth: 110, paddingRight: 8, colorScheme: "dark" }}
+          >
+            {COUNTRY_CODES.map(c => (
+              <option key={c.code} value={c.code}>{c.label}</option>
+            ))}
+          </select>
+          <input
+            {...register("phone")}
+            type="tel"
+            style={{ ...inputStyle, flex: 1 }}
+            placeholder="Phone number (optional)"
+          />
+        </div>
       </Field>
       <Field label="What do you need? (select all that apply)">
         <div className="flex flex-wrap gap-2">
