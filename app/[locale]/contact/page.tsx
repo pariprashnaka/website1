@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Mail, MessageCircle, Clock, ArrowRight } from "lucide-react";
+import { Mail, MessageCircle, ArrowRight } from "lucide-react";
+import ScheduleMeeting from "@/components/ScheduleMeeting";
 import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
 import ContactForm from "@/components/ContactForm";
@@ -82,15 +83,7 @@ export default function ContactPage() {
               </div>
             </Reveal>
 
-            <Reveal className="panel p-6 flex items-center gap-4">
-              <div className="w-[46px] h-[46px] rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(59,130,246,0.10)" }}>
-                <Clock size={20} color="var(--color-accent-blue)" />
-              </div>
-              <div>
-                <div className="mono text-[11px] uppercase tracking-[.06em] mb-1" style={{ color: "var(--color-text-muted)" }}>Business hours</div>
-                <p className="text-[13.5px] leading-[1.5]" style={{ color: "var(--color-text-soft)" }}>Mon – Fri, 9:00 AM – 6:00 PM</p>
-              </div>
-            </Reveal>
+            <Reveal><ScheduleMeeting /></Reveal>
 
             <Reveal className="panel p-6">
               <div className="mono text-[11px] uppercase tracking-[.06em] mb-3.5" style={{ color: "var(--color-text-muted)" }}>Elsewhere</div>
