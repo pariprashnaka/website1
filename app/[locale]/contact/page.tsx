@@ -95,13 +95,13 @@ export default function ContactPage() {
             <Reveal className="panel p-6">
               <div className="mono text-[11px] uppercase tracking-[.06em] mb-3.5" style={{ color: "var(--color-text-muted)" }}>Elsewhere</div>
               <div className="flex gap-3">
-                <a href="#" aria-label="LinkedIn" className="w-[38px] h-[38px] rounded-lg flex items-center justify-center border transition-colors hover:border-cyan-400" style={{ borderColor: "var(--color-border)" }}>
+                <a href="https://linkedin.com/in/systemfriendly-labs-1199a9423" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-[38px] h-[38px] rounded-lg flex items-center justify-center border transition-colors hover:border-cyan-400" style={{ borderColor: "var(--color-border)" }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-soft)" strokeWidth="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                 </a>
-                <a href="#" aria-label="GitHub" className="w-[38px] h-[38px] rounded-lg flex items-center justify-center border transition-colors hover:border-cyan-400" style={{ borderColor: "var(--color-border)" }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-soft)" strokeWidth="1.8"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+                <a href="https://instagram.com/systemfriendlylabs" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-[38px] h-[38px] rounded-lg flex items-center justify-center border transition-colors hover:border-cyan-400" style={{ borderColor: "var(--color-border)" }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-soft)" strokeWidth="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="var(--color-text-soft)" stroke="none"/></svg>
                 </a>
-                <a href="#" aria-label="X" className="w-[38px] h-[38px] rounded-lg flex items-center justify-center border transition-colors hover:border-cyan-400" style={{ borderColor: "var(--color-border)" }}>
+                <a href="https://x.com/SystemFriendly" target="_blank" rel="noopener noreferrer" aria-label="X" className="w-[38px] h-[38px] rounded-lg flex items-center justify-center border transition-colors hover:border-cyan-400" style={{ borderColor: "var(--color-border)" }}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--color-text-soft)"><path d="M18.9 2H22l-7.6 8.7L23.3 22H16.7l-5.2-6.8L5.5 22H2.4l8.2-9.3L1.5 2h6.8l4.7 6.2zm-1.2 18h1.7L7.4 4H5.6z"/></svg>
                 </a>
               </div>
