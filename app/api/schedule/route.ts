@@ -16,7 +16,10 @@ export async function POST(req: Request) {
   const { allowed } = rateLimit(`schedule:${ip}`, 5, 10 * 60 * 1000);
   if (!allowed) return NextResponse.json({ ok: false }, { status: 429 });
 
-  const parsed = schema.safeParse(await req.json());
+  const body = await req.json();
+  console.log("SCHEDULE BODY:", JSON.stringify(body));
+  const parsed = schema.safeParse(body);
+  if (!parsed.success) console.log("SCHEDULE ERRORS:", JSON.stringify(parsed.error.flatten()));
   if (!parsed.success) return NextResponse.json({ ok: false }, { status: 400 });
 
   const { name, email, date, time, timezone, query } = parsed.data;
