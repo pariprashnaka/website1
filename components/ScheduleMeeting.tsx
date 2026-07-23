@@ -35,6 +35,10 @@ export default function ScheduleMeeting() {
     } catch {}
   }, []);
 
+  useEffect(() => {
+    if (window.location.hash === "#schedule") setExpanded(true);
+  }, []);
+
   const today = new Date().toISOString().split("T")[0];
   const canSubmit = !!(name.trim() && email.trim() && date && time && query.trim());
 

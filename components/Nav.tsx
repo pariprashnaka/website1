@@ -78,7 +78,7 @@ export default function Nav() {
             </div>
             <ThemeToggle />
             <Magnetic className="hidden lg:inline-block">
-              <Link href="/contact" className="btn btn-ghost text-[13px] py-2.5 px-5">{t("talkToUs")}</Link>
+              <Link href="/contact#schedule" className="btn btn-ghost text-[13px] py-2.5 px-5">{t("talkToUs")}</Link>
             </Magnetic>
             <button className="lg:hidden p-1.5" aria-label="Open menu" onClick={() => setMobileOpen(true)}>
               <Menu size={22} color="var(--color-text-white)" />

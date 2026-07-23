@@ -248,11 +248,13 @@ export const process = [
 ];
 
 export const stack = [
-  { group: "Frontend", items: ["TypeScript", "Next.js", "React Native"] },
-  { group: "Backend", items: ["Node.js", "Postgres", "Go", "Java"] },
-  { group: "Cloud", items: ["AWS", "Vercel", "Cloudflare"] },
-  { group: "Data / AI", items: ["Python", "dbt", "Claude API"] },
-  { group: "Ops", items: ["Terraform", "Datadog", "GitHub Actions"] },
+  { group: "Frontend", items: ["TypeScript", "Next.js", "React", "React Native", "Tailwind CSS", "Flutter"] },
+  { group: "Backend", items: ["Node.js", "Python", "Go", "Java", "REST APIs", "GraphQL", "WebSockets"] },
+  { group: "Database", items: ["PostgreSQL", "MySQL", "Redis", "MongoDB", "Supabase", "Prisma"] },
+  { group: "Cloud", items: ["AWS", "Vercel", "Cloudflare", "Docker", "Kubernetes", "Nginx"] },
+  { group: "Data / AI", items: ["Python", "dbt", "Pandas", "Claude API", "Groq", "LangChain", "OpenAI"] },
+  { group: "Ops", items: ["Terraform", "GitHub Actions", "Datadog", "Sentry", "CI/CD", "Linux"] },
+  { group: "Integrations", items: ["Razorpay", "Stripe", "Twilio", "SendGrid", "WhatsApp API", "Google APIs"] },
 ];
 
 export const whyUs = [

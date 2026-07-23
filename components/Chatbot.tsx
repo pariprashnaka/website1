@@ -95,6 +95,7 @@ export default function Chatbot() {
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const chatHistory = useRef<{role:"user"|"assistant"; content:string}[]>([]);
 
   useEffect(() => {
     fetch("/NEXORA_Chatbot_Data.xlsx")
@@ -131,44 +132,59 @@ export default function Chatbot() {
     }
   }
 
-  const GREETINGS = ["hi", "hii", "hiii", "hello", "hey", "yo", "good morning", "good afternoon", "good evening", "namaste"];
-  const GREETING_REPLY = "Hey there! What can I help you with — feel free to ask about our services, products, pricing, or tap a question below.";
-
-  function respond(query: string) {
+  async function respond(query: string) {
     setMessages((m) => [...m, { role: "user", text: query }]);
     logMessage("user", query);
     setTyping(true);
     trackEvent({ action: "chatbot_question", category: "lead_gen", label: query.slice(0, 60) });
 
-    const normalizedQuery = query.trim().toLowerCase().replace(/[!.?]/g, "");
-    if (GREETINGS.includes(normalizedQuery)) {
-      setTimeout(() => {
-        setMessages((m) => [...m, { role: "bot", text: GREETING_REPLY }]);
-        logMessage("bot", GREETING_REPLY);
-        setTyping(false);
-      }, 500);
-      return;
+    // Send only top 5 most relevant Q&A rows to stay within token limits
+    const scored = rows
+      .map(r => ({ r, score: scoreMatch(query, r) }))
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 5);
+    const excelContext = scored
+      .map(({ r }) => `Q: ${r.Question}\nA: ${r.Answer}`)
+      .join("\n\n");
+
+    try {
+      const res = await fetch("/api/gemini", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          message: query,
+          history: chatHistory.current,
+          excelContext,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.fallback || !data.text) {
+        trackEvent({ action: "chatbot_fallback", category: "lead_gen", label: query.slice(0, 60) });
+        setMessages((m) => [...m, { role: "bot", text: FALLBACK, ctas: getContactCtas() }]);
+        logMessage("bot", FALLBACK);
+      } else {
+        // Add to conversation history for follow-ups
+        chatHistory.current = [
+          ...chatHistory.current,
+          { role: "user", content: query },
+          { role: "assistant", content: data.text },
+        ];
+        // Keep history to last 10 exchanges to avoid token bloat
+        if (chatHistory.current.length > 20) {
+          chatHistory.current = chatHistory.current.slice(-20);
+        }
+        const ctas = data.showCta ? getContactCtas() : undefined;
+        setMessages((m) => [...m, { role: "bot", text: data.text, ctas }]);
+        logMessage("bot", data.text);
+      }
+    } catch {
+      setMessages((m) => [...m, { role: "bot", text: FALLBACK, ctas: getContactCtas() }]);
+      logMessage("bot", FALLBACK);
     }
 
-    setTimeout(() => {
-      const scored = rows.map((r) => ({ row: r, score: scoreMatch(query, r) })).sort((a, b) => b.score - a.score);
-      const MIN_CONFIDENT_SCORE = 2;
-      const best = scored[0];
-      const matched = best && best.score >= MIN_CONFIDENT_SCORE ? best.row : null;
-      const answer = matched ? matched.Answer : FALLBACK;
-
-      let ctas: Cta[] | undefined;
-      if (!matched) {
-        trackEvent({ action: "chatbot_fallback", category: "lead_gen", label: query.slice(0, 60) });
-        ctas = getContactCtas();
-      } else if (matched.Category === "Contact" || matched.Category === "Pricing") {
-        ctas = getContactCtas();
-      }
-
-      setMessages((m) => [...m, { role: "bot", text: answer, ctas }]);
-      logMessage("bot", answer);
-      setTyping(false);
-    }, TYPING_DELAY_MS);
+    setTyping(false);
   }
 
   function handleSubmit(e: React.FormEvent) {

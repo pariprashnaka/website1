@@ -5,14 +5,14 @@ import { useEffect, useRef, useState } from "react";
 type NodeDef = { key: string; x: number; y: number; w: number; h: number; title: string; subtitle: string; color: string };
 
 const NODES: NodeDef[] = [
-  { key: "browser", x: 20, y: 60, w: 150, h: 80, title: "Browser", subtitle: "Client", color: "#3B82F6" },
-  { key: "gateway", x: 235, y: 30, w: 160, h: 80, title: "Gateway", subtitle: "Routing", color: "#3B82F6" },
-  { key: "auth", x: 450, y: 60, w: 150, h: 80, title: "Auth", subtitle: "OAuth", color: "#22C55E" },
-  { key: "erp", x: 20, y: 240, w: 150, h: 80, title: "ERP", subtitle: "Business", color: "#F59E0B" },
-  { key: "ai", x: 240, y: 215, w: 150, h: 80, title: "AI Engine", subtitle: "Inference", color: "#7C3AED" },
-  { key: "crm", x: 450, y: 240, w: 150, h: 80, title: "CRM", subtitle: "Customers", color: "#EF4444" },
-  { key: "db", x: 110, y: 460, w: 170, h: 90, title: "Database", subtitle: "PostgreSQL", color: "#3B82F6" },
-  { key: "queue", x: 350, y: 460, w: 170, h: 90, title: "Queue", subtitle: "Events", color: "#22C55E" },
+  { key: "browser", x: 30, y: 90, w: 150, h: 80, title: "Browser", subtitle: "Client", color: "#3B82F6" },
+  { key: "gateway", x: 245, y: 60, w: 160, h: 80, title: "Gateway", subtitle: "Routing", color: "#3B82F6" },
+  { key: "auth", x: 460, y: 90, w: 150, h: 80, title: "Auth", subtitle: "OAuth", color: "#22C55E" },
+  { key: "erp", x: 30, y: 270, w: 150, h: 80, title: "ERP", subtitle: "Business", color: "#F59E0B" },
+  { key: "ai", x: 250, y: 245, w: 150, h: 80, title: "AI Engine", subtitle: "Inference", color: "#7C3AED" },
+  { key: "crm", x: 460, y: 270, w: 150, h: 80, title: "CRM", subtitle: "Customers", color: "#EF4444" },
+  { key: "db", x: 120, y: 490, w: 170, h: 90, title: "Database", subtitle: "PostgreSQL", color: "#3B82F6" },
+  { key: "queue", x: 360, y: 490, w: 170, h: 90, title: "Queue", subtitle: "Events", color: "#22C55E" },
 ];
 
 const EDGES: [string, string][] = [
@@ -24,11 +24,13 @@ const LABELS = ["GET", "POST", "AI", "SQL", "SYNC", "AUTH"];
 
 export default function NetworkDiagram() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isDarkTheme, setIsDarkTheme] = useState(true);
+  const [isDarkTheme, setIsDarkTheme] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return document.documentElement.getAttribute('data-theme') === 'dark';
+  });
 
   useEffect(() => {
     const update = () => setIsDarkTheme(document.documentElement.getAttribute("data-theme") === "dark");
-    update();
     const observer = new MutationObserver(update);
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
     return () => observer.disconnect();
@@ -46,7 +48,7 @@ export default function NetworkDiagram() {
     const subtitleColor = isDark ? "#64748B" : "#6B7280";
 
     const NS = "http://www.w3.org/2000/svg";
-    const W = 640, H = 640;
+    const W = 640, H = 580;
 
     function E(name: string, attrs: Record<string, string | number> = {}) {
       const el = document.createElementNS(NS, name);
@@ -54,7 +56,7 @@ export default function NetworkDiagram() {
       return el;
     }
 
-    const svg = E("svg", { viewBox: `0 0 ${W} ${H}`, width: "100%", height: "100%" });
+    const svg = E("svg", { viewBox: "0 0 640 640", width: "100%", height: "100%", preserveAspectRatio: "xMidYMid meet" });
     container.innerHTML = "";
     container.appendChild(svg);
 
@@ -177,7 +179,7 @@ export default function NetworkDiagram() {
   return (
     <div
       ref={containerRef}
-      className="w-full aspect-square rounded-[32px] overflow-hidden"
+      className="w-full aspect-square rounded-[32px] overflow-hidden p-4"
       style={{
         background: isDarkTheme ? "#111827" : "#F8FAFC",
         boxShadow: isDarkTheme ? "0 30px 70px rgba(15,23,42,0.14)" : "0 30px 70px rgba(15,23,42,0.08)"

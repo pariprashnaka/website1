@@ -83,7 +83,7 @@ export default function ContactPage() {
               </div>
             </Reveal>
 
-            <Reveal><ScheduleMeeting /></Reveal>
+            <div id="schedule"><Reveal><ScheduleMeeting /></Reveal></div>
 
             <Reveal className="panel p-6">
               <div className="mono text-[11px] uppercase tracking-[.06em] mb-3.5" style={{ color: "var(--color-text-muted)" }}>Elsewhere</div>

@@ -22,11 +22,13 @@ export default function Hero3DScene() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [shouldRender3D, setShouldRender3D] = useState(false);
   const [checked, setChecked] = useState(false);
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return document.documentElement.getAttribute('data-theme') === 'dark';
+  });
 
   useEffect(() => {
     const update = () => setIsDark(document.documentElement.getAttribute("data-theme") === "dark");
-    update();
     const observer = new MutationObserver(update);
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
     return () => observer.disconnect();
@@ -54,8 +56,8 @@ export default function Hero3DScene() {
     camera.position.set(0, 0, 15);
 
     const useDarkBg = document.documentElement.getAttribute("data-theme") === "dark";
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: !useDarkBg });
-    renderer.setClearColor(0x05070a, useDarkBg ? 1 : 0);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setClearColor(0x000000, 0);
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     while (container.firstChild) {
@@ -287,7 +289,7 @@ export default function Hero3DScene() {
     };
   }, [shouldRender3D, isDark]);
 
-  if (!checked) return <div className="w-full h-full" />;
+  if (!checked) return <div className="w-full h-full" style={{ background: "#F1F4F9" }} />;
 
   if (!shouldRender3D) {
     return (
@@ -301,5 +303,5 @@ export default function Hero3DScene() {
     );
   }
 
-  return <div ref={containerRef} className="w-full h-full" />;
+  return <div ref={containerRef} className="w-full h-full" style={{ background: isDark ? "#05070A" : "#F1F4F9" }} />;
 }

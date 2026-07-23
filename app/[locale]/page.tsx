@@ -18,7 +18,7 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden px-8" style={{ paddingTop: "clamp(80px, 11vw, 130px)", paddingBottom: "clamp(64px, 9vw, 110px)", background: "var(--color-bg-secondary)" }}>
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0" style={{ background: "var(--color-bg-secondary)" }}>
           <Hero3DScene />
         </div>
         <div
