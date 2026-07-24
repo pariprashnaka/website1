@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   keywords: ["custom software development", "SaaS development India", "ERP solutions", "AI integration", "mobile app development", "web application development", "CRM system", "business automation", "cloud engineering", "enterprise software India", "SystemFriendly Labs"],
-  alternates: { canonical: "/" },
+  alternates: { canonical: "https://www.systemfriendly.com" },
 };
 
 export function generateStaticParams() {
@@ -63,12 +63,10 @@ export default async function LocaleLayout({
       <head>
         <InsertedHeadScripts />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="alternate" hrefLang="en" href="https://systemfriendly.com" />
-        <link rel="alternate" hrefLang="hi" href="https://systemfriendly.com/hi" />
-        <link rel="alternate" hrefLang="x-default" href="https://systemfriendly.com" />
+        <link rel="alternate" hrefLang="en" href="https://www.systemfriendly.com" />
+        <link rel="alternate" hrefLang="hi" href="https://www.systemfriendly.com/hi" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.systemfriendly.com" />
       </head>
       <body className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}>
         <NextIntlClientProvider>
@@ -77,7 +75,7 @@ export default async function LocaleLayout({
           <Analytics />
           <Chatbot />
           <Nav />
-          {children}
+          <main>{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>

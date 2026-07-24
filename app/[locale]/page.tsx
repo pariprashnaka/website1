@@ -214,7 +214,7 @@ export default function Home() {
                     >
                       {p.idx}
                     </div>
-                    <h4 className="text-[15px] mb-2">{p.title}</h4>
+                    <h3 className="text-[15px] mb-2">{p.title}</h3>
                     <p className="text-[13px] leading-[1.55]" style={{ color: "var(--color-text-muted)" }}>{p.desc}</p>
                   </div>
                 );
@@ -235,7 +235,7 @@ export default function Home() {
                 const accent = ["var(--color-accent-blue)", "var(--color-accent-purple)", "var(--color-warning)"][i % 3];
                 return (
                   <div key={g.group}>
-                    <h5 className="mono text-[11px] uppercase tracking-[.06em] mb-3.5 font-semibold" style={{ color: accent }}>{g.group}</h5>
+                    <h3 className="mono text-[11px] uppercase tracking-[.06em] mb-3.5 font-semibold" style={{ color: accent }}>{g.group}</h3>
                     {g.items.map((it) => (
                       <span
                         key={it}
@@ -268,7 +268,7 @@ export default function Home() {
                     style={{ background: "var(--color-card)", border: "1px solid var(--color-border)", boxShadow: "0 10px 28px -16px rgba(15,23,42,0.16)" }}
                   >
                     <div className="absolute top-0 left-0 w-[3px] h-full" style={{ background: accent }} />
-                    <h4 className="text-[15.5px] mb-1.5">{ind.title}</h4>
+                    <h3 className="text-[15.5px] mb-1.5">{ind.title}</h3>
                     <p className="text-[13px]" style={{ color: "var(--color-text-muted)" }}>{ind.desc}</p>
                   </div>
                 );
@@ -320,7 +320,7 @@ export default function Home() {
               {whyUs.map((w) => (
                 <div key={w.num} className="panel p-7">
                   <div className="mono text-[13px] mb-4.5" style={{ color: "var(--color-accent-cyan)" }}>{w.num}</div>
-                  <h4 className="text-[15.5px] mb-2.5">{w.title}</h4>
+                  <h3 className="text-[15.5px] mb-2.5">{w.title}</h3>
                   <p className="text-[13.5px] leading-[1.6]" style={{ color: "var(--color-text-muted)" }}>{w.desc}</p>
                 </div>
               ))}
