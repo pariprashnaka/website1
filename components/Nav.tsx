@@ -57,7 +57,7 @@ export default function Nav() {
                   key={l.href}
                   href={l.href}
                   className="relative py-1 transition-colors hover:text-[var(--color-text-white)]"
-                  style={{ color: active ? "var(--color-text-white)" : undefined, fontWeight: active ? 500 : 400 }}
+                  style={{ color: active ? "var(--color-text-white)" : undefined, fontWeight: active ? 600 : 500 }}
                 >
                   {l.label}
                   {active && (
