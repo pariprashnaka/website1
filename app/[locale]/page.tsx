@@ -9,6 +9,7 @@ import ServiceIcon from "@/components/ServiceIcon";
 import Faq from "@/components/Faq";
 import Magnetic from "@/components/Magnetic";
 import BookCallButton from "@/components/BookCallButton";
+import { FaqSchema, BreadcrumbSchema } from "@/components/SchemaScript";
 import {
   services, industries, caseStudies, homeFaqs, process, stack, whyUs,
 } from "@/lib/content";
@@ -16,6 +17,8 @@ import {
 export default function Home() {
   return (
     <>
+      <FaqSchema faqs={homeFaqs} />
+      <BreadcrumbSchema items={[{ name: "Home", href: "/" }]} />
       {/* HERO */}
       <section className="relative overflow-hidden px-8" style={{ paddingTop: "clamp(80px, 11vw, 130px)", paddingBottom: "clamp(64px, 9vw, 110px)", background: "var(--color-bg-secondary)" }}>
         <div className="absolute inset-0 z-0" style={{ background: "var(--color-bg-secondary)" }}>

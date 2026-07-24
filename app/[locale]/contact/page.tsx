@@ -7,6 +7,7 @@ import RevealText from "@/components/RevealText";
 import ContactForm from "@/components/ContactForm";
 import Faq from "@/components/Faq";
 import { contactFaqs } from "@/lib/content";
+import { FaqSchema, BreadcrumbSchema } from "@/components/SchemaScript";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -28,6 +29,8 @@ export default function ContactPage() {
 
   return (
     <>
+      <FaqSchema faqs={contactFaqs} />
+      <BreadcrumbSchema items={[{ name: "Home", href: "/" }, { name: "Contact", href: "/contact" }]} />
       <section className="px-8 pt-[120px] pb-[56px] border-b" style={{ borderColor: "var(--color-border)" }}>
         <div className="max-w-[1240px] mx-auto">
           <div className="mono text-[12px] mb-5 load-in" style={{ color: "var(--color-text-muted)" }}>

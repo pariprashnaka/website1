@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BreadcrumbSchema, ProductSchema } from "@/components/SchemaScript";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import Reveal from "@/components/Reveal";
@@ -30,6 +31,11 @@ export const metadata: Metadata = {
 export default function ProductsPage() {
   return (
     <>
+      <BreadcrumbSchema items={[{ name: "Home", href: "/" }, { name: "Products", href: "/products" }]} />
+      <ProductSchema name="Smart Café Platform" description="A complete café management platform covering orders, billing, inventory, and owner visibility across multiple locations. Deployed at 7 café locations." url="/products#smart-cafe-platform" />
+      <ProductSchema name="Smart HRMS Platform" description="A human resource management system covering attendance, payroll, leave management, and employee records." url="/products#smart-hrms-platform" />
+      <ProductSchema name="Smart Agriculture Platform" description="A platform for farmers and agricultural businesses covering crop monitoring, advisory, and market linkage." url="/products#smart-agriculture-platform" />
+      <ProductSchema name="Drone-as-a-Service for Tea Estates" description="Drone spraying and monitoring service for tea estate management." url="/products#drone-tea-estate" />
       <section className="px-8 pt-[120px] pb-[72px] border-b" style={{ borderColor: "var(--color-border)" }}>
         <div className="max-w-[1240px] mx-auto">
           <div className="mono text-[12px] mb-5 load-in" style={{ color: "var(--color-text-muted)" }}>

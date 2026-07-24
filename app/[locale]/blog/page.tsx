@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BreadcrumbSchema } from "@/components/SchemaScript";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import BlogList from "@/components/BlogList";
@@ -21,6 +22,7 @@ export default async function BlogIndexPage({
 
   return (
     <>
+      <BreadcrumbSchema items={[{"name": "Home", "href": "/"}, {"name": "Blog", "href": "/blog"}]} />
       <section className="px-8 pt-[120px] pb-[72px] border-b" style={{ borderColor: "var(--color-border)" }}>
         <div className="max-w-[1240px] mx-auto">
           <div className="mono text-[12px] mb-5 load-in" style={{ color: "var(--color-text-muted)" }}>

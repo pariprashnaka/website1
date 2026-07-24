@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BreadcrumbSchema } from "@/components/SchemaScript";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
+      <BreadcrumbSchema items={[{"name": "Home", "href": "/"}, {"name": "About", "href": "/about"}]} />
       {/* ── HERO ── */}
       <section className="relative px-8 pt-[130px] pb-[90px] border-b overflow-hidden" style={{ borderColor: "var(--color-border)" }}>
         <div className="absolute inset-0 opacity-[0.35] pointer-events-none">
