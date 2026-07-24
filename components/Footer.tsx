@@ -62,7 +62,7 @@ export default function Footer() {
 function FooterCol({ title, links }: { title: string; links: { href: string; label: string }[] }) {
   return (
     <div>
-      <h5 className="mono text-[11px] uppercase tracking-[.06em] mb-4" style={{ color: "var(--color-text-muted)" }}>{title}</h5>
+      <p className="mono text-[11px] uppercase tracking-[.06em] mb-4 font-semibold" style={{ color: "var(--color-text-soft)" }}>{title}</p>
       {links.map((l) => (
         <Link key={l.label} href={l.href} className="block text-[13.5px] mb-3 transition-colors hover:text-cyan-300" style={{ color: "var(--color-text-soft)" }}>
           {l.label}

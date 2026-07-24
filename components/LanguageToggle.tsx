@@ -23,7 +23,7 @@ export default function LanguageToggle() {
         className="px-2.5 py-1 rounded-full transition-colors"
         style={{
           background: locale === "en" ? "var(--color-accent-blue)" : "transparent",
-          color: locale === "en" ? "white" : "var(--color-text-muted)",
+          color: locale === "en" ? "white" : "var(--color-text-soft)",
         }}
       >
         EN
@@ -34,7 +34,7 @@ export default function LanguageToggle() {
         className="px-2.5 py-1 rounded-full transition-colors"
         style={{
           background: locale === "hi" ? "var(--color-accent-blue)" : "transparent",
-          color: locale === "hi" ? "white" : "var(--color-text-muted)",
+          color: locale === "hi" ? "white" : "var(--color-text-soft)",
         }}
       >
         हि
