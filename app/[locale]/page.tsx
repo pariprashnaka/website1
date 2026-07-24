@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import NetworkDiagram from "@/components/NetworkDiagram";
-import Hero3DScene from "@/components/Hero3DScene";
+import Hero3DSceneLoader from "@/components/Hero3DSceneLoader";
 import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
 import Counter from "@/components/Counter";
@@ -42,7 +42,7 @@ export default function Home() {
       {/* HERO */}
       <section className="relative overflow-hidden px-8" style={{ paddingTop: "clamp(80px, 11vw, 130px)", paddingBottom: "clamp(64px, 9vw, 110px)", background: "var(--color-bg-secondary)" }}>
         <div className="absolute inset-0 z-0" style={{ background: "var(--color-bg-secondary)" }}>
-          <Hero3DScene />
+          <Hero3DSceneLoader />
         </div>
         <div
           className="absolute pointer-events-none z-0"
