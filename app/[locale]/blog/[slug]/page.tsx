@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleSchema, BreadcrumbSchema } from "@/components/SchemaScript";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Reveal from "@/components/Reveal";
@@ -21,11 +22,16 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.description,
+    alternates: { canonical: `/blog/${post.slug}` },
+    authors: [{ name: "SystemFriendly Labs", url: "https://systemfriendly.com/about" }],
     openGraph: {
       title: post.title,
       description: post.description,
       type: "article",
       publishedTime: post.date,
+      authors: ["SystemFriendly Labs"],
+      url: `https://systemfriendly.com/blog/${post.slug}`,
+      siteName: "SystemFriendly Labs",
     },
     twitter: {
       card: "summary_large_image",
@@ -69,6 +75,8 @@ export default async function BlogPostPage({
 
   return (
     <>
+      <ArticleSchema title={post.title} description={post.description} url={`/blog/${post.slug}`} datePublished={post.date} />
+      <BreadcrumbSchema items={[{ name: "Home", href: "/" }, { name: "Blog", href: "/blog" }, { name: post.title, href: `/blog/${post.slug}` }]} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

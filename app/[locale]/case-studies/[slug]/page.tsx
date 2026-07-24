@@ -22,7 +22,23 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const c = caseStudies.find((cs) => cs.slug === slug);
   if (!c) return {};
-  return { title: c.title, description: c.summary, alternates: { canonical: `/case-studies/${c.slug}` } };
+  return {
+    title: c.title,
+    description: c.summary,
+    alternates: { canonical: `/case-studies/${c.slug}` },
+    openGraph: {
+      title: `${c.title} — SystemFriendly Labs`,
+      description: c.summary,
+      type: "article",
+      url: `https://systemfriendly.com/case-studies/${c.slug}`,
+      siteName: "SystemFriendly Labs",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${c.title} — SystemFriendly Labs`,
+      description: c.summary,
+    },
+  };
 }
 
 export default async function CaseStudyDetailPage({ params }: { params: Promise<{ slug: string }> }) {

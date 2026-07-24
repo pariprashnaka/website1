@@ -9,6 +9,26 @@ import ServiceIcon from "@/components/ServiceIcon";
 import Faq from "@/components/Faq";
 import Magnetic from "@/components/Magnetic";
 import BookCallButton from "@/components/BookCallButton";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "SystemFriendly Labs — Custom Software Engineering",
+  description: "SystemFriendly Labs builds custom software — SaaS, ERP, AI, mobile, web, CRM, automation, cloud, and data engineering — for businesses that need software built around how they actually work.",
+  alternates: { canonical: "/" },
+  keywords: ["custom software development India", "SaaS development", "ERP solutions India", "AI integration", "enterprise software", "mobile app development", "web application", "SystemFriendly Labs"],
+  openGraph: {
+    title: "SystemFriendly Labs — Custom Software Engineering",
+    description: "Custom software built around how your business actually works — SaaS, ERP, AI, mobile, web, and more.",
+    url: "https://systemfriendly.com",
+    siteName: "SystemFriendly Labs",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SystemFriendly Labs — Custom Software Engineering",
+    description: "Custom software built around how your business actually works.",
+  },
+};
 import { FaqSchema, BreadcrumbSchema } from "@/components/SchemaScript";
 import {
   services, industries, caseStudies, homeFaqs, process, stack, whyUs,

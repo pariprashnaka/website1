@@ -12,6 +12,20 @@ import { values, foundingNote, products } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Company",
   description: "We're a small, senior team that builds what businesses actually need — and tells you honestly when they don't need us at all.",
+  alternates: { canonical: "/about" },
+  keywords: ["SystemFriendly Labs", "custom software company", "software engineering team India", "enterprise software", "about SystemFriendly"],
+  openGraph: {
+    title: "Company — SystemFriendly Labs",
+    description: "A small, senior software engineering team that builds what businesses actually need.",
+    url: "https://systemfriendly.com/about",
+    siteName: "SystemFriendly Labs",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Company — SystemFriendly Labs",
+    description: "A small, senior software engineering team that builds what businesses actually need.",
+  },
 };
 
 export default function AboutPage() {

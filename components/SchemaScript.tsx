@@ -29,6 +29,29 @@ export function BreadcrumbSchema({ items }: { items: { name: string; href: strin
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }
 
+export function ArticleSchema({ title, description, url, datePublished, author }: { title: string; description: string; url: string; datePublished: string; author?: string }) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    url: `https://systemfriendly.com${url}`,
+    datePublished,
+    dateModified: datePublished,
+    author: {
+      "@type": "Organization",
+      name: author || "SystemFriendly Labs",
+      url: "https://systemfriendly.com",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "SystemFriendly Labs",
+      url: "https://systemfriendly.com",
+    },
+  };
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
+}
+
 export function ProductSchema({ name, description, url }: { name: string; description: string; url: string }) {
   const schema = {
     "@context": "https://schema.org",

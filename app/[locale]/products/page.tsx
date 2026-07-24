@@ -26,6 +26,19 @@ export const metadata: Metadata = {
   title: "Products",
   description: "Smart Café Platform and Smart HRMS — deployed, in-production systems — plus the Smart Agriculture Platform and Drone-as-a-Service for Tea Estates.",
   alternates: { canonical: "/products" },
+  keywords: ["Smart Café Platform", "HRMS software", "agriculture platform India", "drone service tea estate", "custom software products", "SaaS products India"],
+  openGraph: {
+    title: "Products — SystemFriendly Labs",
+    description: "Four software products built and maintained by SystemFriendly Labs — two in production, two in government pilot.",
+    url: "https://systemfriendly.com/products",
+    siteName: "SystemFriendly Labs",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Products — SystemFriendly Labs",
+    description: "Four software products — two deployed, two in government pilot.",
+  },
 };
 
 export default function ProductsPage() {

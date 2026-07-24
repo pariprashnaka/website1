@@ -13,6 +13,19 @@ export const metadata: Metadata = {
   title: "Contact",
   description: "Start a project with SystemFriendly Labs. Send a brief and get real next steps within two business days.",
   alternates: { canonical: "/contact" },
+  keywords: ["contact SystemFriendly Labs", "hire software engineers India", "custom software quote", "start a software project"],
+  openGraph: {
+    title: "Contact — SystemFriendly Labs",
+    description: "Send a brief and get real next steps within two business days — no discovery call required.",
+    url: "https://systemfriendly.com/contact",
+    siteName: "SystemFriendly Labs",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact — SystemFriendly Labs",
+    description: "Send a brief and get real next steps within two business days.",
+  },
 };
 
 const responseSteps = [

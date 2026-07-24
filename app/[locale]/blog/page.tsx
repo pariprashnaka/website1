@@ -9,6 +9,19 @@ export const metadata: Metadata = {
   title: "Blog",
   description: "Real experience from building SaaS, ERP, and AI systems, plus complex topics explained simply — written so a student and a CEO can both actually understand it.",
   alternates: { canonical: "/blog" },
+  keywords: ["software engineering blog", "SaaS development articles", "ERP explained", "AI integration guide", "custom software India blog"],
+  openGraph: {
+    title: "Blog — SystemFriendly Labs",
+    description: "Real experience from building SaaS, ERP, and AI systems — written so anyone can understand it.",
+    url: "https://systemfriendly.com/blog",
+    siteName: "SystemFriendly Labs",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog — SystemFriendly Labs",
+    description: "Real experience from building SaaS, ERP, and AI systems.",
+  },
 };
 
 export default async function BlogIndexPage({

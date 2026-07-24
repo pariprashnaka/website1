@@ -30,10 +30,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@SystemFriendly",
+    creator: "@SystemFriendly",
     title: "SystemFriendly Labs — Enterprise Software Engineering",
     description: "Custom software built around how your business actually works — SaaS, ERP, AI, mobile, web, and more.",
   },
   robots: { index: true, follow: true },
+  keywords: ["custom software development", "SaaS development India", "ERP solutions", "AI integration", "mobile app development", "web application development", "CRM system", "business automation", "cloud engineering", "enterprise software India", "SystemFriendly Labs"],
   alternates: { canonical: "/" },
 };
 
@@ -59,6 +62,13 @@ export default async function LocaleLayout({
     <html lang={locale} suppressHydrationWarning>
       <head>
         <InsertedHeadScripts />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="alternate" hrefLang="en" href="https://systemfriendly.com" />
+        <link rel="alternate" hrefLang="hi" href="https://systemfriendly.com/hi" />
+        <link rel="alternate" hrefLang="x-default" href="https://systemfriendly.com" />
       </head>
       <body className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}>
         <NextIntlClientProvider>

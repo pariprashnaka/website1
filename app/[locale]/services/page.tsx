@@ -25,6 +25,19 @@ export const metadata: Metadata = {
   title: "Services",
   description: "SaaS development, ERP, AI, mobile, web, CRM, automation, cloud, and data engineering — nine disciplines delivered by one senior team.",
   alternates: { canonical: "/services" },
+  keywords: ["SaaS development", "ERP solutions", "AI integration", "mobile app development", "web application", "CRM system", "business automation", "cloud engineering", "data engineering", "custom software India"],
+  openGraph: {
+    title: "Services — SystemFriendly Labs",
+    description: "Nine software engineering disciplines — SaaS, ERP, AI, mobile, web, CRM, automation, cloud, and data — delivered by one senior team.",
+    url: "https://systemfriendly.com/services",
+    siteName: "SystemFriendly Labs",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Services — SystemFriendly Labs",
+    description: "Nine software engineering disciplines delivered by one senior team.",
+  },
 };
 
 export default function ServicesPage() {

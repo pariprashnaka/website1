@@ -8,6 +8,20 @@ import { caseStudies } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Case Studies",
   description: "Real engagements, real problems solved — starting with a seven-café chain that went from running blind to fully data-driven.",
+  alternates: { canonical: "/case-studies" },
+  keywords: ["software case studies", "ERP implementation", "café management software", "custom software results", "SystemFriendly Labs work"],
+  openGraph: {
+    title: "Case Studies — SystemFriendly Labs",
+    description: "Real engagements, real problems solved — every case study is a genuine project, not an illustrative scenario.",
+    url: "https://systemfriendly.com/case-studies",
+    siteName: "SystemFriendly Labs",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Case Studies — SystemFriendly Labs",
+    description: "Real engagements, real problems solved.",
+  },
 };
 
 export default function CaseStudiesPage() {

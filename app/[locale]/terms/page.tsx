@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Terms & Conditions",
   description: "The terms governing your use of the SystemFriendly Labs website.",
   alternates: { canonical: "/terms" },
+  robots: { index: false, follow: false },
 };
 
 export default function TermsPage() {

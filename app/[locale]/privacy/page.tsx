@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "How SystemFriendly Labs collects, uses, and protects your personal data.",
   alternates: { canonical: "/privacy" },
+  robots: { index: false, follow: false },
 };
 
 export default function PrivacyPolicyPage() {
