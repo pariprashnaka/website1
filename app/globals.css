@@ -397,3 +397,27 @@ body::before {
 :root:not([data-theme="dark"]) .hero-text-col b { color: #111827 !important; }
 :root:not([data-theme="dark"]) .hero-text-col .btn-ghost { border-color: #374151 !important; color: #111827 !important; }
 :root:not([data-theme="dark"]) .hero-canvas-wrap { left: 50% !important; }
+
+/* Network diagram — theme-aware background via CSS, avoids hydration mismatch */
+.network-diagram-wrap { background: #111827; box-shadow: 0 30px 70px rgba(15,23,42,0.14); }
+:root:not([data-theme="dark"]) .network-diagram-wrap { background: #F8FAFC; box-shadow: 0 30px 70px rgba(15,23,42,0.08); }
+
+/* Network diagram light mode override */
+:root:not([data-theme="dark"]) .network-diagram-container { background: #F8FAFC !important; box-shadow: 0 30px 70px rgba(15,23,42,0.06) !important; }
+
+/* Network diagram CSS variables — theme-aware, no JS needed */
+:root {
+  --nd-card: #ffffff;
+  --nd-border: rgba(0,0,0,0.08);
+  --nd-grid: rgba(0,0,0,0.08);
+  --nd-title: #111827;
+  --nd-sub: #6B7280;
+}
+[data-theme="dark"] {
+  --nd-card: #111827;
+  --nd-border: rgba(255,255,255,0.08);
+  --nd-grid: rgba(255,255,255,0.08);
+  --nd-title: #F8FAFC;
+  --nd-sub: #64748B;
+}
+.nd-wrap { background: var(--nd-card); box-shadow: 0 30px 70px rgba(15,23,42,0.14); }

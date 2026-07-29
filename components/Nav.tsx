@@ -11,12 +11,14 @@ import LanguageToggle from "./LanguageToggle";
 
 function Logo() {
   return (
-    <Link href="/" className="flex items-center gap-2.5 font-display font-bold text-[17px] tracking-tight flex-shrink-0 whitespace-nowrap" style={{ color: "var(--color-text-white)" }}>
-      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-        <path d="M13 2L23 8V18L13 24L3 18V8L13 2Z" stroke="#3B82F6" strokeWidth="1.4" />
-        <path d="M13 2V13M13 13L23 8M13 13L3 8M13 13V24" stroke="#00D4FF" strokeWidth="1" opacity="0.6" />
-        <circle cx="13" cy="13" r="2.4" fill="#00D4FF" />
-      </svg>
+    <Link href="/" className="flex items-center gap-1.5 font-display font-bold text-[17px] tracking-tight flex-shrink-0 whitespace-nowrap" style={{ color: "var(--color-text-white)" }}>
+      <img
+        src="/systemfriendly-labs-custom-software-engineering-logo.png"
+        alt="SystemFriendly Labs — Custom Software Engineering"
+        width={52}
+        height={52}
+        style={{ objectFit: "contain" }}
+      />
       SystemFriendly Labs
     </Link>
   );

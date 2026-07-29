@@ -6,13 +6,15 @@ export default function Footer() {
       <div className="max-w-[1240px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 pb-12">
           <div className="md:col-span-1" style={{ gridColumn: "span 1.4" }}>
-            <Link href="/" className="flex items-center gap-2.5 font-display font-bold text-[17px]" style={{ color: "var(--color-text-white)" }}>
-              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-                <path d="M13 2L23 8V18L13 24L3 18V8L13 2Z" stroke="#3B82F6" strokeWidth="1.4" />
-                <path d="M13 2V13M13 13L23 8M13 13L3 8M13 13V24" stroke="#00D4FF" strokeWidth="1" opacity="0.6" />
-                <circle cx="13" cy="13" r="2.4" fill="#00D4FF" />
-              </svg>
-              SystemFriendly Labs
+            <Link href="/" className="flex items-center gap-1.5 font-display font-bold text-[15px]" style={{ color: "var(--color-text-white)" }}>
+              <img
+                src="/systemfriendly-labs-custom-software-engineering-logo.png"
+                alt="SystemFriendly Labs — Custom Software Engineering"
+                width={40}
+                height={40}
+                style={{ objectFit: "contain", flexShrink: 0 }}
+              />
+              <span>SystemFriendly Labs</span>
             </Link>
             <p className="text-[13.5px] mt-3.5 leading-[1.6] max-w-[260px]" style={{ color: "var(--color-text-muted)" }}>
               Engineering software that accelerates business growth. systemfriendly.com.
