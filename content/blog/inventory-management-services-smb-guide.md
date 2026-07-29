@@ -4,6 +4,7 @@ description: "Small businesses lose an estimated $1.1 million per minute globall
 date: "2026-07-29"
 author: "SystemFriendly Labs"
 tags: ["Business Automation", "ERP Solutions"]
+charts: "InventorySMBCharts"
 ---
 
 Inventory management is one of those business problems that seems simple until it isn't. You have stuff. You sell stuff. You reorder stuff. How hard can it be?
