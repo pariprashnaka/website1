@@ -72,6 +72,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 ::selection { background: var(--color-accent-blue); color: white; }
+.logo-text-primary { color: #1e2433; }
+[data-theme="dark"] .logo-text-primary { color: #E8EDF5; }
 h1, h2, h3, h4 {
   font-family: var(--font-display), sans-serif;
   color: var(--color-text-white);

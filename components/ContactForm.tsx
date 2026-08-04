@@ -111,13 +111,13 @@ export default function ContactForm() {
         style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
       />
       <Field label="Full name" error={errors.name?.message}>
-        <input {...register("name")} style={inputStyle} placeholder="Jane Doe" />
+        <input {...register("name")} style={inputStyle} placeholder="" />
       </Field>
       <Field label="Work email" error={errors.email?.message}>
-        <input {...register("email")} style={inputStyle} placeholder="you@company.com" />
+        <input {...register("email")} style={inputStyle} placeholder="" />
       </Field>
       <Field label="Company">
-        <input {...register("company")} style={inputStyle} placeholder="Company name (optional)" />
+        <input {...register("company")} style={inputStyle} placeholder="" />
       </Field>
       <Field label="Phone number (optional)">
         <div className="flex gap-2">

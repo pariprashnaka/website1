@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Bot, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import RobotLauncher from "./RobotLauncher";
 import { trackEvent } from "@/lib/gtag";
 
@@ -214,10 +214,10 @@ export default function Chatbot() {
         >
           <div className="px-5 py-4 border-b flex items-center gap-3" style={{ borderColor: "var(--color-border)" }}>
             <div
-              className="w-[34px] h-[34px] rounded-full flex items-center justify-center flex-shrink-0"
+              className="w-[34px] h-[34px] rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden"
               style={{ background: "rgba(0,212,255,0.12)", border: "1px solid rgba(0,212,255,0.3)" }}
             >
-              <Bot size={17} color="var(--color-accent-cyan)" />
+              <img src="/systemfriendly-labs-custom-software-engineering-logo.png" alt="SutraBot" width={28} height={28} style={{ objectFit: "contain" }} />
             </div>
             <div>
               <div className="text-[14px] font-medium" style={{ color: "var(--color-text-white)" }}>Sutra Bot</div>

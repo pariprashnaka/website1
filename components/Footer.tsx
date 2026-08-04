@@ -1,23 +1,15 @@
 import Link from "next/link";
+import FooterLogo from "@/components/FooterLogo";
 
 export default function Footer() {
   return (
     <footer className="border-t px-8 pt-16 pb-8" style={{ borderColor: "var(--color-border)", background: "var(--color-bg-secondary)" }}>
       <div className="max-w-[1240px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 pb-12">
-          <div className="md:col-span-1" style={{ gridColumn: "span 1.4" }}>
-            <Link href="/" className="flex items-center gap-1.5 font-display font-bold text-[15px]" style={{ color: "var(--color-text-white)" }}>
-              <img
-                src="/systemfriendly-labs-custom-software-engineering-logo.png"
-                alt="SystemFriendly Labs — Custom Software Engineering"
-                width={40}
-                height={40}
-                style={{ objectFit: "contain", flexShrink: 0 }}
-              />
-              <span>SystemFriendly Labs</span>
-            </Link>
-            <p className="text-[13.5px] mt-3.5 leading-[1.6] max-w-[260px]" style={{ color: "var(--color-text-muted)" }}>
-              Engineering software that accelerates business growth. systemfriendly.com.
+          <div className="md:col-span-2">
+            <FooterLogo />
+            <p className="text-[13.5px] mt-3.5 leading-[1.6] max-w-[220px]" style={{ color: "var(--color-text-muted)", paddingLeft: 62 }}>
+              Engineering software that accelerates business growth.
             </p>
           </div>
 

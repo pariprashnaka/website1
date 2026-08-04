@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Magnetic from "./Magnetic";
@@ -10,16 +10,28 @@ import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "./LanguageToggle";
 
 function Logo() {
+  const [isDark, setIsDark] = useState(false);
+  useEffect(() => {
+    const update = () => setIsDark(document.documentElement.getAttribute("data-theme") === "dark");
+    update();
+    const obs = new MutationObserver(update);
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    return () => obs.disconnect();
+  }, []);
+
   return (
-    <Link href="/" className="flex items-center gap-1.5 font-display font-bold text-[17px] tracking-tight flex-shrink-0 whitespace-nowrap" style={{ color: "var(--color-text-white)" }}>
+    <Link href="/" className="flex items-center gap-2 font-display font-bold tracking-tight flex-shrink-0 whitespace-nowrap">
       <img
         src="/systemfriendly-labs-custom-software-engineering-logo.png"
         alt="SystemFriendly Labs — Custom Software Engineering"
-        width={52}
-        height={52}
-        style={{ objectFit: "contain" }}
+        width={62}
+        height={62}
+        style={{ objectFit: "contain", display: "block" }}
       />
-      SystemFriendly Labs
+      <span style={{ fontSize: 17, lineHeight: 1, alignSelf: "center", paddingTop: 4 }}>
+        <span style={{ color: isDark ? "#E8EDF5" : "#1e2433" }}>SystemFriendly</span>
+        <span style={{ color: "#E8820C" }}> Labs</span>
+      </span>
     </Link>
   );
 }
