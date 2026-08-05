@@ -17,6 +17,8 @@ const ORGANIZATION_JSON_LD = JSON.stringify({
   "@type": "Organization",
   name: "SystemFriendly Labs",
   url: "https://systemfriendly.com",
+  logo: "https://systemfriendly.com/systemfriendly-labs-custom-software-engineering-logo.png",
+  image: "https://systemfriendly.com/systemfriendly-labs-custom-software-engineering-logo.png",
   description:
     "Custom software engineering across nine disciplines — SaaS, ERP, AI, mobile, web, CRM, automation, cloud, and data — built around how each business actually works.",
 });
