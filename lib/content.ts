@@ -146,6 +146,80 @@ export const caseStudies: CaseStudy[] = [
     industryContextNote: "This is industry research on digital ordering systems generally — a 2024 study of 200 mid-sized restaurants over 12 months, analysed via SPSS — not a measurement of this specific café chain's own performance. Order accuracy improved 30% and revenue per customer rose 20% in the same study. Source: Alexandria POS Software, published industry research.",
     diagram: "CafeCaseStudyBeforeAfter",
   },
+
+  {
+    slug: "plastic-container-manufacturer",
+    industry: "Manufacturing",
+    scale: "2 machines, 10 employees, 16+ SKUs, ₹10L+ monthly revenue",
+    title: "A Plastic Container Manufacturer Running on Memory and Paper",
+    summary: "A Bihar-based manufacturer with no visibility into stock, spend, or wastage — replaced with one connected system covering procurement, inventory, production, and billing.",
+    situation: "The client runs a manufacturing unit in Bihar producing food-grade plastic containers. With two machines, around ten employees, and more than sixteen product variants, the business was doing serious volume — over ten lakhs a month. But behind that revenue was a system built entirely on paper registers, manual tallies, and the owner's memory. Procurement happened by feel. Inventory was counted physically when someone remembered to do it. Wastage from the manufacturing process — rejected pieces, material loss during moulding — went unrecorded. There was no single place to see what was happening.",
+    problems: [
+      {
+        title: "No visibility into procurement spend",
+        description: "Raw material purchases — plastic granules, packaging, consumables — were recorded on paper receipts scattered across the unit. The owner had no reliable way to know total monthly procurement spend without manually hunting down every slip.",
+        icon: "IndianRupee"
+      },
+      {
+        title: "Overbuying raw materials",
+        description: "Without data on how much raw material each product type consumed, the owner would overbuy to avoid running short. Capital kept getting locked into excess stock that sat unused, compressing margins on a business already running thin.",
+        icon: "Package"
+      },
+      {
+        title: "No real-time inventory value",
+        description: "At any given moment, nobody could say with confidence how much raw material was on hand, how much finished stock was ready to ship, or what the total inventory was worth — without stopping operations to do a physical count.",
+        icon: "BarChart3"
+      },
+      {
+        title: "Wastage invisible to the owner",
+        description: "Manufacturing plastic containers produces waste — rejected pieces, material lost during moulding, offcuts. None of this was being tracked. The owner had no idea how much raw material was being consumed versus how much was being lost.",
+        icon: "ShieldAlert"
+      },
+      {
+        title: "Everything decentralised on paper",
+        description: "Procurement, production, sales, and billing each had their own paper trail — or none at all. There was no way to connect them, no way to see the full picture, and no way for the owner to monitor the business without physically being on the factory floor.",
+        icon: "FileText"
+      },
+    ],
+    solution: "We set up SF Inventory System across the manufacturing unit with six users — the owner, the sales person, and the machine operators. The first thing we did was build out the Bill of Materials for each of the sixteen-plus SKUs: exactly how much plastic granule goes into one unit of each container type, with waste percentage built in. From that point, every time a finished product was recorded, the system automatically deducted the correct quantity of raw material from stock — no manual entry, no guesswork. Procurement orders are now logged in the system the moment they happen, giving the owner a live view of what has been spent and what stock has arrived. The billing module handles invoicing directly, connecting sales to inventory in real time. And because SF Inventory System runs on mobile, the owner can check stock levels, review today's sales, and see outstanding receivables from anywhere — the factory floor, home, or travelling — without needing to call anyone.",
+    results: [
+      {
+        title: "Complete procurement visibility",
+        description: "Every purchase order is logged, giving the owner a clear picture of monthly spend on raw materials for the first time.",
+        icon: "IndianRupee"
+      },
+      {
+        title: "Raw material overbuying eliminated",
+        description: "With BOM-driven consumption data showing exactly how much material each SKU uses, purchasing decisions are now based on actual numbers rather than estimates.",
+        icon: "Package"
+      },
+      {
+        title: "Wastage now tracked",
+        description: "Manufacturing waste is captured automatically through the BOM waste percentage — the owner can now see material loss per production run.",
+        icon: "ShieldAlert"
+      },
+      {
+        title: "16+ SKUs tracked in real time",
+        description: "Every product variant has a live stock count, updated automatically as production is recorded and sales are invoiced.",
+        icon: "BarChart3"
+      },
+      {
+        title: "Owner monitors from anywhere",
+        description: "With mobile access, the owner checks stock, sales, and receivables remotely — the factory no longer requires his physical presence to know what is happening.",
+        icon: "Zap"
+      },
+      {
+        title: "Six users, one connected system",
+        description: "The owner, sales person, and machine operators all work from the same system — data flows from production to billing without anyone chasing paper.",
+        icon: "MessageCircle"
+      },
+    ],
+    industryContext: [
+      { label: "Manufacturers with inaccurate inventory data", value: 60, unit: "%" },
+      { label: "Small businesses tracking inventory manually or not at all", value: 43, unit: "%" },
+    ],
+    industryContextNote: "Industry research on small manufacturer inventory challenges. Over 60% of manufacturers struggle with inaccurate inventory data (WORLDMETRICS.ORG Report 2024). 43% of small businesses still track inventory manually or not at all (SMB Mentor, 2024). Neither figure is a measurement of this specific manufacturer's performance — they reflect the broader problem this system was built to solve.",
+  },
 ];
 
 export type Product = {
@@ -187,6 +261,7 @@ export const products: Product[] = [
     ],
     diagram: 'SFInventoryDiagram',
     screens: ['SFInventoryKPICard', 'SFInventoryStockCard', 'SFInventorySalesCard'],
+    caseStudySlug: 'plastic-container-manufacturer',
   },
   {
     slug: 'sf-lims',
