@@ -51,6 +51,7 @@ export default function ProductsPage() {
   return (
     <>
       <BreadcrumbSchema items={[{ name: "Home", href: "/" }, { name: "Products", href: "/products" }]} />
+      <ProductSchema name="Plastic Container Manufacturer Case Study" description="How a Bihar-based plastic container manufacturer eliminated inventory blind spots, stopped overbuying raw materials, and gained real-time visibility across 16+ SKUs using SF Inventory System." url="/case-studies/plastic-container-manufacturer" />
       <ProductSchema name="SF Inventory System" description="A cloud-based inventory and billing platform for retail shops, trading businesses, and food and beverage operations. Track stock, manage suppliers, generate GST-ready invoices, and monitor business performance from any device." url="/products#sf-inventory-system" />
       <ProductSchema name="SF LIMS" description="A cloud-based Laboratory Information Management System for pathology labs and diagnostic centres. Manage patients, test orders, lab workflows, report generation, and billing from sample collection to WhatsApp delivery." url="/products#sf-lims" />
       <ProductSchema name="Smart Café Platform" description="A complete café management platform covering orders, billing, inventory, and owner visibility across multiple locations. Deployed at 7 café locations." url="/products#smart-cafe-platform" />
@@ -80,7 +81,14 @@ export default function ProductsPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-center mb-14">
                     <div>
                       <div className="mono text-[11px] uppercase tracking-[.06em] mb-3.5" style={{ color: accent }}>{p.tag}</div>
-                      <h2 className="text-[clamp(24px,3vw,32px)] mb-4">{p.name}</h2>
+                      <h2 className="text-[clamp(24px,3vw,32px)] mb-4">
+                        {p.name.startsWith("SF ") ? (
+                          <>
+                            <span>SF </span>
+                            <span style={{ color: "#E8820C" }}>{p.name.slice(3)}</span>
+                          </>
+                        ) : p.name}
+                      </h2>
                       <p className="text-[15px] leading-[1.65] mb-6" style={{ color: "var(--color-text-muted)" }}>{p.pitch}</p>
                       <div className="flex items-center gap-4 flex-wrap">
                         <Magnetic><Link href="/contact" className="btn btn-primary">Request a demo</Link></Magnetic>
