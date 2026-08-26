@@ -8,6 +8,8 @@ const diagramComponents: Record<string, ReturnType<typeof dynamic>> = {
   SmartHrmsDiagram: dynamic(() => import("@/components/SmartHrmsDiagram"), { ssr: false }),
   SmartCafeDiagram: dynamic(() => import("@/components/SmartCafeDiagram")),
   CafeOwnerVisibilityScene: dynamic(() => import("@/components/CafeOwnerVisibilityScene"), { ssr: false }),
+  SFInventoryDiagram: dynamic(() => import("@/components/SFInventoryDiagram"), { ssr: false }),
+  SFLIMSDiagram: dynamic(() => import("@/components/SFLIMSDiagram"), { ssr: false }),
 };
 
 export default function ProductDiagramRenderer({ diagram }: { diagram?: string }) {
