@@ -20,16 +20,22 @@ const screenComponents: Record<string, ReturnType<typeof dynamic>> = {
   OrderTrackingCard: dynamic(() => import("@/components/cafe-screens/OrderTrackingCard")),
   CafeDiscoveryCard: dynamic(() => import("@/components/cafe-screens/CafeDiscoveryCard")),
   SalesSnapshotCard: dynamic(() => import("@/components/cafe-screens/SalesSnapshotCard")),
+  SFInventoryKPICard: dynamic(() => import("@/components/sf-inventory-screens/SFInventoryKPICard")),
+  SFInventoryStockCard: dynamic(() => import("@/components/sf-inventory-screens/SFInventoryStockCard")),
+  SFInventorySalesCard: dynamic(() => import("@/components/sf-inventory-screens/SFInventorySalesCard")),
+  SFLIMSPatientCard: dynamic(() => import("@/components/sf-lims-screens/SFLIMSPatientCard")),
+  SFLIMSQueueCard: dynamic(() => import("@/components/sf-lims-screens/SFLIMSQueueCard")),
+  SFLIMSReportCard: dynamic(() => import("@/components/sf-lims-screens/SFLIMSReportCard")),
 };
 
 export const metadata: Metadata = {
   title: "Products",
-  description: "Smart Café Platform and Smart HRMS — deployed, in-production systems — plus the Smart Agriculture Platform and Drone-as-a-Service for Tea Estates.",
+  description: "SF Inventory System, SF LIMS, Smart Café Platform, Smart HRMS — software products built and maintained by SystemFriendly Labs across retail, diagnostics, food & beverage, and HR.",
   alternates: { canonical: "/products" },
-  keywords: ["Smart Café Platform", "HRMS software", "agriculture platform India", "drone service tea estate", "custom software products", "SaaS products India"],
+  keywords: ["inventory management software", "LIMS software", "laboratory information management system", "pathology lab software", "billing software retail", "cloud inventory system", "Smart Café Platform", "HRMS software", "custom software products", "SaaS products"],
   openGraph: {
     title: "Products — SystemFriendly Labs",
-    description: "Four software products built and maintained by SystemFriendly Labs — two in production, two in government pilot.",
+    description: "SF Inventory System, SF LIMS, Smart Café Platform, Smart HRMS — six software products built and maintained by SystemFriendly Labs.",
     url: "https://systemfriendly.com/products",
     siteName: "SystemFriendly Labs",
     type: "website",
@@ -37,7 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Products — SystemFriendly Labs",
-    description: "Four software products — two deployed, two in government pilot.",
+    description: "SF Inventory System, SF LIMS, Smart Café Platform, Smart HRMS and more — built by SystemFriendly Labs.",
   },
 };
 
@@ -45,6 +51,8 @@ export default function ProductsPage() {
   return (
     <>
       <BreadcrumbSchema items={[{ name: "Home", href: "/" }, { name: "Products", href: "/products" }]} />
+      <ProductSchema name="SF Inventory System" description="A cloud-based inventory and billing platform for retail shops, trading businesses, and food and beverage operations. Track stock, manage suppliers, generate GST-ready invoices, and monitor business performance from any device." url="/products#sf-inventory-system" />
+      <ProductSchema name="SF LIMS" description="A cloud-based Laboratory Information Management System for pathology labs and diagnostic centres. Manage patients, test orders, lab workflows, report generation, and billing from sample collection to WhatsApp delivery." url="/products#sf-lims" />
       <ProductSchema name="Smart Café Platform" description="A complete café management platform covering orders, billing, inventory, and owner visibility across multiple locations. Deployed at 7 café locations." url="/products#smart-cafe-platform" />
       <ProductSchema name="Smart HRMS Platform" description="A human resource management system covering attendance, payroll, leave management, and employee records." url="/products#smart-hrms-platform" />
       <ProductSchema name="Smart Agriculture Platform" description="A platform for farmers and agricultural businesses covering crop monitoring, advisory, and market linkage." url="/products#smart-agriculture-platform" />
