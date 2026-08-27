@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllPostsMeta } from "@/lib/blog";
-import { caseStudies } from "@/lib/content";
+import { caseStudies, products } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://systemfriendly.com";
@@ -38,5 +38,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticEntries, ...blogEntries, ...caseStudyEntries];
+  const productEntries = products.map((p) => ({
+    url: `${base}/products/${p.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.9,
+  }));
+
+  return [...staticEntries, ...productEntries, ...blogEntries, ...caseStudyEntries];
 }

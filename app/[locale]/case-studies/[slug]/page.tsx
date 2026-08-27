@@ -60,7 +60,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
           </div>
           <h1 className="text-[clamp(28px,4vw,42px)] leading-[1.2]">{c.title}</h1>
           {linkedProduct && (
-            <Link href={`/products#${linkedProduct.slug}`} className="mono text-[13px] font-medium inline-block mt-4" style={{ color: "var(--color-accent-cyan)" }}>
+            <Link href={`/products/${linkedProduct.slug}`} className="mono text-[13px] font-medium inline-block mt-4" style={{ color: "var(--color-accent-cyan)" }}>
               See the {linkedProduct.name} product page →
             </Link>
           )}

@@ -52,17 +52,40 @@ export function ArticleSchema({ title, description, url, datePublished, author }
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }
 
-export function ProductSchema({ name, description, url }: { name: string; description: string; url: string }) {
+export function ProductSchema({ name, description, url, features, category, os }: {
+  name: string;
+  description: string;
+  url: string;
+  features?: string[];
+  category?: string;
+  os?: string;
+}) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name,
     description,
     url: `${BASE}${url}`,
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "Web",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "INR", availability: "https://schema.org/InStock" },
+    applicationCategory: category || "BusinessApplication",
+    operatingSystem: os || "Web, Android",
+    featureList: features ? features.join(", ") : undefined,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        description: "Contact for pricing",
+      },
+    },
     provider: {
+      "@type": "Organization",
+      name: "SystemFriendly Labs",
+      url: BASE,
+      sameAs: ["https://systemfriendly.com"],
+    },
+    publisher: {
       "@type": "Organization",
       name: "SystemFriendly Labs",
       url: BASE,
