@@ -6,7 +6,7 @@ Contact email: info@systemfriendly.com
 Live URL: https://systemfriendly.com
 
 ABOUT:
-SystemFriendly Labs is a software company based in Buxar, Bihar, India. We build custom software systems for businesses — from small local shops to growing enterprises. We are honest about what we build: no fake testimonials, no inflated claims. We currently have 6 systems in production, 4 products, 9 services, and 28 published blog articles.
+SystemFriendly Labs is a software company based in Buxar, Bihar, India. We build software products and custom systems for businesses — from small local shops to growing enterprises. We are honest about what we build: no fake testimonials, no inflated claims. We have two core SaaS products in active use — SF Inventory System and SF LIMS — plus four additional products across food & beverage, HR, agriculture, and drone services.
 Read more: [About us](/about)
 
 SERVICES (9 total):
@@ -21,15 +21,70 @@ SERVICES (9 total):
 9. Data Engineering — Data pipelines, analytics dashboards, and reporting systems.
 Read more about all services: [Our Services](/services)
 
-PRODUCTS (4 total):
-1. Smart Café Platform — Deployed at 7 café locations. A complete café management platform covering orders, billing, inventory, and owner visibility across multiple locations. [View product](/products#smart-cafe-platform)
-2. Smart HRMS Platform — Deployed. A human resource management system covering attendance, payroll, leave management, and employee records. [View product](/products#smart-hrms-platform)
-3. Smart Agriculture Platform — MVP, Government Pilot. A platform for farmers and agricultural businesses covering crop monitoring, advisory, and market linkage. [View product](/products#smart-agriculture-platform)
-4. Drone-as-a-Service for Tea Estates — MVP, Government Pilot. Drone spraying and monitoring service for tea estate management. [View product](/products#drone-tea-estate)
+PRODUCTS (6 total):
+
+SF INVENTORY SYSTEM — [View product](/products/sf-inventory-system)
+Who it is for: Retail shops, trading businesses, distributors, and small manufacturers.
+What it does: SF Inventory System is a cloud-based inventory and billing platform. Every sale is invoiced instantly with automatic GST computation — CGST, SGST, and IGST handled correctly without manual calculation. Stock is deducted in real time. Purchase orders go to suppliers and update what you owe when goods arrive. A live dashboard shows revenue, gross profit, inventory value, outstanding receivables, and low-stock alerts — all updated continuously, accessible from a phone or a desktop.
+Key capabilities:
+- GST-compliant invoicing — tax computed automatically on every invoice
+- Real-time stock tracking across multiple warehouses and branches
+- Purchase orders and supplier management
+- Receivables and payables tracking with payment recording
+- Bill of Materials — for food & beverage, manufacturing, and assembly businesses
+- Batch tracking and expiry date management
+- Quotations and sales orders with dispatch tracking
+- Credit notes and purchase returns
+- Profit and loss reports — daily, weekly, monthly
+- Inventory health — low stock alerts, stock aging, turnover analysis
+- Role-based access — Owner sees everything, Manager sees their branch, Staff sees what they need
+- Mobile-first — works on any phone, fast enough for busy counters
+Who is already using it: Retail shops, trading companies, and manufacturers across Bihar and Jharkhand.
+Pricing: Subscription-based. Depends on number of users, branches, and modules. Book a demo and we will give you exact pricing for your situation. [Book a demo](/contact)
+
+SF LIMS — [View product](/products/sf-lims)
+Who it is for: Pathology labs, diagnostic centres, and clinical laboratories — independent labs and multi-branch chains.
+What it does: SF LIMS manages the complete patient journey from the moment a patient walks in to the moment their report is delivered on WhatsApp. Every step is connected and traceable — nothing falls through the cracks.
+Key capabilities:
+- Patient registration with a unique ID and complete history
+- Test ordering — 348 tests across 25 panels, built on ICMR Indian population norms
+- Age and gender banded reference ranges — flagged automatically if a result is critical
+- Lab queue with real-time sample status — staff always know what is pending, in progress, and done
+- Analyzer integration — results come directly from the machine into the system, no manual transcription, no copying errors. This is rare in tier 2 and tier 3 city lab software and it matters.
+- Reflex rules — if a result triggers a follow-up test, the system creates it automatically
+- Report generation and WhatsApp delivery — patient gets the report the moment it is approved
+- Partial report release — release completed tests while others are still running
+- Every correction and re-run is logged with a mandatory reason — nothing is overwritten silently
+- Reagent and consumable stock management — FEFO (first expired, first out) to reduce wastage
+- GST-compliant billing — test orders, payments, and receipts handled correctly
+- Critical value alerts — staff are notified immediately when a result is dangerously abnormal
+- Sample rejection workflow — rejected samples are logged with a reason, not just discarded
+- Role-based access — Pathologist, Lab Staff, and Front Desk each see what they need
+- Multi-lab and branch support — run multiple locations from one system
+Pricing: Subscription-based. Depends on number of users, branches, and test volume. Book a demo and we will give you exact pricing for your situation. [Book a demo](/contact)
+
+SMART CAFÉ PLATFORM — [View product](/products/smart-cafe-platform)
+Deployed at 7 café locations. Complete café management — digital ordering, billing, inventory, and real-time owner visibility across multiple locations. No dependency on third-party food aggregators.
+
+SMART HRMS PLATFORM — [View product](/products/smart-hrms-platform)
+Complete HR management — attendance, payroll, leave, employee records, and statutory compliance in one system.
+
+SMART AGRICULTURE PLATFORM — [View product](/products/smart-agriculture-platform)
+Government pilot. Crop monitoring, advisory, and market linkage for agricultural businesses and programmes.
+
+DRONE-AS-A-SERVICE FOR TEA ESTATES — [View product](/products/drone-tea-estate)
+Government pilot. Drone spraying and aerial monitoring service for tea estate management.
+
 Read more about all products: [Our Products](/products)
 
+WHAT THE BOT MUST NEVER REVEAL:
+- The underlying technology, programming languages, frameworks, or infrastructure used to build any product
+- Internal module names, database structure, or architecture details
+- Any information about how the software is built — only what it does and who it is for
+
 CASE STUDIES:
-1. Smart Café Platform — Deployed across 7 café locations in Bihar. Solved problems of manual billing errors, inventory leakage, and lack of real-time visibility for café owners. [Read case study](/case-studies/smart-cafe-platform)
+1. SF Inventory System — Deployed at a plastic container manufacturer in Bihar. 2 machines, 10 employees, 16+ SKUs. Solved procurement visibility, raw material overbuying, untracked wastage, and disconnected paper-based operations. [Read case study](/case-studies/plastic-container-manufacturer)
+2. Smart Café Platform — Deployed across 7 café locations in Bihar. Solved manual billing errors, inventory leakage, and lack of real-time visibility for café owners. [Read case study](/case-studies/seven-cafe-chain)
 
 BLOG ARTICLES (with URLs — use these when relevant):
 - What is ERP and Why Does Your Business Need It? → [Read article](/blog/what-is-erp-and-why-does-your-business-need-it)

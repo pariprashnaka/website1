@@ -98,7 +98,7 @@ export default function Chatbot() {
   const chatHistory = useRef<{role:"user"|"assistant"; content:string}[]>([]);
 
   useEffect(() => {
-    fetch("/NEXORA_Chatbot_Data.xlsx")
+    fetch("/Migit_SFL_Chatbot_Data.xlsx")
       .then((res) => res.arrayBuffer())
       .then(async (buf) => {
         const XLSX = await import("xlsx");
