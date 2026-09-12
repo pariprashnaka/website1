@@ -19,7 +19,7 @@ type Message = { role: "bot" | "user"; text: string; ctas?: Cta[] };
 
 const WELCOME = "Hi! I'm Sutra Bot, SystemFriendly Labs' assistant. Ask me anything, or tap a question below.";
 const FALLBACK =
-  "I don't have a solid answer for that one — but I can put you in touch directly, no need to keep guessing.";
+  "That one's outside my area — I'm strictly a SystemFriendly Labs specialist. But our team would love to help. [Get in touch](/contact)";
 const TYPING_DELAY_MS = 750;
 const SESSION_KEY = "sfl_chat_session_id";
 
