@@ -290,18 +290,7 @@ export const caseStudies: CaseStudy[] = [
         icon: "IndianRupee"
       },
     ],
-    features: [
-      "Machine output integrated directly — no manual retyping of results",
-      "Unique sample ID generation per test order",
-      "7 test types with ICMR-standard reference ranges built in",
-      "Age and gender banded reference ranges — automatic flagging",
-      "Report generated automatically from system data",
-      "WhatsApp report delivery directly to patient",
-      "Complete audit trail — registration to delivery",
-      "Patient history accessible across visits",
-      "Cloud storage — no local PC dependency",
-      "2-user role-based access",
-    ],
+
     industryContext: [
       { label: "Small labs still using manual or paper-based reporting", value: 70, unit: "%" },
       { label: "Diagnostic errors attributable to transcription and manual entry", value: 23, unit: "%" },
