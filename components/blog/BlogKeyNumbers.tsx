@@ -7,7 +7,7 @@ export default function BlogKeyNumbers({
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: `repeat(${Math.min(items.length, 3)}, 1fr)`,
+        gridTemplateColumns: `repeat(${Math.min(items.length, 2)}, 1fr)`,
         gap: 12,
         margin: "28px 0",
       }}

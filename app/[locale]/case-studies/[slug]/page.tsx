@@ -7,6 +7,7 @@ import {
 import Reveal from "@/components/Reveal";
 import Magnetic from "@/components/Magnetic";
 import CafeCaseStudyBeforeAfter from "@/components/CafeCaseStudyBeforeAfter";
+import LIMSWorkflowDiagram from "@/components/LIMSWorkflowDiagram";
 import BlogBarChart from "@/components/blog/BlogBarChart";
 import { caseStudies, products } from "@/lib/content";
 
@@ -73,7 +74,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
             <p className="text-[15px] leading-[1.7] mb-14" style={{ color: "var(--color-text-soft)" }}>{c.situation}</p>
 
             <div className="mb-4">
-              <span className="section-num mono">{"// THE PROBLEM"}</span>
+              <span className="section-num mono">{"PROBLEM"}</span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-14">
               {c.problems.map((p) => {
@@ -91,7 +92,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
             </div>
 
             <div className="mb-4">
-              <span className="section-num mono">{"// WHAT WE BUILT"}</span>
+              <span className="section-num mono">{"WE BUILT"}</span>
             </div>
             <p className="text-[15px] leading-[1.7] mb-8" style={{ color: "var(--color-text-soft)" }}>{c.solution}</p>
 
@@ -100,9 +101,14 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
                 <CafeCaseStudyBeforeAfter />
               </div>
             )}
+            {c.diagram === "LIMSWorkflowDiagram" && (
+              <div className="mb-14">
+                <LIMSWorkflowDiagram />
+              </div>
+            )}
 
             <div className="mb-4">
-              <span className="section-num mono">{"// THE RESULTS"}</span>
+              <span className="section-num mono">{"RESULTS"}</span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-14">
               {c.results.map((r) => {
@@ -122,10 +128,10 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
             {c.industryContext && c.industryContext.length > 0 && (
               <>
                 <div className="mb-4">
-                  <span className="section-num mono">{"// SUPPORTING DATA"}</span>
+                  <span className="section-num mono">SUPPORTING DATA</span>
                 </div>
                 <BlogBarChart
-                  title="What Digital Ordering Systems Typically Achieve"
+                  title={c.industryContext && c.industryContext.length > 0 ? (c.slug === "pathology-lab-machine-integration" ? "Pathology Lab Digitisation — Industry Context" : "What Digital Ordering Systems Typically Achieve") : ""}
                   bars={c.industryContext.map((d) => ({ label: d.label, value: d.value, unit: d.unit }))}
                   max={Math.max(...c.industryContext.map((d) => d.value)) * 1.2}
                   color="#00D4FF"

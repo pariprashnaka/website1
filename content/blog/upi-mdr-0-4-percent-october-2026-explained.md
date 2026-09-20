@@ -198,13 +198,13 @@ No. As of 20 September 2026, the framework is scheduled to become operational on
 
 ## Sources
 
-- Department of Financial Services — Government announcements and FAQ: https://financialservices.gov.in/what-s-new
-- Press Information Bureau — MDR framework: https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2310586
-- Press Information Bureau — Legal framework: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2296594
-- Reuters — NPCI 0.4% framework: https://www.reuters.com/world/india/india-payments-authority-sets-04-fee-upi-merchant-payments-above-2000-rupees-2026-09-15/
-- Business Standard — P2PM threshold: https://www.business-standard.com/finance/news/upi-small-merchant-1-lakh-threshold-p2pm-mdr-explained-126092000221_1.html
-- Economic Times — Transaction splitting: https://m.economictimes.com/tech/technology/splitting-upi-payment-no-daily-cap-for-now/articleshow/134340452.cms
-- Indian Express — Supreme Court PIL: https://indianexpress.com/article/legal-news/upi-mdr-supreme-court-pil-rs-2000-10881464/
-- NDTV Profit — GST on MDR: https://www.ndtvprofit.com/business/upi-mdr-to-attract-18-gst-merchants-can-claim-input-tax-credit-official-12057948/amp/1
+- [Department of Financial Services — Government announcements and FAQ](https://financialservices.gov.in/what-s-new)
+- [Press Information Bureau — MDR framework](https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2310586)
+- [Press Information Bureau — Legal framework](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2296594)
+- [Reuters — NPCI 0.4% framework](https://www.reuters.com/world/india/india-payments-authority-sets-04-fee-upi-merchant-payments-above-2000-rupees-2026-09-15/)
+- [Business Standard — P2PM threshold](https://www.business-standard.com/finance/news/upi-small-merchant-1-lakh-threshold-p2pm-mdr-explained-126092000221_1.html)
+- [Economic Times — Transaction splitting](https://m.economictimes.com/tech/technology/splitting-upi-payment-no-daily-cap-for-now/articleshow/134340452.cms)
+- [Indian Express — Supreme Court PIL](https://indianexpress.com/article/legal-news/upi-mdr-supreme-court-pil-rs-2000-10881464/)
+- [NDTV Profit — GST on MDR](https://www.ndtvprofit.com/business/upi-mdr-to-attract-18-gst-merchants-can-claim-input-tax-credit-official-12057948/amp/1)
 
 *This article reflects the framework as reported and announced as of 20 September 2026. The implementation date is 15 October 2026. Verify with official NPCI, DFS, and RBI documentation before making business or financial decisions.*

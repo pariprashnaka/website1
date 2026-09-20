@@ -149,7 +149,7 @@ export default async function BlogPostPage({
                   className="mono text-[11px] uppercase tracking-[.08em] mb-6"
                   style={{ color: "var(--color-text-muted)" }}
                 >
-                  {"// DATA & CHARTS"}
+                  DATA & CHARTS
                 </div>
                 <ChartComponent />
               </div>
@@ -166,7 +166,7 @@ export default async function BlogPostPage({
         >
           <div className="max-w-[1240px] mx-auto">
             <Reveal className="max-w-[640px] mb-10">
-              <span className="section-num mono">{"// RELATED"}</span>
+              <span className="section-num mono">RELATED</span>
               <h2 className="text-[clamp(24px,3vw,32px)] mt-4">
                 More like this.
               </h2>

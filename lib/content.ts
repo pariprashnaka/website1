@@ -220,6 +220,94 @@ export const caseStudies: CaseStudy[] = [
     ],
     industryContextNote: "Industry research on small manufacturer inventory challenges. Over 60% of manufacturers struggle with inaccurate inventory data (WORLDMETRICS.ORG Report 2024). 43% of small businesses still track inventory manually or not at all (SMB Mentor, 2024). Neither figure is a measurement of this specific manufacturer's performance — they reflect the broader problem this system was built to solve.",
   },
+
+  {
+    slug: "pathology-lab-machine-integration",
+    diagram: "LIMSWorkflowDiagram",
+    industry: "Healthcare",
+    scale: "2 staff, 50–60 reports/day, 7 test types",
+    title: "The Machine Was Never the Problem",
+    summary: "A pathology lab in a tier 2 city was running 50–60 reports a day on handwritten vials and Word document templates. The testing machine worked perfectly. Everything that happened after the machine was the problem. SF LIMS closed the gap.",
+    situation: "Walk into a busy two-person pathology lab on a weekday morning and you will see the same thing everywhere in tier 2 and tier 3 cities: a queue of patients at the front, two staff members moving between sample collection and the testing machine, a printer warming up in the corner, and a PC with a folder full of Word documents that nobody outside this room has ever seen. This lab was doing between 50 and 60 reports a day. By any measure, that is a serious operation. The machine — a modern analyser capable of processing samples in one to two minutes — was doing exactly what it was supposed to do. The science was working. The problem was everything that happened after the machine finished.",
+    problem: "The workflow this lab had built over years was not unusual. It was, in fact, exactly how most small and mid-sized pathology labs in India operate. A patient arrives. Someone writes their name, age, sex, and the tests required on a slip of paper. The same information goes onto the vial by hand — sometimes in a hurry, sometimes in handwriting that needs to be deciphered later. The slip and the vial go to the person running the machine. The sample goes in. One to two minutes later, the machine has a result. And then the real work begins. The staff member goes to the PC, opens a folder, and looks for the right Word document template — one of more than twenty, each corresponding to a different test type. They open it. They find the previous patient's data still inside. They delete it. They type in the new patient's name, age, sex, referral doctor, collection date, and then the result — number by number, value by value, unit by unit — copied by hand from the machine's output screen to the document. They format it. They print it. That process takes approximately ten minutes per report. The machine took two. The science was done. What followed was data entry.",
+    problems: [
+      {
+        title: "The machine result had to be retyped by hand",
+        description: "Every result the machine produced had to be manually copied — number by number — into a Word document. A Complete Blood Count has over a dozen parameters. A Lipid Profile has five. A Thyroid Profile has three values with specific decimal precision. Each of these was typed by a human, under time pressure, fifty to sixty times a day. The machine's output existed on its screen. The report's output existed on paper. Nothing connected them except a person sitting at a keyboard.",
+        icon: "FileText"
+      },
+      {
+        title: "Twenty minutes of work for two reports",
+        description: "During a visit to this lab, the owner was observed completing two reports in twenty minutes. The tests themselves had taken under five minutes combined. The remaining fifteen minutes were spent locating the correct templates, clearing previous patient data, retyping results, and formatting the output for printing. At this pace, a lab doing sixty reports a day is spending roughly five to six hours on data entry alone — work that produces no clinical value and exists only because nothing connects the machine to the report.",
+        icon: "BarChart3"
+      },
+      {
+        title: "No quality layer between machine and print",
+        description: "When a result is retyped by hand, the only quality check is the person doing the typing. There is no system comparison, no reference range flag, no second verification. A CBC result showing RBC at 13.7 where the machine said 13.0 goes straight to print. If the value is within normal range, the patient has no reason to question it. The referring doctor has no reason to question it. Nobody ever finds out. The error does not announce itself — it travels from fingertip to printed report with nothing in between. At fifty to sixty reports a day, the question is not whether errors happen. It is how many go undetected.",
+        icon: "ShieldAlert"
+      },
+      {
+        title: "No audit trail, no patient history",
+        description: "When every report is a standalone Word document saved on a local PC, there is no connected record of anything. Looking up a patient who visited three months ago means searching through a folder of files named in whatever convention felt logical at the time. Checking whether a result was corrected after printing means finding a physical copy. Understanding trends across a patient's repeat visits — a rising TSH over six months, a changing lipid profile — is effectively impossible. The data exists in fragments. None of it talks to any other part.",
+        icon: "EyeOff"
+      },
+      {
+        title: "Everything lived on one local machine",
+        description: "The entire operational history of this lab — every report, every template, every patient record — lived on a single PC with no backup system. A hard drive failure, a power surge, a corrupted Windows update: any of these ends the record permanently. There is no cloud copy, no version history, no recovery path. The lab had been operating for years. All of it was one hardware failure away from disappearing.",
+        icon: "Zap"
+      },
+    ],
+    solution: "The machine was never the bottleneck. The seven steps between the machine result and the printed report were. SF LIMS replaces every one of them — except the step that actually requires a pathologist. The workflow comparison below shows exactly what changed and where.",
+    results: [
+      {
+        title: "Machine output goes directly into the report",
+        description: "The result the machine produces is entered into SF LIMS via sample ID — no retyping, no copy-paste, no Word document. The transfer from machine to report is now a system function, not a human task. The gap that caused every transcription error is closed.",
+        icon: "Zap"
+      },
+      {
+        title: "From 10 minutes per report to under 2",
+        description: "With patient registration, test ordering, and report generation handled by the system, the time between a machine result and a delivered report has collapsed. The pathologist's job is now clinical verification — not data entry.",
+        icon: "BarChart3"
+      },
+      {
+        title: "A quality layer that did not exist before",
+        description: "Every result now passes through SF LIMS reference range checks before release. Values outside normal range are flagged automatically against age and gender banded norms. The pathologist reviews on screen and explicitly releases — nothing goes to print silently.",
+        icon: "ShieldAlert"
+      },
+      {
+        title: "Full audit trail on every report",
+        description: "Every report now has a complete record: who registered the patient, when the sample was collected, what the machine returned, when the report was released, and when it was delivered. Corrections are logged with a mandatory reason. Nothing is overwritten silently.",
+        icon: "FileText"
+      },
+      {
+        title: "Patient history accessible across visits",
+        description: "Every report is stored in the cloud and linked to the patient's permanent record. A returning patient's previous CBC, LFT, or Thyroid Profile is one search away — not buried in a folder of Word documents on a local PC.",
+        icon: "EyeOff"
+      },
+      {
+        title: "Reports delivered via WhatsApp — no printing required",
+        description: "Once the pathologist releases a report, it is sent directly to the patient's phone via WhatsApp. The printer still works for those who need a physical copy. But for most patients, the report arrives before they have left the building.",
+        icon: "IndianRupee"
+      },
+    ],
+    features: [
+      "Machine output integrated directly — no manual retyping of results",
+      "Unique sample ID generation per test order",
+      "7 test types with ICMR-standard reference ranges built in",
+      "Age and gender banded reference ranges — automatic flagging",
+      "Report generated automatically from system data",
+      "WhatsApp report delivery directly to patient",
+      "Complete audit trail — registration to delivery",
+      "Patient history accessible across visits",
+      "Cloud storage — no local PC dependency",
+      "2-user role-based access",
+    ],
+    industryContext: [
+      { label: "Small labs still using manual or paper-based reporting", value: 70, unit: "%" },
+      { label: "Diagnostic errors attributable to transcription and manual entry", value: 23, unit: "%" },
+    ],
+    industryContextNote: "Estimated figures based on industry reporting on diagnostic lab digitisation in tier 2 and tier 3 cities in India. The transcription error figure reflects published research on manual data entry in clinical settings. Neither figure is a measurement of this specific laboratory's performance.",
+  },
 ];
 
 export type Product = {
@@ -293,6 +381,7 @@ export const products: Product[] = [
     ],
     diagram: 'SFLIMSDiagram',
     screens: ['SFLIMSPatientCard', 'SFLIMSQueueCard', 'SFLIMSReportCard'],
+    caseStudySlug: 'pathology-lab-machine-integration',
   },
   {
     slug: "smart-cafe-platform",

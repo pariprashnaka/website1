@@ -57,7 +57,7 @@ export default function AboutPage() {
       <section className="px-8 py-[130px] border-b" style={{ borderColor: "var(--color-border)", background: "radial-gradient(ellipse 900px 500px at 50% 0%, rgba(59,130,246,0.09), transparent 70%)" }}>
         <div className="max-w-[980px] mx-auto text-center">
           <Reveal>
-            <p className="mono text-[12px] mb-8" style={{ color: "var(--color-accent-cyan)" }}>{"// WHAT THIS ACTUALLY IS"}</p>
+            <p className="mono text-[12px] mb-8" style={{ color: "var(--color-accent-cyan)" }}>{"THIS ACTUALLY IS"}</p>
           </Reveal>
           <h2 style={{ fontSize: "clamp(28px, 4.4vw, 52px)", lineHeight: 1.2, color: "var(--color-text-white)" }}>
             <RevealText text="We'd rather turn down a project than build it half right. That's genuinely how we decide what to take on, not just something we say." onMount />
@@ -69,7 +69,7 @@ export default function AboutPage() {
       <section className="px-8 py-[110px]">
         <div className="max-w-[1240px] mx-auto">
           <Reveal className="max-w-[680px] mb-12">
-            <span className="section-num mono">{"// HOW THIS ACTUALLY WORKS"}</span>
+            <span className="section-num mono">{"THIS ACTUALLY WORKS"}</span>
           </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
@@ -123,7 +123,7 @@ export default function AboutPage() {
       <section className="px-8 py-[110px] border-t border-b" style={{ borderColor: "var(--color-border)", background: "var(--color-bg-secondary)" }}>
         <div className="max-w-[1240px] mx-auto">
           <Reveal className="max-w-[680px] mb-14">
-            <span className="section-num mono">{"// WHAT WE'VE BUILT OURSELVES"}</span>
+            <span className="section-num mono">{"WE'VE BUILT OURSELVES"}</span>
             <h2 className="text-[clamp(28px,3.4vw,40px)] mt-4 leading-[1.15]"><RevealText text="A few products of our own, offered honestly." /></h2>
             <p className="mt-3.5 text-[15.5px] leading-[1.6]" style={{ color: "var(--color-text-muted)" }}>
               Sometimes the problem we&apos;re solving for one client turns out to be a problem a lot of businesses have — so we built it properly, once. If one of these genuinely fits what you need, we&apos;ll say so upfront. If it doesn&apos;t, we&apos;ll say that too and build you the real thing instead.
@@ -152,7 +152,7 @@ export default function AboutPage() {
         <div className="max-w-[1240px] mx-auto px-8">
           <Reveal>
             <div className="rounded-[20px] border p-10 md:p-14 max-w-[780px]" style={{ borderColor: "var(--color-border)", background: "var(--color-bg-secondary)" }}>
-              <span className="section-num mono">{"// WHY WE STARTED"}</span>
+              <span className="section-num mono">{"WE STARTED"}</span>
               <p className="text-[16px] md:text-[17px] leading-[1.7] mt-5" style={{ color: "var(--color-text-soft)" }}>{foundingNote}</p>
             </div>
           </Reveal>
