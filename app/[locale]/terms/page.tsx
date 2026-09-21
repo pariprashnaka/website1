@@ -20,7 +20,7 @@ export default function TermsPage() {
           <span className="eyebrow load-in">Legal</span>
           <h1 className="text-[clamp(30px,4vw,44px)] leading-[1.1] mt-4 load-in">Terms & Conditions</h1>
           <p className="text-[14px] mono mt-4" style={{ color: "var(--color-text-muted)" }}>
-            Last updated: [INSERT DATE] &nbsp;·&nbsp; Effective: [INSERT DATE]
+            Last updated: 21 September 2026 &nbsp;·&nbsp; Effective: 21 September 2026
           </p>
         </div>
       </section>
@@ -99,5 +99,5 @@ const TERMS_HTML = `
 
 <h2>12. Contact Us</h2>
 
-<p>If you have any questions about these Terms, please contact us at hello@systemfriendly.com or through our <a href="/contact">contact page</a>.</p>
+<p>If you have any questions about these Terms, please contact us at info@systemfriendly.com or through our <a href="/contact">contact page</a>.</p>
 `;

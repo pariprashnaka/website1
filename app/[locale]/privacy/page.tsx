@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
           <span className="eyebrow load-in">Legal</span>
           <h1 className="text-[clamp(30px,4vw,44px)] leading-[1.1] mt-4 load-in">Privacy Policy</h1>
           <p className="text-[14px] mono mt-4" style={{ color: "var(--color-text-muted)" }}>
-            Last updated: [INSERT DATE] &nbsp;·&nbsp; Effective: [INSERT DATE]
+            Last updated: 21 September 2026 &nbsp;·&nbsp; Effective: 21 September 2026
           </p>
         </div>
       </section>
@@ -92,7 +92,7 @@ const PRIVACY_HTML = `
 
 <h2>6. Data Retention</h2>
 
-<p>We retain personal data collected through the contact form and lead capture popup for as long as reasonably necessary to respond to your enquiry and maintain a record of business communications, or until you request deletion. Chatbot session logs are retained for a limited period for quality and improvement purposes. [INSERT SPECIFIC RETENTION PERIOD ONCE DEFINED, e.g. "12 months from last contact."]</p>
+<p>We retain personal data collected through the contact form and lead capture popup for as long as reasonably necessary to respond to your enquiry and maintain a record of business communications, or until you request deletion. Chatbot session logs are retained for a limited period for quality and improvement purposes. We retain contact form submissions and lead capture data for 12 months from the date of last contact, after which it is deleted unless an ongoing engagement requires otherwise.</p>
 
 <h2>7. Data Security</h2>
 
@@ -117,13 +117,13 @@ const PRIVACY_HTML = `
 <p>In accordance with the DPDP Act, we have designated the following Grievance Officer to address any questions, concerns, or complaints regarding this Privacy Policy or our handling of your personal data:</p>
 
 <p>
-[INSERT GRIEVANCE OFFICER NAME]<br />
-[INSERT DESIGNATION]<br />
-Email: [INSERT GRIEVANCE OFFICER EMAIL]<br />
-Address: [INSERT REGISTERED BUSINESS ADDRESS — Buxar, Bihar]
+Vikas Tiwari<br />
+Founder, SystemFriendly Labs Private Limited<br />
+Email: info@systemfriendly.com<br />
+Address: C/O House No. 60, Barka Nuaon, Buxar, Bihar — 802101, India
 </p>
 
-<p>We aim to respond to all legitimate requests within [INSERT TIMEFRAME, e.g. "30 days"], in accordance with applicable law.</p>
+<p>We aim to respond to all legitimate requests within 30 days, in accordance with applicable law.</p>
 
 <h2>10. Children's Data</h2>
 
@@ -135,5 +135,5 @@ Address: [INSERT REGISTERED BUSINESS ADDRESS — Buxar, Bihar]
 
 <h2>12. Contact Us</h2>
 
-<p>If you have any questions about this Privacy Policy, please contact us at hello@systemfriendly.com or through our <a href="/contact">contact page</a>.</p>
+<p>If you have any questions about this Privacy Policy, please contact us at info@systemfriendly.com or through our <a href="/contact">contact page</a>.</p>
 `;
