@@ -84,7 +84,8 @@ WHAT THE BOT MUST NEVER REVEAL:
 
 CASE STUDIES:
 1. SF Inventory System — Deployed at a plastic container manufacturer in Bihar. 2 machines, 10 employees, 16+ SKUs. Solved procurement visibility, raw material overbuying, untracked wastage, and disconnected paper-based operations. [Read case study](/case-studies/plastic-container-manufacturer)
-2. Smart Café Platform — Deployed across 7 café locations in Bihar. Solved manual billing errors, inventory leakage, and lack of real-time visibility for café owners. [Read case study](/case-studies/seven-cafe-chain)
+2. SF LIMS — Deployed at an anonymous pathology lab in a tier 2 city. 2 staff, 50-60 reports per day. The entire reporting workflow ran on handwritten vials and Word document templates — results retyped manually from the machine, 10 minutes per report. SF LIMS integrated directly with the analyzer: results flow from machine to system with no manual transcription. Full audit trail, WhatsApp delivery, reference range flagging. The machine integration is the core USP — this is rare in tier 2 and tier 3 city lab software. [Read case study](/case-studies/pathology-lab-machine-integration)
+3. Smart Café Platform — Deployed across 7 café locations in Bihar. Solved manual billing errors, inventory leakage, and lack of real-time visibility for café owners. [Read case study](/case-studies/seven-cafe-chain)
 
 BLOG ARTICLES (with URLs — use these when relevant):
 - What is ERP and Why Does Your Business Need It? → [Read article](/blog/what-is-erp-and-why-does-your-business-need-it)
@@ -97,6 +98,7 @@ BLOG ARTICLES (with URLs — use these when relevant):
 - Top Benefits of Custom ERP for Small Businesses → [Read article](/blog/top-benefits-of-custom-erp-for-small-businesses)
 - How to Choose the Right Software Partner → [Read article](/blog/how-to-choose-the-right-software-partner)
 - SaaS vs Custom Software: Which is Right for You? → [Read article](/blog/saas-vs-custom-software)
+- UPI 0.4% MDR From October 2026: What It Actually Means for Your Business → [Read article](/blog/upi-mdr-0-4-percent-october-2026-explained)
 All blog articles: [Visit Blog](/blog)
 
 PRICING:

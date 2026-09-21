@@ -96,7 +96,7 @@ export default function Home() {
         <div className="absolute pointer-events-none" style={{ top: -160, left: -140, width: 480, height: 480, background: "radial-gradient(circle, rgba(124,58,237,0.06), transparent 65%)" }} />
         <div className="max-w-[1240px] mx-auto relative grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           <Reveal>
-            <div className="mono text-[11px] mb-3" style={{ color: "var(--color-accent-purple)" }}>{"// CODE QUALITY"}</div>
+            <div className="mono text-[11px] mb-3" style={{ color: "var(--color-accent-purple)" }}>{"CODE QUALITY"}</div>
             <h2 className="text-[clamp(26px,3vw,36px)] mb-4 leading-[1.2]">Code we&apos;d put our name on.</h2>
             <p className="text-[15.5px] leading-[1.7] max-w-[480px]" style={{ color: "var(--color-text-muted)" }}>
               No magic numbers, no silent failures. Every retry, timeout, and edge case is deliberate — because the code we ship today is the code we&apos;re still maintaining two years from now.
@@ -112,7 +112,7 @@ export default function Home() {
               </div>
               <pre className="mono text-[13px] leading-[1.8] p-6 overflow-x-auto" style={{ margin: 0 }}>
                 <code>
-                  <span style={{ color: "var(--color-text-muted)" }}>{"// Retries a request with exponential backoff\n"}</span>
+                  <span style={{ color: "var(--color-text-muted)" }}>{"Retries a request with exponential backoff\n"}</span>
                   <span style={{ color: "var(--color-accent-purple)" }}>async function</span>
                   <span style={{ color: "var(--color-text-white)" }}> withRetry</span>
                   <span style={{ color: "var(--color-text-soft)" }}>{"<T>(\n  "}</span>

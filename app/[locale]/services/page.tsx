@@ -98,7 +98,7 @@ export default function ServicesPage() {
                 <div id={s.slug} className="scroll-mt-24 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
                   <div className={isFlipped ? "md:order-2" : ""}>
                     <div className="mono text-[11px] mb-3" style={{ color: accent }}>
-                      {`// ${String(i + 1).padStart(2, "0")}`}
+                      {String(i + 1).padStart(2, "0")}
                     </div>
                     <div className="flex items-baseline gap-4.5 mb-4.5 flex-wrap">
                       <ServiceIcon icon={s.icon} accent={iconHex} />

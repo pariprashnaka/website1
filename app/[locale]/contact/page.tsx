@@ -122,7 +122,7 @@ export default function ContactPage() {
       <section className="px-8 py-[100px] border-t" style={{ borderColor: "var(--color-border)", background: "var(--color-bg-secondary)" }}>
         <div className="max-w-[1240px] mx-auto">
           <Reveal className="max-w-[640px] mb-14">
-            <span className="section-num mono">{"HAPPENS NEXT"}</span>
+            <span className="section-num mono">{"WHAT HAPPENS NEXT"}</span>
             <h2 className="text-[clamp(26px,3.2vw,34px)] mt-4 leading-[1.15]"><RevealText text="No black box. Here's exactly what happens." /></h2>
           </Reveal>
           <Reveal>
@@ -141,7 +141,7 @@ export default function ContactPage() {
 
       <section className="px-8 py-[100px] max-w-[840px] mx-auto">
         <Reveal className="mb-14">
-          <span className="section-num mono">{"// FAQ"}</span>
+          <span className="section-num mono">{"FAQ"}</span>
           <h2 className="text-[clamp(28px,3.4vw,40px)] mt-4 leading-[1.15]"><RevealText text="Before you send it over." /></h2>
         </Reveal>
         <Reveal><Faq items={contactFaqs} /></Reveal>

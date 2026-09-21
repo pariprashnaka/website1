@@ -166,7 +166,7 @@ export default function AboutPage() {
             <Reveal>
               <div id="careers" className="scroll-mt-24 h-full rounded-[20px] border p-10 flex flex-col justify-between" style={{ borderColor: "var(--color-border)", background: "var(--color-bg-secondary)" }}>
                 <div>
-                  <span className="section-num mono">{"// CAREERS"}</span>
+                  <span className="section-num mono">{"CAREERS"}</span>
                   <h3 className="text-[22px] mt-4 mb-3 leading-[1.25]">Not hiring at scale yet — but if this sounds like you, say hello.</h3>
                   <p className="text-[14px] leading-[1.6] mb-8" style={{ color: "var(--color-text-muted)" }}>
                     We&apos;re genuinely just getting started, which means whoever joins early helps shape how we actually work, not just execute an existing playbook. If that sounds more interesting than joining something already fully formed, send us a note.

@@ -41,7 +41,7 @@ export async function generateMetadata({
   };
 }
 
-// Safely loads a chart component — returns null on any error so content always renders
+Safely loads a chart component — returns null on any error so content always renders
 async function loadCharts(name?: string): Promise<React.ComponentType | null> {
   if (!name) return null;
   try {
