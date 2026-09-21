@@ -1,5 +1,5 @@
 export const SITE_CONTEXT = `
-COMPANY: SystemFriendly Labs Private Limited
+COMPANY: SystemFriendly Labs (OPC) Private Limited
 Location: Buxar, Bihar, India
 Website: systemfriendly.com
 Contact email: info@systemfriendly.com

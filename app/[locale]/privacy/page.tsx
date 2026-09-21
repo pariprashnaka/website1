@@ -118,7 +118,7 @@ const PRIVACY_HTML = `
 
 <p>
 Vikas Tiwari<br />
-Founder, SystemFriendly Labs Private Limited<br />
+Founder, SystemFriendly Labs (OPC) Private Limited<br />
 Email: info@systemfriendly.com<br />
 Address: C/O House No. 60, Barka Nuaon, Buxar, Bihar — 802101, India
 </p>
