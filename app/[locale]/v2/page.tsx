@@ -1,256 +1,179 @@
 import V2Nav from "@/components/v2/V2Nav";
-import V2Rail from "@/components/v2/V2Rail";
 import V2HeroCanvas from "@/components/v2/V2HeroCanvas";
-import V2ProductCanvas from "@/components/v2/V2ProductCanvas";
+import V2Reveal from "@/components/v2/V2Reveal";
 
 export const metadata = {
-  title: "SystemFriendly Labs — Enterprise Software Redefined",
+  title: "SystemFriendly Labs — Operations, Reimagined",
   description:
-    "Inventory, compliance, and intelligence software built for the industries that keep the world running.",
+    "We engineer the operating layer for the industries that keep the world running — manufacturing, pharma, healthcare, and whatever comes next.",
 };
 
 export default function V2Page() {
   return (
     <main className="v2-root">
+      <V2Reveal />
       <V2Nav />
-      <V2Rail />
 
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section id="ch-hero" className="v2-chapter v2-hero">
-        <V2HeroCanvas />
-        <div className="v2-hero-inner">
-          <p className="v2-eyebrow">Enterprise Software</p>
-          <h1 className="v2-hero-h1">
-            Systems that work<br />
-            <em>as hard as you do.</em>
+      <section className="v2-hero">
+        <div className="v2-hero-bg"><V2HeroCanvas /></div>
+        <div className="v2-hero-scrim" />
+        <div className="v2-hero-content">
+          <p className="v2-eyebrow">SystemFriendly Labs</p>
+          <h1 className="v2-headline">
+            <span className="v2-line">Operations,</span>
+            <span className="v2-line"><em>reimagined.</em></span>
           </h1>
-          <p className="v2-hero-sub">
-            Inventory control, lab intelligence, and compliance — built for
-            manufacturing, pharma, and healthcare.
+          <p className="v2-sub">
+            We engineer the software underneath the industries that keep the
+            world running — one platform, built to take on whatever comes next.
           </p>
-          <div className="v2-hero-actions">
-            <a href="#ch-products" className="v2-btn-primary">See our products</a>
-            <a href="#ch-proof" className="v2-btn-ghost">View case studies</a>
-          </div>
+          <a href="#platformChapter" className="v2-cta-link">
+            Explore the platform
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
         </div>
-        <div className="v2-scroll-hint">scroll</div>
+        <div className="v2-scroll-cue" />
       </section>
 
-      {/* ── PROBLEM ──────────────────────────────────────────── */}
-      <section id="ch-problem" className="v2-chapter v2-problem">
-        <div className="v2-problem-inner">
-          <p className="v2-eyebrow">Why SystemFriendly Labs</p>
-          <h2 className="v2-section-h2">
-            Your industry runs on systems<br />built for someone else.
-          </h2>
-          <div className="v2-problem-grid">
-            <div className="v2-pstat">
-              <span className="v2-pstat-num">73%</span>
-              <span className="v2-pstat-label">of manufacturers report inventory blind spots costing &gt;$500K annually</span>
-            </div>
-            <div className="v2-pstat">
-              <span className="v2-pstat-num">4×</span>
-              <span className="v2-pstat-label">longer audit prep with generic ERP vs purpose-built LIMS</span>
-            </div>
-            <div className="v2-pstat">
-              <span className="v2-pstat-num">60%</span>
-              <span className="v2-pstat-label">of compliance failures trace back to data silos, not process gaps</span>
-            </div>
-          </div>
-          <p className="v2-problem-body">
-            Off-the-shelf software forces your team to adapt to the tool.
-            We build the other way around — purpose-fit systems for
-            industries where accuracy is non-negotiable.
-          </p>
+      {/* ── PLATFORM ─────────────────────────────────────────── */}
+      <section className="v2-chapter" id="platformChapter">
+        <p className="v2-chapter-kicker">One architecture</p>
+        <h2 className="v2-chapter-h2">
+          Built once.<br /><em>Extended anywhere.</em>
+        </h2>
+        <p className="v2-lead">
+          Four industries run on it today. The platform underneath was never
+          built for just four.
+        </p>
+
+        <div className="v2-graph-wrap">
+          <svg viewBox="0 0 640 260" id="v2-graph-svg">
+            <g>
+              <line className="v2-graph-edge" x1="320" y1="130" x2="150" y2="60" />
+              <line className="v2-graph-edge" x1="320" y1="130" x2="300" y2="40" />
+              <line className="v2-graph-edge" x1="320" y1="130" x2="470" y2="50" />
+              <line className="v2-graph-edge" x1="320" y1="130" x2="520" y2="150" />
+              <line className="v2-graph-edge" x1="320" y1="130" x2="120" y2="190" />
+              <line className="v2-graph-edge" x1="320" y1="130" x2="260" y2="225" />
+              <line className="v2-graph-edge" x1="320" y1="130" x2="430" y2="210" />
+            </g>
+
+            <circle className="v2-graph-node core" cx="320" cy="130" r="9" />
+            <text className="v2-graph-label" x="320" y="105" textAnchor="middle">PLATFORM</text>
+
+            <circle className="v2-graph-node live" cx="150" cy="60" r="6" />
+            <text className="v2-graph-label" x="150" y="42" textAnchor="middle">Manufacturing</text>
+            <circle className="v2-graph-node live" cx="300" cy="40" r="6" />
+            <text className="v2-graph-label" x="300" y="22" textAnchor="middle">Pharma</text>
+            <circle className="v2-graph-node live" cx="470" cy="50" r="6" />
+            <text className="v2-graph-label" x="470" y="32" textAnchor="middle">Healthcare</text>
+            <circle className="v2-graph-node live" cx="520" cy="150" r="6" />
+            <text className="v2-graph-label" x="540" y="153" textAnchor="start">Retail</text>
+
+            <circle className="v2-graph-node future" cx="120" cy="190" r="5" />
+            <text className="v2-graph-label future" x="120" y="212" textAnchor="middle">?</text>
+            <circle className="v2-graph-node future" cx="260" cy="225" r="5" />
+            <text className="v2-graph-label future" x="260" y="247" textAnchor="middle">?</text>
+            <circle className="v2-graph-node future" cx="430" cy="210" r="5" />
+            <text className="v2-graph-label future" x="430" y="232" textAnchor="middle">?</text>
+          </svg>
         </div>
       </section>
 
-      {/* ── PRODUCTS ─────────────────────────────────────────── */}
-      <section id="ch-products" className="v2-chapter v2-products">
-        <div className="v2-products-header">
-          <p className="v2-eyebrow">Our Products</p>
-          <h2 className="v2-section-h2">Three platforms.<br />One philosophy.</h2>
+      {/* ── MANUFACTURING ────────────────────────────────────── */}
+      <section className="v2-chapter" id="invChapter">
+        <p className="v2-chapter-kicker">Manufacturing &amp; Distribution</p>
+        <h2 className="v2-chapter-h2">Every shelf,<br /><em>accounted for.</em></h2>
+        <p className="v2-lead">
+          InventoryCloud tracks stock as it moves — not as it&rsquo;s remembered.
+          Reorder points, batch traceability, and ERP sync, in real time.
+        </p>
+        <div className="v2-industry-visual">
+          <svg viewBox="0 0 400 160">
+            <defs>
+              <linearGradient id="v2-bar-grad" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%" stopColor="#e8731a" stopOpacity="0" />
+                <stop offset="100%" stopColor="#e8731a" stopOpacity="0.35" />
+              </linearGradient>
+            </defs>
+            <g id="v2-inv-bars" />
+            <path className="v2-bar-line" id="v2-inv-line" d="" />
+          </svg>
         </div>
+      </section>
 
-        {/* InventoryCloud */}
-        <div className="v2-product-split">
-          <div className="v2-product-canvas-wrap">
-            <V2ProductCanvas type="inventory" />
-          </div>
-          <div className="v2-product-copy">
-            <span className="v2-product-tag">Manufacturing &amp; Distribution</span>
-            <h3 className="v2-product-name">InventoryCloud</h3>
-            <p className="v2-product-desc">
-              Real-time visibility across every warehouse, line, and supplier.
-              Predictive reordering, batch traceability, and ERP sync — without
-              the six-month implementation.
-            </p>
-            <ul className="v2-product-bullets">
-              <li>Live stock levels across all locations</li>
-              <li>Automated reorder with supplier lead-time modeling</li>
-              <li>Full batch &amp; lot traceability</li>
-              <li>Native SAP / Oracle / NetSuite connectors</li>
-            </ul>
-            <a href="/products/inventorycloud" className="v2-btn-outline">Learn more →</a>
-          </div>
+      {/* ── PHARMA / LABS ────────────────────────────────────── */}
+      <section className="v2-chapter" id="labChapter">
+        <p className="v2-chapter-kicker">Pharma &amp; Life Sciences</p>
+        <h2 className="v2-chapter-h2">Every sample,<br /><em>traceable.</em></h2>
+        <p className="v2-lead">
+          LabFlow LIMS carries every sample from intake to certificate —
+          audit-ready, 21 CFR Part 11 compliant, by default.
+        </p>
+        <div className="v2-industry-visual">
+          <svg viewBox="0 0 400 160">
+            <path
+              className="v2-wave-line"
+              d="M0,80 L70,80 L80,30 L90,130 L100,80 L300,80 L310,30 L320,130 L330,80 L400,80"
+            />
+          </svg>
         </div>
+      </section>
 
-        {/* LIMS */}
-        <div className="v2-product-split v2-product-split--reverse">
-          <div className="v2-product-canvas-wrap">
-            <V2ProductCanvas type="lims" />
-          </div>
-          <div className="v2-product-copy">
-            <span className="v2-product-tag">Pharmaceutical &amp; Life Sciences</span>
-            <h3 className="v2-product-name">LIMS Pro</h3>
-            <p className="v2-product-desc">
-              21 CFR Part 11-ready laboratory information management. From
-              sample intake to certificate of analysis, with built-in audit
-              trails and e-signatures.
-            </p>
-            <ul className="v2-product-bullets">
-              <li>21 CFR Part 11 &amp; Annex 11 compliant</li>
-              <li>Chain-of-custody &amp; sample lifecycle tracking</li>
-              <li>Automated CoA generation</li>
-              <li>Integration with analytical instruments</li>
-            </ul>
-            <a href="/products/lims" className="v2-btn-outline">Learn more →</a>
-          </div>
-        </div>
-
-        {/* SF Pulse */}
-        <div className="v2-product-split">
-          <div className="v2-product-canvas-wrap">
-            <V2ProductCanvas type="pulse" />
-          </div>
-          <div className="v2-product-copy">
-            <span className="v2-product-tag">Healthcare &amp; Hospitals</span>
-            <h3 className="v2-product-name">SF Pulse</h3>
-            <p className="v2-product-desc">
-              Operational intelligence for healthcare facilities. Supply chain
-              visibility, compliance dashboards, and predictive maintenance —
-              in one HIPAA-ready platform.
-            </p>
-            <ul className="v2-product-bullets">
-              <li>HIPAA-compliant data handling</li>
-              <li>Medical supply chain &amp; par-level management</li>
-              <li>Real-time compliance status dashboards</li>
-              <li>HL7 / FHIR integration ready</li>
-            </ul>
-            <a href="/products/sf-pulse" className="v2-btn-outline">Learn more →</a>
-          </div>
+      {/* ── HEALTHCARE ───────────────────────────────────────── */}
+      <section className="v2-chapter" id="hosChapter">
+        <p className="v2-chapter-kicker">Healthcare &amp; Hospitals</p>
+        <h2 className="v2-chapter-h2">Every bed,<br /><em>visible.</em></h2>
+        <p className="v2-lead">
+          SF Pulse gives wards, supply rooms, and compliance teams one shared
+          picture — updated the moment anything changes.
+        </p>
+        <div className="v2-industry-visual">
+          <svg viewBox="0 0 200 160">
+            <circle className="v2-pulse-ring r1" cx="100" cy="80" r="30" />
+            <circle className="v2-pulse-ring r2" cx="100" cy="80" r="30" />
+            <circle className="v2-pulse-ring r3" cx="100" cy="80" r="30" />
+            <circle className="v2-pulse-core" cx="100" cy="80" r="7" />
+          </svg>
         </div>
       </section>
 
       {/* ── PROOF ────────────────────────────────────────────── */}
-      <section id="ch-proof" className="v2-chapter v2-proof">
-        <div className="v2-proof-inner">
-          <p className="v2-eyebrow">Case Studies</p>
-          <h2 className="v2-section-h2">Results our clients talk about.</h2>
-          <div className="v2-proof-grid">
-            <div className="v2-proof-card">
-              <div className="v2-proof-metric">38%</div>
-              <div className="v2-proof-metric-label">reduction in carrying costs</div>
-              <blockquote className="v2-proof-quote">
-                "InventoryCloud gave us visibility we didn't know was possible.
-                We cut overstock by a third in the first quarter."
-              </blockquote>
-              <div className="v2-proof-author">
-                <strong>VP Operations</strong>
-                <span>Mid-size contract manufacturer, Ohio</span>
-              </div>
-            </div>
-            <div className="v2-proof-card">
-              <div className="v2-proof-metric">12 hrs</div>
-              <div className="v2-proof-metric-label">saved per audit cycle</div>
-              <blockquote className="v2-proof-quote">
-                "FDA inspection prep used to take weeks. With LIMS Pro,
-                the audit trail is always ready. We walked through it in a day."
-              </blockquote>
-              <div className="v2-proof-author">
-                <strong>QA Director</strong>
-                <span>Generic pharma company, New Jersey</span>
-              </div>
-            </div>
-            <div className="v2-proof-card">
-              <div className="v2-proof-metric">99.4%</div>
-              <div className="v2-proof-metric-label">supply compliance rate</div>
-              <blockquote className="v2-proof-quote">
-                "SF Pulse brought our scattered departments into one view.
-                We caught a critical stockout three days before it would've hit."
-              </blockquote>
-              <div className="v2-proof-author">
-                <strong>Chief Supply Officer</strong>
-                <span>Regional hospital network, Texas</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <section className="v2-chapter" id="proofChapter">
+        <p className="v2-chapter-kicker">In their words</p>
+        <div className="v2-quote-mark">&ldquo;</div>
+        <blockquote className="v2-proof-quote">
+          InventoryCloud gave us visibility we didn&rsquo;t know was possible.
+          We cut overstock by a third in the first quarter.
+        </blockquote>
+        <p className="v2-proof-author"><b>VP Operations</b> — Mid-size contract manufacturer</p>
       </section>
 
-      {/* ── ORIGIN ───────────────────────────────────────────── */}
-      <section id="ch-origin" className="v2-chapter v2-origin">
-        <div className="v2-origin-inner">
-          <p className="v2-eyebrow">Our Story</p>
-          <h2 className="v2-section-h2">
-            Built by people who worked<br />inside the problem.
-          </h2>
-          <div className="v2-origin-body">
-            <p>
-              SystemFriendly Labs started on a factory floor, not in a boardroom.
-              Our founders spent years inside manufacturing and pharma operations —
-              fighting with tools that weren't built for them.
-            </p>
-            <p>
-              We started building our own. When other companies kept asking for
-              the same thing, we knew we were onto something.
-            </p>
-            <p>
-              Today we serve clients across North America and Europe — from
-              50-person specialty manufacturers to multi-site hospital networks.
-              The focus hasn't changed: software that fits the work, not the other
-              way around.
-            </p>
-          </div>
-          <div className="v2-origin-stats">
-            <div className="v2-ostat"><span>2018</span><small>Founded</small></div>
-            <div className="v2-ostat"><span>140+</span><small>Clients</small></div>
-            <div className="v2-ostat"><span>3</span><small>Products</small></div>
-            <div className="v2-ostat"><span>99.9%</span><small>Uptime SLA</small></div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ──────────────────────────────────────────────── */}
-      <section id="ch-cta" className="v2-chapter v2-cta">
-        <div className="v2-cta-inner">
-          <p className="v2-eyebrow">Get Started</p>
-          <h2 className="v2-cta-h2">
-            Ready to see what<br />purpose-built feels like?
-          </h2>
-          <p className="v2-cta-sub">
-            Book a 30-minute demo. No sales pitch — just your workflow,
-            and how our software fits it.
-          </p>
-          <a href="/contact" className="v2-btn-primary v2-btn-primary--large">
-            Book a demo
-          </a>
-        </div>
-        <footer className="v2-footer">
-          <div className="v2-footer-brand">
-            SystemFriendly <span>Labs</span>
-          </div>
-          <nav className="v2-footer-links">
-            <a href="/products">Products</a>
-            <a href="/case-studies">Cases</a>
-            <a href="/about">About</a>
-            <a href="/blog">Blog</a>
+      {/* ── CLOSING CTA ──────────────────────────────────────── */}
+      <section className="v2-chapter v2-cta-chapter" id="ctaChapter">
+        <p className="v2-chapter-kicker">Let&rsquo;s talk</p>
+        <h2 className="v2-chapter-h2">
+          Ready to see what<br /><em>purpose-built</em> feels like?
+        </h2>
+        <a href="/contact" className="v2-cta-link">
+          Book a 30-minute demo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
+        <div className="v2-footer-mini">
+          <div className="v2-footer-links">
+            <a href="/products">Platform</a>
+            <a href="/products">Industries</a>
+            <a href="/case-studies">Case Studies</a>
+            <a href="/about">Company</a>
             <a href="/contact">Contact</a>
-          </nav>
-          <p className="v2-footer-legal">
-            © {new Date().getFullYear()} SystemFriendly Labs. All rights reserved.
-          </p>
-        </footer>
+          </div>
+          <span>© {new Date().getFullYear()} SystemFriendly Labs. All rights reserved.</span>
+        </div>
       </section>
     </main>
   );

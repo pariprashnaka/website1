@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 
+/** Ambient background: three soft, slowly-drifting light blobs on black. */
 export default function V2HeroCanvas() {
   const ref = useRef<HTMLCanvasElement>(null);
 
@@ -10,70 +11,41 @@ export default function V2HeroCanvas() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let W = 0, H = 0, animId = 0;
-    const N = 80;
-    const ORANGE = "rgba(232,115,26,";
+    let W = 0, H = 0, t = 0, animId = 0;
 
-    type Particle = { x: number; y: number; r: number; vx: number; vy: number; a: number; life: number };
-    let particles: Particle[] = [];
+    const resize = () => { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; };
 
-    const resize = () => {
-      W = canvas.width = canvas.offsetWidth;
-      H = canvas.height = canvas.offsetHeight;
-    };
-
-    const mk = (): Particle => ({
-      x: Math.random() * W, y: Math.random() * H,
-      r: Math.random() * 1.5 + 0.3,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
-      a: Math.random(), life: Math.random(),
-    });
-
-    const init = () => { particles = Array.from({ length: N }, mk); };
+    const blobs = [
+      { x: 0.32, y: 0.38, r: 0.42, hue: "232,115,26", speed: 0.00018, phase: 0 },
+      { x: 0.68, y: 0.62, r: 0.38, hue: "245,196,154", speed: 0.00013, phase: 2 },
+      { x: 0.52, y: 0.2, r: 0.3, hue: "255,255,255", speed: 0.00021, phase: 4 },
+    ];
 
     const draw = () => {
-      ctx.clearRect(0, 0, W, H);
-      const bg = ctx.createRadialGradient(W * 0.65, H * 0.4, 0, W * 0.65, H * 0.4, W * 0.7);
-      bg.addColorStop(0, "rgba(38,14,4,0.95)");
-      bg.addColorStop(1, "rgba(6,6,8,1)");
-      ctx.fillStyle = bg;
+      t++;
+      ctx.fillStyle = "#000000";
       ctx.fillRect(0, 0, W, H);
 
-      for (let i = 0; i < N; i++) {
-        for (let j = i + 1; j < N; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const d = Math.sqrt(dx * dx + dy * dy);
-          if (d < 140) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = ORANGE + 0.06 * (1 - d / 140) + ")";
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
-      }
-
-      particles.forEach(p => {
-        p.life += 0.004;
-        p.a = (Math.sin(p.life) + 1) / 2;
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
-        if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+      blobs.forEach((b) => {
+        const bx = (b.x + Math.sin(t * b.speed + b.phase) * 0.06) * W;
+        const by = (b.y + Math.cos(t * b.speed * 0.8 + b.phase) * 0.05) * H;
+        const r = b.r * Math.max(W, H);
+        const g = ctx.createRadialGradient(bx, by, 0, bx, by, r);
+        g.addColorStop(0, `rgba(${b.hue},0.16)`);
+        g.addColorStop(1, `rgba(${b.hue},0)`);
+        ctx.fillStyle = g;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = ORANGE + p.a * 0.6 + ")";
+        ctx.arc(bx, by, r, 0, Math.PI * 2);
         ctx.fill();
       });
 
       animId = requestAnimationFrame(draw);
     };
 
-    const onResize = () => { resize(); init(); };
+    const onResize = () => resize();
     window.addEventListener("resize", onResize);
-    resize(); init(); draw();
+    resize();
+    draw();
     return () => { cancelAnimationFrame(animId); window.removeEventListener("resize", onResize); };
   }, []);
 
