@@ -84,25 +84,24 @@ export default function V2Page() {
       </section>
 
       {/* ── MANUFACTURING ────────────────────────────────────── */}
-      <section className="v2-chapter" id="invChapter">
+      <section className="v2-chapter v2-chapter--video" id="invChapter">
+        <video
+          className="v2-chapter-video"
+          src="/videos/inventory.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        />
+        <div className="v2-chapter-scrim" />
         <p className="v2-chapter-kicker">Manufacturing &amp; Distribution</p>
         <h2 className="v2-chapter-h2">Every shelf,<br /><em>accounted for.</em></h2>
-        <p className="v2-lead">
+        <p className="v2-lead v2-lead--flush">
           InventoryCloud tracks stock as it moves — not as it&rsquo;s remembered.
           Reorder points, batch traceability, and ERP sync, in real time.
         </p>
-        <div className="v2-industry-visual">
-          <svg viewBox="0 0 400 160">
-            <defs>
-              <linearGradient id="v2-bar-grad" x1="0" y1="1" x2="0" y2="0">
-                <stop offset="0%" stopColor="#e8731a" stopOpacity="0" />
-                <stop offset="100%" stopColor="#e8731a" stopOpacity="0.35" />
-              </linearGradient>
-            </defs>
-            <g id="v2-inv-bars" />
-            <path className="v2-bar-line" id="v2-inv-line" d="" />
-          </svg>
-        </div>
       </section>
 
       {/* ── PHARMA / LABS ────────────────────────────────────── */}
