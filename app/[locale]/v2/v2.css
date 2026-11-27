@@ -14,6 +14,20 @@
   overflow-x: hidden;
   min-height: 100vh;
 }
+/* Re-theme shared components (blog charts etc.) that read the site-wide --color-* tokens */
+.v2-root {
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #0a0a0c;
+  --color-card: #0f0f12;
+  --color-accent-blue: #e8731a;
+  --color-accent-cyan: #3fe0c5;
+  --color-text-white: #f5f4f2;
+  --color-text-primary: #f5f4f2;
+  --color-text-soft: #c9c9ce;
+  --color-text-muted: #86868b;
+  --color-border: rgba(255,255,255,0.1);
+  --color-border-strong: rgba(255,255,255,0.2);
+}
 .v2-root *{ box-sizing: border-box; }
 /* beat the site-wide heading/paragraph colours from globals.css */
 .v2-root h1, .v2-root h2, .v2-root h3, .v2-root blockquote { color: var(--v2-hi); }
@@ -269,6 +283,7 @@
 .v2-article th { color: #fff; background: rgba(255,255,255,0.04); }
 .v2-article img { max-width: 100%; height: auto; border-radius: 12px; }
 .v2-article hr { border: 0; border-top: 1px solid var(--v2-line); margin: 40px 0; }
+.v2-charts { max-width: 780px; margin: 0 auto; padding: 0 max(24px, env(safe-area-inset-left, 0px)) 80px; font-family: var(--font-body), system-ui, sans-serif; border-top: 1px solid var(--v2-line); padding-top: 56px; }
 .v2-post-cta { border-top: 1px solid var(--v2-line); display: flex; flex-direction: column; align-items: center; text-align: center; padding: 90px max(24px, env(safe-area-inset-left, 0px)); font-family: var(--font-body), system-ui, sans-serif; }
 
 /* ── Footer ── */

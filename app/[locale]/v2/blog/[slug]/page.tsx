@@ -35,6 +35,19 @@ export async function generateMetadata({
   };
 }
 
+// Loads an article's chart component; returns null on any error so the article always renders.
+async function loadCharts(name?: string): Promise<React.ComponentType | null> {
+  if (!name) return null;
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const mod: any = await import(`@/components/blog/charts/${name}`);
+    return typeof mod?.default === "function" ? mod.default : null;
+  } catch {
+    console.warn(`[blog] chart component not found: ${name}`);
+    return null;
+  }
+}
+
 const fmt = (iso: string) =>
   new Date(iso).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 
@@ -43,6 +56,7 @@ export default async function V2BlogPost({ params }: { params: Promise<{ slug: s
   const post = await getPostBySlug(slug);
   if (!post) notFound();
   const related = getRelatedPosts(post);
+  const ChartComponent = await loadCharts(post.charts);
 
   return (
     <main>
@@ -70,6 +84,13 @@ export default async function V2BlogPost({ params }: { params: Promise<{ slug: s
       </header>
 
       <article className="v2-article" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+
+      {ChartComponent && (
+        <section className="v2-charts">
+          <p className="v2-chapter-kicker">Data &amp; charts</p>
+          <ChartComponent />
+        </section>
+      )}
 
       <section className="v2-post-cta">
         <p className="v2-chapter-kicker">Working on something similar?</p>
