@@ -4,6 +4,8 @@
  * (body) for the Apple-style redesign.
  */
 import { Instrument_Serif, Inter } from "next/font/google";
+import V2Nav from "@/components/v2/V2Nav";
+import V2Footer from "@/components/v2/V2Footer";
 import "../../globals.css";
 import "./v2.css";
 
@@ -24,8 +26,10 @@ const inter = Inter({
 
 export default function V2Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={`${instrumentSerif.variable} ${inter.variable}`}>
+    <div className={`${instrumentSerif.variable} ${inter.variable} v2-root`}>
+      <V2Nav />
       {children}
+      <V2Footer />
     </div>
   );
 }

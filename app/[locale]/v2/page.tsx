@@ -1,4 +1,3 @@
-import V2Nav from "@/components/v2/V2Nav";
 import V2HeroCanvas from "@/components/v2/V2HeroCanvas";
 import V2Reveal from "@/components/v2/V2Reveal";
 
@@ -10,9 +9,8 @@ export const metadata = {
 
 export default function V2Page() {
   return (
-    <main className="v2-root">
+    <main>
       <V2Reveal />
-      <V2Nav />
 
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section className="v2-hero">
@@ -169,16 +167,6 @@ export default function V2Page() {
             <path d="M5 12h14M13 6l6 6-6 6" />
           </svg>
         </a>
-        <div className="v2-footer-mini">
-          <div className="v2-footer-links">
-            <a href="/products">Platform</a>
-            <a href="/products">Industries</a>
-            <a href="/case-studies">Case Studies</a>
-            <a href="/about">Company</a>
-            <a href="/contact">Contact</a>
-          </div>
-          <span>© {new Date().getFullYear()} SystemFriendly Labs. All rights reserved.</span>
-        </div>
       </section>
     </main>
   );
