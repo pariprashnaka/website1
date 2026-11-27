@@ -106,21 +106,24 @@ export default function V2Page() {
       </section>
 
       {/* ── PHARMA / LABS ────────────────────────────────────── */}
-      <section className="v2-chapter" id="labChapter">
+      <section className="v2-chapter v2-chapter--video" id="labChapter">
+        <video
+          className="v2-chapter-video"
+          src="/videos/lims.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        />
+        <div className="v2-chapter-scrim" />
         <p className="v2-chapter-kicker">Pharma &amp; Life Sciences</p>
         <h2 className="v2-chapter-h2">Every sample,<br /><em>traceable.</em></h2>
-        <p className="v2-lead">
+        <p className="v2-lead v2-lead--flush">
           LabFlow LIMS carries every sample from intake to certificate —
           audit-ready, 21 CFR Part 11 compliant, by default.
         </p>
-        <div className="v2-industry-visual">
-          <svg viewBox="0 0 400 160">
-            <path
-              className="v2-wave-line"
-              d="M0,80 L70,80 L80,30 L90,130 L100,80 L300,80 L310,30 L320,130 L330,80 L400,80"
-            />
-          </svg>
-        </div>
       </section>
 
       {/* ── HEALTHCARE ───────────────────────────────────────── */}
