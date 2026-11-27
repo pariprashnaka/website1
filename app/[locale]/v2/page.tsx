@@ -87,7 +87,7 @@ export default function V2Page() {
       <section className="v2-chapter v2-chapter--video" id="invChapter">
         <video
           className="v2-chapter-video"
-          src="/videos/inventory.mp4"
+          src="/videos/inventory-web.mp4"
           autoPlay
           muted
           loop
@@ -108,7 +108,7 @@ export default function V2Page() {
       <section className="v2-chapter v2-chapter--video" id="labChapter">
         <video
           className="v2-chapter-video"
-          src="/videos/lims.mp4"
+          src="/videos/lims-web.mp4"
           autoPlay
           muted
           loop
@@ -129,7 +129,7 @@ export default function V2Page() {
       <section className="v2-chapter v2-chapter--video" id="hosChapter">
         <video
           className="v2-chapter-video"
-          src="/videos/hms.mp4"
+          src="/videos/hms-web.mp4"
           autoPlay
           muted
           loop
