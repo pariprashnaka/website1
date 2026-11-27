@@ -128,7 +128,9 @@
 }
 .v2-chapter-scrim {
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.75));
+  background:
+    radial-gradient(ellipse 65% 55% at 50% 50%, rgba(0,0,0,0.55), transparent 100%),
+    linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.58) 50%, rgba(0,0,0,0.8));
 }
 .v2-chapter--video > .v2-chapter-kicker,
 .v2-chapter--video > .v2-chapter-h2,
