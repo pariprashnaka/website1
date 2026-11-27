@@ -76,7 +76,7 @@
   opacity: 0; visibility: hidden; transform: translateY(-4px);
   transition: opacity 0.18s, transform 0.18s, visibility 0.18s;
 }
-.v2-dropdown.show, .v2-nav-item:focus-within .v2-dropdown { opacity: 1; visibility: visible; transform: none; }
+.v2-dropdown.show, .v2-nav-item:has(:focus-visible) .v2-dropdown { opacity: 1; visibility: visible; transform: none; }
 .v2-dropdown-item {
   display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 9px;
   color: var(--v2-hi); text-decoration: none; font-size: 13.5px; font-weight: 500;

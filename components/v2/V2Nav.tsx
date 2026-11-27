@@ -19,7 +19,7 @@ export default function V2Nav() {
   }, []);
 
   // close everything on navigation
-  useEffect(() => { setOpen(null); setMenu(false); }, [pathname]);
+  useEffect(() => { setOpen(null); setMenu(false); (document.activeElement as HTMLElement | null)?.blur?.(); }, [pathname]);
 
   // lock page scroll while the mobile menu is open; Escape closes both menus
   useEffect(() => {
