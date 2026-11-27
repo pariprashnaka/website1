@@ -15,11 +15,9 @@ export const NAV: NavItem[] = [
     label: "Products",
     href: "/products",
     children: [
-      { label: "Platform overview", href: "/products", desc: "One architecture under every product" },
       { label: "SF Inventory System", href: "/products/sf-inventory-system", desc: "Stock, GST billing, suppliers" },
       { label: "SF LIMS", href: "/products/sf-lims", desc: "Pathology labs, sample to report" },
       { label: "Smart Café Platform", href: "/products/smart-cafe-platform", desc: "Direct ordering and operations" },
-      { label: "All products", href: "/products" },
     ],
   },
   {
@@ -33,6 +31,7 @@ export const NAV: NavItem[] = [
       { label: "All industries", href: "/industries" },
     ],
   },
+  { label: "Use Cases", href: "/use-cases" },
   { label: "Services", href: "/services" },
   { label: "Case Studies", href: "/case-studies" },
   {
