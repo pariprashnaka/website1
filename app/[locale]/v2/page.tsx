@@ -126,21 +126,24 @@ export default function V2Page() {
       </section>
 
       {/* ── HEALTHCARE ───────────────────────────────────────── */}
-      <section className="v2-chapter" id="hosChapter">
+      <section className="v2-chapter v2-chapter--video" id="hosChapter">
+        <video
+          className="v2-chapter-video"
+          src="/videos/hms.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        />
+        <div className="v2-chapter-scrim" />
         <p className="v2-chapter-kicker">Healthcare &amp; Hospitals</p>
         <h2 className="v2-chapter-h2">Every bed,<br /><em>visible.</em></h2>
-        <p className="v2-lead">
+        <p className="v2-lead v2-lead--flush">
           SF Pulse gives wards, supply rooms, and compliance teams one shared
           picture — updated the moment anything changes.
         </p>
-        <div className="v2-industry-visual">
-          <svg viewBox="0 0 200 160">
-            <circle className="v2-pulse-ring r1" cx="100" cy="80" r="30" />
-            <circle className="v2-pulse-ring r2" cx="100" cy="80" r="30" />
-            <circle className="v2-pulse-ring r3" cx="100" cy="80" r="30" />
-            <circle className="v2-pulse-core" cx="100" cy="80" r="7" />
-          </svg>
-        </div>
       </section>
 
       {/* ── PROOF ────────────────────────────────────────────── */}
