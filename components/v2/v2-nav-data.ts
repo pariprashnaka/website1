@@ -20,7 +20,6 @@ export const NAV: NavItem[] = [
       { label: "SF LIMS", href: "/products/sf-lims", desc: "Pathology labs, sample to report" },
       { label: "Smart Café Platform", href: "/products/smart-cafe-platform", desc: "Direct ordering and operations" },
       { label: "All products", href: "/products" },
-      { label: "Use cases", href: "/use-cases", desc: "Start from the problem you have" },
     ],
   },
   {
