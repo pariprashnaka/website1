@@ -1,0 +1,7 @@
+/** Video backgrounds available per product slug (files live in /public/videos). */
+const VIDEOS: Record<string, string> = {
+  "sf-inventory-system": "/videos/inventory-web.mp4",
+  "sf-lims": "/videos/lims-web.mp4",
+};
+
+export const productVideo = (slug: string): string | null => VIDEOS[slug] ?? null;
