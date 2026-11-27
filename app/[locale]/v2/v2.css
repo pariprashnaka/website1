@@ -15,6 +15,9 @@
   min-height: 100vh;
 }
 .v2-root *{ box-sizing: border-box; }
+/* beat the site-wide heading/paragraph colours from globals.css */
+.v2-root h1, .v2-root h2, .v2-root h3, .v2-root blockquote { color: var(--v2-hi); }
+.v2-root h1 em, .v2-root h2 em { color: var(--v2-peach); }
 .v2-root ::selection { background: var(--v2-orange); color: #fff; }
 @media (prefers-reduced-motion: reduce) {
   .v2-root * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
