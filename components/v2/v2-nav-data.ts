@@ -20,6 +20,7 @@ export const NAV: NavItem[] = [
       { label: "SF LIMS", href: "/products/sf-lims", desc: "Pathology labs, sample to report" },
       { label: "Smart Café Platform", href: "/products/smart-cafe-platform", desc: "Direct ordering and operations" },
       { label: "All products", href: "/products" },
+      { label: "Use cases", href: "/use-cases", desc: "Start from the problem you have" },
     ],
   },
   {
@@ -57,6 +58,7 @@ export const FOOTER_COLUMNS: { title: string; links: NavLeaf[] }[] = [
       { label: "SF Inventory System", href: "/products/sf-inventory-system" },
       { label: "SF LIMS", href: "/products/sf-lims" },
       { label: "Smart Café Platform", href: "/products/smart-cafe-platform" },
+      { label: "Use cases", href: "/use-cases" },
     ],
   },
   {
