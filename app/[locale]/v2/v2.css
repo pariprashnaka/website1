@@ -501,3 +501,12 @@
 .v2-footer-links { display: flex; gap: 26px; flex-wrap: wrap; justify-content: center; }
 .v2-footer-links a { color: var(--v2-md); text-decoration: none; }
 .v2-footer-links a:hover { color: var(--v2-hi); }
+
+/* case studies */
+.v2-cs-meta{color:var(--v2-md);font-size:.9rem;margin-bottom:.6rem}
+.v2-cs-block{max-width:1100px;margin:0 auto;padding:4rem max(16px,5vw);border-top:1px solid var(--v2-line)}
+.v2-cs-lead{font-family:var(--font-display);font-size:clamp(1.4rem,2.6vw,2.1rem);line-height:1.35;color:var(--v2-hi);margin:0;max-width:60ch}
+.v2-cs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem 2.5rem;margin-top:1.5rem}
+.v2-cs-grid h3{font-size:1.1rem;margin:0 0 .4rem}
+.v2-cs-grid p{color:var(--v2-md);margin:0;line-height:1.55}
+.v2-cs-note{color:var(--v2-md);font-size:.8rem;margin-top:2.5rem;max-width:70ch;line-height:1.5}
