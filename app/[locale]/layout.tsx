@@ -7,12 +7,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
 import InsertedHeadScripts from "@/components/InsertedHeadScripts";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import CursorGlow from "@/components/CursorGlow";
-import LeadPopup from "@/components/LeadPopup";
 import Analytics from "@/components/Analytics";
-import Chatbot from "@/components/Chatbot";
 
 const spaceGrotesk = Space_Grotesk({ variable: "--font-space-grotesk", subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], weight: ["400", "500", "600", "700"] });
@@ -70,13 +65,8 @@ export default async function LocaleLayout({
       </head>
       <body className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}>
         <NextIntlClientProvider>
-          <CursorGlow />
-          <LeadPopup />
           <Analytics />
-          <Chatbot />
-          <Nav />
-          <main>{children}</main>
-          <Footer />
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>
