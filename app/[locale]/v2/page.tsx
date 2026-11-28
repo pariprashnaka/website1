@@ -44,7 +44,7 @@ export default function V2Page() {
             We engineer the software underneath the industries that keep the
             world running — one platform, built to take on whatever comes next.
           </p>
-          <a href="#platformChapter" className="v2-cta-link">
+          <a href="#invChapter" className="v2-cta-link">
             Explore the platform
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
               <path d="M5 12h14M13 6l6 6-6 6" />
@@ -52,19 +52,6 @@ export default function V2Page() {
           </a>
         </div>
         <div className="v2-scroll-cue" />
-      </section>
-
-      {/* ── PLATFORM ─────────────────────────────────────────── */}
-      <section className="v2-chapter" id="platformChapter">
-        <p className="v2-chapter-kicker">One architecture</p>
-        <h2 className="v2-chapter-h2">
-          Built once.<br /><em>Extended anywhere.</em>
-        </h2>
-        <p className="v2-lead">
-          Pick the layers your business needs. See how they connect, and what we would build first.
-        </p>
-
-        <V2ServiceComposer items={COMPOSER_ITEMS} ctaHref={v2Href("/contact")} />
       </section>
 
       {/* ── MANUFACTURING ────────────────────────────────────── */}
@@ -101,6 +88,19 @@ export default function V2Page() {
           SFHMS gives wards, supply rooms, and compliance teams one shared
           picture — updated the moment anything changes.
         </p>
+      </section>
+
+      {/* ── PLATFORM ─────────────────────────────────────────── */}
+      <section className="v2-chapter" id="platformChapter">
+        <p className="v2-chapter-kicker">Build yours</p>
+        <h2 className="v2-chapter-h2">
+          Compose your system.<br /><em>See how it fits.</em>
+        </h2>
+        <p className="v2-lead">
+          Four industries run on one platform. Pick the layers your business needs and see how they connect, and what we would build first.
+        </p>
+
+        <V2ServiceComposer items={COMPOSER_ITEMS} ctaHref={v2Href("/contact")} />
       </section>
 
       {/* ── PROOF ────────────────────────────────────────────── */}
