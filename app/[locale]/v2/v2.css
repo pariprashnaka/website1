@@ -770,3 +770,25 @@
 .v2-steps-list span { color: var(--v2-orange); font-size: 13px; letter-spacing: .14em; }
 .v2-steps-list h3 { margin: 10px 0 8px; font-family: var(--font-display), Georgia, serif; font-weight: 400; font-size: 24px; color: #fff; }
 .v2-steps-list p { margin: 0; color: #9a9aa2; font-size: 15px; line-height: 1.6; font-weight: 300; }
+
+/* ── Problem Library: calmer on phones — one swipeable row per shelf ── */
+@media (max-width: 760px) {
+  .v2-lib { padding-top: .5rem; }
+  .v2-lib-card { padding: 1rem 1.1rem; gap: .5rem; }
+  .v2-lib-rank strong { font-size: 1.5rem; }
+  .v2-lib-stats { font-size: .76rem; gap: .2rem 1rem; }
+  .v2-lib-surprise { justify-self: start; }
+  .v2-lib-who { flex-wrap: nowrap; overflow-x: auto; margin: 0 -16px 1.6rem; padding: 0 16px; scrollbar-width: none; }
+  .v2-lib-who::-webkit-scrollbar { display: none; }
+  .v2-lib-who button { flex: none; white-space: nowrap; }
+  .v2-lib-shelf { margin-bottom: 1.6rem; }
+  .v2-lib-shelf header { margin-bottom: .2rem; }
+  .v2-lib-shelf h2 { font-size: 1.45rem; }
+  .v2-lib-shelf header p { font-size: .8rem; width: 100%; }
+  .v2-lib-row { flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; gap: 9px; margin: 0 -16px; padding: 26px 16px 0; min-height: 0; scroll-snap-type: x proximity; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .v2-lib-row::-webkit-scrollbar { display: none; }
+  .v2-lib-spine { width: var(--w); height: calc(var(--h) - 20px); scroll-snap-align: start; transform: none; }
+  .v2-lib-title { font-size: 1.05rem; }
+  .v2-lib-plank { height: 12px; margin: 0 -16px; border-radius: 0; }
+}
+@media (hover: none) { .v2-lib-spine:hover { transform: none; filter: none; } }
