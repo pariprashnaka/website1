@@ -9,7 +9,7 @@ export default function proxy(req: NextRequest) {
   const host = (req.headers.get("host") ?? "").toLowerCase();
   if (/(^|\.)systemfriendly\.in(:\d+)?$/.test(host) && req.nextUrl.pathname === "/") {
     const url = req.nextUrl.clone();
-    url.pathname = "/v2";
+    url.pathname = "/en/v2";
     return NextResponse.rewrite(url);
   }
   return intl(req);
