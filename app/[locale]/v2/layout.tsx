@@ -3,7 +3,7 @@
  * (main) route group now). Loads Instrument Serif (display) + Inter
  * (body) for the Apple-style redesign.
  */
-import { Instrument_Serif, Inter } from "next/font/google";
+import { Instrument_Serif } from "next/font/google";
 import V2Nav from "@/components/v2/V2Nav";
 import V2Footer from "@/components/v2/V2Footer";
 import "../../globals.css";
@@ -17,16 +17,9 @@ const instrumentSerif = Instrument_Serif({
   display: "swap",
 });
 
-const inter = Inter({
-  variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  display: "swap",
-});
-
 export default function V2Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={`${instrumentSerif.variable} ${inter.variable} v2-root`}>
+    <div className={`${instrumentSerif.variable} v2-root`}>
       <V2Nav />
       {children}
       <V2Footer />
