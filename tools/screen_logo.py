@@ -103,6 +103,7 @@ while True:
         hsv = cv2.cvtColor(f, cv2.COLOR_BGR2HSV)
         green = cv2.inRange(hsv, (30, 45, 25), (95, 255, 255))
         green = cv2.bitwise_and(green, region)
+        green = cv2.morphologyEx(green, cv2.MORPH_OPEN, np.ones((9, 9), np.uint8))
         green = cv2.dilate(green, np.ones((5, 5), np.uint8))
         green = cv2.GaussianBlur(green, (0, 0), 1.5).astype(np.float32)[..., None] / 255
         f = (np.array(bg, np.float32) * green + f.astype(np.float32) * (1 - green)).astype(np.uint8)
