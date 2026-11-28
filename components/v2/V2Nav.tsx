@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
-import V2LangToggle from "./V2LangToggle";
 import { NAV, NAV_CTA, V2_BASE, v2Href } from "./v2-nav-data";
 
 export default function V2Nav() {
@@ -80,7 +79,6 @@ export default function V2Nav() {
       </nav>
 
       <div className="v2-nav-right">
-        <V2LangToggle />
         <Link href={v2Href(NAV_CTA.href)} className="v2-nav-cta">{NAV_CTA.label}</Link>
         <button
           className="v2-burger"
