@@ -26,6 +26,14 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  async rewrites() {
+    // systemfriendly.in serves the v2 site at its root; systemfriendly.com is unaffected.
+    return {
+      beforeFiles: [
+        { source: "/", has: [{ type: "host", value: "(www\\.)?systemfriendly\\.in" }], destination: "/v2" },
+      ],
+    };
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
