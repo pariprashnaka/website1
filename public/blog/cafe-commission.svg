@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img">
+<defs>
+<radialGradient id="g1" cx="22%" cy="20%" r="70%"><stop offset="0" stop-color="#e8731a" stop-opacity=".55"/><stop offset="1" stop-color="#e8731a" stop-opacity="0"/></radialGradient>
+<radialGradient id="g2" cx="85%" cy="90%" r="65%"><stop offset="0" stop-color="#f5c49a" stop-opacity=".40"/><stop offset="1" stop-color="#f5c49a" stop-opacity="0"/></radialGradient>
+<linearGradient id="st" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8731a"/><stop offset="1" stop-color="#f5c49a"/></linearGradient>
+</defs>
+<rect width="1200" height="630" fill="#050506"/><rect width="1200" height="630" fill="url(#g1)"/><rect width="1200" height="630" fill="url(#g2)"/>
+<path d="M640 250h260v150a90 90 0 0 1-90 90h-80a90 90 0 0 1-90-90z" fill="none" stroke="url(#st)" stroke-width="3"/><path d="M900 290h40a45 45 0 0 1 0 90h-40" fill="none" stroke="url(#st)" stroke-width="3"/><path d="M700 220c-24-30 24-50 0-80" fill="none" stroke="#f5c49a" stroke-width="3" stroke-linecap="round" opacity="0.9"/><path d="M770 220c-24-30 24-50 0-80" fill="none" stroke="#f5c49a" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M840 220c-24-30 24-50 0-80" fill="none" stroke="#f5c49a" stroke-width="3" stroke-linecap="round" opacity="0.5"/><rect x="650" y="400" width="240" height="14" rx="7" fill="#e8731a"/><rect x="650" y="400" width="60" height="14" rx="7" fill="#3fe0c5"/><text x="110" y="330" font-family="Georgia,serif" font-size="120" fill="#f5f4f2">20%</text><text x="116" y="375" font-family="Inter,sans-serif" font-size="24" fill="#86868b">of every order</text>
+</svg>

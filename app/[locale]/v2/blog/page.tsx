@@ -20,6 +20,8 @@ export default function V2BlogPage() {
     dateLabel: fmt(p.date),
     readingTime: p.readingTime,
     tags: p.tags,
+    image: p.image,
+    imageAlt: p.imageAlt,
   }));
 
   return (

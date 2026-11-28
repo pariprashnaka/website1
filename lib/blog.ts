@@ -17,6 +17,8 @@ export type PostMeta = {
   tags: string[];
   readingTime: string;
   charts?: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 export type Post = PostMeta & { contentHtml: string };
@@ -43,6 +45,8 @@ export function getAllPostsMeta(): PostMeta[] {
       tags: data.tags ?? [],
       readingTime: readingTime(content).text,
       charts: data.charts,
+      image: data.image,
+      imageAlt: data.imageAlt,
     };
   });
   return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -66,6 +70,8 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     tags: data.tags ?? [],
     readingTime: readingTime(content).text,
     charts: data.charts,
+    image: data.image,
+    imageAlt: data.imageAlt,
     contentHtml,
   };
 }

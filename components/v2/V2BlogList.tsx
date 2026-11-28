@@ -10,6 +10,8 @@ export type V2BlogItem = {
   dateLabel: string;
   readingTime: string;
   tags: string[];
+  image?: string;
+  imageAlt?: string;
 };
 
 const ALL = "All";
@@ -64,6 +66,10 @@ export default function V2BlogList({ posts, tags }: { posts: V2BlogItem[]; tags:
         <div className="v2-blog-grid">
           {rest.map((p) => (
             <Link key={p.slug} href={v2Href(`/blog/${p.slug}`)} className="v2-blog-card">
+              {p.image && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={p.image} alt={p.imageAlt ?? ""} className="v2-blog-thumb" loading="lazy" width={1200} height={630} />
+              )}
               <span className="v2-blog-meta">{p.tags[0] ?? "Article"} · {p.readingTime}</span>
               <h3>{p.title}</h3>
               <p>{p.description}</p>

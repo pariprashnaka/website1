@@ -30,8 +30,9 @@ export async function generateMetadata({
       authors: ["SystemFriendly Labs"],
       url: `https://systemfriendly.com/blog/${post.slug}`,
       siteName: "SystemFriendly Labs",
+      images: post.image ? [{ url: post.image, width: 1200, height: 630, alt: post.imageAlt ?? post.title }] : undefined,
     },
-    twitter: { card: "summary_large_image", title: post.title, description: post.description },
+    twitter: { card: "summary_large_image", title: post.title, description: post.description, images: post.image ? [post.image] : undefined },
   };
 }
 
@@ -82,6 +83,13 @@ export default async function V2BlogPost({ params }: { params: Promise<{ slug: s
           {post.author} · {fmt(post.date)} · {post.readingTime}
         </p>
       </header>
+
+      {post.image && (
+        <figure className="v2-post-cover">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={post.image} alt={post.imageAlt ?? post.title} width={1200} height={630} />
+        </figure>
+      )}
 
       <article className="v2-article" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
 
