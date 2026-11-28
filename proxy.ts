@@ -3,16 +3,23 @@ import { NextResponse, type NextRequest } from "next/server";
 import { routing } from "./i18n/routing";
 
 const intl = createMiddleware(routing);
+const IN_HOST = /(^|\.)systemfriendly\.in(:\d+)?$/;
 
 export default function proxy(req: NextRequest) {
-  // systemfriendly.in serves the v2 site at its root; systemfriendly.com is unaffected.
   const host = (req.headers.get("host") ?? "").toLowerCase();
-  if (/(^|\.)systemfriendly\.in(:\d+)?$/.test(host) && req.nextUrl.pathname === "/") {
+  if (!IN_HOST.test(host)) return intl(req);
+
+  // systemfriendly.in: serve v2 at root, and keep it out of search engines while it is being built.
+  let res: NextResponse;
+  if (req.nextUrl.pathname === "/") {
     const url = req.nextUrl.clone();
     url.pathname = "/en/v2";
-    return NextResponse.rewrite(url);
+    res = NextResponse.rewrite(url);
+  } else {
+    res = intl(req) as NextResponse;
   }
-  return intl(req);
+  res.headers.set("X-Robots-Tag", "noindex, nofollow");
+  return res;
 }
 
 export const config = {
