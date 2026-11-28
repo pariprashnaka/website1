@@ -5,6 +5,7 @@ import { v2Href } from "@/components/v2/v2-nav-data";
 import V2HeroCanvas from "@/components/v2/V2HeroCanvas";
 import V2Reveal from "@/components/v2/V2Reveal";
 import V2Manifest from "@/components/v2/V2Manifest";
+import V2Beliefs from "@/components/v2/V2Beliefs";
 
 export const metadata: Metadata = {
   title: "About — SystemFriendly Labs",
@@ -66,15 +67,7 @@ export default function V2About() {
 
       <section className="v2-ab-sec">
         <p className="v2-chapter-kicker">What we believe</p>
-        <div className="v2-ab-cards">
-          {[...values.map((v) => ({ k: v.title, d: v.desc })), ...whyUs.map((v) => ({ k: v.title, d: v.desc }))].map((c, i) => (
-            <article key={c.k} className="v2-ab-card">
-              <span>{String(i + 1).padStart(2, "0")}</span>
-              <h3>{c.k}</h3>
-              <p>{c.d}</p>
-            </article>
-          ))}
-        </div>
+        <V2Beliefs items={[...values.map((v) => ({ k: v.title, d: v.desc })), ...whyUs.map((v) => ({ k: v.title, d: v.desc }))]} />
       </section>
 
       <section className="v2-ab-sec">

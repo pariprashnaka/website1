@@ -922,3 +922,26 @@ html:has(.v2-root), body:has(.v2-root) { overflow-x: clip; }
 .v2-ab-flow p { margin: 0; color: #9a9aa2; font-size: 14px; line-height: 1.55; font-weight: 300; }
 @media (max-width: 800px) { .v2-ab-sec { padding-top: 60px; padding-bottom: 60px; } .v2-ab-where { grid-template-columns: 1fr; gap: 20px; } .v2-ab-pin { width: 150px; height: 150px; } }
 @media (prefers-reduced-motion: reduce) { .v2-ab-pin i { animation: none; } .v2-ab-no s { animation: none; background-size: 100% 2px; } }
+
+/* ── About: beliefs reader ── */
+.v2-bel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 56px; margin-top: 28px; align-items: stretch; }
+.v2-bel-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--v2-line); }
+.v2-bel-list button { position: relative; width: 100%; display: flex; gap: 16px; align-items: baseline; text-align: left; font: inherit; background: none; border: 0; border-bottom: 1px solid var(--v2-line); padding: 16px 0; cursor: pointer; color: #6f6f78; transition: color .3s, padding-left .3s; overflow: hidden; }
+.v2-bel-list button em { font-style: normal; font-size: 12px; letter-spacing: .2em; color: inherit; }
+.v2-bel-list button span { font-family: var(--font-display), Georgia, serif; font-size: clamp(20px, 2.2vw, 28px); line-height: 1.25; }
+.v2-bel-list button:hover { color: #d6d6da; }
+.v2-bel-list button.on { color: #fff; padding-left: 14px; }
+.v2-bel-list button.on em { color: var(--v2-orange); }
+.v2-bel-bar { position: absolute; left: 0; bottom: 0; height: 2px; background: var(--v2-orange); animation: v2belbar 6s linear forwards; }
+@keyframes v2belbar { from { width: 0; } to { width: 100%; } }
+.v2-bel-panel { position: sticky; top: 100px; align-self: start; min-height: 360px; padding: 40px; border: 1px solid var(--v2-line); border-radius: 22px; background: radial-gradient(120% 90% at 100% 0%, rgba(232,115,26,.14), transparent 60%), rgba(255,255,255,.02); overflow: hidden; }
+.v2-bel-num { position: absolute; right: 22px; top: -18px; font-family: var(--font-display), Georgia, serif; font-size: clamp(120px, 16vw, 210px); line-height: 1; color: transparent; -webkit-text-stroke: 1px rgba(245,196,154,.28); pointer-events: none; }
+.v2-bel-text { position: relative; margin: 130px 0 0; font-family: var(--font-display), Georgia, serif; font-size: clamp(22px, 2.6vw, 32px); line-height: 1.4; color: #f2f2f4; animation: v2belin .6s ease both; }
+.v2-bel-title { position: relative; margin: 26px 0 0; color: var(--v2-orange); font-size: 12px; letter-spacing: .2em; text-transform: uppercase; animation: v2belin .6s .15s ease both; }
+@keyframes v2belin { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@media (max-width: 860px) {
+  .v2-bel { grid-template-columns: 1fr; gap: 20px; }
+  .v2-bel-panel { position: relative; top: 0; order: -1; min-height: 300px; padding: 26px; }
+  .v2-bel-text { margin-top: 96px; }
+}
+@media (prefers-reduced-motion: reduce) { .v2-bel-bar, .v2-bel-text, .v2-bel-title { animation: none; } }
