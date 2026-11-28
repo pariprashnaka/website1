@@ -731,3 +731,4 @@
 .v2-fb-dots button.on { width: 26px; background: var(--v2-orange); }
 @media (max-width: 760px) { .v2-fb-stage { min-height: 400px; } .v2-fb-card { padding: 32px 22px; } }
 @media (prefers-reduced-motion: reduce) { .v2-fb-card { transition: none; } }
+.v2-fb-sample { text-align: center; margin: 0 0 14px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--v2-orange); }

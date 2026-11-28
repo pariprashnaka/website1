@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { feedback } from "./v2-feedback";
+import { feedback, SAMPLE } from "./v2-feedback";
 
 const MS = 3500;
 
@@ -18,6 +18,7 @@ export default function V2Feedback() {
   if (!n) return null;
   return (
     <div className="v2-fb" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+      {SAMPLE && <p className="v2-fb-sample">Sample content — to be replaced with real customer feedback</p>}
       <div className="v2-fb-stage">
         {feedback.map((f, k) => {
           const d = (k - i + n) % n;
@@ -25,7 +26,7 @@ export default function V2Feedback() {
           return (
             <figure key={k} className={`v2-fb-card ${cls}`} aria-hidden={d !== 0}>
               <blockquote>&ldquo;{f.quote}&rdquo;</blockquote>
-              <figcaption><b>{f.name}</b> — {f.role}</figcaption>
+              <figcaption>{SAMPLE ? <b>{f.role}</b> : <><b>{f.name}</b> — {f.role}</>}</figcaption>
             </figure>
           );
         })}
