@@ -792,3 +792,12 @@
   .v2-lib-plank { height: 12px; margin: 0 -16px; border-radius: 0; }
 }
 @media (hover: none) { .v2-lib-spine:hover { transform: none; filter: none; } }
+
+/* Problem Library on phones, round 2: smaller books, shorter hero (tested at 390px) */
+@media (max-width: 760px) {
+  .v2-page-hero { min-height: 0; padding: 110px max(20px, env(safe-area-inset-left, 0px)) 36px; }
+  .v2-lib-spine { width: calc(var(--w) * .66); height: calc(var(--h) - 30px); border-radius: 5px 5px 2px 2px; }
+  .v2-lib-title { font-size: .85rem; }
+  .v2-lib-band { top: 10px; height: 6px; }
+  .v2-lib-row { gap: 7px; padding-top: 20px; }
+}
