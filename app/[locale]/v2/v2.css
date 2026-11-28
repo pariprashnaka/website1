@@ -705,3 +705,9 @@
 .v2-hero-content{z-index:3}
 @media(prefers-reduced-motion:reduce){.v2-hero-video{display:none}}
 .v2-hero-scrim{background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(0,0,0,.25) 20%,rgba(0,0,0,.7) 100%),linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35))}
+
+/* hero text sits at the bottom so the screen and logo stay clear */
+.v2-hero{align-items:flex-end}
+.v2-hero-content{padding-bottom:clamp(36px,9vh,110px)}
+.v2-hero-scrim{background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.55) 32%,rgba(0,0,0,.08) 62%,rgba(0,0,0,0) 100%),radial-gradient(ellipse 90% 80% at 50% 40%,transparent 55%,rgba(0,0,0,.45) 100%)}
+@media(max-width:640px){.v2-headline{font-size:clamp(38px,11vw,60px)}}

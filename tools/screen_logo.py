@@ -18,8 +18,9 @@ import numpy as np
 ap = argparse.ArgumentParser()
 ap.add_argument("inp"); ap.add_argument("logo"); ap.add_argument("out")
 ap.add_argument("--bg", default="0a0c10", help="panel colour behind the logo, hex")
-ap.add_argument("--logo-width", type=float, default=0.62, help="logo width as a fraction of the screen")
+ap.add_argument("--logo-width", type=float, default=0.78, help="logo width as a fraction of the screen")
 ap.add_argument("--smooth", type=float, default=0.6, help="0 = no smoothing, closer to 1 = smoother")
+ap.add_argument("--grow", type=float, default=0.03, help="grow the screen outline by this fraction to cover edges")
 ap.add_argument("--debug", action="store_true")
 a = ap.parse_args()
 
@@ -87,6 +88,8 @@ while True:
         q = a.smooth * prev + (1 - a.smooth) * q
     if q is not None:
         prev = q
+        c = q.mean(0)
+        q = (c + (q - c) * (1 + a.grow)).astype(np.float32)
         Hm = cv2.getPerspectiveTransform(src, q.astype(np.float32))
         warped = cv2.warpPerspective(panel_bgr, Hm, (W, H), flags=cv2.INTER_LINEAR)
         mask = np.zeros((H, W), np.uint8)
@@ -94,6 +97,15 @@ while True:
         mask = cv2.GaussianBlur(mask, (0, 0), 1.2).astype(np.float32)[..., None] / 255
         # remove green spill near the edge of the screen
         edge = cv2.dilate(mask, np.ones((9, 9), np.uint8))[..., None] if mask.ndim == 2 else cv2.dilate(mask[..., 0], np.ones((9, 9), np.uint8))[..., None]
+        # leftover green just outside the screen (lower part, reflections): paint it with the panel colour
+        big = (c + (q - c) * 1.28).astype(np.int32)
+        region = np.zeros((H, W), np.uint8); cv2.fillConvexPoly(region, big, 255)
+        hsv = cv2.cvtColor(f, cv2.COLOR_BGR2HSV)
+        green = cv2.inRange(hsv, (30, 45, 25), (95, 255, 255))
+        green = cv2.bitwise_and(green, region)
+        green = cv2.dilate(green, np.ones((5, 5), np.uint8))
+        green = cv2.GaussianBlur(green, (0, 0), 1.5).astype(np.float32)[..., None] / 255
+        f = (np.array(bg, np.float32) * green + f.astype(np.float32) * (1 - green)).astype(np.uint8)
         fb = f.astype(np.float32)
         spill = np.minimum(fb[..., 1], (fb[..., 0] + fb[..., 2]) / 2)
         fb[..., 1] = np.where(edge[..., 0] > 0, spill, fb[..., 1])
