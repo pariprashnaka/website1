@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { v2Href } from "./v2-nav-data";
-import type { Audience, UseCase } from "./v2-use-cases";
+import { slugOf, type Audience, type UseCase } from "./v2-use-cases";
 
 export type Book = UseCase & { productName: string };
 
@@ -11,7 +11,8 @@ const SHELVES: { id: UseCase["shelf"]; title: string; blurb: string }[] = [
   { id: "stock", title: "The Stockroom Shelf", blurb: "Counts, bills and best-before dates" },
   { id: "lab", title: "The Lab Shelf", blurb: "Samples, machines and reagents" },
   { id: "cafe", title: "The Café Shelf", blurb: "Orders, margins and many outlets" },
-  { id: "people", title: "The People & Fields Shelf", blurb: "Payroll and crops" },
+  { id: "people", title: "The People Shelf", blurb: "Attendance, payroll and hiring" },
+  { id: "fields", title: "The Fields & Estates Shelf", blurb: "Soil, crops and tea estates" },
 ];
 const WHO: { id: Audience | "all"; label: string }[] = [
   { id: "all", label: "Show everything" },
@@ -41,6 +42,14 @@ export default function V2UseCaseLibrary({ books }: { books: Book[] }) {
     setLoaded(true);
   }, []);
 
+  useEffect(() => {
+    if (!loaded) return;
+    const h = window.location.hash.replace("#", "");
+    const i = books.findIndex((x) => slugOf(x.short) === h);
+    if (i >= 0) { setOpen(i); mark(books[i].short); }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loaded]);
+
   const mark = useCallback((id: string) => {
     setRead((prev) => {
       if (prev.includes(id)) return prev;
@@ -54,9 +63,11 @@ export default function V2UseCaseLibrary({ books }: { books: Book[] }) {
     lastFocus.current = document.activeElement as HTMLElement | null;
     setOpen(i);
     mark(books[i].short);
+    try { window.history.replaceState(null, "", `#${slugOf(books[i].short)}`); } catch {}
   };
   const close = useCallback(() => {
     setOpen(null);
+    try { window.history.replaceState(null, "", window.location.pathname + window.location.search); } catch {}
     lastFocus.current?.focus?.();
   }, []);
 
@@ -169,18 +180,20 @@ export default function V2UseCaseLibrary({ books }: { books: Book[] }) {
             <div className="v2-lib-page left">
               <p className="v2-lib-chapter">Chapter {String(open! + 1).padStart(2, "0")} · The headache</p>
               <h3>{b.problem}</h3>
+              <p className="v2-lib-by">From the SystemFriendly Labs problem library</p>
               <p className="v2-lib-xp">+10 XP collected</p>
             </div>
             <div className="v2-lib-page right">
               <p className="v2-lib-chapter">The fix</p>
               <p className="v2-lib-fix">{b.change}</p>
+              {b.matters && <p className="v2-lib-matters"><b>Why it matters now.</b> {b.matters}</p>}
               <div className="v2-lib-links">
                 <Link href={v2Href(`/products/${b.productSlug}`)}>{b.productName} →</Link>
                 {b.caseStudySlug && <Link href={v2Href(`/case-studies/${b.caseStudySlug}`)}>Read the real story →</Link>}
                 {b.blogSlug && <Link href={v2Href(`/blog/${b.blogSlug}`)}>Further reading: {b.blogLabel} →</Link>}
               </div>
               <div className="v2-lib-turn">
-                <button type="button" onClick={() => setOpen((open! + books.length - 1) % books.length)} aria-label="Previous book">← Prev</button>
+                <button type="button" onClick={() => { const n = (open! + books.length - 1) % books.length; setOpen(n); mark(books[n].short); }} aria-label="Previous book">← Prev</button>
                 <button type="button" onClick={() => { const n = (open! + 1) % books.length; setOpen(n); mark(books[n].short); }} aria-label="Next book">Next →</button>
               </div>
             </div>
