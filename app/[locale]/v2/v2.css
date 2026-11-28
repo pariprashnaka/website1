@@ -711,3 +711,6 @@
 .v2-stack-core ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .v2-stack-core li { padding: 18px 16px; border-radius: 12px; background: rgba(0,0,0,.35); border: 1px solid var(--v2-line); color: #fff; font-size: 17px; text-align: center; }
 @media (max-width: 760px) { .v2-stack-core ul { grid-template-columns: repeat(2, 1fr); } .v2-stack-core li { font-size: 15px; padding: 14px 10px; } .v2-stack-chips li { font-size: 14px; padding: 10px 16px; } }
+
+/* hero video sits over the canvas; stays invisible until the file loads */
+.v2-hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }

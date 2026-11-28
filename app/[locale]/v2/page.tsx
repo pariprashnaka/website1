@@ -16,6 +16,7 @@ export default function V2Page() {
       <section className="v2-hero">
         <div className="v2-hero-bg">
           <V2HeroCanvas />
+          <video className="v2-hero-video" src="/videos/hero-trial.mp4" autoPlay muted loop playsInline preload="auto" aria-hidden="true" />
         </div>
         <div className="v2-hero-scrim" />
         <div className="v2-hero-content">
