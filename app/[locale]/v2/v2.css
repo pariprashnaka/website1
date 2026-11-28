@@ -692,3 +692,9 @@
 .v2-lib-cover em{font-style:normal;font-size:.85rem;opacity:.7}
 @keyframes v2libcover{0%{transform:perspective(1800px) rotateY(0);opacity:1}85%{opacity:1}100%{transform:perspective(1800px) rotateY(-170deg);opacity:0;visibility:hidden}}
 @media(prefers-reduced-motion:reduce){.v2-lib-cover{display:none}.v2-lib-page{animation:none}}
+
+.v2-lib-fold{padding-top:1.5rem;border-top:0}
+.v2-lib-fold summary{cursor:pointer;color:var(--v2-md);font-size:.9rem;list-style:none;display:inline-block;border-bottom:1px dashed var(--v2-lo);padding-bottom:2px}
+.v2-lib-fold summary::-webkit-details-marker{display:none}
+.v2-lib-fold summary:hover{color:var(--v2-hi)}
+.v2-lib-fold[open] summary{margin-bottom:1.4rem}

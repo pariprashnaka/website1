@@ -51,8 +51,8 @@ export default function V2UseCasesPage() {
 
       <V2UseCaseLibrary books={books} />
 
-      <section className="v2-lib-seo" aria-labelledby="lib-text">
-        <h2 id="lib-text">Every problem in the library, in plain text</h2>
+      <details className="v2-lib-seo v2-lib-fold">
+        <summary>Prefer a list? Read every use case as text</summary>
         <p>
           SystemFriendly Labs builds cloud software for Indian businesses: the SF Inventory System for retail, trading and
           GST billing, SF LIMS for pathology labs, the Smart Caf&eacute; Platform, the Smart HRMS Platform, and agriculture
@@ -72,7 +72,7 @@ export default function V2UseCasesPage() {
             </ul>
           </div>
         ))}
-      </section>
+      </details>
 
       <section className="v2-chapter v2-cta-chapter">
         <p className="v2-chapter-kicker">Not on the shelf?</p>
