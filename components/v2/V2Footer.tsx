@@ -35,7 +35,7 @@ export default function V2Footer() {
       </div>
 
       <div className="v2-footer-bottom">
-        <span>© {new Date().getFullYear()} SystemFriendly Labs (OPC) Private Limited. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} SystemFriendly <span className="v2-labs">Labs</span> (OPC) Private Limited. All rights reserved.</span>
         <div className="v2-footer-legal">
           <a href="https://linkedin.com/in/systemfriendly-labs-1199a9423" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://twitter.com/SystemFriendly" target="_blank" rel="noopener noreferrer">X</a>

@@ -20,7 +20,7 @@ export default function V2Page() {
         </div>
         <div className="v2-hero-scrim" />
         <div className="v2-hero-content">
-          <p className="v2-eyebrow">SystemFriendly Labs</p>
+          <p className="v2-eyebrow">SystemFriendly <span className="v2-labs">Labs</span></p>
           <h1 className="v2-headline">
             <span className="v2-line">Operations,</span>
             <span className="v2-line"><em>reimagined.</em></span>

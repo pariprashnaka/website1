@@ -177,7 +177,7 @@ export default function V2UseCaseLibrary({ books }: { books: Book[] }) {
         <div className="v2-lib-modal" role="dialog" aria-modal="true" aria-label={b.short} onClick={(e) => { if (e.target === e.currentTarget) close(); }}>
           <div key={open} className="v2-lib-book" style={{ ["--c" as string]: COLORS[open! % COLORS.length] }}>
             <div className="v2-lib-cover" aria-hidden="true">
-              <span>SystemFriendly Labs · Problem Library</span>
+              <span>SystemFriendly <span className="v2-labs">Labs</span> · Problem Library</span>
               <strong>{b.short}</strong>
               <em>Chapter {String(open! + 1).padStart(2, "0")}</em>
             </div>
@@ -185,7 +185,7 @@ export default function V2UseCaseLibrary({ books }: { books: Book[] }) {
             <div className="v2-lib-page left">
               <p className="v2-lib-chapter">Chapter {String(open! + 1).padStart(2, "0")} · The headache</p>
               <h3>{b.problem}</h3>
-              <p className="v2-lib-by">From the SystemFriendly Labs problem library</p>
+              <p className="v2-lib-by">From the SystemFriendly <span className="v2-labs">Labs</span> problem library</p>
               <p className="v2-lib-xp">+10 XP collected</p>
             </div>
             <div className="v2-lib-page right">

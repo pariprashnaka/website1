@@ -45,7 +45,7 @@ export default function V2UseCasesPage() {
           The Problem<br /><em>Library.</em>
         </h1>
         <p className="v2-page-sub">
-          {books.length} real operational headaches that SystemFriendly Labs has solved for Indian businesses. Pick a book, read how it ended, and try to collect them all.
+          {books.length} real operational headaches that SystemFriendly <span className="v2-labs">Labs</span> has solved for Indian businesses. Pick a book, read how it ended, and try to collect them all.
         </p>
       </section>
 
@@ -54,7 +54,7 @@ export default function V2UseCasesPage() {
       <details className="v2-lib-seo v2-lib-fold">
         <summary>Prefer a list? Read every use case as text</summary>
         <p>
-          SystemFriendly Labs builds cloud software for Indian businesses: the SF Inventory System for retail, trading and
+          SystemFriendly <span className="v2-labs">Labs</span> builds cloud software for Indian businesses: the SF Inventory System for retail, trading and
           GST billing, SF LIMS for pathology labs, the Smart Caf&eacute; Platform, the Smart HRMS Platform, and agriculture
           platforms and services. Each use case below names the problem, what changes, and the product that does it.
         </p>
@@ -66,7 +66,7 @@ export default function V2UseCasesPage() {
                 <li key={b.short} id={slugOf(b.short)}>
                   <h4>{b.problem}</h4>
                   <p>{b.change}</p>
-                  <Link href={v2Href(`/products/${b.productSlug}`)}>{b.productName} by SystemFriendly Labs</Link>
+                  <Link href={v2Href(`/products/${b.productSlug}`)}>{b.productName} by SystemFriendly <span className="v2-labs">Labs</span></Link>
                 </li>
               ))}
             </ul>
