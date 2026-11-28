@@ -1,5 +1,7 @@
 import V2HeroCanvas from "@/components/v2/V2HeroCanvas";
 import V2Reveal from "@/components/v2/V2Reveal";
+import V2Feedback from "@/components/v2/V2Feedback";
+import { feedback } from "@/components/v2/v2-feedback";
 
 export const metadata = {
   title: "SystemFriendly Labs — Operations, Reimagined",
@@ -138,15 +140,12 @@ export default function V2Page() {
       </section>
 
       {/* ── PROOF ────────────────────────────────────────────── */}
-      <section className="v2-chapter" id="proofChapter">
-        <p className="v2-chapter-kicker">In their words</p>
-        <div className="v2-quote-mark">&ldquo;</div>
-        <blockquote className="v2-proof-quote">
-          InventoryCloud gave us visibility we didn&rsquo;t know was possible.
-          We cut overstock by a third in the first quarter.
-        </blockquote>
-        <p className="v2-proof-author"><b>VP Operations</b> — Mid-size contract manufacturer</p>
-      </section>
+      {feedback.length > 0 && (
+        <section className="v2-chapter" id="proofChapter">
+          <p className="v2-chapter-kicker">In their words</p>
+          <V2Feedback />
+        </section>
+      )}
 
       {/* ── CLOSING CTA ──────────────────────────────────────── */}
       <section className="v2-chapter v2-cta-chapter" id="ctaChapter">
