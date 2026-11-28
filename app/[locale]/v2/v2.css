@@ -732,3 +732,19 @@
 @media (max-width: 760px) { .v2-fb-stage { min-height: 400px; } .v2-fb-card { padding: 32px 22px; } }
 @media (prefers-reduced-motion: reduce) { .v2-fb-card { transition: none; } }
 .v2-fb-sample { text-align: center; margin: 0 0 14px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--v2-orange); }
+
+/* smooth video chapter transitions: soft top/bottom edges, slow fade-in, gentle zoom */
+.v2-chapter--video { background: #000; }
+.v2-chapter-video {
+  opacity: 0; transform: scale(1.06);
+  transition: opacity 1.8s ease, transform 9s ease-out;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 26%, #000 74%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 26%, #000 74%, transparent 100%);
+}
+.v2-chapter.in .v2-chapter-video { opacity: 1; transform: scale(1); }
+.v2-chapter-scrim {
+  background:
+    radial-gradient(ellipse 65% 55% at 50% 50%, rgba(0,0,0,0.5), transparent 100%),
+    linear-gradient(#000 0, rgba(0,0,0,0.45) 22%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.55) 78%, #000 100%);
+}
+@media (prefers-reduced-motion: reduce) { .v2-chapter-video { transition: opacity .6s ease; transform: none; } }
