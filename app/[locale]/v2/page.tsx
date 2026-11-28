@@ -2,6 +2,9 @@ import V2HeroCanvas from "@/components/v2/V2HeroCanvas";
 import V2Reveal from "@/components/v2/V2Reveal";
 import V2LazyVideo from "@/components/v2/V2LazyVideo";
 import V2Feedback from "@/components/v2/V2Feedback";
+import V2ServiceComposer from "@/components/v2/V2ServiceComposer";
+import { services } from "@/lib/content";
+import { v2Href } from "@/components/v2/v2-nav-data";
 import { feedback } from "@/components/v2/v2-feedback";
 
 export const metadata = {
@@ -9,6 +12,15 @@ export const metadata = {
   description:
     "We engineer the operating layer for the industries that keep the world running — manufacturing, pharma, healthcare, and whatever comes next.",
 };
+
+const COMPOSER_ORDER: [string, string][] = [
+  ["cloud", "Cloud"], ["data", "Data"], ["saas", "SaaS"], ["erp", "ERP"], ["crm", "CRM"],
+  ["automation", "Automation"], ["ai", "AI"], ["web", "Web"], ["mobile", "Mobile"],
+];
+const COMPOSER_ITEMS = COMPOSER_ORDER.map(([slug, label]) => {
+  const s = services.find((x) => x.slug === slug)!;
+  return { slug, label, title: s.title, short: s.short, href: v2Href(`/services/${slug}`) };
+});
 
 export default function V2Page() {
   return (
@@ -49,32 +61,10 @@ export default function V2Page() {
           Built once.<br /><em>Extended anywhere.</em>
         </h2>
         <p className="v2-lead">
-          Four industries run on it today. The platform underneath was never
-          built for just four.
+          Pick the layers your business needs. See how they connect, and what we would build first.
         </p>
 
-        <div className="v2-stack">
-          <div className="v2-stack-row">
-            <p className="v2-stack-label">Live today</p>
-            <ul className="v2-stack-chips">
-              <li>Manufacturing</li><li>Pharma &amp; Labs</li><li>Healthcare</li><li>Retail &amp; Cafés</li>
-              <li className="next">Your industry</li>
-            </ul>
-          </div>
-          <div className="v2-stack-core">
-            <span className="v2-stack-core-tag">One platform</span>
-            <ul>
-              <li>Inventory &amp; batches</li><li>Billing &amp; GST</li><li>People &amp; payroll</li>
-              <li>Orders &amp; dispatch</li><li>Reports &amp; dashboards</li><li>WhatsApp alerts</li>
-            </ul>
-          </div>
-          <div className="v2-stack-row">
-            <p className="v2-stack-label">Underneath</p>
-            <ul className="v2-stack-chips quiet">
-              <li>Multi-tenant data</li><li>Roles &amp; permissions</li><li>Audit trail</li><li>APIs &amp; integrations</li><li>Mobile apps</li>
-            </ul>
-          </div>
-        </div>
+        <V2ServiceComposer items={COMPOSER_ITEMS} ctaHref={v2Href("/contact")} />
       </section>
 
       {/* ── MANUFACTURING ────────────────────────────────────── */}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const SERVICES = [
   "SaaS Development", "ERP Solutions", "AI Solutions", "Mobile App", "Web App",
@@ -21,6 +21,14 @@ export default function V2ContactForm() {
   const [err, setErr] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "done" | "fail">("idle");
   const step = ORDER[i];
+
+  useEffect(() => {
+    const L = new URLSearchParams(window.location.search).get("layers");
+    if (!L) return;
+    const map: Record<string, string> = { saas: "SaaS Development", erp: "ERP Solutions", ai: "AI Solutions", mobile: "Mobile App", web: "Web App", crm: "CRM", automation: "Automation", cloud: "Cloud", data: "Data" };
+    const p = L.split(",").map((x) => map[x]).filter(Boolean);
+    if (p.length) { setPicked(p); setI(1); }
+  }, []);
 
   const set = (k: keyof typeof f) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setErr("");

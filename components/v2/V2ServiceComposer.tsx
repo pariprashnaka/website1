@@ -29,7 +29,7 @@ const PRESETS: { name: string; pick: string[] }[] = [
 
 const C = 300, R = 215;
 
-export default function V2ServiceComposer({ items }: { items: CompItem[] }) {
+export default function V2ServiceComposer({ items, ctaHref }: { items: CompItem[]; ctaHref?: string }) {
   const [sel, setSel] = useState<string[]>(["erp", "automation", "mobile"]);
   const toggle = (s: string) => setSel((o) => (o.includes(s) ? o.filter((x) => x !== s) : [...o, s]));
 
@@ -104,6 +104,9 @@ export default function V2ServiceComposer({ items }: { items: CompItem[] }) {
                   <li key={it.slug}><b>{it.title}</b><span>{it.short}</span><Link href={it.href}>Read more →</Link></li>
                 ))}
               </ol>
+              {ctaHref && (
+                <Link className="v2-cmp-cta" href={`${ctaHref}?layers=${sel.join(",")}`}>Start with this system →</Link>
+              )}
               <h3 className="v2-cmp-h">How they connect <em>({active.length})</em></h3>
               {active.length === 0 ? (
                 <p className="v2-cmp-empty">Add a second layer to see them connect.</p>

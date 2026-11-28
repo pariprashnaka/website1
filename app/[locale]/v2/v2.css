@@ -884,3 +884,5 @@ html:has(.v2-root), body:has(.v2-root) { overflow-x: clip; }
   .v2-cmp-node text { font-size: 17px; }
 }
 @media (prefers-reduced-motion: reduce) { .v2-cmp-flow { animation: none; } }
+.v2-cmp-cta { display: inline-block; margin-top: 18px; padding: 12px 22px; border-radius: 999px; background: var(--v2-orange); color: #fff; font-size: 15px; text-decoration: none; }
+.v2-cmp-side, .v2-cmp-side * { text-align: left; } .v2-cmp-chips { justify-content: flex-start; } .v2-cmp-presets { justify-content: flex-start; }
