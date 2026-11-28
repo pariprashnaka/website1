@@ -26,10 +26,6 @@ export async function generateMetadata({
     robots: { index: true, follow: true },
     alternates: {
       canonical: `/products/${p.slug}`,
-      languages: {
-        "en": `/products/${p.slug}`,
-        "hi": `/hi/products/${p.slug}`,
-      },
     },
     keywords: p.features.slice(0, 8),
     openGraph: {

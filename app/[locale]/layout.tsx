@@ -59,9 +59,6 @@ export default async function LocaleLayout({
         <InsertedHeadScripts />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="alternate" hrefLang="en" href="https://www.systemfriendly.com" />
-        <link rel="alternate" hrefLang="hi" href="https://www.systemfriendly.com/hi" />
-        <link rel="alternate" hrefLang="x-default" href="https://www.systemfriendly.com" />
       </head>
       <body className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}>
         <NextIntlClientProvider>

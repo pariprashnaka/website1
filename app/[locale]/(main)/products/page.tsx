@@ -11,10 +11,6 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   alternates: {
     canonical: "/products",
-    languages: {
-      "en": "/products",
-      "hi": "/hi/products",
-    },
   },
   keywords: ["inventory management software", "LIMS software", "laboratory information management system", "pathology lab software", "billing software retail", "cloud inventory system", "Smart Café Platform", "HRMS software", "custom software products", "SaaS products"],
   openGraph: {
