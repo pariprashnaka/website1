@@ -31,6 +31,9 @@ export default function V2UseCaseLibrary({ books }: { books: Book[] }) {
   const [open, setOpen] = useState<number | null>(null);
   const [who, setWho] = useState<Audience | "all">("all");
   const [loaded, setLoaded] = useState(false);
+  // phones only (CSS decides): which shelves are expanded; first one starts open
+  const [openShelves, setOpenShelves] = useState<string[]>([SHELVES[0].id]);
+  const toggleShelf = (id: string) => setOpenShelves((o) => (o.includes(id) ? o.filter((x) => x !== id) : [...o, id]));
   const closeRef = useRef<HTMLButtonElement>(null);
   const lastFocus = useRef<HTMLElement | null>(null);
 
@@ -132,12 +135,16 @@ export default function V2UseCaseLibrary({ books }: { books: Book[] }) {
       </div>
 
       {SHELVES.map((sh) => (
-        <section key={sh.id} className="v2-lib-shelf" aria-label={sh.title}>
+        <section key={sh.id} className={`v2-lib-shelf${openShelves.includes(sh.id) ? " is-open" : ""}`} aria-label={sh.title}>
           <header>
             <h2>{sh.title}</h2>
             <p>{sh.blurb}</p>
+            <button type="button" className="v2-lib-chev" aria-expanded={openShelves.includes(sh.id)} aria-controls={`shelf-${sh.id}`} onClick={() => toggleShelf(sh.id)}>
+              {books.filter((bk) => bk.shelf === sh.id && (who === "all" || bk.who === who)).length} books
+              <i aria-hidden="true" />
+            </button>
           </header>
-          <div className="v2-lib-row">
+          <div className="v2-lib-row" id={`shelf-${sh.id}`}>
             {books.map((bk, i) =>
               bk.shelf !== sh.id ? null : (
                 <button

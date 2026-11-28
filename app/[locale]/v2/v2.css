@@ -771,33 +771,33 @@
 .v2-steps-list h3 { margin: 10px 0 8px; font-family: var(--font-display), Georgia, serif; font-weight: 400; font-size: 24px; color: #fff; }
 .v2-steps-list p { margin: 0; color: #9a9aa2; font-size: 15px; line-height: 1.6; font-weight: 300; }
 
-/* ── Problem Library: calmer on phones — one swipeable row per shelf ── */
+/* ── Problem Library on phones: collapsible shelves, 2-column readable covers ── */
+.v2-lib-chev { display: none; }
 @media (max-width: 760px) {
+  .v2-page-hero { min-height: 0; padding: 110px max(20px, env(safe-area-inset-left, 0px)) 36px; }
   .v2-lib { padding-top: .5rem; }
   .v2-lib-card { padding: 1rem 1.1rem; gap: .5rem; }
   .v2-lib-rank strong { font-size: 1.5rem; }
   .v2-lib-stats { font-size: .76rem; gap: .2rem 1rem; }
   .v2-lib-surprise { justify-self: start; }
-  .v2-lib-who { flex-wrap: nowrap; overflow-x: auto; margin: 0 -16px 1.6rem; padding: 0 16px; scrollbar-width: none; }
+  .v2-lib-who { flex-wrap: nowrap; overflow-x: auto; margin: 0 -16px 1.2rem; padding: 0 16px; scrollbar-width: none; }
   .v2-lib-who::-webkit-scrollbar { display: none; }
   .v2-lib-who button { flex: none; white-space: nowrap; }
-  .v2-lib-shelf { margin-bottom: 1.6rem; }
-  .v2-lib-shelf header { margin-bottom: .2rem; }
-  .v2-lib-shelf h2 { font-size: 1.45rem; }
-  .v2-lib-shelf header p { font-size: .8rem; width: 100%; }
-  .v2-lib-row { flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; gap: 9px; margin: 0 -16px; padding: 26px 16px 0; min-height: 0; scroll-snap-type: x proximity; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-  .v2-lib-row::-webkit-scrollbar { display: none; }
-  .v2-lib-spine { width: var(--w); height: calc(var(--h) - 20px); scroll-snap-align: start; transform: none; }
-  .v2-lib-title { font-size: 1.05rem; }
-  .v2-lib-plank { height: 12px; margin: 0 -16px; border-radius: 0; }
+
+  .v2-lib-shelf { margin-bottom: .7rem; border: 1px solid var(--v2-line); border-radius: 16px; background: rgba(255,255,255,.025); overflow: hidden; }
+  .v2-lib-shelf header { position: relative; display: block; margin: 0; padding: 16px 150px 16px 18px; }
+  .v2-lib-shelf h2 { font-size: 1.3rem; }
+  .v2-lib-shelf header p { font-size: .78rem; margin-top: 2px; }
+  .v2-lib-chev { display: flex; align-items: center; gap: 8px; position: absolute; inset: 0; width: 100%; justify-content: flex-end; padding: 0 18px; background: none; border: 0; color: var(--v2-md); font: inherit; font-size: .8rem; cursor: pointer; }
+  .v2-lib-chev i { width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translateY(-2px); transition: transform .25s; }
+  .v2-lib-shelf.is-open .v2-lib-chev i { transform: rotate(-135deg) translateY(-2px); }
+
+  .v2-lib-row { display: none; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0; padding: 4px 14px 16px; min-height: 0; overflow: visible; }
+  .v2-lib-shelf.is-open .v2-lib-row { display: grid; }
+  .v2-lib-spine { width: 100%; height: auto; min-height: 92px; transform: none; border-radius: 12px; padding: 12px 12px 12px 14px; align-items: flex-end; justify-content: flex-start; text-align: left; }
+  .v2-lib-spine .v2-lib-band { display: none; }
+  .v2-lib-title { writing-mode: horizontal-tb; transform: none; white-space: normal; font-size: 1.05rem; line-height: 1.15; text-align: left; }
+  .v2-lib-spine.dim { display: none; }
+  .v2-lib-plank { display: none; }
 }
 @media (hover: none) { .v2-lib-spine:hover { transform: none; filter: none; } }
-
-/* Problem Library on phones, round 2: smaller books, shorter hero (tested at 390px) */
-@media (max-width: 760px) {
-  .v2-page-hero { min-height: 0; padding: 110px max(20px, env(safe-area-inset-left, 0px)) 36px; }
-  .v2-lib-spine { width: calc(var(--w) * .66); height: calc(var(--h) - 30px); border-radius: 5px 5px 2px 2px; }
-  .v2-lib-title { font-size: .85rem; }
-  .v2-lib-band { top: 10px; height: 6px; }
-  .v2-lib-row { gap: 7px; padding-top: 20px; }
-}
