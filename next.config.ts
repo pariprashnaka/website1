@@ -27,7 +27,13 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
+    const longCache = [{ key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" }];
+    return [
+      { source: "/:path*", headers: securityHeaders },
+      { source: "/videos/:path*", headers: longCache },
+      { source: "/blog/:path*", headers: longCache },
+      { source: "/screenshots/:path*", headers: longCache },
+    ];
   },
 };
 

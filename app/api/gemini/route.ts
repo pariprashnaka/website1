@@ -7,9 +7,9 @@ const schema = z.object({
   message: z.string().min(1).max(500),
   history: z.array(z.object({
     role: z.enum(["user", "assistant"]),
-    content: z.string(),
-  })).optional(),
-  excelContext: z.string().optional(),
+    content: z.string().max(2000),
+  })).max(20).optional(),
+  excelContext: z.string().max(20000).optional(),
 });
 
 const SYSTEM_PROMPT = `You are Sutra Bot, the official AI assistant for SystemFriendly Labs Private Limited.

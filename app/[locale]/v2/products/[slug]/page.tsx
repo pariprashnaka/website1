@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { products } from "@/lib/content";
 import { v2Href } from "@/components/v2/v2-nav-data";
 import { productVideo } from "@/components/v2/v2-product-media";
+import V2LazyVideo from "@/components/v2/V2LazyVideo";
 import { PRODUCT_SCREENS } from "@/components/v2/v2-product-screens";
 import { USE_CASES } from "@/components/v2/v2-use-cases";
 import fs from "node:fs";
@@ -69,7 +70,7 @@ export default async function V2ProductDetail({
       <section className={`v2-page-hero v2-product-hero${video ? " v2-chapter--video" : ""}`}>
         {video && (
           <>
-            <video className="v2-chapter-video" src={video} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" />
+            <V2LazyVideo className="v2-chapter-video" src={video} />
             <div className="v2-chapter-scrim" />
           </>
         )}

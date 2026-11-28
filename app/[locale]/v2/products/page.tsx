@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import V2LazyVideo from "@/components/v2/V2LazyVideo";
 import { Link } from "@/i18n/navigation";
 import { products } from "@/lib/content";
 import { v2Href } from "@/components/v2/v2-nav-data";
@@ -48,7 +49,7 @@ export default function V2ProductsPage() {
               </div>
               <div className="v2-prod-visual" aria-hidden="true">
                 {video ? (
-                  <video src={video} autoPlay muted loop playsInline preload="metadata" />
+                  <V2LazyVideo src={video} />
                 ) : (
                   <span className="v2-prod-mono">{p.name.replace(/^(SF|Smart)\s+/, "").slice(0, 2)}</span>
                 )}

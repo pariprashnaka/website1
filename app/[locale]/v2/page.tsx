@@ -1,5 +1,6 @@
 import V2HeroCanvas from "@/components/v2/V2HeroCanvas";
 import V2Reveal from "@/components/v2/V2Reveal";
+import V2LazyVideo from "@/components/v2/V2LazyVideo";
 import V2Feedback from "@/components/v2/V2Feedback";
 import { feedback } from "@/components/v2/v2-feedback";
 
@@ -18,7 +19,7 @@ export default function V2Page() {
       <section className="v2-hero">
         <div className="v2-hero-bg">
           <V2HeroCanvas />
-          <video className="v2-hero-video" src="/videos/hero-trial.mp4" autoPlay muted loop playsInline preload="auto" aria-hidden="true" />
+          <video className="v2-hero-video" src="/videos/hero-trial.mp4" poster="/videos/hero-trial-poster.jpg" autoPlay muted loop playsInline preload="auto" aria-hidden="true" />
         </div>
         <div className="v2-hero-scrim" />
         <div className="v2-hero-content">
@@ -78,16 +79,7 @@ export default function V2Page() {
 
       {/* ── MANUFACTURING ────────────────────────────────────── */}
       <section className="v2-chapter v2-chapter--video" id="invChapter">
-        <video
-          className="v2-chapter-video"
-          src="/videos/inventory-web.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-hidden="true"
-        />
+        <V2LazyVideo className="v2-chapter-video" src="/videos/inventory-web.mp4" />
         <div className="v2-chapter-scrim" />
         <p className="v2-chapter-kicker">Manufacturing &amp; Distribution</p>
         <h2 className="v2-chapter-h2">Every shelf,<br /><em>accounted for.</em></h2>
@@ -99,16 +91,7 @@ export default function V2Page() {
 
       {/* ── PHARMA / LABS ────────────────────────────────────── */}
       <section className="v2-chapter v2-chapter--video" id="labChapter">
-        <video
-          className="v2-chapter-video"
-          src="/videos/lims-web.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-hidden="true"
-        />
+        <V2LazyVideo className="v2-chapter-video" src="/videos/lims-web.mp4" />
         <div className="v2-chapter-scrim" />
         <p className="v2-chapter-kicker">Pharma &amp; Life Sciences</p>
         <h2 className="v2-chapter-h2">Every sample,<br /><em>traceable.</em></h2>
@@ -120,16 +103,7 @@ export default function V2Page() {
 
       {/* ── HEALTHCARE ───────────────────────────────────────── */}
       <section className="v2-chapter v2-chapter--video" id="hosChapter">
-        <video
-          className="v2-chapter-video"
-          src="/videos/hms-web.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-hidden="true"
-        />
+        <V2LazyVideo className="v2-chapter-video" src="/videos/hms-web.mp4" />
         <div className="v2-chapter-scrim" />
         <p className="v2-chapter-kicker">Healthcare &amp; Hospitals</p>
         <h2 className="v2-chapter-h2">Every bed,<br /><em>visible.</em></h2>

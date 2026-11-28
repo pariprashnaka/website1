@@ -11,7 +11,7 @@ export default function V2HeroCanvas() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let W = 0, H = 0, t = 0, animId = 0;
+    let W = 0, H = 0, t = 0, animId = 0, visible = true, running = true;
 
     const resize = () => { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; };
 
@@ -39,14 +39,16 @@ export default function V2HeroCanvas() {
         ctx.fill();
       });
 
-      animId = requestAnimationFrame(draw);
+      if (visible) animId = requestAnimationFrame(draw); else running = false;
     };
 
     const onResize = () => resize();
     window.addEventListener("resize", onResize);
     resize();
     draw();
-    return () => { cancelAnimationFrame(animId); window.removeEventListener("resize", onResize); };
+    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible && !running) { running = true; draw(); } });
+    io.observe(canvas);
+    return () => { io.disconnect(); cancelAnimationFrame(animId); window.removeEventListener("resize", onResize); };
   }, []);
 
   return (

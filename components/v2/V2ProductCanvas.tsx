@@ -88,12 +88,15 @@ export default function V2ProductCanvas({ type }: { type: CanvasType }) {
     };
 
     const drawFn = type === "inventory" ? drawInventory : type === "lims" ? drawLIMS : drawPulse;
-    const loop = () => { drawFn(); animId = requestAnimationFrame(loop); };
+    let visible = true, running = true;
+    const loop = () => { drawFn(); if (visible) animId = requestAnimationFrame(loop); else running = false; };
 
     const onResize = () => resize();
     window.addEventListener("resize", onResize);
     resize(); loop();
-    return () => { cancelAnimationFrame(animId); window.removeEventListener("resize", onResize); };
+    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible && !running) { running = true; loop(); } });
+    io.observe(canvas);
+    return () => { io.disconnect(); cancelAnimationFrame(animId); window.removeEventListener("resize", onResize); };
   }, [type]);
 
   return (
