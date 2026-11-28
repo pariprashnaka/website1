@@ -108,7 +108,7 @@ export default function V2Page() {
         <p className="v2-chapter-kicker">Healthcare &amp; Hospitals</p>
         <h2 className="v2-chapter-h2">Every bed,<br /><em>visible.</em></h2>
         <p className="v2-lead v2-lead--flush">
-          SF Pulse gives wards, supply rooms, and compliance teams one shared
+          SFHMS gives wards, supply rooms, and compliance teams one shared
           picture — updated the moment anything changes.
         </p>
       </section>

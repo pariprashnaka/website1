@@ -15,6 +15,12 @@ export const PRODUCT_SCREENS: Record<string, Screen[]> = {
     { n: 3, title: "Patient report", caption: "Clean reports delivered to the patient on WhatsApp." },
     { n: 4, title: "Billing", caption: "GST-compliant test orders, payments and receipts." },
   ],
+  "sfhms": [
+    { n: 1, title: "Appointments", caption: "Slots, walk-ins and the waitlist for the day, in one view." },
+    { n: 2, title: "OPD queue", caption: "Who is waiting, who is next, who has arrived." },
+    { n: 3, title: "Prescription", caption: "Medicine autocomplete with dose defaults, ready to print." },
+    { n: 4, title: "Billing", caption: "Consultation and pharmacy bills, raised separately." },
+  ],
   "smart-cafe-platform": [
     { n: 1, title: "Order dashboard", caption: "Dine-in, takeaway and delivery orders tracked in real time." },
     { n: 2, title: "Menu & pricing", caption: "Edit items and prices once; every outlet stays in sync." },

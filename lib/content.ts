@@ -373,6 +373,17 @@ export const products: Product[] = [
     caseStudySlug: 'pathology-lab-machine-integration',
   },
   {
+    slug: "sfhms",
+    tag: "Hospitals & Clinics",
+    name: "SFHMS",
+    pitch: "A cloud hospital and clinic management system. From WhatsApp appointment booking to consultation, prescription, lab, pharmacy and billing, doctors and staff work in one simple screen instead of juggling three systems.",
+    overview: "SFHMS brings the whole patient journey into one platform: online booking, registration, OPD queue, prescriptions, lab orders, pharmacy, billing and follow-ups. Each hospital or clinic is configured for its own speciality, modules, slot rules and fee schedule, but runs on the same proven system, so a new clinic can start without a custom build.",
+    problem: "Most clinics and small hospitals run on paper registers, a billing tool, a separate pharmacy counter and phone calls for appointments. Patients wait without knowing their turn, prescriptions are handwritten, reports are chased by phone, and nobody has a clear daily picture of visits, collections and stock.",
+    solution: "Patients book through WhatsApp or the web, with no app to download. Reception confirms or adjusts slots, registers the patient and moves them through the OPD queue. The doctor writes the prescription with medicine suggestions, orders lab tests and sets the next-visit date. Consultation and pharmacy bills are raised separately, reports and reminders go out on WhatsApp, and the owner sees the day's numbers in one view.",
+    results: "SFHMS is being rolled out to its first pilot hospitals in Bihar, in three phases over three months. It is built as one multi-tenant platform, so each new hospital is configured, not rebuilt. If you run a clinic or hospital and want to be among the early users, we would like to hear from you.",
+    features: ["WhatsApp-first appointment booking with web fallback", "Fixed-slot scheduling with walk-in buffer and waitlist", "Patient registration with unique ID and full history", "OPD queue and consultation workflow", "Digital prescriptions with medicine autocomplete", "Prescription slip printing", "Lab orders linked to SF LIMS", "Pharmacy POS and stock, linked to SF Inventory System", "Separate consultation and pharmacy billing", "Follow-up reminders on WhatsApp with a direct booking link", "Role-based access for doctors, reception and pharmacy", "One screen for every role: doctors never switch systems"],
+  },
+  {
     slug: "smart-cafe-platform",
     tag: "FoodTech",
     name: "Smart Café Platform",

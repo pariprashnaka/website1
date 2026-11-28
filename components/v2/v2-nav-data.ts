@@ -17,6 +17,7 @@ export const NAV: NavItem[] = [
     children: [
       { label: "SF Inventory System", href: "/products/sf-inventory-system", desc: "Stock, GST billing, suppliers" },
       { label: "SF LIMS", href: "/products/sf-lims", desc: "Pathology labs, sample to report" },
+      { label: "SFHMS", href: "/products/sfhms", desc: "Hospitals and clinics, booking to billing" },
       { label: "Smart Café Platform", href: "/products/smart-cafe-platform", desc: "Direct ordering and operations" },
       { label: "Smart HRMS Platform", href: "/products/smart-hrms-platform", desc: "Attendance, leave, payroll" },
       { label: "Smart Agriculture Platform", href: "/products/smart-agriculture-platform", desc: "Soil, weather, satellite data" },
@@ -53,6 +54,7 @@ export const FOOTER_COLUMNS: { title: string; links: NavLeaf[] }[] = [
       { label: "Platform", href: "/products" },
       { label: "SF Inventory System", href: "/products/sf-inventory-system" },
       { label: "SF LIMS", href: "/products/sf-lims" },
+      { label: "SFHMS", href: "/products/sfhms" },
       { label: "Smart Café Platform", href: "/products/smart-cafe-platform" },
       { label: "Smart HRMS Platform", href: "/products/smart-hrms-platform" },
       { label: "Smart Agriculture Platform", href: "/products/smart-agriculture-platform" },
