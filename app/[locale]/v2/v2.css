@@ -595,3 +595,8 @@
 .v2-cf-hint kbd{font:inherit;border:1px solid var(--v2-lo);border-radius:5px;padding:1px 6px}
 @media(max-width:860px){.v2-cf-hint{display:none}.v2-cf-card>.v2-cf-stage{min-height:420px}.v2-cf-review div{grid-template-columns:1fr;gap:.2rem}}
 @media(prefers-reduced-motion:reduce){.v2-cf-step{animation:none}}
+
+/* product hero: full-screen cinematic */
+.v2-product-hero.v2-page-hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding-top:6rem;padding-bottom:5rem}
+.v2-product-hero .v2-chapter-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.v2-product-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;z-index:1;background:linear-gradient(to bottom,transparent,#000);pointer-events:none}
