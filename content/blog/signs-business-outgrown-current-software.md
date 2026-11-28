@@ -4,6 +4,8 @@ description: "Software that worked well two years ago can quietly become the thi
 date: "2026-07-14"
 author: "SystemFriendly Labs"
 tags: ["Business Automation", "ERP Solutions", "SaaS Development"]
+image: "/blog/signs-business-outgrown-current-software.svg"
+imageAlt: "A small block, a medium block and a tall block, showing growth"
 charts: "OutgrownSoftwareCharts"
 ---
 

@@ -4,6 +4,8 @@ description: "Batch and expiry tracking is a compliance requirement, not a nice-
 date: "2026-07-16"
 author: "SystemFriendly Labs"
 tags: ["ERP Solutions", "Business Automation"]
+image: "/blog/batch-expiry-tracking-pharma-fmcg.svg"
+imageAlt: "A calendar grid with an expiry date highlighted"
 charts: "BatchExpiryCharts"
 ---
 

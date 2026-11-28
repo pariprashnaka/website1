@@ -4,6 +4,8 @@ description: "In November 2022, ransomware took down AIIMS Delhi — India's pre
 date: "2026-07-19"
 author: "SystemFriendly Labs"
 tags: ["Security"]
+image: "/blog/ransomware-explained-small-business.svg"
+imageAlt: "A padlock surrounded by scattered data blocks"
 charts: "RansomwareExplainedCharts"
 ---
 

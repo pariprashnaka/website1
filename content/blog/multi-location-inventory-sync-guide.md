@@ -4,6 +4,8 @@ description: "Keeping stock numbers accurate across multiple locations is where 
 date: "2026-07-16"
 author: "SystemFriendly Labs"
 tags: ["ERP Solutions", "Business Automation"]
+image: "/blog/multi-location-inventory-sync-guide.svg"
+imageAlt: "Location pins connected by dashed lines"
 charts: "MultiLocationSyncCharts"
 ---
 

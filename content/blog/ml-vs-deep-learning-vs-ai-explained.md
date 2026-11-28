@@ -4,6 +4,8 @@ description: "These three terms get used interchangeably in almost every convers
 date: "2026-07-17"
 author: "SystemFriendly Labs"
 tags: ["AI Solutions"]
+image: "/blog/ml-vs-deep-learning-vs-ai-explained.svg"
+imageAlt: "Nested circles, representing AI, machine learning and deep learning"
 charts: "MlVsDeepLearningCharts"
 ---
 

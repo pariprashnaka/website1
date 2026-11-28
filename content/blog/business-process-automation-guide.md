@@ -4,6 +4,8 @@ description: "A plain-language guide to business process automation for Indian S
 date: "2026-07-14"
 author: "SystemFriendly Labs"
 tags: ["Business Automation", "ERP Solutions", "SaaS Development"]
+image: "/blog/business-process-automation-guide.svg"
+imageAlt: "Three connected process steps in a loop"
 charts: "BusinessAutomationCharts"
 ---
 

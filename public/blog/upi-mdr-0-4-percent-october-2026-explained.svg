@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img">
+<defs><radialGradient id="g1" cx="22%" cy="20%" r="70%"><stop offset="0" stop-color="#3fe0c5" stop-opacity=".55"/><stop offset="1" stop-color="#3fe0c5" stop-opacity="0"/></radialGradient>
+<radialGradient id="g2" cx="85%" cy="90%" r="65%"><stop offset="0" stop-color="#e8731a" stop-opacity=".40"/><stop offset="1" stop-color="#e8731a" stop-opacity="0"/></radialGradient>
+<linearGradient id="st" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3fe0c5"/><stop offset="1" stop-color="#e8731a"/></linearGradient></defs>
+<rect width="1200" height="630" fill="#050506"/><rect width="1200" height="630" fill="url(#g1)"/><rect width="1200" height="630" fill="url(#g2)"/>
+<circle cx="800" cy="315" r="200" stroke="url(#st)" fill="none" stroke-width="2.5" opacity=".6"/><circle cx="800" cy="315" r="140" stroke="url(#st)" fill="none" stroke-width="2.5"/><text x="800" y="365" text-anchor="middle" font-family="Georgia,serif" font-size="150" fill="#f5f4f2">₹</text><circle cx="985" cy="170" r="40" fill="#e8731a"/><text x="985" y="184" text-anchor="middle" font-family="Georgia,serif" font-size="40" fill="#000">%</text></svg>

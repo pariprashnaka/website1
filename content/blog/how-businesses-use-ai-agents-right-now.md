@@ -4,6 +4,8 @@ description: "Klarna's agent does the work of 853 people. JPMorgan runs 450+ age
 date: "2026-07-17"
 author: "SystemFriendly Labs"
 tags: ["AI Solutions"]
+image: "/blog/how-businesses-use-ai-agents-right-now.svg"
+imageAlt: "A network of connected nodes, representing AI agents at work"
 charts: "AiAgentsRealUseCharts"
 ---
 

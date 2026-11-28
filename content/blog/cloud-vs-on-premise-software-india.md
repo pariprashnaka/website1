@@ -4,6 +4,8 @@ description: "The cloud-first advice you hear everywhere does not fit every Indi
 date: "2026-07-15"
 author: "SystemFriendly Labs"
 tags: ["Cloud Engineering", "ERP Solutions", "Business Automation"]
+image: "/blog/cloud-vs-on-premise-software-india.svg"
+imageAlt: "A cloud beside a rack of servers"
 charts: "CloudVsOnPremiseCharts"
 ---
 

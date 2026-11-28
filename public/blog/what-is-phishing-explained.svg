@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img">
+<defs><radialGradient id="g1" cx="22%" cy="20%" r="70%"><stop offset="0" stop-color="#e8731a" stop-opacity=".55"/><stop offset="1" stop-color="#e8731a" stop-opacity="0"/></radialGradient>
+<radialGradient id="g2" cx="85%" cy="90%" r="65%"><stop offset="0" stop-color="#3fe0c5" stop-opacity=".40"/><stop offset="1" stop-color="#3fe0c5" stop-opacity="0"/></radialGradient>
+<linearGradient id="st" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8731a"/><stop offset="1" stop-color="#3fe0c5"/></linearGradient></defs>
+<rect width="1200" height="630" fill="#050506"/><rect width="1200" height="630" fill="url(#g1)"/><rect width="1200" height="630" fill="url(#g2)"/>
+<rect x="580" y="230" width="360" height="230" rx="18" stroke="url(#st)" fill="none" stroke-width="2.5"/><path d="M580 250l180 120 180-120" stroke="url(#st)" fill="none" stroke-width="2.5"/><path d="M1020 140v170a40 40 0 1 1-80 0" fill="none" stroke="#e8731a" stroke-width="5" stroke-linecap="round"/><circle cx="1020" cy="128" r="12" fill="none" stroke="#e8731a" stroke-width="5"/><path d="M944 300l-12-20m12 20l20-8" stroke="#e8731a" stroke-width="5" stroke-linecap="round"/></svg>

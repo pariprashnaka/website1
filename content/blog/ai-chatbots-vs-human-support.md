@@ -4,6 +4,8 @@ description: "Human agents score 4.5/5 on customer satisfaction versus 3.9/5 for
 date: "2026-07-18"
 author: "SystemFriendly Labs"
 tags: ["AI Solutions", "CRM Solutions"]
+image: "/blog/ai-chatbots-vs-human-support.svg"
+imageAlt: "Two chat bubbles, representing AI and human support"
 charts: "ChatbotsVsHumanCharts"
 ---
 

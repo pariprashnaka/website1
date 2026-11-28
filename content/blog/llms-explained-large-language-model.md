@@ -4,6 +4,8 @@ description: "No hand-waving, no hype. A grounded explanation of how large langu
 date: "2026-07-16"
 author: "SystemFriendly Labs"
 tags: ["AI Solutions"]
+image: "/blog/llms-explained-large-language-model.svg"
+imageAlt: "A text window with sparkles, representing a language model"
 charts: "LlmExplainedCharts"
 ---
 

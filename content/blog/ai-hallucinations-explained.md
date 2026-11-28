@@ -4,6 +4,8 @@ description: "A real court case, a $5,000 fine, and six lawyers' careers on the 
 date: "2026-07-17"
 author: "SystemFriendly Labs"
 tags: ["AI Solutions"]
+image: "/blog/ai-hallucinations-explained.svg"
+imageAlt: "Text lines with a warning mark, representing AI errors"
 charts: "HallucinationsCharts"
 ---
 

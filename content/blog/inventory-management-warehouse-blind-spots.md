@@ -4,6 +4,8 @@ description: "43% of small businesses either track inventory manually or don't t
 date: "2026-07-29"
 author: "SystemFriendly Labs"
 tags: ["Business Automation", "ERP Solutions"]
+image: "/blog/inventory-management-warehouse-blind-spots.svg"
+imageAlt: "A warehouse with a magnifying glass, looking for blind spots"
 charts: "InventoryBlindSpotsCharts"
 ---
 

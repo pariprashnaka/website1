@@ -4,6 +4,8 @@ description: "Beyond the hype: a practical, honest look at which AI applications
 date: "2026-07-14"
 author: "SystemFriendly Labs"
 tags: ["AI Solutions", "Business Automation", "SaaS Development"]
+image: "/blog/ai-solutions-small-medium-businesses.svg"
+imageAlt: "A text window with sparkles, representing AI for business"
 charts: "AiSmbCharts"
 ---
 

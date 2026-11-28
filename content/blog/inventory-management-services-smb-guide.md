@@ -4,6 +4,8 @@ description: "Small businesses lose an estimated $1.1 million per minute globall
 date: "2026-07-29"
 author: "SystemFriendly Labs"
 tags: ["Business Automation", "ERP Solutions"]
+image: "/blog/inventory-management-services-smb-guide.svg"
+imageAlt: "A warehouse with a magnifying glass"
 charts: "InventorySMBCharts"
 ---
 

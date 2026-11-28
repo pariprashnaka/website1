@@ -4,6 +4,8 @@ description: "The most famous statistic in small business cybersecurity — that
 date: "2026-07-19"
 author: "SystemFriendly Labs"
 tags: ["Security"]
+image: "/blog/cybersecurity-basics-small-business.svg"
+imageAlt: "A shield with a padlock, representing cybersecurity"
 charts: "CybersecurityBasicsCharts"
 ---
 

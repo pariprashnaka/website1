@@ -4,6 +4,8 @@ description: "Not every feature marketed as GST-compliant actually solves a real
 date: "2026-07-16"
 author: "SystemFriendly Labs"
 tags: ["ERP Solutions", "Business Automation"]
+image: "/blog/gst-compliant-inventory-software-features.svg"
+imageAlt: "Shelves of stock boxes"
 charts: "GstInventoryCharts"
 ---
 

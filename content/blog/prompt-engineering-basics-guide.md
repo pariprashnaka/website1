@@ -4,6 +4,8 @@ description: "Most prompt engineering advice online is outdated for the models a
 date: "2026-07-16"
 author: "SystemFriendly Labs"
 tags: ["AI Solutions"]
+image: "/blog/prompt-engineering-basics-guide.svg"
+imageAlt: "A text prompt with a blinking cursor"
 charts: "PromptEngineeringCharts"
 ---
 

@@ -4,6 +4,8 @@ description: "Most products marketed as AI agents in 2026 aren't. Here's the act
 date: "2026-07-16"
 author: "SystemFriendly Labs"
 tags: ["AI Solutions"]
+image: "/blog/ai-agent-vs-chatbot-explained.svg"
+imageAlt: "A network of connected nodes, representing an AI agent"
 charts: "AiAgentVsChatbotCharts"
 ---
 

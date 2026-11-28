@@ -4,6 +4,8 @@ description: "From 15 October 2026, qualifying UPI merchant payments above ₹2,
 date: "2026-09-20"
 author: "SystemFriendly Labs"
 tags: ["Payments", "UPI", "Business", "Finance", "India"]
+image: "/blog/upi-mdr-0-4-percent-october-2026-explained.svg"
+imageAlt: "A rupee symbol with a percent badge"
 charts: "UpiMdrCharts"
 ---
 

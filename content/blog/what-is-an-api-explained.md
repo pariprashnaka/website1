@@ -4,6 +4,8 @@ description: "APIs get mentioned in almost every software conversation, but rare
 date: "2026-07-17"
 author: "SystemFriendly Labs"
 tags: ["Web Development", "SaaS Development"]
+image: "/blog/what-is-an-api-explained.svg"
+imageAlt: "Two boxes exchanging data through arrows"
 charts: "ApiExplainedCharts"
 ---
 

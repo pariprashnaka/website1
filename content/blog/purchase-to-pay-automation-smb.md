@@ -4,6 +4,8 @@ description: "Purchase-to-pay automation sounds like an enterprise concept, but 
 date: "2026-07-16"
 author: "SystemFriendly Labs"
 tags: ["Business Automation", "ERP Solutions"]
+image: "/blog/purchase-to-pay-automation-smb.svg"
+imageAlt: "A chain of purchase order, goods receipt, bill and payment"
 charts: "PurchaseToPayCharts"
 ---
 

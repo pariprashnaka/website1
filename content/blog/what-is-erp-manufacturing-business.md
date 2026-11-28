@@ -4,6 +4,8 @@ description: "ERP gets recommended to almost every growing manufacturer, but not
 date: "2026-07-15"
 author: "SystemFriendly Labs"
 tags: ["ERP Solutions", "Business Automation", "SaaS Development"]
+image: "/blog/what-is-erp-manufacturing-business.svg"
+imageAlt: "Stacked layers, representing an ERP system"
 charts: "ErpManufacturingCharts"
 ---
 

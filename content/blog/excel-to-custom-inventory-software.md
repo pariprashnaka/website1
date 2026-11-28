@@ -4,6 +4,8 @@ description: "Excel works until it doesn't. Here's why growing businesses across
 date: "2026-07-14"
 author: "SystemFriendly Labs"
 tags: ["ERP Solutions", "Business Automation", "SaaS Development"]
+image: "/blog/excel-to-custom-inventory-software.svg"
+imageAlt: "A spreadsheet grid turning into a bar chart"
 charts: "ExcelVsCustomInventoryCharts"
 ---
 

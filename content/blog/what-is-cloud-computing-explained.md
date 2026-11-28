@@ -4,6 +4,8 @@ description: "Cloud computing gets talked about constantly, and the word 'cloud'
 date: "2026-07-17"
 author: "SystemFriendly Labs"
 tags: ["Cloud Engineering"]
+image: "/blog/what-is-cloud-computing-explained.svg"
+imageAlt: "A cloud connected to servers below"
 charts: "CloudComputingCharts"
 ---
 

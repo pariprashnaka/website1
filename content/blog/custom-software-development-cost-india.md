@@ -4,6 +4,8 @@ description: "No invented numbers. A honest breakdown of what actually drives cu
 date: "2026-07-14"
 author: "SystemFriendly Labs"
 tags: ["SaaS Development", "Web Development", "Business Automation"]
+image: "/blog/custom-software-development-cost-india.svg"
+imageAlt: "A rupee symbol inside concentric circles"
 charts: "SoftwareCostCharts"
 ---
 

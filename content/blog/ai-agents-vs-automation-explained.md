@@ -4,6 +4,8 @@ description: "You already have automation — rules, scripts, workflows. So what
 date: "2026-07-18"
 author: "SystemFriendly Labs"
 tags: ["AI Solutions", "Business Automation"]
+image: "/blog/ai-agents-vs-automation-explained.svg"
+imageAlt: "Interlocking gears, representing automation"
 charts: "AiAgentsVsAutomationCharts"
 ---
 

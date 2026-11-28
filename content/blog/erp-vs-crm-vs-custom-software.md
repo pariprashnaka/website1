@@ -4,6 +4,8 @@ description: "ERP, CRM, and custom software solve different problems. Here is a 
 date: "2026-07-14"
 author: "SystemFriendly Labs"
 tags: ["ERP Solutions", "SaaS Development", "Business Automation"]
+image: "/blog/erp-vs-crm-vs-custom-software.svg"
+imageAlt: "Stacked layers, representing software systems"
 charts: "ErpVsCrmCharts"
 ---
 

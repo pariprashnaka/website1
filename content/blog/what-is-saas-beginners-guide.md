@@ -4,6 +4,8 @@ description: "SaaS is one of the most-used terms in modern software, and one of 
 date: "2026-07-17"
 author: "SystemFriendly Labs"
 tags: ["SaaS Development"]
+image: "/blog/what-is-saas-beginners-guide.svg"
+imageAlt: "Stacked layers, representing software as a service"
 charts: "SaasBeginnerCharts"
 ---
 

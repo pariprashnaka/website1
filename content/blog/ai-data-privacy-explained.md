@@ -4,6 +4,8 @@ description: "In April 2023, Samsung employees leaked confidential source code t
 date: "2026-07-18"
 author: "SystemFriendly Labs"
 tags: ["AI Solutions", "Security"]
+image: "/blog/ai-data-privacy-explained.svg"
+imageAlt: "A shield with a padlock, representing AI data privacy"
 charts: "AiDataPrivacyCharts"
 ---
 

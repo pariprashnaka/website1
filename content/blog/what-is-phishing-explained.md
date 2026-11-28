@@ -4,6 +4,8 @@ description: "Phishing is the leading cause of small business data breaches — 
 date: "2026-07-19"
 author: "SystemFriendly Labs"
 tags: ["Security"]
+image: "/blog/what-is-phishing-explained.svg"
+imageAlt: "An envelope with a fishing hook"
 charts: "PhishingExplainedCharts"
 ---
 
