@@ -732,3 +732,41 @@
 @media (max-width: 760px) { .v2-fb-stage { min-height: 400px; } .v2-fb-card { padding: 32px 22px; } }
 @media (prefers-reduced-motion: reduce) { .v2-fb-card { transition: none; } }
 .v2-fb-sample { text-align: center; margin: 0 0 14px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--v2-orange); }
+
+/* ── product page: richer sections ── */
+.v2-who { list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.v2-who li { padding: 8px 16px; border-radius: 999px; border: 1px solid var(--v2-line); color: #d6d6da; font-size: 14px; }
+.v2-who .v2-who-k { border: 0; padding-left: 0; color: var(--v2-orange); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; align-self: center; }
+.v2-shots, .v2-solves, .v2-steps { max-width: 1100px; margin: 0 auto; padding: 90px max(24px, env(safe-area-inset-left, 0px)) 20px; }
+.v2-shot-radio { position: absolute; opacity: 0; pointer-events: none; }
+.v2-shot-labels { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 22px; }
+.v2-shot-labels label { padding: 10px 18px; border-radius: 999px; border: 1px solid var(--v2-line); color: #b4b4b9; font-size: 14px; cursor: pointer; transition: all .25s; }
+.v2-shot-labels label:hover { color: #fff; }
+.v2-shot-panel { display: none; margin: 0; }
+.v2-shot-frame { border-radius: 16px; overflow: hidden; border: 1px solid var(--v2-line); background: #0d0d0f; box-shadow: 0 30px 90px rgba(0,0,0,.6), 0 0 80px rgba(232,115,26,.08); }
+.v2-shot-bar { display: flex; align-items: center; gap: 7px; padding: 12px 16px; background: #151518; border-bottom: 1px solid var(--v2-line); }
+.v2-shot-bar i { width: 10px; height: 10px; border-radius: 50%; background: #3a3a40; }
+.v2-shot-bar span { margin-left: 12px; font-size: 12px; color: var(--v2-md); }
+.v2-shot-frame img { display: block; width: 100%; height: auto; }
+.v2-shot-ph { aspect-ratio: 16 / 9; padding: 28px; display: grid; grid-template-columns: 1fr 2fr 1fr; grid-template-rows: 1fr 1.6fr; gap: 16px; }
+.v2-shot-ph b { border-radius: 10px; background: linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.05); }
+.v2-shot-ph b:nth-child(2) { grid-row: span 2; background: linear-gradient(135deg, rgba(232,115,26,.16), rgba(232,115,26,.04)); }
+.v2-shot-panel figcaption { margin-top: 18px; color: #b4b4b9; font-size: 16px; line-height: 1.6; max-width: 640px; }
+.v2-shot-panel figcaption strong { color: #fff; font-weight: 500; }
+#shot1:checked ~ .v2-shot-panels .v2-shot-p1, #shot2:checked ~ .v2-shot-panels .v2-shot-p2,
+#shot3:checked ~ .v2-shot-panels .v2-shot-p3, #shot4:checked ~ .v2-shot-panels .v2-shot-p4 { display: block; animation: v2shotin .5s ease; }
+#shot1:checked ~ .v2-shot-labels label[for=shot1], #shot2:checked ~ .v2-shot-labels label[for=shot2],
+#shot3:checked ~ .v2-shot-labels label[for=shot3], #shot4:checked ~ .v2-shot-labels label[for=shot4] { background: var(--v2-orange); border-color: var(--v2-orange); color: #fff; }
+@keyframes v2shotin { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.v2-feat-n { display: block; margin-bottom: 8px; color: var(--v2-orange); font-size: 12px; letter-spacing: .14em; }
+.v2-solves-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; margin: 36px 0 34px; }
+.v2-solve { padding: 26px; border-radius: 16px; border: 1px solid var(--v2-line); background: rgba(255,255,255,.03); }
+.v2-solve h3 { margin: 0 0 12px; font-family: var(--font-display), Georgia, serif; font-weight: 400; font-size: 26px; color: #fff; }
+.v2-solve p { margin: 0; font-size: 15px; line-height: 1.65; font-weight: 300; }
+.v2-solve-p { color: #9a9aa2; }
+.v2-solve-c { margin-top: 12px !important; color: var(--v2-peach); }
+.v2-steps-list { list-style: none; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; counter-reset: s; }
+.v2-steps-list li { padding: 24px; border-top: 1px solid var(--v2-orange); }
+.v2-steps-list span { color: var(--v2-orange); font-size: 13px; letter-spacing: .14em; }
+.v2-steps-list h3 { margin: 10px 0 8px; font-family: var(--font-display), Georgia, serif; font-weight: 400; font-size: 24px; color: #fff; }
+.v2-steps-list p { margin: 0; color: #9a9aa2; font-size: 15px; line-height: 1.6; font-weight: 300; }
