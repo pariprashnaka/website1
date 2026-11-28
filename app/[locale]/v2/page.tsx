@@ -14,7 +14,10 @@ export default function V2Page() {
 
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section className="v2-hero">
-        <div className="v2-hero-bg"><V2HeroCanvas /></div>
+        <div className="v2-hero-bg">
+          <V2HeroCanvas />
+          <video className="v2-hero-video" src="/videos/hero-web.mp4" autoPlay muted loop playsInline preload="auto" aria-hidden="true" />
+        </div>
         <div className="v2-hero-scrim" />
         <div className="v2-hero-content">
           <p className="v2-eyebrow">SystemFriendly Labs</p>
