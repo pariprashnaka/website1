@@ -18,7 +18,6 @@ export default function V2Feedback() {
   if (!n) return null;
   return (
     <div className="v2-fb" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-      {SAMPLE && <p className="v2-fb-sample">Sample content — to be replaced with real customer feedback</p>}
       <div className="v2-fb-stage">
         {feedback.map((f, k) => {
           const d = (k - i + n) % n;
