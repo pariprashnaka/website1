@@ -49,37 +49,27 @@ export default function V2Page() {
           built for just four.
         </p>
 
-        <div className="v2-graph-wrap">
-          <svg viewBox="0 0 640 260" id="v2-graph-svg">
-            <g>
-              <line className="v2-graph-edge" x1="320" y1="130" x2="150" y2="60" />
-              <line className="v2-graph-edge" x1="320" y1="130" x2="300" y2="40" />
-              <line className="v2-graph-edge" x1="320" y1="130" x2="470" y2="50" />
-              <line className="v2-graph-edge" x1="320" y1="130" x2="520" y2="150" />
-              <line className="v2-graph-edge" x1="320" y1="130" x2="120" y2="190" />
-              <line className="v2-graph-edge" x1="320" y1="130" x2="260" y2="225" />
-              <line className="v2-graph-edge" x1="320" y1="130" x2="430" y2="210" />
-            </g>
-
-            <circle className="v2-graph-node core" cx="320" cy="130" r="9" />
-            <text className="v2-graph-label" x="320" y="105" textAnchor="middle">PLATFORM</text>
-
-            <circle className="v2-graph-node live" cx="150" cy="60" r="6" />
-            <text className="v2-graph-label" x="150" y="42" textAnchor="middle">Manufacturing</text>
-            <circle className="v2-graph-node live" cx="300" cy="40" r="6" />
-            <text className="v2-graph-label" x="300" y="22" textAnchor="middle">Pharma</text>
-            <circle className="v2-graph-node live" cx="470" cy="50" r="6" />
-            <text className="v2-graph-label" x="470" y="32" textAnchor="middle">Healthcare</text>
-            <circle className="v2-graph-node live" cx="520" cy="150" r="6" />
-            <text className="v2-graph-label" x="540" y="153" textAnchor="start">Retail</text>
-
-            <circle className="v2-graph-node future" cx="120" cy="190" r="5" />
-            <text className="v2-graph-label future" x="120" y="212" textAnchor="middle">?</text>
-            <circle className="v2-graph-node future" cx="260" cy="225" r="5" />
-            <text className="v2-graph-label future" x="260" y="247" textAnchor="middle">?</text>
-            <circle className="v2-graph-node future" cx="430" cy="210" r="5" />
-            <text className="v2-graph-label future" x="430" y="232" textAnchor="middle">?</text>
-          </svg>
+        <div className="v2-stack">
+          <div className="v2-stack-row">
+            <p className="v2-stack-label">Live today</p>
+            <ul className="v2-stack-chips">
+              <li>Manufacturing</li><li>Pharma &amp; Labs</li><li>Healthcare</li><li>Retail &amp; Cafés</li>
+              <li className="next">Your industry</li>
+            </ul>
+          </div>
+          <div className="v2-stack-core">
+            <span className="v2-stack-core-tag">One platform</span>
+            <ul>
+              <li>Inventory &amp; batches</li><li>Billing &amp; GST</li><li>People &amp; payroll</li>
+              <li>Orders &amp; dispatch</li><li>Reports &amp; dashboards</li><li>WhatsApp alerts</li>
+            </ul>
+          </div>
+          <div className="v2-stack-row">
+            <p className="v2-stack-label">Underneath</p>
+            <ul className="v2-stack-chips quiet">
+              <li>Multi-tenant data</li><li>Roles &amp; permissions</li><li>Audit trail</li><li>APIs &amp; integrations</li><li>Mobile apps</li>
+            </ul>
+          </div>
         </div>
       </section>
 
