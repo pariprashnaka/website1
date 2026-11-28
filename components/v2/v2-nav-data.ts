@@ -20,27 +20,22 @@ export const NAV: NavItem[] = [
       { label: "Smart Café Platform", href: "/products/smart-cafe-platform", desc: "Direct ordering and operations" },
     ],
   },
-  {
-    label: "Industries",
-    href: "/industries",
-    children: [
-      { label: "Manufacturing", href: "/industries/manufacturing" },
-      { label: "Pharma & Labs", href: "/industries/pharma-labs" },
-      { label: "Healthcare", href: "/industries/healthcare" },
-      { label: "Retail & F&B", href: "/industries/retail-fnb" },
-      { label: "All industries", href: "/industries" },
-    ],
-  },
   { label: "Use Cases", href: "/use-cases" },
   { label: "Services", href: "/services" },
-  { label: "Case Studies", href: "/case-studies" },
+  {
+    label: "Resources",
+    href: "/case-studies",
+    children: [
+      { label: "Case Studies", href: "/case-studies", desc: "Real operations, real results" },
+      { label: "Blog", href: "/blog", desc: "Articles and data on running operations" },
+    ],
+  },
   {
     label: "Company",
     href: "/about",
     children: [
       { label: "About", href: "/about" },
       { label: "Careers", href: "/careers" },
-      { label: "Blog", href: "/blog" },
       { label: "Contact", href: "/contact" },
     ],
   },
